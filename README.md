@@ -71,14 +71,22 @@ grep -rn "TODO" app components lib locales
 - `/ru` — русская версия, `/uz` — узбекская
 - Каждая версия получает свой `title`, `description`, Open Graph, Twitter-теги, `canonical` и `hreflang` (ru, uz, x-default).
 
-## Деплой
+## Деплой и работа с кодом
 
-Проект подключён к Vercel через GitHub: **каждый пуш в `main` автоматически выкатывается на caravanhouse.uz**. Для pull request'ов и других веток Vercel создаёт preview-ссылки.
+Проект подключён к Vercel через GitHub: **каждое изменение в `main` автоматически выкатывается на caravanhouse.uz**. Для каждого Pull Request Vercel создаёт preview-ссылку, по ней можно проверить изменения до мержа.
+
+Ветка `main` защищена: прямой push запрещён, изменения попадают в неё только через Pull Request. Правила по веткам (`feature/*`, `fix/*`) и коммитам (Conventional Commits) описаны в [CONTRIBUTING](https://github.com/CaravanHouse/.github/blob/main/CONTRIBUTING.md).
 
 ```bash
+git switch main && git pull
+git switch -c feature/update-texts
+# ...правки...
 git add .
-git commit -m "Обновил тексты"
-git push
+git commit -m "feat: update hero texts"
+git push -u origin feature/update-texts
+gh pr create --fill        # или кнопка «Compare & pull request» на GitHub
 ```
+
+После мержа PR сайт обновится через 1–2 минуты.
 
 > Год в футере берётся на момент сборки, поэтому после Нового года достаточно любого деплоя.
