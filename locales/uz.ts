@@ -160,27 +160,43 @@ const uz: Dictionary = {
   },
   projects: {
     eyebrow: "Loyihalar",
-    title: "Keyslar",
+    title: "Demo-loyihalar",
     subtitle:
-      "Hozir keyslarni nashrga tayyorlayapmiz. Ish namunalarini koʻrmoqchi boʻlsangiz — yozing, shaxsiy yozishmada koʻrsatamiz.",
-    badge: "Tez orada",
-    askCta: "Namunalarni soʻrash",
-    // TODO: haqiqiy keyslar bilan almashtiring (nomi, tavsifi, toifasi, havola/rasm).
+      "Biz qiladigan ishlarning ishlaydigan namunalari: Telegramdagi doʻkon, botlar va arizalar qabul qiladigan sayt. Kod ochiq, hammasi ichida qanday tuzilganini koʻrish mumkin.",
+    badge: "Demo",
+    askCta: "Shunga oʻxshash loyiha kerak",
+    codeLink: "GitHub’dagi kod",
+    demoLink: "Demoni ochish",
+    stackLabel: "Texnologiyalar",
+    // Tartib, havolalar va stek — lib/projects.ts faylida
     items: [
       {
+        id: "shop-miniapp",
+        category: "Telegram Mini App",
+        title: "Telegramdagi gul doʻkoni",
+        description:
+          "Katalog, savat va buyurtma berish toʻgʻridan-toʻgʻri Telegramda, ilova oʻrnatmasdan. Egasi buyurtma holatini botdagi tugmalar bilan oʻzgartiradi, mijoz bildirishnomalar oladi.",
+      },
+      {
+        id: "configurator",
+        category: "Sayt + bot",
+        title: "Smeta konfiguratori",
+        description:
+          "Mijoz nima kerakligini belgilaydi va darhol taxminiy narx hamda muddatni koʻradi. Ariza Telegramga holatni boshqarish tugmalari bilan keladi.",
+      },
+      {
+        id: "quiz-bot",
         category: "Telegram-bot",
-        title: "Mijozlarni onlayn yozish uchun bot",
-        description: "Keys nashrga tayyorlanmoqda: vazifa, yechim va raqamlardagi natija.",
+        title: "Arizalar uchun kviz-bot",
+        description:
+          "Beshta savol: bot biznesga mos mahsulotni tavsiya qiladi, soʻng telefon raqami bilan ariza yigʻadi. Voronka /stats buyrugʻi orqali koʻrinadi.",
       },
       {
-        category: "Veb-sayt",
-        title: "Qurilish kompaniyasi uchun lending",
-        description: "Keys nashrga tayyorlanmoqda: vazifa, yechim va raqamlardagi natija.",
-      },
-      {
-        category: "Mini App",
-        title: "Ovqat yetkazib berish uchun Mini App",
-        description: "Keys nashrga tayyorlanmoqda: vazifa, yechim va raqamlardagi natija.",
+        id: "focus-garden-tg",
+        category: "Mini App + bot",
+        title: "Fokus bogʻi",
+        description:
+          "Telegramdagi samaradorlik taymeri: ish sessiyasi davom etayotganda daraxt oʻsadi. Bot tashlab ketilgan sessiyalarni eslatadi va reyting yuritadi.",
       },
     ],
   },
