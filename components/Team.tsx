@@ -60,9 +60,9 @@ export default function Team({ dict }: { dict: Dictionary }) {
                 <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{text.bio}</p>
 
                 <div className="mt-auto flex gap-2 pt-6">
-                  {meta.github ? (
-                    <a href={meta.github} target="_blank" rel="noopener noreferrer" aria-label={`GitHub: ${text.name}`} className={iconLink}>
-                      <GithubIcon className="h-5 w-5" />
+                  {meta.telegram ? (
+                    <a href={meta.telegram} target="_blank" rel="noopener noreferrer" aria-label={`Telegram: ${text.name}`} className={iconLink}>
+                      <SocialIcon network="telegram" className="h-5 w-5" />
                     </a>
                   ) : null}
                   {meta.instagram ? (
@@ -70,9 +70,9 @@ export default function Team({ dict }: { dict: Dictionary }) {
                       <SocialIcon network="instagram" className="h-5 w-5" />
                     </a>
                   ) : null}
-                  {meta.telegram ? (
-                    <a href={meta.telegram} target="_blank" rel="noopener noreferrer" aria-label={`Telegram: ${text.name}`} className={iconLink}>
-                      <SocialIcon network="telegram" className="h-5 w-5" />
+                  {meta.github ? (
+                    <a href={meta.github} target="_blank" rel="noopener noreferrer" aria-label={`GitHub: ${text.name}`} className={iconLink}>
+                      <GithubIcon className="h-5 w-5" />
                     </a>
                   ) : null}
                 </div>

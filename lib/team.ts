@@ -16,12 +16,25 @@ export interface MemberMeta {
 }
 
 export const team: MemberMeta[] = [
-  { id: "umid", photo: null, github: "https://github.com/umidulloh-dev" },
-  { id: "aslam", photo: null, github: "https://github.com/mw-aslam", instagram: "https://www.instagram.com/mw_aslam/" },
+  {
+    id: "umid",
+    photo: null,
+    telegram: "https://t.me/umidulloh_uz",
+    instagram: "https://www.instagram.com/umidullohuz/",
+    github: "https://github.com/umidulloh-dev",
+  },
+  {
+    id: "aslam",
+    photo: null,
+    telegram: "https://t.me/nnaslann",
+    instagram: "https://www.instagram.com/mw_aslam/",
+    github: "https://github.com/mw-aslam",
+  },
   {
     id: "behruz",
     photo: null,
-    github: "https://github.com/Behruz666-uzb",
+    telegram: "https://t.me/Behruz651",
     instagram: "https://www.instagram.com/behruz_ahmedov_651/",
+    github: "https://github.com/Behruz666-uzb",
   },
 ];
