@@ -6,6 +6,12 @@ import type { Dictionary } from "@/locales";
 export const ogSize = { width: 1200, height: 630 };
 
 // Шрифт лежит в репозитории, чтобы картинка собиралась без сети и с кириллицей.
+// Знак логотипа как data URL: ImageResponse не умеет загружать картинки с диска сам
+async function loadEmblem() {
+  const png = await readFile(join(process.cwd(), "public/brand/emblem.png"));
+  return `data:image/png;base64,${png.toString("base64")}`;
+}
+
 async function loadFonts() {
   const dir = join(process.cwd(), "assets/fonts");
   const [medium, extraBold] = await Promise.all([
@@ -19,6 +25,7 @@ async function loadFonts() {
 }
 
 export async function renderOgImage(meta: Dictionary["meta"]) {
+  const emblem = await loadEmblem();
   return new ImageResponse(
     (
       <div
@@ -37,18 +44,8 @@ export async function renderOgImage(meta: Dictionary["meta"]) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <svg width="72" height="72" viewBox="0 0 32 32">
-            <defs>
-              <linearGradient id="g" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stopColor="#FFD98A" />
-                <stop offset="0.55" stopColor="#F6B73C" />
-                <stop offset="1" stopColor="#E0891B" />
-              </linearGradient>
-            </defs>
-            <rect width="32" height="32" rx="9" fill="url(#g)" />
-            <path d="M7.5 20.5 16 9.5l8.5 11" fill="none" stroke="#1A1204" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M12.75 24v-3.25a3.25 3.25 0 0 1 6.5 0V24" fill="none" stroke="#1A1204" strokeWidth="2.6" strokeLinecap="round" />
-          </svg>
+          {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse рендерит только обычный <img> */}
+          <img src={emblem} width={98} height={72} alt="" />
           <div style={{ display: "flex", fontSize: 44, fontWeight: 800, letterSpacing: -1 }}>
             <span>Caravan</span>
             <span style={{ color: "#f6b73c" }}>House</span>

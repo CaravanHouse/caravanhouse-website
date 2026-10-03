@@ -23,7 +23,7 @@ export default function Footer({ lang, dict }: Props) {
     <footer className="border-t border-line bg-bg-elevated/40 pb-28 md:pb-0">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
         <div className="flex flex-col gap-4">
-          <Logo lang={lang} label={dict.a11y.home} />
+          <Logo lang={lang} label={dict.a11y.home} variant="full" />
           <p className="max-w-xs text-sm leading-relaxed text-muted">{footer.tagline}</p>
           <ul className="mt-2 flex gap-2" aria-label={footer.socialTitle}>
             {socials.map((social) => (

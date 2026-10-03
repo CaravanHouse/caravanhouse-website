@@ -12,7 +12,7 @@ export default function JsonLd({ lang, dict }: { lang: Locale; dict: Dictionary 
         "@id": `${SITE_URL}/#organization`,
         name: SITE_NAME,
         url: `${SITE_URL}/${lang}`,
-        logo: `${SITE_URL}/icon.svg`,
+        logo: `${SITE_URL}/brand/logo-full.png`,
         description: dict.meta.description,
         email: contacts.email,
         telephone: contacts.phoneHref.replace("tel:", ""),
