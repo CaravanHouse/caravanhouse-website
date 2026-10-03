@@ -162,18 +162,22 @@ const uz: Dictionary = {
     eyebrow: "Loyihalar",
     title: "Demo-loyihalar",
     subtitle:
-      "Biz qiladigan ishlarning ishlaydigan namunalari: Telegramdagi doʻkon, botlar va arizalar qabul qiladigan sayt. Kod ochiq, hammasi ichida qanday tuzilganini koʻrish mumkin.",
+      "Biz qiladigan ishlarning ishlaydigan namunalari: Telegramdagi doʻkon, botlar va arizalar qabul qiladigan sayt. Kartochkani bosing va oʻzingiz sinab koʻring.",
     badge: "Demo",
     askCta: "Shunga oʻxshash loyiha kerak",
-    codeLink: "GitHub’dagi kod",
-    demoLink: "Demoni ochish",
+    openTelegram: "Telegramda ochish",
+    openWeb: "Saytni ochish",
+    demoSoon: "Demo tez orada ishga tushadi",
+    codeNote: "Barcha demolarning manba kodi ochiq:",
+    codeLinkLabel: "GitHub CaravanHouse",
     stackLabel: "Texnologiyalar",
-    // Tartib, havolalar va stek — lib/projects.ts faylida
+    // Tartib, havolalar, stek va skrinshotlar — lib/projects.ts faylida
     items: [
       {
         id: "shop-miniapp",
         category: "Telegram Mini App",
         title: "Telegramdagi gul doʻkoni",
+        imageAlt: "Telegramdagi gul doʻkoni katalogi: narxli guldastalar va savat tugmasi",
         description:
           "Katalog, savat va buyurtma berish toʻgʻridan-toʻgʻri Telegramda, ilova oʻrnatmasdan. Egasi buyurtma holatini botdagi tugmalar bilan oʻzgartiradi, mijoz bildirishnomalar oladi.",
       },
@@ -181,6 +185,7 @@ const uz: Dictionary = {
         id: "configurator",
         category: "Sayt + bot",
         title: "Smeta konfiguratori",
+        imageAlt: "Konfigurator: funksiyalari bilan Telegram-bot tanlangan, oʻngda taxminiy narx va muddat",
         description:
           "Mijoz nima kerakligini belgilaydi va darhol taxminiy narx hamda muddatni koʻradi. Ariza Telegramga holatni boshqarish tugmalari bilan keladi.",
       },
@@ -188,6 +193,7 @@ const uz: Dictionary = {
         id: "quiz-bot",
         category: "Telegram-bot",
         title: "Arizalar uchun kviz-bot",
+        imageAlt: "Kviz-bot bilan chat: nimani avtomatlashtirish haqidagi savol va javob variantlari tugmalari",
         description:
           "Beshta savol: bot biznesga mos mahsulotni tavsiya qiladi, soʻng telefon raqami bilan ariza yigʻadi. Voronka /stats buyrugʻi orqali koʻrinadi.",
       },
@@ -195,6 +201,7 @@ const uz: Dictionary = {
         id: "focus-garden-tg",
         category: "Mini App + bot",
         title: "Fokus bogʻi",
+        imageAlt: "Fokus bogʻi: oʻsayotgan archa tasvirlangan taymer va vazifalar roʻyxati",
         description:
           "Telegramdagi samaradorlik taymeri: ish sessiyasi davom etayotganda daraxt oʻsadi. Bot tashlab ketilgan sessiyalarni eslatadi va reyting yuritadi.",
       },
