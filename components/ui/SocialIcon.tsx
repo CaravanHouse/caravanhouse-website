@@ -1,5 +1,6 @@
 import type { SVGProps } from "react";
 import type { SocialNetwork } from "@/lib/site";
+import GithubIcon from "./GithubIcon";
 import TelegramIcon from "./TelegramIcon";
 
 function InstagramIcon(props: SVGProps<SVGSVGElement>) {
@@ -23,6 +24,7 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
 const icons: Record<SocialNetwork, (props: SVGProps<SVGSVGElement>) => React.JSX.Element> = {
   telegram: TelegramIcon,
   instagram: InstagramIcon,
+  github: GithubIcon,
   linkedin: LinkedinIcon,
 };
 
