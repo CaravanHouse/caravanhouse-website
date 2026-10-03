@@ -18,11 +18,12 @@ export const contacts = {
   instagramUrl: "https://www.instagram.com/caravanhouse.uz/",
 } as const;
 
-export type SocialNetwork = "telegram" | "instagram" | "linkedin";
+export type SocialNetwork = "telegram" | "instagram" | "github" | "linkedin";
 
 // Иконка для linkedin тоже готова в components/ui/SocialIcon.tsx — достаточно раскомментировать строку.
 export const socials: { network: SocialNetwork; label: string; href: string }[] = [
   { network: "telegram", label: "Telegram", href: contacts.telegramUrl },
   { network: "instagram", label: "Instagram", href: contacts.instagramUrl },
+  { network: "github", label: "GitHub", href: "https://github.com/CaravanHouse" },
   // { network: "linkedin", label: "LinkedIn", href: "https://linkedin.com/company/..." },
 ];
