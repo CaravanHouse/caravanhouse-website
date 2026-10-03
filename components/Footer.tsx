@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import type { Dictionary, Locale } from "@/locales";
 import { contacts, SITE_NAME, socials } from "@/lib/site";
 import Logo from "./Logo";
@@ -57,9 +57,8 @@ export default function Footer({ lang, dict }: Props) {
               </a>
             </li>
             <li>
-              <a href={contacts.emailHref} className={`${linkClass} break-all`}>
-                <Mail className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-                {contacts.email}
+              <a href={contacts.instagramUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                <SocialIcon network="instagram" className="h-4 w-4 text-accent" />@{contacts.instagramUsername}
               </a>
             </li>
           </ul>
