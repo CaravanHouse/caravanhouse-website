@@ -207,6 +207,34 @@ const uz: Dictionary = {
       },
     ],
   },
+  team: {
+    eyebrow: "Jamoa",
+    title: "CaravanHouse asoschilari",
+    subtitle:
+      "Har bir loyihani oʻzimiz yuritamiz: birinchi xabardan ishga tushirishgacha. Siz mahsulotingizni yaratayotganlar bilan bevosita muloqot qilasiz.",
+    photoAlt: "Surat",
+    // TODO: ismlar, rollar va tavsiflarni tekshiring — aniqlariga almashtiring
+    members: [
+      {
+        id: "umid",
+        name: "Umid Bahromov",
+        role: "Founder & CEO",
+        bio: "Loyihalarni va mijozlar bilan muloqotni olib boradi, muddat va natija uchun javob beradi.",
+      },
+      {
+        id: "aslam",
+        name: "Aslam",
+        role: "Co-founder",
+        bio: "Telegram-botlar va server qismini ishlab chiqadi.",
+      },
+      {
+        id: "behruz",
+        name: "Behruz Ahmedov",
+        role: "Co-founder",
+        bio: "Veb-ishlab chiqish va Mini Apps interfeyslari.",
+      },
+    ],
+  },
   faq: {
     eyebrow: "Savollar",
     title: "Koʻp beriladigan savollar",

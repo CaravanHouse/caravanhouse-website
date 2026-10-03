@@ -10,6 +10,7 @@ import JsonLd from "@/components/JsonLd";
 import Process from "@/components/Process";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
+import Team from "@/components/Team";
 import { getDictionary, hasLocale } from "@/locales";
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
@@ -27,6 +28,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         <Advantages dict={dict} />
         <Process dict={dict} />
         <Projects dict={dict} />
+        <Team dict={dict} />
         <FAQ faq={dict.faq} />
         <FinalCTA dict={dict} />
       </main>
