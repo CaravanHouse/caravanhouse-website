@@ -5,9 +5,9 @@ export const SITE_URL = "https://caravanhouse.uz";
 export const SITE_NAME = "CaravanHouse";
 
 export const contacts = {
-  // TODO: проверьте, что это актуальный Telegram-аккаунт для заявок.
-  telegramUsername: "umidulloh_uz",
-  telegramUrl: "https://t.me/umidulloh_uz",
+  // Все кнопки «Написать в Telegram» ведут в бота заявок, а не в личный аккаунт.
+  telegramUsername: "CaravanHousebot",
+  telegramUrl: "https://t.me/CaravanHousebot",
   // TODO: проверьте номер телефона.
   phone: "+998 99 203 07 09",
   phoneHref: "tel:+998992030709",
