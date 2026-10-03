@@ -218,14 +218,14 @@ const uz: Dictionary = {
       {
         id: "umid",
         name: "Umid Bahromov",
-        role: "Founder & CEO",
-        bio: "Loyihalarni va mijozlar bilan muloqotni olib boradi, muddat va natija uchun javob beradi.",
+        role: "Founder",
+        bio: "Full Stack dasturchi: Telegram-botlar, server qismi va veb-interfeyslar.",
       },
       {
         id: "aslam",
         name: "Aslam",
         role: "Founder",
-        bio: "Full Stack dasturchi: Telegram-botlar, server qismi va veb-interfeyslar.",
+        bio: "Loyihalarni va mijozlar bilan muloqotni olib boradi, muddat va natija uchun javob beradi.",
       },
       {
         id: "behruz",
