@@ -14,14 +14,15 @@ export const contacts = {
   // TODO: при желании замените на корпоративную почту (например, hello@caravanhouse.uz).
   email: "umidbahromov400@gmail.com",
   emailHref: "mailto:umidbahromov400@gmail.com",
+  instagramUsername: "caravanhouse.uz",
+  instagramUrl: "https://www.instagram.com/caravanhouse.uz/",
 } as const;
 
 export type SocialNetwork = "telegram" | "instagram" | "linkedin";
 
-// TODO: добавьте свои соцсети. Иконки для instagram и linkedin уже готовы
-// в components/ui/SocialIcon.tsx — достаточно раскомментировать строку и вставить ссылку.
+// Иконка для linkedin тоже готова в components/ui/SocialIcon.tsx — достаточно раскомментировать строку.
 export const socials: { network: SocialNetwork; label: string; href: string }[] = [
   { network: "telegram", label: "Telegram", href: contacts.telegramUrl },
-  // { network: "instagram", label: "Instagram", href: "https://instagram.com/..." },
+  { network: "instagram", label: "Instagram", href: contacts.instagramUrl },
   // { network: "linkedin", label: "LinkedIn", href: "https://linkedin.com/company/..." },
 ];
