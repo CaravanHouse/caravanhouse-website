@@ -78,7 +78,9 @@ export default function Hero({ dict }: Props) {
           <div className="rounded-[2rem] border border-line-strong bg-bg-elevated/90 p-2 shadow-2xl shadow-black/50">
             <div className="overflow-hidden rounded-[1.6rem] border border-line bg-[#0b1020]">
               <div className="flex items-center gap-3 border-b border-line bg-white/[0.03] px-4 py-3">
-                <LogoMark className="h-9 w-9" />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg ring-1 ring-line-strong">
+                  <LogoMark className="h-5 w-auto" />
+                </span>
                 <div className="leading-tight">
                   <p className="text-sm font-bold">{mockup.botName}</p>
                   <p className="text-xs text-subtle">{mockup.botStatus}</p>
