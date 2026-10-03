@@ -222,13 +222,13 @@ const ru = {
       {
         id: "aslam",
         name: "Аслам",
-        role: "Co-founder",
-        bio: "Разработка Telegram-ботов и серверной части.",
+        role: "Founder",
+        bio: "Full Stack разработчик: Telegram-боты, серверная часть и веб-интерфейсы.",
       },
       {
         id: "behruz",
         name: "Бехруз Ахмедов",
-        role: "Co-founder",
+        role: "Founder",
         bio: "Веб-разработка и интерфейсы Mini Apps.",
       },
     ],

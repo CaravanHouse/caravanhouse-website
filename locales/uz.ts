@@ -224,13 +224,13 @@ const uz: Dictionary = {
       {
         id: "aslam",
         name: "Aslam",
-        role: "Co-founder",
-        bio: "Telegram-botlar va server qismini ishlab chiqadi.",
+        role: "Founder",
+        bio: "Full Stack dasturchi: Telegram-botlar, server qismi va veb-interfeyslar.",
       },
       {
         id: "behruz",
         name: "Behruz Ahmedov",
-        role: "Co-founder",
+        role: "Founder",
         bio: "Veb-ishlab chiqish va Mini Apps interfeyslari.",
       },
     ],
