@@ -12,7 +12,8 @@ export type ProjectId = "shop-miniapp" | "configurator" | "quiz-bot" | "focus-ga
 export interface ProjectMeta {
   id: ProjectId;
   // Куда ведёт карточка: работающее демо. Для ботов и Mini Apps — ссылка t.me на бота, для сайта — его адрес.
-  // Пока null, карточка не кликабельна и показывает «Демо запускается».
+  // null — карточка не кликабельна и показывает «Демо скоро запустим».
+  // Демо работают на Railway, проект caravanhouse-demos.
   demoUrl: string | null;
   // telegram — кнопка «Открыть в Telegram», web — «Открыть сайт»
   demoKind: "telegram" | "web";
@@ -29,7 +30,7 @@ export const projectsOrgUrl = "https://github.com/CaravanHouse";
 export const projects: ProjectMeta[] = [
   {
     id: "shop-miniapp",
-    demoUrl: null, // TODO: https://t.me/<бот магазина>
+    demoUrl: "https://t.me/caravanhouse_shop_bot",
     demoKind: "telegram",
     stack: ["Mini App", "React", "grammY", "Express"],
     shot: shopShot,
@@ -37,7 +38,7 @@ export const projects: ProjectMeta[] = [
   },
   {
     id: "configurator",
-    demoUrl: null, // TODO: адрес конфигуратора на Railway
+    demoUrl: "https://configurator-production-1607.up.railway.app",
     demoKind: "web",
     stack: ["React", "grammY", "Express"],
     shot: configuratorShot,
@@ -45,7 +46,7 @@ export const projects: ProjectMeta[] = [
   },
   {
     id: "quiz-bot",
-    demoUrl: null, // TODO: https://t.me/<бот-квиз>
+    demoUrl: "https://t.me/caravanhouse_quiz_bot",
     demoKind: "telegram",
     stack: ["grammY", "TypeScript"],
     shot: quizBotShot,
@@ -53,7 +54,7 @@ export const projects: ProjectMeta[] = [
   },
   {
     id: "focus-garden-tg",
-    demoUrl: null, // TODO: https://t.me/<бот сада фокуса>
+    demoUrl: "https://t.me/caravanhouse_focus_tree_bot",
     demoKind: "telegram",
     stack: ["Mini App", "React", "grammY", "Express"],
     shot: focusGardenShot,
