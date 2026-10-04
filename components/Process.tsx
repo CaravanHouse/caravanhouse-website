@@ -1,13 +1,15 @@
 import type { Dictionary } from "@/locales";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
+import Glow from "./ui/Glow";
 
 // Таймлайн: вертикальный на телефоне, горизонтальный на широких экранах.
 export default function Process({ dict }: { dict: Dictionary }) {
   const { process } = dict;
 
   return (
-    <section id="process" aria-labelledby="process-title" className="relative py-20 sm:py-28">
+    <section id="process" aria-labelledby="process-title" className="relative overflow-x-clip py-20 sm:py-28">
+      <Glow className="top-1/2 left-1/2 h-[300px] w-[900px] -translate-x-1/2 -translate-y-1/2" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading id="process-title" eyebrow={process.eyebrow} title={process.title} />
 

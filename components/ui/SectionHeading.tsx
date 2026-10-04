@@ -16,7 +16,7 @@ export default function SectionHeading({ id, eyebrow, title, subtitle, align = "
         <span aria-hidden="true" className="h-px w-6 bg-accent/70" />
         {eyebrow}
       </p>
-      <h2 id={id} className="text-3xl font-extrabold leading-[1.1] tracking-tight text-balance sm:text-4xl lg:text-5xl">
+      <h2 id={id} className="text-gradient-title text-3xl font-extrabold leading-[1.1] tracking-tight text-balance sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {subtitle ? <p className="max-w-2xl text-base leading-relaxed text-muted text-pretty sm:text-lg">{subtitle}</p> : null}

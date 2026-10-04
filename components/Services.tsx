@@ -2,6 +2,7 @@ import { AppWindow, Bot, Check, MonitorSmartphone, type LucideIcon } from "lucid
 import type { Dictionary } from "@/locales";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
+import Glow from "./ui/Glow";
 
 const icons: Record<string, LucideIcon> = {
   bots: Bot,
@@ -13,7 +14,8 @@ export default function Services({ dict }: { dict: Dictionary }) {
   const { services } = dict;
 
   return (
-    <section id="services" aria-labelledby="services-title" className="relative py-20 sm:py-28">
+    <section id="services" aria-labelledby="services-title" className="relative overflow-x-clip py-20 sm:py-28">
+      <Glow className="top-24 -left-40 h-[420px] w-[520px]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading id="services-title" eyebrow={services.eyebrow} title={services.title} subtitle={services.subtitle} />
 

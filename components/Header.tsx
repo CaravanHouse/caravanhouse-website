@@ -49,7 +49,7 @@ export default function Header({ lang, dict }: Props) {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
-        solid ? "border-b border-line bg-bg/75 backdrop-blur-xl" : "border-b border-transparent"
+        solid ? "border-b border-accent/20 bg-bg/75 backdrop-blur-xl" : "border-b border-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">

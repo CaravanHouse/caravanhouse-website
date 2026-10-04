@@ -5,6 +5,7 @@ import GithubIcon from "./ui/GithubIcon";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 import SocialIcon from "./ui/SocialIcon";
+import Glow from "./ui/Glow";
 
 const initials = (name: string) =>
   name
@@ -26,7 +27,8 @@ export default function Team({ dict }: { dict: Dictionary }) {
   });
 
   return (
-    <section id="team" aria-labelledby="team-title" className="relative py-20 sm:py-28">
+    <section id="team" aria-labelledby="team-title" className="relative overflow-x-clip py-20 sm:py-28">
+      <Glow strong className="top-1/2 left-1/2 h-[380px] w-[760px] -translate-x-1/2 -translate-y-1/2" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading id="team-title" eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
 
