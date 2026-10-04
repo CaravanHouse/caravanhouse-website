@@ -21,7 +21,8 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   if (!hasLocale(lang)) notFound();
   const base = getDictionary(lang);
   // Цена поддержки в FAQ берётся из калькулятора (как и цены в блоке «Цены»), а не хранится в тексте
-  const { supportMonthlyFrom } = await getPrices();
+  const prices = await getPrices();
+  const { supportMonthlyFrom } = prices;
   const support = formatSum(supportMonthlyFrom);
   const dict = {
     ...base,
@@ -30,7 +31,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
 
   return (
     <>
-      <JsonLd lang={lang} dict={dict} />
+      <JsonLd lang={lang} dict={dict} prices={prices} />
       <Header lang={lang} dict={{ nav: dict.nav, a11y: dict.a11y, cta: dict.cta }} />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero dict={dict} />
