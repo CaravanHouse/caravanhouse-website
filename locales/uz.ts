@@ -223,7 +223,7 @@ const uz: Dictionary = {
       },
       {
         id: "aslam",
-        name: "Aslam",
+        name: "Arslan",
         role: "Founder",
         bio: "Loyihalarni va mijozlar bilan muloqotni olib boradi, muddat va natija uchun javob beradi.",
       },
