@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { contacts } from "@/lib/site";
+import { botUrl } from "@/lib/site";
 import TelegramIcon from "./ui/TelegramIcon";
 
 // Плавающая кнопка для мобильных: появляется, когда пользователь пролистал hero.
@@ -17,7 +17,7 @@ export default function FloatingTelegram({ label }: { label: string }) {
 
   return (
     <a
-      href={contacts.telegramUrl}
+      href={botUrl("site_float")}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}

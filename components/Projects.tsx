@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/locales";
 import { projects as projectMeta, projectsOrgUrl, type ProjectMeta } from "@/lib/projects";
-import { contacts } from "@/lib/site";
+import { botUrl } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
 import GithubIcon from "./ui/GithubIcon";
 import Reveal from "./ui/Reveal";
@@ -55,7 +55,7 @@ export default function Projects({ dict }: { dict: Dictionary }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading id="projects-title" eyebrow={projects.eyebrow} title={projects.title} subtitle={projects.subtitle} />
-          <ButtonLink href={contacts.telegramUrl} external variant="secondary" className="self-start lg:self-auto">
+          <ButtonLink href={botUrl("site_projects")} external variant="secondary" className="self-start lg:self-auto">
             {projects.askCta}
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </ButtonLink>

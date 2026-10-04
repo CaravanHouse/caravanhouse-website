@@ -1,7 +1,8 @@
 import { Phone } from "lucide-react";
 import type { Dictionary, Locale } from "@/locales";
-import { contacts, SITE_NAME, socials } from "@/lib/site";
+import { botUrl, contacts, SITE_NAME, socials } from "@/lib/site";
 import Logo from "./Logo";
+import ButtonLink from "./ui/ButtonLink";
 import SocialIcon from "./ui/SocialIcon";
 import TelegramIcon from "./ui/TelegramIcon";
 import Glow from "./ui/Glow";
@@ -35,11 +36,15 @@ export default function Footer({ lang, dict }: Props) {
             <br />
             {footer.response}
           </p>
+          <ButtonLink href={contacts.channelUrl} external variant="outline" size="md" className="mt-1 self-start">
+            <SocialIcon network="channel" className="h-4 w-4" />
+            {dict.cta.channel}
+          </ButtonLink>
           <ul className="mt-2 flex gap-2" aria-label={footer.socialTitle}>
             {socials.map((social) => (
               <li key={social.network}>
                 <a
-                  href={social.href}
+                  href={social.network === "telegram" ? botUrl("site_footer") : social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
@@ -56,7 +61,7 @@ export default function Footer({ lang, dict }: Props) {
           <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-subtle">{footer.contactsTitle}</h2>
           <ul className="mt-4 flex flex-col gap-3 text-sm">
             <li>
-              <a href={contacts.telegramUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>
+              <a href={botUrl("site_footer")} target="_blank" rel="noopener noreferrer" className={linkClass}>
                 <TelegramIcon className="h-4 w-4 text-accent" />@{contacts.telegramUsername}
               </a>
             </li>

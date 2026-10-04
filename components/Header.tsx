@@ -4,10 +4,11 @@ import { AnimatePresence, m } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { Dictionary, Locale } from "@/locales";
-import { contacts } from "@/lib/site";
+import { botUrl, contacts } from "@/lib/site";
 import Logo from "./Logo";
 import LanguageSwitcher from "./LanguageSwitcher";
 import ButtonLink from "./ui/ButtonLink";
+import SocialIcon from "./ui/SocialIcon";
 import TelegramIcon from "./ui/TelegramIcon";
 
 // В клиентский компонент передаём только нужные части словаря — меньше данных в HTML.
@@ -73,8 +74,12 @@ export default function Header({ lang, dict }: Props) {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher lang={lang} label={dict.a11y.language} className="hidden sm:block" />
-          <div className="hidden md:block">
-            <ButtonLink href={contacts.telegramUrl} external size="md" className="whitespace-nowrap">
+          <div className="hidden items-center gap-2 md:flex">
+            <ButtonLink href={contacts.channelUrl} external variant="outline" size="md" className="whitespace-nowrap" aria-label={dict.cta.channel}>
+              <SocialIcon network="channel" className="h-4 w-4" />
+              {dict.cta.channelShort}
+            </ButtonLink>
+            <ButtonLink href={botUrl("site_header")} external size="md" className="whitespace-nowrap">
               <TelegramIcon className="h-4 w-4" />
               {dict.cta.telegram}
             </ButtonLink>
@@ -124,7 +129,11 @@ export default function Header({ lang, dict }: Props) {
               </nav>
               <div className="mt-auto flex flex-col gap-4 pt-8">
                 <LanguageSwitcher lang={lang} label={dict.a11y.language} className="self-start sm:hidden" />
-                <ButtonLink href={contacts.telegramUrl} external size="lg" className="w-full">
+                <ButtonLink href={contacts.channelUrl} external variant="outline" size="lg" className="w-full">
+                  <SocialIcon network="channel" className="h-5 w-5" />
+                  {dict.cta.channel}
+                </ButtonLink>
+                <ButtonLink href={botUrl("site_header")} external size="lg" className="w-full">
                   <TelegramIcon className="h-5 w-5" />
                   {dict.cta.telegram}
                 </ButtonLink>

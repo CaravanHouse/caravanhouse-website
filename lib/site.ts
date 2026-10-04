@@ -21,6 +21,32 @@ export const contacts = {
   instagramUrl: "https://www.instagram.com/caravanhouse.uz/",
 } as const;
 
+// Метка источника в ссылке на бота заявок: t.me/CaravanHousebot?start=<метка>.
+// Бот сохраняет её в заявке («Источник» в карточке заказа) и считает в /stats — видно, какая кнопка приводит клиентов.
+// Метки для ссылок вне сайта (reels, channel, channel_<пост>) — в content/channel-plan.md.
+export type BotRef =
+  | "site_header"
+  | "site_footer"
+  | "site_hero"
+  | "site_cta"
+  | "site_float"
+  | "site_projects"
+  | "site_channel"
+  | "site_404";
+
+export const botUrl = (ref: BotRef) => `${contacts.telegramUrl}?start=${ref}`;
+
+// Демо-боты — живые примеры, работают на Railway (проект caravanhouse-demos)
+export const demoBots = {
+  shop: "caravanhouse_shop_bot",
+  quiz: "caravanhouse_quiz_bot",
+  focus: "caravanhouse_focus_tree_bot",
+} as const;
+
+export type DemoBotId = keyof typeof demoBots;
+
+export const telegramUrl = (username: string) => `https://t.me/${username}`;
+
 export type SocialNetwork = "telegram" | "channel" | "instagram" | "github" | "linkedin";
 
 // Иконка для linkedin тоже готова в components/ui/SocialIcon.tsx — достаточно раскомментировать строку.

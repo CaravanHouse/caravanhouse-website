@@ -30,6 +30,8 @@ const uz: Dictionary = {
   cta: {
     telegram: "Telegramda yozish",
     telegramShort: "Yozish",
+    channel: "Kanalga obuna boʻlish",
+    channelShort: "Kanal",
   },
   hero: {
     badge: "Oʻzbekistondagi biznes uchun IT-studiya",
@@ -271,6 +273,28 @@ const uz: Dictionary = {
     cta: "Kanalga obuna boʻlish",
     postAlt: "CaravanHouse Telegram-kanalidagi post",
     openPost: "Postni Telegramda ochish",
+    gift: "Obunachilarga bonus — «Telegram-bot buyurtma qilish uchun nimalarni tayyorlash kerak» chek-listi. Uni botimiz beradi.",
+    giftCta: "Chek-listni olish",
+  },
+  demoBots: {
+    eyebrow: "Oʻzingiz sinab koʻring",
+    title: "Botlarimizni koʻring",
+    subtitle: "Telegramda uchta jonli demo. Istalganini oching va bosib koʻring — sizda nima chiqishini tezroq tushunasiz.",
+    open: "Telegramda ochish",
+    items: {
+      shop: {
+        name: "Gul doʻkoni",
+        text: "Mini App: katalog, savat va buyurtma toʻgʻridan-toʻgʻri Telegramda. Egasi rolini ham sinab koʻrish mumkin.",
+      },
+      quiz: {
+        name: "Kviz-bot",
+        text: "Beshta savol — va bot biznesga mos mahsulotni tavsiya qiladi: bot, sayt yoki Mini App.",
+      },
+      focus: {
+        name: "Fokus bogʻi",
+        text: "Samaradorlik taymeri: ish sessiyasi davomida daraxt oʻsadi. Bot eslatadi va reyting yuritadi.",
+      },
+    },
   },
   faq: {
     eyebrow: "Savollar",

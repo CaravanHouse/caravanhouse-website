@@ -1,7 +1,7 @@
 import { Calculator, Check, Sparkles } from "lucide-react";
 import type { Dictionary } from "@/locales";
 import { CALC_URL } from "@/lib/prices";
-import { contacts } from "@/lib/site";
+import { botUrl } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
 import TelegramIcon from "./ui/TelegramIcon";
 import HeroChat from "./HeroChat";
@@ -51,7 +51,7 @@ export default function Hero({ dict }: Props) {
             className="animate-fade-up mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row"
             style={{ animationDelay: "160ms" }}
           >
-            <ButtonLink href={contacts.telegramUrl} external size="lg">
+            <ButtonLink href={botUrl("site_hero")} external size="lg">
               <TelegramIcon className="h-5 w-5" />
               {hero.primary}
             </ButtonLink>

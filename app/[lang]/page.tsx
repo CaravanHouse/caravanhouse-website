@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Advantages from "@/components/Advantages";
 import Channel from "@/components/Channel";
+import DemoBots from "@/components/DemoBots";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import FloatingTelegram from "@/components/FloatingTelegram";
@@ -41,10 +42,12 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         <Advantages dict={dict} />
         <Process dict={dict} />
         <Projects dict={dict} />
+        <DemoBots dict={dict} />
         <Team dict={dict} />
-        <Channel dict={dict} />
         <FAQ faq={dict.faq} />
         <FinalCTA dict={dict} />
+        {/* Призыв подписаться на канал — последним блоком страницы */}
+        <Channel dict={dict} />
       </main>
       <Footer lang={lang} dict={dict} />
       <FloatingTelegram label={dict.floating.label} />
