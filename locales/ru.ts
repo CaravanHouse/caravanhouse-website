@@ -215,7 +215,7 @@ const ru = {
     members: [
       {
         id: "umid",
-        name: "Умид Бахромов",
+        name: "Умид",
         role: "Founder",
         bio: "Full Stack разработчик: Telegram-боты, серверная часть и веб-интерфейсы.",
       },
@@ -227,7 +227,7 @@ const ru = {
       },
       {
         id: "behruz",
-        name: "Бехруз Ахмедов",
+        name: "Бехруз",
         role: "Founder",
         bio: "Веб-разработка и интерфейсы Mini Apps.",
       },
