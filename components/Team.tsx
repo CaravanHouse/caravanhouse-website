@@ -41,7 +41,7 @@ export default function Team({ dict }: { dict: Dictionary }) {
                     fill
                     sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
                     placeholder="blur"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="object-cover object-[50%_25%] transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 ) : (
                   <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
