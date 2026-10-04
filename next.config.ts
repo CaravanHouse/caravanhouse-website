@@ -24,11 +24,12 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      // Язык по умолчанию — русский.
-      { source: "/", destination: "/ru", permanent: false },
-    ];
+  async rewrites() {
+    return {
+      // Корень сразу отдаёт русскую версию, без переадресации на /ru: на один круг до сервера меньше.
+      // canonical у страницы — /ru, поэтому дубля для поисковиков нет.
+      beforeFiles: [{ source: "/", destination: "/ru" }],
+    };
   },
 };
 
