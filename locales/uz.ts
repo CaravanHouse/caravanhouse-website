@@ -217,7 +217,7 @@ const uz: Dictionary = {
     members: [
       {
         id: "umid",
-        name: "Umid Bahromov",
+        name: "Umid",
         role: "Founder",
         bio: "Full Stack dasturchi: Telegram-botlar, server qismi va veb-interfeyslar.",
       },
@@ -229,7 +229,7 @@ const uz: Dictionary = {
       },
       {
         id: "behruz",
-        name: "Behruz Ahmedov",
+        name: "Behruz",
         role: "Founder",
         bio: "Veb-ishlab chiqish va Mini Apps interfeyslari.",
       },
