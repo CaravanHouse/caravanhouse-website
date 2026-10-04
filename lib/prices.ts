@@ -5,14 +5,19 @@ export const CALC_URL = "https://calc.caravanhouse.uz";
 export type StartingPriceId = "landing" | "bot" | "corporate" | "miniapp";
 export interface Prices {
   prepaymentPercent: number;
+  supportMonthlyFrom: number;
   starting: { id: StartingPriceId; from: number }[];
 }
+
+const PRICES_SCHEMA = 2;
 
 const IDS: StartingPriceId[] = ["landing", "bot", "corporate", "miniapp"];
 
 export async function getPrices(): Promise<Prices> {
-  const res = await fetch(`${CALC_URL}/api/prices`, { next: { revalidate: 3600 } });
-  if (!res.ok) throw new Error(`Не удалось получить цены: ${CALC_URL}/api/prices → ${res.status}`);
+  // ?v= — версия формата ответа: кэш fetch в Next.js привязан к URL, и после смены формата
+  // (новое поле) старый ответ из кэша иначе мог бы прийти при сборке. Меняйте при изменении API.
+  const res = await fetch(`${CALC_URL}/api/prices?v=${PRICES_SCHEMA}`, { next: { revalidate: 3600 } });
+  if (!res.ok) throw new Error(`Не удалось получить цены: ${CALC_URL}/api/prices?v=${PRICES_SCHEMA} → ${res.status}`);
   const data = (await res.json()) as Partial<Prices>;
   const starting = IDS.map((id) => {
     const from = data.starting?.find((p) => p.id === id)?.from;
@@ -21,7 +26,9 @@ export async function getPrices(): Promise<Prices> {
     return { id, from };
   });
   const prepaymentPercent = typeof data.prepaymentPercent === "number" ? data.prepaymentPercent : 50;
-  return { prepaymentPercent, starting };
+  const supportMonthlyFrom = data.supportMonthlyFrom;
+  if (typeof supportMonthlyFrom !== "number" || supportMonthlyFrom <= 0) throw new Error("В ответе /api/prices нет цены поддержки");
+  return { prepaymentPercent, supportMonthlyFrom, starting };
 }
 
 /** 1 500 000 → «1 500 000» с неразрывными пробелами */

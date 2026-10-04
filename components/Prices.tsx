@@ -15,8 +15,11 @@ const icons: Record<StartingPriceId, LucideIcon> = {
 
 export default async function Prices({ dict }: { dict: Dictionary }) {
   const t = dict.prices;
-  const { prepaymentPercent, starting } = await getPrices();
-  const payment = t.payment.replace("{pre}", String(prepaymentPercent)).replace("{post}", String(100 - prepaymentPercent));
+  const { prepaymentPercent, supportMonthlyFrom, starting } = await getPrices();
+  const payment = t.payment
+    .replace("{pre}", String(prepaymentPercent))
+    .replace("{post}", String(100 - prepaymentPercent))
+    .replace("{support}", formatSum(supportMonthlyFrom));
 
   return (
     <section id="prices" aria-labelledby="prices-title" className="relative overflow-x-clip py-20 sm:py-28">

@@ -118,7 +118,7 @@ const uz: Dictionary = {
       corporate: { title: "Korporativ sayt", note: "Katalogli koʻp sahifali sayt" },
       miniapp: { title: "Telegram Mini App", note: "Telegram ichidagi doʻkon yoki servis" },
     },
-    payment: "Toʻlov: boshlashdan oldin {pre}% oldindan toʻlov, topshirilgandan keyin {post}%.",
+    payment: "Toʻlov: boshlashdan oldin {pre}% oldindan toʻlov, topshirilgandan keyin {post}%. Qoʻllab-quvvatlash: birinchi oy bepul, keyin oyiga {support} soʻmdan.",
     calcCta: "Narxni 1 daqiqada hisoblang",
     calcNote: "Kalkulyator vazifangiz uchun taxminiy narx oraligʻini koʻrsatadi",
     offerTitle: "Dastlabki uchta mijozga — 15–20% chegirma",
@@ -266,7 +266,7 @@ const uz: Dictionary = {
     eyebrow: "Savollar",
     title: "Koʻp beriladigan savollar",
     // Условия согласованы с командой (сроки, оплата 50/50, код и домен клиенту, хостинг у клиента).
-    // TODO: стоимость поддержки после первого месяца пока не указана.
+    // {support} — narx kalkulyatordan (calc.caravanhouse.uz/api/prices)
     items: [
       {
         question: "Ishlab chiqish qancha vaqt oladi?",
@@ -281,7 +281,7 @@ const uz: Dictionary = {
       {
         question: "Ishga tushirilgandan keyin nima boʻladi?",
         answer:
-          "Birinchi oy qoʻllab-quvvatlash bepul: xatolarni tuzatamiz va oʻzgartirishlar kiritamiz. Keyin — xohishingizga koʻra oylik xizmat, narxini oldindan kelishib olamiz. Yangi funksiyalar alohida toʻlanadi.",
+          "Birinchi oy qoʻllab-quvvatlash bepul: xatolarni tuzatamiz va oʻzgartirishlar kiritamiz. Keyin — xohishingizga koʻra oyiga {support} soʻmdan qoʻllab-quvvatlash: oʻzgartirishlar va xatolarni tuzatish. Yangi funksiyalar alohida toʻlanadi.",
       },
       {
         question: "Oʻzgartirishlar kiritish mumkinmi?",
@@ -339,7 +339,7 @@ const uz: Dictionary = {
   },
   footer: {
     team: "CaravanHouse jamoasi · Toshkent",
-    response: "Telegramda oʻsha kuniyoq javob beramiz",
+    response: "09:00 dan 21:00 gacha ishlaymiz",
     tagline: "Oʻzbekistondagi biznes uchun Telegram-botlar, veb-saytlar va Telegram Mini Apps.",
     contactsTitle: "Aloqa",
     navTitle: "Navigatsiya",
