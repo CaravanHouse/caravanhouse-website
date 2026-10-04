@@ -1,9 +1,9 @@
-import { ArrowDown, Check, Sparkles, UserPlus } from "lucide-react";
+import { ArrowDown, Check, Sparkles } from "lucide-react";
 import type { Dictionary } from "@/locales";
 import { contacts } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
 import TelegramIcon from "./ui/TelegramIcon";
-import { LogoMark } from "./Logo";
+import HeroChat from "./HeroChat";
 
 type Props = { dict: Dictionary };
 
@@ -72,57 +72,8 @@ export default function Hero({ dict }: Props) {
           </ul>
         </div>
 
-        {/* Декоративный макет чата с ботом — для скринридеров скрыт */}
-        <div aria-hidden="true" className="animate-fade-up relative mx-auto w-full max-w-sm" style={{ animationDelay: "200ms" }}>
-          <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-accent/25 via-transparent to-[#3b5bdb]/25 blur-2xl" />
-          <div className="rounded-[2rem] border border-line-strong bg-bg-elevated/90 p-2 shadow-2xl shadow-black/50">
-            <div className="overflow-hidden rounded-[1.6rem] border border-line bg-[#0b1020]">
-              <div className="flex items-center gap-3 border-b border-line bg-white/[0.03] px-4 py-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg ring-1 ring-line-strong">
-                  <LogoMark className="h-5 w-auto" />
-                </span>
-                <div className="leading-tight">
-                  <p className="text-sm font-bold">{mockup.botName}</p>
-                  <p className="text-xs text-subtle">{mockup.botStatus}</p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-3 bg-[radial-gradient(circle_at_30%_20%,rgb(246_183_60/0.06),transparent_60%)] px-4 py-5 text-sm">
-                <p className="max-w-[85%] self-start rounded-2xl rounded-bl-md bg-white/[0.06] px-3.5 py-2.5">{mockup.greeting}</p>
-                <p className="max-w-[85%] self-end rounded-2xl rounded-br-md bg-accent px-3.5 py-2.5 font-medium text-on-accent">
-                  {mockup.userMessage}
-                </p>
-                <div className="max-w-[90%] self-start">
-                  <p className="rounded-2xl rounded-bl-md bg-white/[0.06] px-3.5 py-2.5">{mockup.botReply}</p>
-                  <div className="mt-2 grid grid-cols-3 gap-2">
-                    {mockup.slots.map((slot, index) => (
-                      <span
-                        key={slot}
-                        className={`rounded-xl border px-2 py-2 text-center text-xs font-semibold ${
-                          index === 1 ? "border-accent/60 bg-accent/15 text-accent-soft" : "border-line text-muted"
-                        }`}
-                      >
-                        {slot}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <p className="max-w-[85%] self-start rounded-2xl rounded-bl-md border border-emerald-400/20 bg-emerald-400/10 px-3.5 py-2.5 text-emerald-200">
-                  {mockup.confirm}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="animate-float absolute -top-7 -right-2 flex sm:top-auto sm:right-auto sm:-bottom-6 sm:-left-10 items-center gap-3 rounded-2xl border border-line-strong bg-surface/95 px-4 py-3 shadow-xl shadow-black/40 backdrop-blur">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 text-accent">
-              <UserPlus className="h-5 w-5" />
-            </span>
-            <span className="leading-tight">
-              <span className="block text-xs text-subtle">{mockup.orderLabel}</span>
-              <span className="block text-sm font-bold">{mockup.orderValue}</span>
-            </span>
-          </div>
-        </div>
+        {/* Декоративный макет чата с ботом: переписка «оживает» при заходе на сайт */}
+        <HeroChat mockup={mockup} />
       </div>
     </section>
   );

@@ -43,6 +43,7 @@ const uz: Dictionary = {
     mockup: {
       botName: "CaravanHouse Bot",
       botStatus: "bot",
+      typing: "yozmoqda",
       greeting: "Assalomu alaykum! Qanday yordam bera olamiz?",
       userMessage: "Ertaga yozilmoqchiman",
       botReply: "Ajoyib! Qulay vaqtni tanlang:",

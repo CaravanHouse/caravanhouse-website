@@ -41,6 +41,7 @@ const ru = {
     mockup: {
       botName: "CaravanHouse Bot",
       botStatus: "бот",
+      typing: "печатает",
       greeting: "Здравствуйте! Чем можем помочь?",
       userMessage: "Хочу записаться на завтра",
       botReply: "Отлично! Выберите удобное время:",
