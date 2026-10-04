@@ -1,5 +1,5 @@
 // Цены «от» живут в одном месте — в конфигураторе (repo CaravanHouse/configurator, shared/pricing.ts).
-// Сайт забирает их при сборке и обновляет раз в час (ISR), поэтому цены меняются только там.
+// Сайт забирает их при сборке и обновляет раз в 5 минут (ISR), поэтому цены меняются только там.
 export const CALC_URL = "https://calc.caravanhouse.uz";
 
 export type StartingPriceId = "landing" | "bot" | "corporate" | "miniapp";
@@ -9,14 +9,14 @@ export interface Prices {
   starting: { id: StartingPriceId; from: number }[];
 }
 
-const PRICES_SCHEMA = 2;
+const PRICES_SCHEMA = 3;
 
 const IDS: StartingPriceId[] = ["landing", "bot", "corporate", "miniapp"];
 
 export async function getPrices(): Promise<Prices> {
   // ?v= — версия формата ответа: кэш fetch в Next.js привязан к URL, и после смены формата
   // (новое поле) старый ответ из кэша иначе мог бы прийти при сборке. Меняйте при изменении API.
-  const res = await fetch(`${CALC_URL}/api/prices?v=${PRICES_SCHEMA}`, { next: { revalidate: 3600 } });
+  const res = await fetch(`${CALC_URL}/api/prices?v=${PRICES_SCHEMA}`, { next: { revalidate: 300 } });
   if (!res.ok) throw new Error(`Не удалось получить цены: ${CALC_URL}/api/prices?v=${PRICES_SCHEMA} → ${res.status}`);
   const data = (await res.json()) as Partial<Prices>;
   const starting = IDS.map((id) => {
