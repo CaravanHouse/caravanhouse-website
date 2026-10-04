@@ -13,11 +13,19 @@ import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Team from "@/components/Team";
 import { getDictionary, hasLocale } from "@/locales";
+import { formatSum, getPrices } from "@/lib/prices";
 
 export default async function HomePage({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
-  const dict = getDictionary(lang);
+  const base = getDictionary(lang);
+  // Цена поддержки в FAQ берётся из калькулятора (как и цены в блоке «Цены»), а не хранится в тексте
+  const { supportMonthlyFrom } = await getPrices();
+  const support = formatSum(supportMonthlyFrom);
+  const dict = {
+    ...base,
+    faq: { ...base.faq, items: base.faq.items.map((i) => ({ ...i, answer: i.answer.replace("{support}", support) })) },
+  };
 
   return (
     <>
