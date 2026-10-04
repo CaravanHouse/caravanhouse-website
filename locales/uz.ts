@@ -23,6 +23,7 @@ const uz: Dictionary = {
     services: "Xizmatlar",
     process: "Qanday ishlaymiz",
     projects: "Loyihalar",
+    prices: "Narxlar",
     faq: "Savollar",
     contacts: "Aloqa",
   },
@@ -38,7 +39,7 @@ const uz: Dictionary = {
     subtitle:
       "Vazifani toʻliq oʻz zimmamizga olamiz: gʻoya va dizayndan tortib ishga tushirish va qoʻllab-quvvatlashgacha. Siz shunchaki chiroyli rasm emas, balki ishlaydigan savdo vositasini olasiz.",
     primary: "Loyihani muhokama qilish",
-    secondary: "Xizmatlarimiz",
+    secondary: "Narxni 1 daqiqada hisoblang",
     points: ["Bepul maslahat", "Boshlashdan oldin qatʼiy narx", "Ishga tushgandan keyin yordam"],
     mockup: {
       botName: "CaravanHouse Bot",
@@ -64,12 +65,12 @@ const uz: Dictionary = {
         id: "bots",
         title: "Telegram-botlar",
         description:
-          "Buyurtmalar, yozilish, savdo va mijozlarni qoʻllab-quvvatlashni 24/7 avtomatlashtiradi. Mijoz bir soniyada javob oladi, siz esa CRM yoki menejerlar chatida tayyor arizani.",
+          "Buyurtmalar, yozilish, savdo va mijozlarni qoʻllab-quvvatlashni 24/7 avtomatlashtiradi. Mijoz bir soniyada javob oladi, siz esa jamoaning Telegram-chatida tayyor arizani.",
         features: [
           "Buyurtma qabul qilish va onlayn yozilish",
-          "Click va Payme orqali toʻlov",
+          "Jamoa uchun holat tugmalari bilan arizalar",
           "Xabarnomalar va mijozlarni segmentlash",
-          "Admin panel, CRM va Google Sheets",
+          "Toʻgʻridan-toʻgʻri Telegramdagi admin panel",
         ],
       },
       {
@@ -88,15 +89,40 @@ const uz: Dictionary = {
         id: "miniapps",
         title: "Telegram Mini Apps",
         description:
-          "Toʻgʻridan-toʻgʻri Telegram ichidagi toʻlaqonli ilova: katalog, savat, toʻlov va shaxsiy kabinet — App Store va Google Playdan yuklab olmasdan.",
+          "Toʻgʻridan-toʻgʻri Telegram ichidagi toʻlaqonli ilova: katalog, savat, buyurtmalar va shaxsiy kabinet — App Store va Google Playdan yuklab olmasdan.",
         features: [
           "Internet-doʻkon va yetkazib berish menyusi",
           "Onlayn yozilish va sodiqlik dasturlari",
-          "Bir bosishda kirish va toʻlov",
+          "Telegram orqali bir bosishda kirish",
           "Native ilovadan tezroq va arzonroq",
         ],
       },
     ],
+    integrations: {
+      title: "Texnologiyalar va integratsiyalar",
+      now: "Hozir qilamiz",
+      nowItems: ["Node.js + grammY asosidagi Telegram-botlar", "Next.js asosidagi veb-saytlar", "Telegram Mini Apps"],
+      onRequest: "Buyurtma asosida — muddatini kelishamiz",
+      onRequestItems: ["amoCRM", "Bitrix24", "Eskiz SMS", "Yetkazib berish", "AI-yordamchi", "Click va Payme orqali toʻlov"],
+    },
+  },
+  prices: {
+    eyebrow: "Narxlar",
+    title: "Qancha turadi",
+    subtitle: "Boshlangʻich narxlar. Aniq narxni ish boshlanishidan oldin kelishib olamiz — vazifa oʻzgarmasa, narx ham oʻzgarmaydi.",
+    // {price} — calc.caravanhouse.uz kalkulyatoridagi narx (yagona manba)
+    pricePattern: "{price} soʻmdan",
+    items: {
+      landing: { title: "Lending", note: "Reklama yoki aksiya uchun bir sahifali sayt" },
+      bot: { title: "Telegram-bot", note: "Arizalar, yozilish va mijozlarga 24/7 javob" },
+      corporate: { title: "Korporativ sayt", note: "Katalogli koʻp sahifali sayt" },
+      miniapp: { title: "Telegram Mini App", note: "Telegram ichidagi doʻkon yoki servis" },
+    },
+    payment: "Toʻlov: boshlashdan oldin {pre}% oldindan toʻlov, topshirilgandan keyin {post}%.",
+    calcCta: "Narxni 1 daqiqada hisoblang",
+    calcNote: "Kalkulyator vazifangiz uchun taxminiy narx oraligʻini koʻrsatadi",
+    offerTitle: "Dastlabki uchta mijozga — 15–20% chegirma",
+    offerText: "Fikr-mulohaza va loyihani portfolioda koʻrsatishga ruxsat evaziga.",
   },
   advantages: {
     eyebrow: "Nega biz",
@@ -239,7 +265,8 @@ const uz: Dictionary = {
   faq: {
     eyebrow: "Savollar",
     title: "Koʻp beriladigan savollar",
-    // TODO: muddatlar, kafolat va toʻlov shartlarini tekshiring — ular haqiqiy amaliyotingizga mos boʻlishi kerak.
+    // Условия согласованы с командой (сроки, оплата 50/50, код и домен клиенту, хостинг у клиента).
+    // TODO: стоимость поддержки после первого месяца пока не указана.
     items: [
       {
         question: "Ishlab chiqish qancha vaqt oladi?",
@@ -249,12 +276,12 @@ const uz: Dictionary = {
       {
         question: "Loyiha qancha turadi?",
         answer:
-          "Narx funksionalga bogʻliq: ekranlar soni, integratsiyalar, toʻlov tizimini ulash. Qisqa muhokamadan soʻng qatʼiy narxni aytamiz — vazifa oʻzgarmasa, narx ham oʻzgarmaydi.",
+          "Boshlangʻich narxlar — «Narxlar» boʻlimida, vazifangiz uchun taxminiy oraliqni esa kalkulyatorda bir daqiqada hisoblash mumkin. Qisqa muhokamadan soʻng narxni kelishib olamiz — vazifa oʻzgarmasa, narx ham oʻzgarmaydi.",
       },
       {
         question: "Ishga tushirilgandan keyin nima boʻladi?",
         answer:
-          "30 kunlik bepul kafolatli qoʻllab-quvvatlash: har qanday xatoni tuzatamiz. Keyin — xohishingizga koʻra oylik xizmat yoki bir martalik qoʻshimcha ishlar.",
+          "Birinchi oy qoʻllab-quvvatlash bepul: xatolarni tuzatamiz va oʻzgartirishlar kiritamiz. Keyin — xohishingizga koʻra oylik xizmat, narxini oldindan kelishib olamiz. Yangi funksiyalar alohida toʻlanadi.",
       },
       {
         question: "Oʻzgartirishlar kiritish mumkinmi?",
@@ -264,12 +291,22 @@ const uz: Dictionary = {
       {
         question: "Toʻlov qanday amalga oshiriladi?",
         answer:
-          "Odatda ikki bosqichda: boshlashdan oldin 50% oldindan toʻlov va qabul qilingandan keyin 50%. Katta loyihalar bosqichma-bosqich toʻlanadi. Shartnoma asosida ishlaymiz, kartaga oʻtkazma yoki yuridik shaxslar uchun hisob orqali toʻlov qabul qilamiz.",
+          "Ikki bosqichda: boshlashdan oldin 50% oldindan toʻlov va loyiha topshirilgandan keyin 50%. Katta loyihalarni bosqichlarga boʻlish mumkin.",
+      },
+      {
+        question: "Kod va domen kimga tegishli?",
+        answer:
+          "Sizga. Toʻliq toʻlovdan soʻng kod va barcha kirish maʼlumotlarini topshiramiz, domenni esa boshidanoq sizning nomingizga roʻyxatdan oʻtkazamiz.",
+      },
+      {
+        question: "Hosting uchun kim toʻlaydi?",
+        answer:
+          "Hostingni oʻz akkauntingizda provayderga oʻzingiz toʻlaysiz — shunda sayt yoki bot doim sizning nazoratingizda boʻladi. Biz hammasini tanlab, sozlab beramiz.",
       },
       {
         question: "Kichik biznes bilan ishlaysizmi?",
         answer:
-          "Albatta. Kichik va oʻrta biznes — asosiy mijozlarimiz: doʻkonlar, salonlar, kafelar, oʻquv markazlari. Byudjetingiz va vazifangizga mos yechim tanlaymiz.",
+          "Albatta — aynan kichik va oʻrta biznes uchun ishlaymiz: doʻkonlar, salonlar, kafelar, oʻquv markazlari. Byudjetingiz va vazifangizga mos yechim tanlaymiz.",
       },
     ],
   },
@@ -279,8 +316,30 @@ const uz: Dictionary = {
       "Telegramda yozing — bir nechta savol beramiz, yechim taklif qilamiz va taxminiy narxni aytamiz. Bepul va hech narsaga majburlamaydi.",
     button: "Telegramda yozish",
     orCall: "yoki qoʻngʻiroq qiling",
+    or: "yoki",
+    form: {
+      title: "Ariza qoldirish",
+      name: "Ism",
+      namePlaceholder: "Sizga qanday murojaat qilaylik",
+      contact: "Telefon yoki Telegram",
+      contactPlaceholder: "+998… yoki @username",
+      service: "Nima kerak",
+      services: { bot: "Telegram-bot", site: "Sayt", miniapp: "Mini App", other: "Boshqa" },
+      message: "Vazifa haqida qisqacha (ixtiyoriy)",
+      submit: "Arizani yuborish",
+      sending: "Yuborilmoqda…",
+      success: "Rahmat! №{id} ariza yuborildi — tez orada siz bilan bogʻlanamiz.",
+      successNoId: "Rahmat! Ariza yuborildi — tez orada siz bilan bogʻlanamiz.",
+      errorName: "Ismingizni kiriting",
+      errorContact: "Telefon yoki Telegramni kiriting",
+      errorRate: "Bu qurilmadan juda koʻp ariza. Keyinroq urinib koʻring yoki Telegramda yozing.",
+      errorFailed: "Yuborib boʻlmadi. Telegramda yozing yoki qoʻngʻiroq qiling — tez javob beramiz.",
+      consent: "Arizani yuborib, koʻrsatilgan kontakt orqali siz bilan bogʻlanishimizga rozilik bildirasiz.",
+    },
   },
   footer: {
+    team: "CaravanHouse jamoasi · Toshkent",
+    response: "Telegramda oʻsha kuniyoq javob beramiz",
     tagline: "Oʻzbekistondagi biznes uchun Telegram-botlar, veb-saytlar va Telegram Mini Apps.",
     contactsTitle: "Aloqa",
     navTitle: "Navigatsiya",

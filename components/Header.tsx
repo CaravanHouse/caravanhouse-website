@@ -21,6 +21,7 @@ export default function Header({ lang, dict }: Props) {
     { href: "#services", label: dict.nav.services },
     { href: "#process", label: dict.nav.process },
     { href: "#projects", label: dict.nav.projects },
+    { href: "#prices", label: dict.nav.prices },
     { href: "#faq", label: dict.nav.faq },
     { href: "#contacts", label: dict.nav.contacts },
   ];
@@ -55,13 +56,13 @@ export default function Header({ lang, dict }: Props) {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
         <Logo lang={lang} label={dict.a11y.home} />
 
-        <nav aria-label={dict.a11y.mainNav} className="hidden lg:block">
+        <nav aria-label={dict.a11y.mainNav} className="hidden xl:block">
           <ul className="flex items-center gap-1">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="rounded-full px-4 py-2 text-sm font-medium text-muted transition-colors hover:bg-white/[0.04] hover:text-fg"
+                  className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:bg-white/[0.04] hover:text-fg xl:px-4"
                 >
                   {link.label}
                 </a>
@@ -73,7 +74,7 @@ export default function Header({ lang, dict }: Props) {
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher lang={lang} label={dict.a11y.language} className="hidden sm:block" />
           <div className="hidden md:block">
-            <ButtonLink href={contacts.telegramUrl} external size="md">
+            <ButtonLink href={contacts.telegramUrl} external size="md" className="whitespace-nowrap">
               <TelegramIcon className="h-4 w-4" />
               {dict.cta.telegram}
             </ButtonLink>
@@ -84,7 +85,7 @@ export default function Header({ lang, dict }: Props) {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? dict.a11y.closeMenu : dict.a11y.openMenu}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white/[0.03] text-fg transition-colors hover:bg-white/[0.08] lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white/[0.03] text-fg transition-colors hover:bg-white/[0.08] xl:hidden"
           >
             {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
           </button>
@@ -100,7 +101,7 @@ export default function Header({ lang, dict }: Props) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-bg/95 backdrop-blur-xl lg:hidden"
+            className="h-[calc(100dvh-4rem)] overflow-y-auto lg:h-[calc(100dvh-5rem)] border-t border-line bg-bg/95 backdrop-blur-xl xl:hidden"
           >
             <div className="mx-auto flex h-full max-w-7xl flex-col px-4 pb-[max(2rem,env(safe-area-inset-bottom))] pt-6 sm:px-6">
               <nav aria-label={dict.a11y.mainNav}>

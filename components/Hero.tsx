@@ -1,5 +1,6 @@
-import { ArrowDown, Check, Sparkles } from "lucide-react";
+import { Calculator, Check, Sparkles } from "lucide-react";
 import type { Dictionary } from "@/locales";
+import { CALC_URL } from "@/lib/prices";
 import { contacts } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
 import TelegramIcon from "./ui/TelegramIcon";
@@ -54,9 +55,9 @@ export default function Hero({ dict }: Props) {
               <TelegramIcon className="h-5 w-5" />
               {hero.primary}
             </ButtonLink>
-            <ButtonLink href="#services" variant="secondary" size="lg">
+            <ButtonLink href={CALC_URL} external variant="secondary" size="lg">
+              <Calculator className="h-5 w-5 text-accent" aria-hidden="true" />
               {hero.secondary}
-              <ArrowDown className="h-4 w-4" aria-hidden="true" />
             </ButtonLink>
           </div>
 

@@ -15,6 +15,7 @@ export default function Footer({ lang, dict }: Props) {
     { href: "#services", label: nav.services },
     { href: "#process", label: nav.process },
     { href: "#projects", label: nav.projects },
+    { href: "#prices", label: nav.prices },
     { href: "#faq", label: nav.faq },
     { href: "#contacts", label: nav.contacts },
   ];
@@ -29,6 +30,11 @@ export default function Footer({ lang, dict }: Props) {
         <div className="flex flex-col gap-4">
           <Logo lang={lang} label={dict.a11y.home} variant="full" />
           <p className="max-w-xs text-sm leading-relaxed text-muted">{footer.tagline}</p>
+          <p className="text-sm text-muted">
+            <span className="font-semibold text-fg">{footer.team}</span>
+            <br />
+            {footer.response}
+          </p>
           <ul className="mt-2 flex gap-2" aria-label={footer.socialTitle}>
             {socials.map((social) => (
               <li key={social.network}>
