@@ -17,7 +17,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
             <div className="absolute -bottom-40 left-1/2 h-80 w-[640px] -translate-x-1/2 rounded-full bg-accent/25 blur-[100px]" />
           </div>
 
-          <h2 id="cta-title" className="mx-auto max-w-3xl text-3xl font-extrabold leading-[1.1] tracking-tight text-balance sm:text-5xl lg:text-6xl">
+          <h2 id="cta-title" className="text-gradient-title mx-auto max-w-3xl text-3xl font-extrabold leading-[1.1] tracking-tight text-balance sm:text-5xl lg:text-6xl">
             {finalCta.title}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted text-pretty sm:text-lg">{finalCta.subtitle}</p>

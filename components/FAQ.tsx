@@ -5,6 +5,7 @@ import { useId, useState } from "react";
 import type { Dictionary } from "@/locales";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
+import Glow from "./ui/Glow";
 
 type Props = { faq: Dictionary["faq"] };
 
@@ -14,7 +15,8 @@ export default function FAQ({ faq }: Props) {
   const baseId = useId();
 
   return (
-    <section id="faq" aria-labelledby="faq-title" className="relative py-20 sm:py-28">
+    <section id="faq" aria-labelledby="faq-title" className="relative overflow-x-clip py-20 sm:py-28">
+      <Glow className="top-10 -left-32 h-[360px] w-[420px]" />
       <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:px-8">
         <SectionHeading id="faq-title" eyebrow={faq.eyebrow} title={faq.title} />
 

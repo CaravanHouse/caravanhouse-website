@@ -4,6 +4,7 @@ import { contacts, SITE_NAME, socials } from "@/lib/site";
 import Logo from "./Logo";
 import SocialIcon from "./ui/SocialIcon";
 import TelegramIcon from "./ui/TelegramIcon";
+import Glow from "./ui/Glow";
 
 type Props = { lang: Locale; dict: Dictionary };
 
@@ -20,7 +21,10 @@ export default function Footer({ lang, dict }: Props) {
   const linkClass = "inline-flex items-center gap-2.5 rounded text-muted transition-colors hover:text-fg";
 
   return (
-    <footer className="border-t border-line bg-bg-elevated/40 pb-28 md:pb-0">
+    <footer className="relative overflow-x-clip border-t border-line bg-bg-elevated/40 pb-28 md:pb-0">
+      {/* золотая черта, светлеющая к центру */}
+      <div aria-hidden="true" className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
+      <Glow className="-top-24 left-1/2 h-48 w-[640px] -translate-x-1/2 opacity-60" />
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
         <div className="flex flex-col gap-4">
           <Logo lang={lang} label={dict.a11y.home} variant="full" />

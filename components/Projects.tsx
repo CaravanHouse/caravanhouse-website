@@ -8,6 +8,7 @@ import GithubIcon from "./ui/GithubIcon";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 import TelegramIcon from "./ui/TelegramIcon";
+import Glow from "./ui/Glow";
 
 const glow: Record<ProjectMeta["id"], string> = {
   "shop-miniapp": "from-rose-400/30 via-rose-400/5 to-transparent",
@@ -49,7 +50,8 @@ export default function Projects({ dict }: { dict: Dictionary }) {
   });
 
   return (
-    <section id="projects" aria-labelledby="projects-title" className="relative py-20 sm:py-28">
+    <section id="projects" aria-labelledby="projects-title" className="relative overflow-x-clip py-20 sm:py-28">
+      <Glow className="top-1/3 -right-40 h-[460px] w-[560px]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading id="projects-title" eyebrow={projects.eyebrow} title={projects.title} subtitle={projects.subtitle} />
