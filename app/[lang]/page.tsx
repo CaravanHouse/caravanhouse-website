@@ -12,6 +12,7 @@ import Prices from "@/components/Prices";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Team from "@/components/Team";
+import UpdateNotifier from "@/components/UpdateNotifier";
 import { getDictionary, hasLocale } from "@/locales";
 import { formatSum, getPrices } from "@/lib/prices";
 
@@ -44,6 +45,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       </main>
       <Footer lang={lang} dict={dict} />
       <FloatingTelegram label={dict.floating.label} />
+      <UpdateNotifier t={dict.update} />
     </>
   );
 }

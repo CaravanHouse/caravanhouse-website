@@ -344,6 +344,11 @@ const ru = {
     socialTitle: "Соцсети",
     rights: "Все права защищены.",
   },
+  update: {
+    text: "Сайт обновился — есть новое",
+    button: "Обновить",
+    dismiss: "Закрыть",
+  },
   floating: {
     label: "Написать в Telegram",
   },

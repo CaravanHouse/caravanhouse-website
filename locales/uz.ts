@@ -346,6 +346,11 @@ const uz: Dictionary = {
     socialTitle: "Ijtimoiy tarmoqlar",
     rights: "Barcha huquqlar himoyalangan.",
   },
+  update: {
+    text: "Sayt yangilandi — yangiliklar bor",
+    button: "Yangilash",
+    dismiss: "Yopish",
+  },
   floating: {
     label: "Telegramda yozish",
   },
