@@ -71,7 +71,7 @@ export default function HeroChat({ mockup }: { mockup: Mockup }) {
     <div ref={root} aria-hidden="true" className="animate-fade-up relative mx-auto w-full max-w-sm" style={{ animationDelay: "200ms" }}>
       <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-accent/30 via-transparent to-accent-deep/25 blur-2xl" />
       <div className="rounded-[2rem] border border-line-strong bg-bg-elevated/90 p-2 shadow-2xl shadow-black/50">
-        <div className="overflow-hidden rounded-[1.6rem] border border-line bg-[#0b1020]">
+        <div className="overflow-hidden rounded-[1.6rem] border border-line bg-[#0e0c0a]">
           <div className="flex items-center gap-3 border-b border-line bg-white/[0.03] px-4 py-3">
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-bg ring-1 ring-line-strong">
               <LogoMark className="h-5 w-auto" />

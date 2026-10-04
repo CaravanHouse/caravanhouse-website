@@ -20,7 +20,7 @@ export function generateStaticParams() {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#070a12",
+  themeColor: "#090807",
   colorScheme: "dark",
 };
 
