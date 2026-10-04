@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #070a12;
-  --color-bg-elevated: #0c1120;
-  --color-surface: #101628;
+  /* фирменная палитра: золото на чёрном, фон нейтрально-тёплый, без синего оттенка */
+  --color-bg: #090807;
+  --color-bg-elevated: #12100d;
+  --color-surface: #1a1713;
   /* линии с тёплым золотистым оттенком вместо холодного белого */
   --color-line: rgb(255 214 150 / 0.1);
   --color-line-strong: rgb(255 214 150 / 0.17);
-  --color-fg: #f3f4f8;
-  --color-muted: #a4abbd;
-  --color-subtle: #7d859a;
+  --color-fg: #f5f3ef;
+  --color-muted: #b0a99d;
+  --color-subtle: #878074;
   --color-accent: #f6b73c;
   --color-accent-soft: #ffd27a;
   --color-accent-deep: #e0891b;
@@ -130,7 +131,7 @@
 @utility text-gradient-title {
   background-image:
     linear-gradient(100deg, transparent 42%, rgb(255 222 150 / 0.95) 50%, transparent 58%),
-    linear-gradient(100deg, #f3f4f8 0%, #f3f4f8 45%, #ffe0a3 80%, #f6b73c 100%);
+    linear-gradient(100deg, #f5f3ef 0%, #f5f3ef 45%, #ffe0a3 80%, #f6b73c 100%);
   background-size: 250% 100%, 100% 100%;
   background-repeat: no-repeat;
   background-position: 100% 0, 0 0;

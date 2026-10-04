@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/locales";
 import { projects as projectMeta, projectsOrgUrl, type ProjectMeta } from "@/lib/projects";
-import { contacts } from "@/lib/site";
+import { botUrl } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
 import GithubIcon from "./ui/GithubIcon";
 import Reveal from "./ui/Reveal";
@@ -13,7 +13,7 @@ import Glow from "./ui/Glow";
 const glow: Record<ProjectMeta["id"], string> = {
   "shop-miniapp": "from-rose-400/30 via-rose-400/5 to-transparent",
   configurator: "from-accent/30 via-accent/5 to-transparent",
-  "quiz-bot": "from-[#3b5bdb]/40 via-[#3b5bdb]/5 to-transparent",
+  "quiz-bot": "from-accent-deep/40 via-accent-deep/5 to-transparent",
   "focus-garden-tg": "from-emerald-400/30 via-emerald-400/5 to-transparent",
 };
 
@@ -24,7 +24,7 @@ function Shot({ meta, alt }: { meta: ProjectMeta; alt: string }) {
   if (meta.frame === "browser") {
     return (
       <div className="absolute top-6 left-1/2 w-[88%] -translate-x-1/2 overflow-hidden rounded-t-xl border border-white/15 bg-[#f6f2ec] shadow-2xl shadow-black/50 transition-transform duration-500 group-hover:-translate-y-1.5 sm:top-8">
-        <div aria-hidden="true" className="flex h-5 items-center gap-1.5 bg-[#1b2030] px-3 sm:h-6">
+        <div aria-hidden="true" className="flex h-5 items-center gap-1.5 bg-[#201c17] px-3 sm:h-6">
           <span className="h-2 w-2 rounded-full bg-white/25" />
           <span className="h-2 w-2 rounded-full bg-white/25" />
           <span className="h-2 w-2 rounded-full bg-white/25" />
@@ -35,7 +35,7 @@ function Shot({ meta, alt }: { meta: ProjectMeta; alt: string }) {
   }
   return (
     <div
-      className={`absolute left-1/2 w-[46%] max-w-[260px] -translate-x-1/2 overflow-hidden rounded-[1.6rem] border-[5px] border-[#05070d] bg-[#05070d] shadow-2xl shadow-black/60 ring-1 ring-white/15 transition-transform duration-500 group-hover:-translate-y-1.5 top-6 sm:top-8`}
+      className={`absolute left-1/2 w-[46%] max-w-[260px] -translate-x-1/2 overflow-hidden rounded-[1.6rem] border-[5px] border-[#070605] bg-[#070605] shadow-2xl shadow-black/60 ring-1 ring-white/15 transition-transform duration-500 group-hover:-translate-y-1.5 top-6 sm:top-8`}
     >
       <Image src={meta.shot} alt={alt} sizes="(min-width: 768px) 260px, 46vw" placeholder="blur" className="h-auto w-full rounded-[1.2rem]" />
     </div>
@@ -55,7 +55,7 @@ export default function Projects({ dict }: { dict: Dictionary }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading id="projects-title" eyebrow={projects.eyebrow} title={projects.title} subtitle={projects.subtitle} />
-          <ButtonLink href={contacts.telegramUrl} external variant="secondary" className="self-start lg:self-auto">
+          <ButtonLink href={botUrl("site_projects")} external variant="secondary" className="self-start lg:self-auto">
             {projects.askCta}
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </ButtonLink>

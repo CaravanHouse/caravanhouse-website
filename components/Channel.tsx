@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight, Check, Gift } from "lucide-react";
 import type { Dictionary } from "@/locales";
-import { contacts } from "@/lib/site";
+import { botUrl, contacts } from "@/lib/site";
 import post10 from "@/public/channel/post-10.jpg";
 import post11 from "@/public/channel/post-11.jpg";
 import post12 from "@/public/channel/post-12.jpg";
@@ -26,7 +26,7 @@ export default function Channel({ dict }: { dict: Dictionary }) {
         <Reveal className="relative isolate overflow-hidden rounded-[2rem] border border-accent/30 bg-bg-elevated">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
             <div className="bg-grid absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_70%_50%,black,transparent_70%)]" />
-            <div className="absolute top-1/2 right-[15%] h-96 w-96 -translate-y-1/2 rounded-full bg-[#26a5e4]/15 blur-[110px]" />
+            <div className="absolute top-1/2 right-[15%] h-96 w-96 -translate-y-1/2 rounded-full bg-accent/15 blur-[110px]" />
           </div>
 
           <div className="grid items-center gap-10 p-6 sm:p-10 lg:grid-cols-[1fr_1.05fr] lg:gap-6 lg:p-14">
@@ -43,7 +43,7 @@ export default function Channel({ dict }: { dict: Dictionary }) {
               <ul className="mt-6 flex flex-col gap-3">
                 {t.points.map((point) => (
                   <li key={point} className="flex items-center gap-3">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#26a5e4]/15 text-[#5cc4f5]">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
                       <Check className="h-3.5 w-3.5" aria-hidden="true" />
                     </span>
                     {point}
@@ -55,7 +55,7 @@ export default function Channel({ dict }: { dict: Dictionary }) {
                 href={contacts.channelUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-8 flex max-w-md flex-wrap items-center gap-x-4 gap-y-3 rounded-2xl border border-[#26a5e4]/40 bg-[#26a5e4]/10 p-3 sm:pr-5 transition-colors hover:border-[#26a5e4]/70 hover:bg-[#26a5e4]/15"
+                className="group mt-8 flex max-w-md flex-wrap items-center gap-x-4 gap-y-3 rounded-2xl border border-accent/40 bg-accent/[0.07] p-3 sm:pr-5 transition-colors hover:border-accent/70 hover:bg-accent/[0.12]"
               >
                 <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-bg ring-1 ring-line-strong">
                   <LogoMark className="h-7 w-auto" />
@@ -64,12 +64,28 @@ export default function Channel({ dict }: { dict: Dictionary }) {
                   <span className="block font-bold">CaravanHouse</span>
                   <span className="block text-sm text-muted">@{contacts.channelUsername}</span>
                 </span>
-                <span className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-full bg-[#26a5e4] px-4 py-2.5 text-sm font-semibold text-white transition-colors group-hover:bg-[#3db3ec] sm:w-auto">
+                <span className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-on-accent transition-colors group-hover:bg-accent-soft sm:w-auto">
                   <TelegramIcon className="h-4 w-4" />
                   {t.cta}
                   <ArrowUpRight className="h-4 w-4 sm:hidden" aria-hidden="true" />
                 </span>
               </a>
+
+              {/* Лид-магнит: чек-лист выдаёт бот заявок после проверки подписки */}
+              <p className="mt-5 flex max-w-md items-start gap-3 text-sm leading-relaxed text-muted">
+                <Gift className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+                <span>
+                  {t.gift}{" "}
+                  <a
+                    href={botUrl("site_channel")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold whitespace-nowrap text-accent-soft underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
+                  >
+                    {t.giftCta} →
+                  </a>
+                </span>
+              </p>
             </div>
 
             {/* Постеры веером: каждый открывает свой пост в канале */}

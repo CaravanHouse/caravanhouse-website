@@ -5,7 +5,7 @@ import { Manrope } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import emblem from "@/public/brand/emblem.png";
-import { contacts } from "@/lib/site";
+import { botUrl } from "@/lib/site";
 import "./globals.css";
 
 const manrope = Manrope({ subsets: ["latin", "latin-ext", "cyrillic"], variable: "--font-manrope", display: "swap" });
@@ -41,7 +41,7 @@ export default function GlobalNotFound() {
             <Link href="/uz" lang="uz-Latn" className={`${btn} border border-line-strong text-fg hover:bg-white/[0.06]`}>
               Bosh sahifaga
             </Link>
-            <a href={contacts.telegramUrl} className={`${btn} border border-line-strong text-fg hover:bg-white/[0.06]`}>
+            <a href={botUrl("site_404")} className={`${btn} border border-line-strong text-fg hover:bg-white/[0.06]`}>
               Написать в Telegram
             </a>
           </div>

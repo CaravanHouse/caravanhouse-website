@@ -3,6 +3,7 @@ import configuratorShot from "@/public/projects/configurator.png";
 import focusGardenShot from "@/public/projects/focus-garden-tg.png";
 import quizBotShot from "@/public/projects/quiz-bot.png";
 import shopShot from "@/public/projects/shop-miniapp.png";
+import { demoBots, telegramUrl } from "./site";
 
 // Данные демо-проектов, которые не нужно переводить: ссылки, стек и скриншоты.
 // Название, категория, описание и alt скриншота лежат в locales/*.ts (projects.items) с тем же id.
@@ -30,7 +31,7 @@ export const projectsOrgUrl = "https://github.com/CaravanHouse";
 export const projects: ProjectMeta[] = [
   {
     id: "shop-miniapp",
-    demoUrl: "https://t.me/caravanhouse_shop_bot",
+    demoUrl: telegramUrl(demoBots.shop),
     demoKind: "telegram",
     stack: ["Mini App", "React", "grammY", "Express"],
     shot: shopShot,
@@ -46,7 +47,7 @@ export const projects: ProjectMeta[] = [
   },
   {
     id: "quiz-bot",
-    demoUrl: "https://t.me/caravanhouse_quiz_bot",
+    demoUrl: telegramUrl(demoBots.quiz),
     demoKind: "telegram",
     stack: ["grammY", "TypeScript"],
     shot: quizBotShot,
@@ -54,7 +55,7 @@ export const projects: ProjectMeta[] = [
   },
   {
     id: "focus-garden-tg",
-    demoUrl: "https://t.me/caravanhouse_focus_tree_bot",
+    demoUrl: telegramUrl(demoBots.focus),
     demoKind: "telegram",
     stack: ["Mini App", "React", "grammY", "Express"],
     shot: focusGardenShot,
