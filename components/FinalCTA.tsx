@@ -1,6 +1,7 @@
 import { Phone } from "lucide-react";
 import type { Dictionary } from "@/locales";
 import { contacts } from "@/lib/site";
+import Availability from "./Availability";
 import LeadForm from "./LeadForm";
 import ButtonLink from "./ui/ButtonLink";
 import Reveal from "./ui/Reveal";
@@ -30,6 +31,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
                   <TelegramIcon className="h-6 w-6" />
                   {finalCta.button}
                 </ButtonLink>
+                <Availability t={dict.availability} />
                 <p className="flex flex-wrap items-center justify-center gap-x-2 text-sm text-muted">
                   {finalCta.orCall}
                   <a

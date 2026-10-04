@@ -144,7 +144,7 @@ const uz: Dictionary = {
         id: "tech",
         title: "Zamonaviy texnologiyalar",
         description:
-          "Next.js, TypeScript, Python va Node.js. Keyinchalik oson rivojlantiriladigan tez va xavfsiz yechimlar.",
+          "Next.js, TypeScript, Node.js va grammY. Keyinchalik oson rivojlantiriladigan tez va xavfsiz yechimlar.",
       },
       {
         id: "price",
@@ -176,7 +176,7 @@ const uz: Dictionary = {
       {
         title: "Ishga tushirish",
         description:
-          "Test qilamiz, joylashtiramiz, domen, toʻlov va analitikani ulaymiz. Jamoangizni oʻrgatamiz.",
+          "Test qilamiz, joylashtiramiz, domen va analitikani ulaymiz. Jamoangizni oʻrgatamiz.",
       },
       {
         title: "Qoʻllab-quvvatlash",
@@ -206,7 +206,7 @@ const uz: Dictionary = {
         title: "Telegramdagi gul doʻkoni",
         imageAlt: "Telegramdagi gul doʻkoni katalogi: narxli guldastalar va savat tugmasi",
         description:
-          "Katalog, savat va buyurtma berish toʻgʻridan-toʻgʻri Telegramda, ilova oʻrnatmasdan. Egasi buyurtma holatini botdagi tugmalar bilan oʻzgartiradi, mijoz bildirishnomalar oladi.",
+          "Katalog, savat va buyurtma berish toʻgʻridan-toʻgʻri Telegramda, ilova oʻrnatmasdan. Ikkala rolni sinab koʻring: xaridor sifatida buyurtma bering va uni egasi sifatida botdagi tugmalar bilan yuriting.",
       },
       {
         id: "configurator",
@@ -214,7 +214,7 @@ const uz: Dictionary = {
         title: "Smeta konfiguratori",
         imageAlt: "Konfigurator: funksiyalari bilan Telegram-bot tanlangan, oʻngda taxminiy narx va muddat",
         description:
-          "Mijoz nima kerakligini belgilaydi va darhol taxminiy narx hamda muddatni koʻradi. Ariza Telegramga holatni boshqarish tugmalari bilan keladi.",
+          "Mijoz nima kerakligini belgilaydi va darhol taxminiy narx hamda muddatni koʻradi. Narx oraligʻi va muddat koʻrsatilgan ariza darhol jamoaga Telegramda keladi.",
       },
       {
         id: "quiz-bot",
@@ -222,7 +222,7 @@ const uz: Dictionary = {
         title: "Arizalar uchun kviz-bot",
         imageAlt: "Kviz-bot bilan chat: nimani avtomatlashtirish haqidagi savol va javob variantlari tugmalari",
         description:
-          "Beshta savol: bot biznesga mos mahsulotni tavsiya qiladi, soʻng telefon raqami bilan ariza yigʻadi. Voronka /stats buyrugʻi orqali koʻrinadi.",
+          "Beshta savol — va bot biznesga mos mahsulotni tavsiya qiladi: bot, sayt yoki Mini App. Soʻng smetani hisoblash yoki loyihani muhokama qilishni taklif qiladi.",
       },
       {
         id: "focus-garden-tg",
@@ -350,6 +350,11 @@ const uz: Dictionary = {
     text: "Sayt yangilandi — yangiliklar bor",
     button: "Yangilash",
     dismiss: "Yopish",
+  },
+  availability: {
+    online: "Hozir aloqadamiz · 21:00 gacha ishlaymiz",
+    beforeOpen: "Hozir ish vaqti emas — bugun 09:00 dan javob beramiz",
+    afterClose: "Hozir ish vaqti emas — ertaga 09:00 dan javob beramiz",
   },
   floating: {
     label: "Telegramda yozish",
