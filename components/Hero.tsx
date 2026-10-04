@@ -35,7 +35,7 @@ export default function Hero({ dict }: Props) {
             className="mt-6 text-[2.35rem] leading-[1.05] font-extrabold tracking-tight text-balance sm:text-6xl lg:text-7xl"
           >
             {hero.titleBefore}
-            <span className="text-gradient-accent">{hero.titleAccent}</span>
+            <span className="shine-accent">{hero.titleAccent}</span>
             {hero.titleAfter}
           </h1>
 
