@@ -11,8 +11,11 @@ export default function JsonLd({ lang, dict }: { lang: Locale; dict: Dictionary 
         "@type": "ProfessionalService",
         "@id": `${SITE_URL}/#organization`,
         name: SITE_NAME,
+        // Варианты названия: помогают Google отличить IT-компанию от одноимённых заведений
+        alternateName: ["Caravan House", "CaravanHouse IT Company", "CaravanHouse Digital Studio"],
         url: `${SITE_URL}/${lang}`,
-        logo: `${SITE_URL}/brand/logo-full.png`,
+        logo: `${SITE_URL}/brand/logo-square.png`,
+        image: `${SITE_URL}/brand/logo-square.png`,
         description: dict.meta.description,
         email: contacts.email,
         telephone: contacts.phoneHref.replace("tel:", ""),
@@ -20,6 +23,16 @@ export default function JsonLd({ lang, dict }: { lang: Locale; dict: Dictionary 
         address: { "@type": "PostalAddress", addressCountry: "UZ" },
         sameAs: socials.map((social) => social.href),
         inLanguage: localeMeta[lang].htmlLang,
+      },
+      {
+        // Название сайта в выдаче Google берётся отсюда
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: SITE_NAME,
+        alternateName: ["Caravan House", "caravanhouse.uz"],
+        url: `${SITE_URL}/`,
+        inLanguage: ["ru", "uz-Latn"],
+        publisher: { "@id": `${SITE_URL}/#organization` },
       },
       {
         "@type": "FAQPage",
