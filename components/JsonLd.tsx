@@ -20,7 +20,7 @@ export default function JsonLd({ lang, dict }: { lang: Locale; dict: Dictionary 
         email: contacts.email,
         telephone: contacts.phoneHref.replace("tel:", ""),
         areaServed: { "@type": "Country", name: "Uzbekistan" },
-        address: { "@type": "PostalAddress", addressCountry: "UZ" },
+        address: { "@type": "PostalAddress", addressLocality: "Tashkent", addressCountry: "UZ" },
         sameAs: socials.map((social) => social.href),
         inLanguage: localeMeta[lang].htmlLang,
       },

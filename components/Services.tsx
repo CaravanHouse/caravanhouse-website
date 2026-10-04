@@ -58,6 +58,32 @@ export default function Services({ dict }: { dict: Dictionary }) {
             );
           })}
         </ul>
+
+        {/* Интеграции: только то, что делаем сейчас, и отдельно — что берём под заказ */}
+        <Reveal className="card mt-6 grid gap-6 p-6 sm:p-8 lg:mt-8 lg:grid-cols-[auto_1fr_1fr] lg:items-start lg:gap-10">
+          <h3 className="text-lg font-bold tracking-tight lg:max-w-[12rem]">{services.integrations.title}</h3>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">{services.integrations.now}</p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {services.integrations.nowItems.map((item) => (
+                <li key={item} className="inline-flex items-center gap-1.5 rounded-full border border-accent/35 bg-accent/10 px-3 py-1.5 text-sm text-accent-soft">
+                  <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-subtle">{services.integrations.onRequest}</p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {services.integrations.onRequestItems.map((item) => (
+                <li key={item} className="rounded-full border border-line-strong px-3 py-1.5 text-sm text-muted">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

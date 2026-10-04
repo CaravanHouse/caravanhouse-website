@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import JsonLd from "@/components/JsonLd";
 import Process from "@/components/Process";
+import Prices from "@/components/Prices";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Team from "@/components/Team";
@@ -25,6 +26,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero dict={dict} />
         <Services dict={dict} />
+        <Prices dict={dict} />
         <Advantages dict={dict} />
         <Process dict={dict} />
         <Projects dict={dict} />
