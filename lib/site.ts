@@ -14,15 +14,19 @@ export const contacts = {
   // TODO: при желании замените на корпоративную почту (например, hello@caravanhouse.uz).
   email: "umidbahromov400@gmail.com",
   emailHref: "mailto:umidbahromov400@gmail.com",
+  // Telegram-канал компании (новости, проекты) — отдельно от бота заявок
+  channelUsername: "caravanhouse_uz",
+  channelUrl: "https://t.me/caravanhouse_uz",
   instagramUsername: "caravanhouse.uz",
   instagramUrl: "https://www.instagram.com/caravanhouse.uz/",
 } as const;
 
-export type SocialNetwork = "telegram" | "instagram" | "github" | "linkedin";
+export type SocialNetwork = "telegram" | "channel" | "instagram" | "github" | "linkedin";
 
 // Иконка для linkedin тоже готова в components/ui/SocialIcon.tsx — достаточно раскомментировать строку.
 export const socials: { network: SocialNetwork; label: string; href: string }[] = [
   { network: "telegram", label: "Telegram", href: contacts.telegramUrl },
+  { network: "channel", label: "Telegram-канал", href: contacts.channelUrl },
   { network: "instagram", label: "Instagram", href: contacts.instagramUrl },
   { network: "github", label: "GitHub", href: "https://github.com/CaravanHouse" },
   // { network: "linkedin", label: "LinkedIn", href: "https://linkedin.com/company/..." },

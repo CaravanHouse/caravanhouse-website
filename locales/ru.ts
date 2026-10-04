@@ -260,6 +260,16 @@ const ru = {
       },
     ],
   },
+  channel: {
+    eyebrow: "Telegram-канал",
+    title: "Следите за нами в Telegram",
+    subtitle:
+      "В канале @caravanhouse_uz — новости студии, новые проекты и идеи о том, как Telegram-боты, сайты и Mini Apps помогают бизнесу в Узбекистане.",
+    points: ["Новости и анонсы студии", "Новые проекты и демо", "Идеи для вашего бизнеса"],
+    cta: "Подписаться на канал",
+    postAlt: "Пост в Telegram-канале CaravanHouse",
+    openPost: "Открыть пост в Telegram",
+  },
   faq: {
     eyebrow: "FAQ",
     title: "Частые вопросы",
