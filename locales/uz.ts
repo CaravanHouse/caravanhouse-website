@@ -262,6 +262,16 @@ const uz: Dictionary = {
       },
     ],
   },
+  channel: {
+    eyebrow: "Telegram-kanal",
+    title: "Telegramda bizni kuzatib boring",
+    subtitle:
+      "@caravanhouse_uz kanalida — studiya yangiliklari, yangi loyihalar hamda Telegram-botlar, saytlar va Mini Apps Oʻzbekistondagi biznesga qanday yordam berishi haqida gʻoyalar.",
+    points: ["Studiya yangiliklari va eʼlonlari", "Yangi loyihalar va demolar", "Biznesingiz uchun gʻoyalar"],
+    cta: "Kanalga obuna boʻlish",
+    postAlt: "CaravanHouse Telegram-kanalidagi post",
+    openPost: "Postni Telegramda ochish",
+  },
   faq: {
     eyebrow: "Savollar",
     title: "Koʻp beriladigan savollar",

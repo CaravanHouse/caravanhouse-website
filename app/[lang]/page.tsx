@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Advantages from "@/components/Advantages";
+import Channel from "@/components/Channel";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import FloatingTelegram from "@/components/FloatingTelegram";
@@ -41,6 +42,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         <Process dict={dict} />
         <Projects dict={dict} />
         <Team dict={dict} />
+        <Channel dict={dict} />
         <FAQ faq={dict.faq} />
         <FinalCTA dict={dict} />
       </main>

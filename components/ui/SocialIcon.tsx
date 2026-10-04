@@ -1,3 +1,4 @@
+import { Megaphone } from "lucide-react";
 import type { SVGProps } from "react";
 import type { SocialNetwork } from "@/lib/site";
 import GithubIcon from "./GithubIcon";
@@ -23,6 +24,7 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
 
 const icons: Record<SocialNetwork, (props: SVGProps<SVGSVGElement>) => React.JSX.Element> = {
   telegram: TelegramIcon,
+  channel: (props: SVGProps<SVGSVGElement>) => <Megaphone aria-hidden="true" {...(props as object)} />,
   instagram: InstagramIcon,
   github: GithubIcon,
   linkedin: LinkedinIcon,

@@ -61,6 +61,11 @@ export default function Footer({ lang, dict }: Props) {
               </a>
             </li>
             <li>
+              <a href={contacts.channelUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                <SocialIcon network="channel" className="h-4 w-4 text-accent" />@{contacts.channelUsername}
+              </a>
+            </li>
+            <li>
               <a href={contacts.phoneHref} className={linkClass}>
                 <Phone className="h-4 w-4 text-accent" aria-hidden="true" />
                 {contacts.phone}
