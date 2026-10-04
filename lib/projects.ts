@@ -38,7 +38,7 @@ export const projects: ProjectMeta[] = [
   },
   {
     id: "configurator",
-    demoUrl: "https://configurator-production-1607.up.railway.app",
+    demoUrl: "https://calc.caravanhouse.uz",
     demoKind: "web",
     stack: ["React", "grammY", "Express"],
     shot: configuratorShot,
