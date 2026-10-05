@@ -211,7 +211,7 @@ const uz: Dictionary = {
     eyebrow: "Loyihalar",
     title: "Demo-loyihalar",
     subtitle:
-      "Biz qiladigan ishlarning ishlaydigan namunalari: Telegramdagi doʻkon, botlar va arizalar qabul qiladigan sayt. Kartochkani bosing va oʻzingiz sinab koʻring.",
+      "Biz qiladigan ishlarning ishlaydigan namunalari: klinika, doʻkon va oʻquv markazi uchun saytlar, CRM, shuningdek Telegram-botlar va Mini Apps. Kartochkani bosing va oʻzingiz sinab koʻring.",
     badge: "Demo",
     askCta: "Shunga oʻxshash loyiha kerak",
     openTelegram: "Telegramda ochish",
@@ -221,7 +221,40 @@ const uz: Dictionary = {
     codeLinkLabel: "GitHub CaravanHouse",
     stackLabel: "Texnologiyalar",
     // Tartib, havolalar, stek va skrinshotlar — lib/projects.ts faylida
+    tabs: { all: "Hammasi", web: "Saytlar va veb-xizmatlar", telegram: "Telegram-botlar va Mini Apps" },
     items: [
+      {
+        id: "clinic",
+        category: "Klinika sayti",
+        title: "Koʻp tarmoqli klinika",
+        imageAlt: "Klinika sayti: shifokor qidiruvi, tezkor amallar va eng yaqin boʻsh vaqtlar",
+        description:
+          "Filial va qavatlar boʻyicha klinika tuzilmasi, filtrli shifokorlar, vaqt tanlab 4 bosqichda onlayn yozilish, qidiruvli narxlar va chek-aplar.",
+      },
+      {
+        id: "crm",
+        category: "Veb-ilova",
+        title: "Savdo boʻlimi uchun CRM",
+        imageAlt: "CRM dashbordi: oylik tushum, oylar boʻyicha grafik, mijoz manbalari va voronka",
+        description:
+          "Tahliliy dashbord, sudrab koʻchiriladigan bitimlar voronkasi, mijoz kartochkalari va vazifalar. Telegram-botdan yangi arizalar real vaqtda paydo boʻladi.",
+      },
+      {
+        id: "store",
+        category: "Internet-doʻkon",
+        title: "Kosmetika doʻkoni",
+        imageAlt: "Kosmetika internet-doʻkoni bosh sahifasi: kolleksiya banneri va birinchi buyurtma uchun promokod",
+        description:
+          "Filtrli katalog, tezkor koʻrish, promokodli savat va maʼlum summadan bepul yetkazib berish, 3 bosqichli buyurtma va sotuvchi paneli.",
+      },
+      {
+        id: "edu",
+        category: "Oʻquv markazi sayti",
+        title: "Oʻquv markazi",
+        imageAlt: "Oʻquv markazi sayti: kurslar, sinov darsi tugmasi va guruhlarning eng yaqin startlari",
+        description:
+          "Filtrli kurslar, kurs tavsiya qiluvchi ingliz tili darajasi testi, guruhlar jadvali, sinov darsiga yozilish va oʻquvchi shaxsiy kabineti.",
+      },
       {
         id: "shop-miniapp",
         category: "Telegram Mini App",

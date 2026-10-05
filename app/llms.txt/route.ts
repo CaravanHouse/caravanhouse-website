@@ -23,6 +23,13 @@ export async function GET() {
 Оплата: ${prepaymentPercent}% предоплата, ${100 - prepaymentPercent}% после сдачи. Первый месяц поддержки бесплатно, дальше от ${formatSum(supportMonthlyFrom).replace(/ /g, " ")} сум в месяц.
 Код и домен после полной оплаты принадлежат клиенту. Работаем с 09:00 до 21:00 (Ташкент).
 
+## Демо-проекты (вымышленные компании)
+- [Сайт клиники: структура, врачи, онлайн-запись](https://clinic.caravanhouse.uz)
+- [CRM: дашборд, воронка сделок, клиенты, задачи](https://crm.caravanhouse.uz)
+- [Интернет-магазин: каталог, корзина, панель продавца](https://store.caravanhouse.uz)
+- [Учебный центр: курсы, тест уровня, кабинет ученика](https://edu.caravanhouse.uz)
+- Telegram: магазин-Mini App @caravanhouse_shop_bot, бот-квиз @caravanhouse_quiz_bot, «Сад фокуса» @caravanhouse_focus_tree_bot, калькулятор сметы ${CALC_URL}
+
 ## Ссылки
 - [Сайт (RU)](${SITE_URL}/ru)
 - [Sayt (UZ)](${SITE_URL}/uz)
