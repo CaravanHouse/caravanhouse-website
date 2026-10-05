@@ -39,8 +39,11 @@ export default async function Prices({ dict }: { dict: Dictionary }) {
                 </span>
                 <h3 className="mt-5 text-lg font-bold tracking-tight">{item.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted">{item.note}</p>
-                <p className="text-gradient-accent mt-auto pt-5 text-2xl font-extrabold tracking-tight">
-                  {t.pricePattern.replace("{price}", formatSum(from))}
+                {/* Блик пробегает по ценам волной: у каждой карточки своя задержка */}
+                <p className="text-glow mt-auto pt-5 text-2xl font-extrabold tracking-tight">
+                  <span className="shine-accent" style={{ animationDelay: `${1.5 + index * 0.35}s` }}>
+                    {t.pricePattern.replace("{price}", formatSum(from))}
+                  </span>
                 </p>
               </Reveal>
             );
@@ -64,7 +67,11 @@ export default async function Prices({ dict }: { dict: Dictionary }) {
             </div>
           </div>
           <div className="flex shrink-0 flex-wrap items-center gap-4 sm:justify-end">
-            <p className="text-gradient-accent text-xl font-extrabold tracking-tight">{t.app.price}</p>
+            <p className="text-glow text-xl font-extrabold tracking-tight">
+              <span className="shine-accent" style={{ animationDelay: `${1.5 + starting.length * 0.35}s` }}>
+                {t.app.price}
+              </span>
+            </p>
             <ButtonLink href={botUrl("site_prices")} external variant="secondary">
               {t.app.cta}
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
