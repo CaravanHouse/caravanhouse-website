@@ -4,7 +4,7 @@
 // Запасной путь: если сервер бота не ответил, отправляем заявку в ту же группу напрямую через Telegram Bot API,
 // чтобы она не потерялась. Если недоступно и это — пишем заявку в логи Vercel и просим клиента написать в Telegram.
 
-const SERVICES = { bot: "Telegram-бот", site: "Сайт", miniapp: "Mini App", other: "Другое" } as const;
+const SERVICES = { bot: "Telegram-бот", site: "Сайт", miniapp: "Mini App", app: "Мобильное приложение", other: "Другое" } as const;
 type Service = keyof typeof SERVICES;
 
 interface Lead {
