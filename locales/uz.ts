@@ -133,6 +133,13 @@ const uz: Dictionary = {
       corporate: { title: "Korporativ sayt", note: "Katalogli koʻp sahifali sayt" },
       miniapp: { title: "Telegram Mini App", note: "Telegram ichidagi doʻkon yoki servis" },
     },
+    app: {
+      title: "Mobil ilova",
+      badge: "Yangi yoʻnalish",
+      note: "iOS va Android uchun ilova, App Store va Google Playga joylash bilan",
+      price: "Narx muhokamadan keyin",
+      cta: "Muhokama qilish",
+    },
     payment: "Toʻlov: boshlashdan oldin {pre}% oldindan toʻlov, topshirilgandan keyin {post}%. Qoʻllab-quvvatlash: birinchi oy bepul, keyin oyiga {support} soʻmdan.",
     calcCta: "Narxni 1 daqiqada hisoblang",
     calcNote: "Kalkulyator vazifangiz uchun taxminiy narx oraligʻini koʻrsatadi",
