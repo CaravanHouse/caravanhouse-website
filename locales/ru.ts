@@ -271,8 +271,6 @@ const ru = {
     cta: "Подписаться на канал",
     postAlt: "Пост в Telegram-канале CaravanHouse",
     openPost: "Открыть пост в Telegram",
-    gift: "Бонус подписчикам — чек-лист «Что подготовить, чтобы заказать Telegram-бота». Его выдаёт наш бот.",
-    giftCta: "Получить чек-лист",
   },
   demoBots: {
     eyebrow: "Попробуйте сами",

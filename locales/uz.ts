@@ -273,8 +273,6 @@ const uz: Dictionary = {
     cta: "Kanalga obuna boʻlish",
     postAlt: "CaravanHouse Telegram-kanalidagi post",
     openPost: "Postni Telegramda ochish",
-    gift: "Obunachilarga bonus — «Telegram-bot buyurtma qilish uchun nimalarni tayyorlash kerak» chek-listi. Uni botimiz beradi.",
-    giftCta: "Chek-listni olish",
   },
   demoBots: {
     eyebrow: "Oʻzingiz sinab koʻring",
