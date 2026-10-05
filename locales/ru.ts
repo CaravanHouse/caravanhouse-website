@@ -392,6 +392,7 @@ const ru = {
     tagline: "Telegram-боты, веб-сайты, Telegram Mini Apps и мобильные приложения для бизнеса в Узбекистане.",
     contactsTitle: "Контакты",
     navTitle: "Навигация",
+    servicesTitle: "Услуги",
     socialTitle: "Соцсети",
     rights: "Все права защищены.",
   },

@@ -393,6 +393,7 @@ const uz: Dictionary = {
     tagline: "Oʻzbekistondagi biznes uchun Telegram-botlar, veb-saytlar, Telegram Mini Apps va mobil ilovalar.",
     contactsTitle: "Aloqa",
     navTitle: "Navigatsiya",
+    servicesTitle: "Xizmatlar",
     socialTitle: "Ijtimoiy tarmoqlar",
     rights: "Barcha huquqlar himoyalangan.",
   },
