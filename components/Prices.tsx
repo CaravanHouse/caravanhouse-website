@@ -1,6 +1,7 @@
-import { AppWindow, ArrowUpRight, Bot, Building2, Calculator, Gift, LayoutTemplate, type LucideIcon } from "lucide-react";
+import { AppWindow, ArrowUpRight, Bot, Building2, Calculator, Gift, LayoutTemplate, Smartphone, type LucideIcon } from "lucide-react";
 import type { Dictionary } from "@/locales";
 import { CALC_URL, formatSum, getPrices, type StartingPriceId } from "@/lib/prices";
+import { botUrl } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
 import Glow from "./ui/Glow";
 import Reveal from "./ui/Reveal";
@@ -45,6 +46,31 @@ export default async function Prices({ dict }: { dict: Dictionary }) {
             );
           })}
         </ul>
+
+        {/* Мобильное приложение: цены нет в калькуляторе, поэтому отдельной полосой и без цифр */}
+        <Reveal className="card mt-4 flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between lg:mt-6">
+          <div className="flex items-start gap-4">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-accent/25 bg-accent/10 text-accent">
+              <Smartphone className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <div>
+              <h3 className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-lg font-bold tracking-tight">
+                {t.app.title}
+                <span className="rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-xs font-semibold text-accent-soft">
+                  {t.app.badge}
+                </span>
+              </h3>
+              <p className="mt-1 text-sm leading-relaxed text-muted">{t.app.note}</p>
+            </div>
+          </div>
+          <div className="flex shrink-0 flex-wrap items-center gap-4 sm:justify-end">
+            <p className="text-gradient-accent text-xl font-extrabold tracking-tight">{t.app.price}</p>
+            <ButtonLink href={botUrl("site_prices")} external variant="secondary">
+              {t.app.cta}
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </ButtonLink>
+          </div>
+        </Reveal>
 
         <div className="mt-8 grid gap-4 lg:grid-cols-[1.4fr_1fr] lg:gap-6">
           <Reveal className="card flex flex-col items-start gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
