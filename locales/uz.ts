@@ -4,7 +4,7 @@ const uz: Dictionary = {
   meta: {
     title: "CaravanHouse — Oʻzbekistondagi biznes uchun Telegram-botlar, saytlar va Mini Apps",
     description:
-      "Oʻzbekistondagi kichik va oʻrta biznes uchun Telegram-botlar, lendinglar, korporativ saytlar va Telegram Mini Apps ishlab chiqamiz. Qatʼiy narx, aniq muddat va ishga tushirilgandan keyin qoʻllab-quvvatlash.",
+      "Oʻzbekistondagi kichik va oʻrta biznes uchun Telegram-botlar, lendinglar, korporativ saytlar, Telegram Mini Apps va mobil ilovalar ishlab chiqamiz. Qatʼiy narx, aniq muddat va ishga tushirilgandan keyin qoʻllab-quvvatlash.",
     ogAlt: "CaravanHouse — Telegram-botlar, saytlar va Mini Apps",
     ogTagline: "Telegram-botlar, saytlar va Mini\u00a0Apps —",
     ogTaglineAccent: "mijoz olib keladigan yechimlar",
@@ -58,9 +58,9 @@ const uz: Dictionary = {
   },
   services: {
     eyebrow: "Xizmatlar",
-    title: "Savdolaringiz uchun ishlaydigan uchta vosita",
+    title: "Savdolaringiz uchun ishlaydigan toʻrtta vosita",
     subtitle:
-      "Bitta yoʻnalishni tanlang yoki toʻliq bogʻlamani yigʻamiz: sayt mijozni olib keladi, bot arizani qabul qiladi, Mini App sotadi.",
+      "Bitta yoʻnalishni tanlang yoki toʻliq bogʻlamani yigʻamiz: sayt mijozni olib keladi, bot arizani qabul qiladi, Mini App yoki ilova sotadi.",
     includesLabel: "Nimalar kiradi",
     items: [
       {
@@ -97,6 +97,19 @@ const uz: Dictionary = {
           "Onlayn yozilish va sodiqlik dasturlari",
           "Telegram orqali bir bosishda kirish",
           "Native ilovadan tezroq va arzonroq",
+        ],
+      },
+      {
+        id: "apps",
+        badge: "Yangi yoʻnalish",
+        title: "Mobil ilovalar",
+        description:
+          "Mijozlaringiz uchun App Store va Google Playdagi oʻz ilovangiz: buyurtmalar, yozilish, shaxsiy kabinet va bildirishnomalar. Qachon Mini App yetarli, qachon alohida ilova kerakligini halol aytamiz.",
+        features: [
+          "iOS va Android uchun ilovalar",
+          "Brendingizga mos interfeys dizayni",
+          "Push-bildirishnomalar va shaxsiy kabinet",
+          "App Store va Google Playga joylash",
         ],
       },
     ],
@@ -311,6 +324,11 @@ const uz: Dictionary = {
           "Boshlangʻich narxlar — «Narxlar» boʻlimida, vazifangiz uchun taxminiy oraliqni esa kalkulyatorda bir daqiqada hisoblash mumkin. Qisqa muhokamadan soʻng narxni kelishib olamiz — vazifa oʻzgarmasa, narx ham oʻzgarmaydi.",
       },
       {
+        question: "Mobil ilovalar ham qilasizmi?",
+        answer:
+          "Ha, iOS va Android uchun — dizayn hamda App Store va Google Playga joylash bilan. Bu biz uchun yangi yoʻnalish, shuning uchun narx va muddatni vazifani muhokama qilgandan keyin alohida hisoblaymiz. Koʻpincha xuddi shu vazifani Telegram Mini App tezroq va arzonroq hal qiladi — sizga nima mos kelishini aytamiz.",
+      },
+      {
         question: "Ishga tushirilgandan keyin nima boʻladi?",
         answer:
           "Birinchi oy qoʻllab-quvvatlash bepul: xatolarni tuzatamiz va oʻzgartirishlar kiritamiz. Keyin — xohishingizga koʻra oyiga {support} soʻmdan qoʻllab-quvvatlash: oʻzgartirishlar va xatolarni tuzatish. Yangi funksiyalar alohida toʻlanadi.",
@@ -356,7 +374,7 @@ const uz: Dictionary = {
       contact: "Telefon yoki Telegram",
       contactPlaceholder: "+998… yoki @username",
       service: "Nima kerak",
-      services: { bot: "Telegram-bot", site: "Sayt", miniapp: "Mini App", other: "Boshqa" },
+      services: { bot: "Telegram-bot", site: "Sayt", miniapp: "Mini App", app: "Mobil ilova", other: "Boshqa" },
       message: "Vazifa haqida qisqacha (ixtiyoriy)",
       submit: "Arizani yuborish",
       sending: "Yuborilmoqda…",
@@ -372,7 +390,7 @@ const uz: Dictionary = {
   footer: {
     team: "CaravanHouse jamoasi · Toshkent",
     response: "09:00 dan 21:00 gacha ishlaymiz",
-    tagline: "Oʻzbekistondagi biznes uchun Telegram-botlar, veb-saytlar va Telegram Mini Apps.",
+    tagline: "Oʻzbekistondagi biznes uchun Telegram-botlar, veb-saytlar, Telegram Mini Apps va mobil ilovalar.",
     contactsTitle: "Aloqa",
     navTitle: "Navigatsiya",
     socialTitle: "Ijtimoiy tarmoqlar",
