@@ -26,7 +26,7 @@ export default function Channel({ dict }: { dict: Dictionary }) {
         <Reveal className="relative isolate overflow-hidden rounded-[2rem] border border-accent/30 bg-bg-elevated">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
             <div className="bg-grid absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_70%_50%,black,transparent_70%)]" />
-            <div className="absolute top-1/2 right-[15%] h-96 w-96 -translate-y-1/2 rounded-full bg-accent/15 blur-[110px]" />
+            <div className="absolute top-1/2 right-[15%] h-96 w-96 -translate-y-1/2 soft-glow [--glow:rgb(246_183_60/0.15)]" />
           </div>
 
           <div className="grid items-center gap-10 p-6 sm:p-10 lg:grid-cols-[1fr_1.05fr] lg:gap-6 lg:p-14">

@@ -15,7 +15,7 @@ export default function Advantages({ dict }: { dict: Dictionary }) {
 
   return (
     <section aria-labelledby="advantages-title" className="relative overflow-x-clip py-20 sm:py-28">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 mx-auto h-72 max-w-4xl -translate-y-1/2 rounded-full bg-accent/14 blur-[120px]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-1/2 -z-10 mx-auto h-72 max-w-4xl -translate-y-1/2 soft-glow [--glow:rgb(246_183_60/0.14)]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading id="advantages-title" eyebrow={advantages.eyebrow} title={advantages.title} />
 

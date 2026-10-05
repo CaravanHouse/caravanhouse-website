@@ -24,7 +24,7 @@ export default function GlobalNotFound() {
       <body className="relative flex min-h-dvh items-center justify-center overflow-hidden px-4 py-16">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
           <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,black,transparent)]" />
-          <div className="absolute top-1/3 left-1/2 h-[420px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-[120px]" />
+          <div className="absolute top-1/3 left-1/2 h-[420px] w-[720px] -translate-x-1/2 -translate-y-1/2 soft-glow [--glow:rgb(246_183_60/0.20)]" />
         </div>
         <main className="flex max-w-xl flex-col items-center text-center">
           <Image src={emblem} alt="CaravanHouse" width={88} height={65} priority />
