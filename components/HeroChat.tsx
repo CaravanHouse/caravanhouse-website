@@ -138,7 +138,7 @@ export default function HeroChat({ mockup }: { mockup: Mockup }) {
           shown(STEP.order) ? "scale-100 opacity-100" : "scale-75 opacity-0"
         }`}
       >
-        <div className="animate-float flex items-center gap-3 rounded-2xl border border-line-strong bg-surface/95 px-4 py-3 shadow-xl shadow-black/40 backdrop-blur">
+        <div className="animate-float flex items-center gap-3 rounded-2xl border border-line-strong bg-surface px-4 py-3 shadow-xl shadow-black/40">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 text-accent">
             <UserPlus className="h-5 w-5" />
           </span>

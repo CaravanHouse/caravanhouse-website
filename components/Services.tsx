@@ -32,7 +32,7 @@ export default function Services({ dict }: { dict: Dictionary }) {
               >
                 <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-accent/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                  className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 soft-glow [--glow:rgb(246_183_60/0.12)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 />
                 <div className="flex items-start justify-between gap-4">
                   <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent/25 bg-accent/10 text-accent">

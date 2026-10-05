@@ -117,6 +117,19 @@
   background-size: 56px 56px;
 }
 
+/* Мягкое свечение без filter: blur(). На телефонах blur(120px) на больших блоках очень тяжёлый для видеочипа
+   и тормозит первую отрисовку и прокрутку. Радиальный градиент с плавным спадом выглядит так же и почти ничего не стоит.
+   Цвет — через --glow; scale расширяет пятно, как его расширял blur. */
+@utility soft-glow {
+  background-image: radial-gradient(
+    closest-side,
+    var(--glow, rgb(246 183 60 / 0.17)) 0%,
+    color-mix(in srgb, var(--glow, rgb(246 183 60 / 0.17)) 50%, transparent) 55%,
+    transparent 100%
+  );
+  scale: 1.8;
+}
+
 @utility card {
   border: 1px solid var(--color-line);
   background-image: linear-gradient(180deg, rgb(246 183 60 / 0.06), rgb(246 183 60 / 0.012) 45%, rgb(255 255 255 / 0.01));

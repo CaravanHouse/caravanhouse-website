@@ -17,7 +17,13 @@ function tashkentState(now = new Date()): State {
 }
 
 /** «Сейчас на связи» / «ответим с 09:00» — по ташкентскому времени, а не по часам посетителя */
-export default function Availability({ t }: { t: Dictionary["availability"] }) {
+export default function Availability({
+  t,
+  className = "text-center text-balance lg:text-left",
+}: {
+  t: Dictionary["availability"];
+  className?: string;
+}) {
   // время известно только в браузере: до этого место занято, чтобы блок не прыгал
   const [state, setState] = useState<State | null>(null);
   useEffect(() => {
@@ -29,7 +35,7 @@ export default function Availability({ t }: { t: Dictionary["availability"] }) {
 
   const online = state === "online";
   return (
-    <p className="min-h-5 text-center text-sm text-muted text-balance lg:text-left" aria-live="polite">
+    <p className={`min-h-5 text-sm text-muted ${className}`} aria-live="polite">
       {state ? (
         <>
           <span className="relative mr-2 inline-flex h-2.5 w-2.5 align-middle" aria-hidden="true">

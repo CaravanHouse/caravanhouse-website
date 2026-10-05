@@ -16,7 +16,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
         <Reveal className="relative isolate overflow-hidden rounded-[2rem] border border-accent/25 bg-bg-elevated px-6 py-12 sm:px-10 sm:py-16 lg:px-14">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
             <div className="bg-grid absolute inset-0 opacity-70 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
-            <div className="absolute -bottom-40 left-1/4 h-80 w-[640px] -translate-x-1/2 rounded-full bg-accent/25 blur-[100px]" />
+            <div className="absolute -bottom-40 left-1/4 h-80 w-[640px] -translate-x-1/2 soft-glow [--glow:rgb(246_183_60/0.25)]" />
           </div>
 
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">

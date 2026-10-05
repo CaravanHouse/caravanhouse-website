@@ -19,9 +19,9 @@ export default function Hero({ dict }: Props) {
       {/* Фон: сетка и янтарные/синие свечения */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black_75%,transparent)]">
         <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]" />
-        <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-accent/20 blur-[120px]" />
-        <div className="absolute top-40 -right-40 h-[420px] w-[420px] rounded-full bg-accent-deep/20 blur-[120px]" />
-        <div className="absolute bottom-0 -left-40 h-[360px] w-[360px] rounded-full bg-accent/10 blur-[120px]" />
+        <div className="absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 soft-glow [--glow:rgb(246_183_60/0.20)]" />
+        <div className="absolute top-40 -right-40 h-[420px] w-[420px] soft-glow [--glow:rgb(224_137_27/0.20)]" />
+        <div className="absolute bottom-0 -left-40 h-[360px] w-[360px] soft-glow [--glow:rgb(246_183_60/0.10)]" />
       </div>
 
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10 lg:px-8">
