@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { ArrowUpRight, Check, Gift } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import type { Dictionary } from "@/locales";
-import { botUrl, contacts } from "@/lib/site";
+import { contacts } from "@/lib/site";
 import post10 from "@/public/channel/post-10.jpg";
 import post11 from "@/public/channel/post-11.jpg";
 import post12 from "@/public/channel/post-12.jpg";
@@ -70,22 +70,6 @@ export default function Channel({ dict }: { dict: Dictionary }) {
                   <ArrowUpRight className="h-4 w-4 sm:hidden" aria-hidden="true" />
                 </span>
               </a>
-
-              {/* Лид-магнит: чек-лист выдаёт бот заявок после проверки подписки */}
-              <p className="mt-5 flex max-w-md items-start gap-3 text-sm leading-relaxed text-muted">
-                <Gift className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
-                <span>
-                  {t.gift}{" "}
-                  <a
-                    href={botUrl("site_channel")}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold whitespace-nowrap text-accent-soft underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent"
-                  >
-                    {t.giftCta} →
-                  </a>
-                </span>
-              </p>
             </div>
 
             {/* Постеры веером: каждый открывает свой пост в канале */}
