@@ -110,6 +110,12 @@
   color: transparent;
 }
 
+/* Мягкое золотое свечение вокруг текста. Ставится на обёртку, а не на сам текст с background-clip: text:
+   в Safari filter на таком элементе ломает обрезку градиента по буквам. Площадь маленькая — для телефонов недорого. */
+@utility text-glow {
+  filter: drop-shadow(0 0 14px rgb(246 183 60 / 0.4));
+}
+
 @utility bg-grid {
   background-image:
     linear-gradient(to right, rgb(246 183 60 / 0.06) 1px, transparent 1px),
