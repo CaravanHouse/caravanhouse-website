@@ -427,6 +427,41 @@ const uz: Dictionary = {
       consent: "Arizani yuborib, koʻrsatilgan kontakt orqali siz bilan bogʻlanishimizga rozilik bildirasiz.",
     },
   },
+  edu: {
+    meta: {
+      title: "Oʻquv markazi uchun sayt va Telegram-bot — CaravanHouse IT",
+      description:
+        "Toshkentdagi oʻquv markazi uchun sayt va Telegram-bot: kurslar, guruhlar jadvali va sinov darsiga onlayn yozilish. Markazingiz uchun demo — sizning nomingiz va kurslaringiz bilan.",
+    },
+    nav: "Oʻquv markazlariga",
+    hero: {
+      eyebrow: "Oʻquv markazlari uchun",
+      title: "Sinov darsiga",
+      titleAccent: "yozib oladigan sayt va Telegram-bot",
+      subtitle:
+        "Kurslar, jadval va yozilish — bir joyda. Oʻquvchi yoki ota-ona oʻzi yoziladi, administrator esa arizani Telegramda oladi va tugma bilan tasdiqlaydi.",
+      cta: "Markazim uchun demo olish",
+      demo: "Sayt namunasini koʻrish",
+    },
+    problems: {
+      eyebrow: "Muammo",
+      title: "Oʻquv markazi arizalarni qayerda yoʻqotadi",
+      items: [
+        { title: "Direktda javob — bir necha soatdan keyin", text: "Administrator darsda ekan, ota-ona allaqachon qoʻshni markazga yozyapti." },
+        { title: "Jadval va narxlar — faqat yozishmada", text: "Har bir yangi mijoz bir xil narsani soʻraydi, javoblarni qoʻlda takrorlash kerak." },
+        { title: "Yozilish — daftarda yoki Excelda", text: "Instagram, Telegram va qoʻngʻiroqlardan kelgan arizalar aralashib ketadi, sinov darslari chalkashadi." },
+        { title: "Sinov darsini hech kim eslatmaydi", text: "Oʻquvchi yozildi, lekin kelishni unutdi — guruhdagi joy boy berildi." },
+      ],
+    },
+    demo: {
+      eyebrow: "Demo",
+      title: "Qanday ishlashini koʻring",
+      subtitle: "Demo oʻylab topilgan markaz asosida qilingan. Markazingiz uchun shaxsiy demo tayyorlaymiz — sizning nomingiz, rangingiz va kurslaringiz bilan.",
+      site: { title: "Oʻquv markazi sayti", text: "Filtrli kurslar, ingliz tili darajasi testi, guruhlar jadvali, sinov darsiga yozilish va oʻquvchi shaxsiy kabineti.", button: "Demo-saytni ochish" },
+      bot: { title: "Sinov darsiga yozilish boti", text: "Oʻquvchi kurs va vaqtni tanlaydi, administrator arizani tugma bilan tasdiqlaydi. Demoda ikkala rolni ham sinab koʻrish mumkin.", button: "Demo-botni ochish", soon: "Tez orada Telegramda" },
+      personal: { title: "Markazingiz uchun demo", text: "Markaz nomi va kurslar roʻyxatini yozing — siz uchun demo-sayt va bot tayyorlaymiz, natijani toʻlovdan oldin koʻrasiz.", button: "Demo olish" },
+    },
+  },
   footer: {
     team: "CaravanHouse jamoasi · Toshkent",
     response: "09:00 dan 21:00 gacha ishlaymiz",

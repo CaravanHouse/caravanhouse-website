@@ -1,13 +1,13 @@
 import { Phone } from "lucide-react";
 import type { Dictionary } from "@/locales";
-import { botUrl, contacts } from "@/lib/site";
+import { botUrl, contacts, type BotRef } from "@/lib/site";
 import Availability from "./Availability";
 import LeadForm from "./LeadForm";
 import ButtonLink from "./ui/ButtonLink";
 import Reveal from "./ui/Reveal";
 import TelegramIcon from "./ui/TelegramIcon";
 
-export default function FinalCTA({ dict }: { dict: Dictionary }) {
+export default function FinalCTA({ dict, botRef = "site_cta" }: { dict: Dictionary; botRef?: BotRef }) {
   const { finalCta } = dict;
 
   return (
@@ -27,7 +27,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
               <p className="mt-5 text-base leading-relaxed text-muted text-pretty sm:text-lg">{finalCta.subtitle}</p>
 
               <div className="mt-8 flex flex-col items-center gap-5 lg:items-start">
-                <ButtonLink href={botUrl("site_cta")} external size="lg" className="w-full sm:h-16 sm:w-auto sm:px-10 sm:text-lg">
+                <ButtonLink href={botUrl(botRef)} external size="lg" className="w-full sm:h-16 sm:w-auto sm:px-10 sm:text-lg">
                   <TelegramIcon className="h-6 w-6" />
                   {finalCta.button}
                 </ButtonLink>

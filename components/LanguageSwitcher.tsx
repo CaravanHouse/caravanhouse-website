@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { locales, localeMeta, type Locale } from "@/locales";
 
-type Props = { lang: Locale; label: string; className?: string };
+// path — часть адреса после языка (например, /education), чтобы переключение языка не уводило со страницы
+type Props = { lang: Locale; label: string; className?: string; path?: string };
 
-export default function LanguageSwitcher({ lang, label, className = "" }: Props) {
+export default function LanguageSwitcher({ lang, label, className = "", path = "" }: Props) {
   return (
     <nav aria-label={label} className={className}>
       <ul className="flex items-center rounded-full border border-line bg-white/[0.03] p-1 text-xs font-bold">
@@ -12,7 +13,7 @@ export default function LanguageSwitcher({ lang, label, className = "" }: Props)
           return (
             <li key={locale}>
               <Link
-                href={`/${locale}`}
+                href={`/${locale}${path}`}
                 hrefLang={localeMeta[locale].htmlLang}
                 lang={localeMeta[locale].htmlLang}
                 aria-current={active ? "true" : undefined}

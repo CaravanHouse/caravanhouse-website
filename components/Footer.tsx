@@ -9,7 +9,8 @@ import SocialIcon from "./ui/SocialIcon";
 import TelegramIcon from "./ui/TelegramIcon";
 import Glow from "./ui/Glow";
 
-type Props = { lang: Locale; dict: Dictionary };
+// onHome=false — футер на внутренней странице: ссылки ведут на разделы главной
+type Props = { lang: Locale; dict: Dictionary; onHome?: boolean };
 
 const headingClass = "text-xs font-bold uppercase tracking-[0.18em] text-accent";
 const linkClass = "rounded text-muted transition-colors hover:text-fg";
@@ -30,16 +31,18 @@ function ContactLink({ href, external, icon, children }: { href: string; externa
   );
 }
 
-export default function Footer({ lang, dict }: Props) {
+export default function Footer({ lang, dict, onHome = true }: Props) {
+  const home = onHome ? "" : `/${lang}`;
   const { footer, nav, services } = dict;
   const year = new Date().getFullYear();
   const links = [
-    { href: "#services", label: nav.services },
-    { href: "#process", label: nav.process },
-    { href: "#projects", label: nav.projects },
-    { href: "#prices", label: nav.prices },
-    { href: "#faq", label: nav.faq },
-    { href: "#contacts", label: nav.contacts },
+    { href: `${home}#services`, label: nav.services },
+    { href: `${home}#process`, label: nav.process },
+    { href: `${home}#projects`, label: nav.projects },
+    { href: `${home}#prices`, label: nav.prices },
+    { href: `${home}#faq`, label: nav.faq },
+    { href: `${home}#contacts`, label: nav.contacts },
+    { href: `/${lang}/education`, label: dict.edu.nav },
   ];
 
   return (

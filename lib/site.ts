@@ -32,7 +32,8 @@ export type BotRef =
   | "site_float"
   | "site_projects"
   | "site_prices"
-  | "site_404";
+  | "site_404"
+  | "site_edu";
 
 export const botUrl = (ref: BotRef) => `${contacts.telegramUrl}?start=${ref}`;
 
@@ -46,6 +47,13 @@ export const demoBots = {
 export type DemoBotId = keyof typeof demoBots;
 
 export const telegramUrl = (username: string) => `https://t.me/${username}`;
+
+// Демо для учебных центров: сайт (персональные демо — /<язык>/p/<slug>) и бот записи на пробный урок.
+// trialBot — имя бота без @, пока бот не создан в BotFather, кнопка показывает «скоро»
+export const eduDemo = {
+  site: "https://edu.caravanhouse.uz",
+  trialBot: null as string | null,
+};
 
 export type SocialNetwork = "telegram" | "channel" | "instagram" | "github" | "linkedin";
 
