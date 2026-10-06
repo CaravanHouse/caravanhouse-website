@@ -12,19 +12,21 @@ import SocialIcon from "./ui/SocialIcon";
 import TelegramIcon from "./ui/TelegramIcon";
 
 // В клиентский компонент передаём только нужные части словаря — меньше данных в HTML.
-type Props = { lang: Locale; dict: Pick<Dictionary, "nav" | "a11y" | "cta"> };
+// path — адрес внутренней страницы (например, /education): тогда пункты меню ведут на разделы главной
+type Props = { lang: Locale; dict: Pick<Dictionary, "nav" | "a11y" | "cta">; path?: string };
 
-export default function Header({ lang, dict }: Props) {
+export default function Header({ lang, dict, path = "" }: Props) {
+  const home = path ? `/${lang}` : "";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: "#services", label: dict.nav.services },
-    { href: "#process", label: dict.nav.process },
-    { href: "#projects", label: dict.nav.projects },
-    { href: "#prices", label: dict.nav.prices },
-    { href: "#faq", label: dict.nav.faq },
-    { href: "#contacts", label: dict.nav.contacts },
+    { href: `${home}#services`, label: dict.nav.services },
+    { href: `${home}#process`, label: dict.nav.process },
+    { href: `${home}#projects`, label: dict.nav.projects },
+    { href: `${home}#prices`, label: dict.nav.prices },
+    { href: `${home}#faq`, label: dict.nav.faq },
+    { href: `${home}#contacts`, label: dict.nav.contacts },
   ];
 
   useEffect(() => {
@@ -73,7 +75,7 @@ export default function Header({ lang, dict }: Props) {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <LanguageSwitcher lang={lang} label={dict.a11y.language} className="hidden sm:block" />
+          <LanguageSwitcher lang={lang} label={dict.a11y.language} className="hidden sm:block" path={path} />
           <div className="hidden items-center gap-2 md:flex">
             <ButtonLink href={contacts.channelUrl} external variant="outline" size="md" className="whitespace-nowrap" aria-label={dict.cta.channel}>
               <SocialIcon network="channel" className="h-4 w-4" />
@@ -128,7 +130,7 @@ export default function Header({ lang, dict }: Props) {
                 </ul>
               </nav>
               <div className="mt-auto flex flex-col gap-4 pt-8">
-                <LanguageSwitcher lang={lang} label={dict.a11y.language} className="self-start sm:hidden" />
+                <LanguageSwitcher lang={lang} label={dict.a11y.language} className="self-start sm:hidden" path={path} />
                 <ButtonLink href={contacts.channelUrl} external variant="outline" size="lg" className="w-full">
                   <SocialIcon network="channel" className="h-5 w-5" />
                   {dict.cta.channel}
