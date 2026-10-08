@@ -57,6 +57,8 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
       description: meta.description,
     },
     robots: { index: true, follow: true },
+    // Подтверждение прав в Яндекс Вебмастере (дублирует файл public/yandex_8bd107ad89226282.html)
+    verification: { yandex: "8bd107ad89226282" },
   };
 }
 
