@@ -35,7 +35,6 @@ export async function GET() {
 - [Sayt (UZ)](${SITE_URL}/uz)
 - [Калькулятор стоимости](${CALC_URL})
 - [Оставить заявку в Telegram](${contacts.telegramUrl})
-- [Демо-проекты на GitHub](https://github.com/CaravanHouse)
 `;
   return new Response(text, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 }

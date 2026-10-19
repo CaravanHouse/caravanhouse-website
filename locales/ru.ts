@@ -217,8 +217,6 @@ const ru = {
     openTelegram: "Открыть в Telegram",
     openWeb: "Открыть сайт",
     demoSoon: "Демо скоро запустим",
-    codeNote: "Исходный код всех демо открыт:",
-    codeLinkLabel: "GitHub CaravanHouse",
     stackLabel: "Технологии",
     // Порядок, ссылки, стек и скриншоты — в lib/projects.ts
     tabs: { all: "Все", web: "Сайты и веб-сервисы", telegram: "Telegram-боты и Mini Apps" },
