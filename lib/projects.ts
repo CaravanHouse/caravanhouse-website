@@ -32,9 +32,6 @@ export interface ProjectMeta {
 
 const webStack = ["Next.js", "React", "TypeScript", "Tailwind"];
 
-// Исходный код всех демо: https://github.com/CaravanHouse
-export const projectsOrgUrl = "https://github.com/CaravanHouse";
-
 // Порядок на сайте задаётся здесь
 export const projects: ProjectMeta[] = [
   // Сайты и веб-сервисы — демо на Vercel, репозитории CaravanHouse/<name>-demo

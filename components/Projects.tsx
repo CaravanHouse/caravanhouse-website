@@ -1,9 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/locales";
-import { projects as projectMeta, projectsOrgUrl } from "@/lib/projects";
+import { projects as projectMeta } from "@/lib/projects";
 import { botUrl } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
-import GithubIcon from "./ui/GithubIcon";
 import ProjectsGrid from "./ProjectsGrid";
 import SectionHeading from "./ui/SectionHeading";
 import Glow from "./ui/Glow";
@@ -29,18 +28,6 @@ export default function Projects({ dict }: { dict: Dictionary }) {
 
         <ProjectsGrid items={items} projects={projects} />
 
-        <p className="mt-8 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted">
-          {projects.codeNote}
-          <a
-            href={projectsOrgUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded font-semibold text-fg underline decoration-line-strong underline-offset-4 hover:decoration-accent"
-          >
-            <GithubIcon className="h-4 w-4" />
-            {projects.codeLinkLabel}
-          </a>
-        </p>
       </div>
     </section>
   );

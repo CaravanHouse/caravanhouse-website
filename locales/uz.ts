@@ -217,8 +217,6 @@ const uz: Dictionary = {
     openTelegram: "Telegramda ochish",
     openWeb: "Saytni ochish",
     demoSoon: "Demo tez orada ishga tushadi",
-    codeNote: "Barcha demolarning manba kodi ochiq:",
-    codeLinkLabel: "GitHub CaravanHouse",
     stackLabel: "Texnologiyalar",
     // Tartib, havolalar, stek va skrinshotlar — lib/projects.ts faylida
     tabs: { all: "Hammasi", web: "Saytlar va veb-xizmatlar", telegram: "Telegram-botlar va Mini Apps" },
