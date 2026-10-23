@@ -2,13 +2,13 @@ import type { Dictionary } from "./index";
 
 const uz: Dictionary = {
   meta: {
-    title: "CaravanHouse — Oʻzbekistondagi biznes uchun Telegram-botlar, saytlar va Mini Apps",
+    title: "CaravanHouse — oʻquv markazlari, repetitorlar va onlayn-maktablar uchun saytlar va Telegram-botlar",
     description:
-      "Oʻzbekistondagi kichik va oʻrta biznes uchun Telegram-botlar, lendinglar, korporativ saytlar, Telegram Mini Apps va mobil ilovalar ishlab chiqamiz. Qatʼiy narx, aniq muddat va ishga tushirilgandan keyin qoʻllab-quvvatlash.",
-    ogAlt: "CaravanHouse — Telegram-botlar, saytlar va Mini Apps",
-    ogTagline: "Telegram-botlar, saytlar va Mini\u00a0Apps —",
-    ogTaglineAccent: "mijoz olib keladigan yechimlar",
-    ogFooter: "Oʻzbekistondagi biznes uchun",
+      "Oʻzbekistondagi oʻquv markazlari, repetitorlar va onlayn-maktablar uchun saytlar, Telegram-botlar va Mini Apps yaratamiz: sinov darsiga yozilish, oʻquvchilarga eslatmalar, toʻlov va barcha arizalar bitta Telegram-chatda. Qatʼiy narx va ishga tushgandan keyin yordam.",
+    ogAlt: "CaravanHouse — oʻquv markazlari uchun saytlar va Telegram-botlar",
+    ogTagline: "Oʻquv markazlari uchun saytlar va botlar —",
+    ogTaglineAccent: "oʻquvchi olib keladigan yechimlar",
+    ogFooter: "Oʻquv markazlari, repetitorlar va onlayn-maktablar",
   },
   a11y: {
     skipToContent: "Asosiy mazmunga oʻtish",
@@ -34,12 +34,12 @@ const uz: Dictionary = {
     channelShort: "Kanal",
   },
   hero: {
-    badge: "Oʻzbekistondagi biznes uchun IT-studiya",
+    badge: "Oʻquv markazlari, repetitorlar va onlayn-maktablar uchun",
     titleBefore: "",
-    titleAccent: "Mijoz olib keladigan",
-    titleAfter: " Telegram-botlar, saytlar va Mini\u00a0Apps yaratamiz",
+    titleAccent: "Oʻquvchi olib keladigan",
+    titleAfter: " saytlar va Telegram-botlar — oʻquv markazlari uchun",
     subtitle:
-      "Vazifani toʻliq oʻz zimmamizga olamiz: gʻoya va dizayndan tortib ishga tushirish va qoʻllab-quvvatlashgacha. Siz shunchaki chiroyli rasm emas, balki ishlaydigan savdo vositasini olasiz.",
+      "Bir daqiqada sinov darsiga yozilish, darslar haqida eslatmalar, toʻlov va barcha arizalar — bitta Telegram-chatda. Direktda yoʻqolgan arizalar va oʻquvchilarga qoʻlda eslatishlar endi yoʻq.",
     primary: "Loyihani muhokama qilish",
     secondary: "Narxni 1 daqiqada hisoblang",
     points: ["Bepul maslahat", "Boshlashdan oldin qatʼiy narx", "Ishga tushgandan keyin yordam"],
@@ -47,31 +47,31 @@ const uz: Dictionary = {
       botName: "CaravanHouse Bot",
       botStatus: "bot",
       typing: "yozmoqda",
-      greeting: "Assalomu alaykum! Qanday yordam bera olamiz?",
-      userMessage: "Ertaga yozilmoqchiman",
-      botReply: "Ajoyib! Qulay vaqtni tanlang:",
+      greeting: "Assalomu alaykum! Bepul sinov darsiga yozilasizmi?",
+      userMessage: "Ha, ingliz tili, A2 daraja",
+      botReply: "Ajoyib! Eng yaqin A2 guruhlar — vaqtni tanlang:",
       slots: ["10:00", "14:30", "18:00"],
-      confirm: "Tayyor! Siz 14:30 ga yozildingiz ✓",
+      confirm: "Tayyor! Sinov darsi ertaga 14:30 da ✓ Bir soat oldin eslatamiz",
       orderLabel: "Yangi ariza",
-      orderValue: "+1 mijoz",
+      orderValue: "+1 oʻquvchi",
     },
   },
   services: {
     eyebrow: "Xizmatlar",
-    title: "Savdolaringiz uchun ishlaydigan toʻrtta vosita",
+    title: "Oʻquv markaziga guruh yigʻish uchun kerak boʻlgan hamma narsa",
     subtitle:
-      "Bitta yoʻnalishni tanlang yoki toʻliq bogʻlamani yigʻamiz: sayt mijozni olib keladi, bot arizani qabul qiladi, Mini App yoki ilova sotadi.",
+      "Bitta yoʻnalishni tanlang yoki toʻliq bogʻlamani yigʻamiz: sayt oʻquvchini olib keladi, bot sinov darsiga yozadi va darslarni eslatadi, siz esa barcha arizalarni Telegramda koʻrasiz.",
     includesLabel: "Nimalar kiradi",
     items: [
       {
         id: "bots",
         title: "Telegram-botlar",
         description:
-          "Buyurtmalar, yozilish, savdo va mijozlarni qoʻllab-quvvatlashni 24/7 avtomatlashtiradi. Mijoz bir soniyada javob oladi, siz esa jamoaning Telegram-chatida tayyor arizani.",
+          "Sinov darsiga yozadi, oʻquvchi va ota-onalarga 24/7 javob beradi, darslar va toʻlov haqida eslatadi. Oʻquvchi bir soniyada javob oladi, administrator esa Telegramda tayyor arizani.",
         features: [
-          "Buyurtma qabul qilish va onlayn yozilish",
-          "Jamoa uchun holat tugmalari bilan arizalar",
-          "Xabarnomalar va mijozlarni segmentlash",
+          "Sinov darsi va guruhlarga yozilish",
+          "Darslar va toʻlov haqida eslatmalar",
+          "Guruh, kurs va darajalar boʻyicha xabarnomalar",
           "Toʻgʻridan-toʻgʻri Telegramdagi admin panel",
         ],
       },
@@ -79,11 +79,11 @@ const uz: Dictionary = {
         id: "websites",
         title: "Veb-saytlar",
         description:
-          "Telefonda bir zumda ochiladigan va tashrif buyuruvchilarni arizaga aylantiradigan lendinglar, korporativ saytlar va veb-platformalar.",
+          "Oʻquv markazi yoki repetitor sayti: kurslar, guruhlar jadvali, oʻqituvchilar, daraja testi va «Sinov darsiga yozilish» tugmasi — telefonda tez ochiladi.",
         features: [
-          "Reklama va aksiyalar uchun lendinglar",
-          "Katalogli korporativ saytlar",
-          "Veb-platformalar va shaxsiy kabinetlar",
+          "Guruh yigʻish va aksiyalar uchun lendinglar",
+          "Kurslar katalogi va guruhlar jadvali",
+          "Daraja testi va oʻquvchi shaxsiy kabineti",
           "SEO asosi, analitika va ikki til (RU/UZ)",
         ],
       },
@@ -91,10 +91,10 @@ const uz: Dictionary = {
         id: "miniapps",
         title: "Telegram Mini Apps",
         description:
-          "Toʻgʻridan-toʻgʻri Telegram ichidagi toʻlaqonli ilova: katalog, savat, buyurtmalar va shaxsiy kabinet — App Store va Google Playdan yuklab olmasdan.",
+          "Onlayn-maktab oʻquvchilari uchun Telegram ichidagi ilova: kurslar, jadval, uy vazifalari va toʻlov — App Store va Google Playdan yuklab olmasdan.",
         features: [
-          "Internet-doʻkon va yetkazib berish menyusi",
-          "Onlayn yozilish va sodiqlik dasturlari",
+          "Kurslar katalogi va oʻqish uchun toʻlov",
+          "Jadval, uy vazifalari va oʻquvchi natijalari",
           "Telegram orqali bir bosishda kirish",
           "Native ilovadan tezroq va arzonroq",
         ],
@@ -211,7 +211,7 @@ const uz: Dictionary = {
     eyebrow: "Loyihalar",
     title: "Demo-loyihalar",
     subtitle:
-      "Biz qiladigan ishlarning ishlaydigan namunalari: klinika, doʻkon va oʻquv markazi uchun saytlar, CRM, shuningdek Telegram-botlar va Mini Apps. Kartochkani bosing va oʻzingiz sinab koʻring.",
+      "Oʻquv markazi sayti va CRMdan boshlang — oʻquvchi yigʻish bogʻlamasi shunday koʻrinadi. Qolgan demolar yana nimalarni qila olishimizni koʻrsatadi: saytlar, Telegram-botlar va Mini Apps. Kartochkani bosing va oʻzingiz sinab koʻring.",
     badge: "Demo",
     askCta: "Shunga oʻxshash loyiha kerak",
     openTelegram: "Telegramda ochish",
@@ -319,8 +319,8 @@ const uz: Dictionary = {
     eyebrow: "Telegram-kanal",
     title: "Telegramda bizni kuzatib boring",
     subtitle:
-      "@caravanhouse_uz kanalida — studiya yangiliklari, yangi loyihalar hamda Telegram-botlar, saytlar va Mini Apps Oʻzbekistondagi biznesga qanday yordam berishi haqida gʻoyalar.",
-    points: ["Studiya yangiliklari va eʼlonlari", "Yangi loyihalar va demolar", "Biznesingiz uchun gʻoyalar"],
+      "@caravanhouse_uz kanalida — studiya yangiliklari, yangi loyihalar hamda oʻquv markazlari va repetitorlar sayt va Telegram-bot yordamida qanday qilib koʻproq oʻquvchi yigʻishi haqida gʻoyalar.",
+    points: ["Studiya yangiliklari va eʼlonlari", "Yangi loyihalar va demolar", "Oʻquv markazlari uchun gʻoyalar"],
     cta: "Kanalga obuna boʻlish",
     postAlt: "CaravanHouse Telegram-kanalidagi post",
     openPost: "Postni Telegramda ochish",
@@ -392,14 +392,14 @@ const uz: Dictionary = {
           "Hostingni oʻz akkauntingizda provayderga oʻzingiz toʻlaysiz — shunda sayt yoki bot doim sizning nazoratingizda boʻladi. Biz hammasini tanlab, sozlab beramiz.",
       },
       {
-        question: "Kichik biznes bilan ishlaysizmi?",
+        question: "Faqat oʻquv markazlari bilan ishlaysizmi?",
         answer:
-          "Albatta — aynan kichik va oʻrta biznes uchun ishlaymiz: doʻkonlar, salonlar, kafelar, oʻquv markazlari. Byudjetingiz va vazifangizga mos yechim tanlaymiz.",
+          "Yoʻq, lekin bizning yoʻnalishimiz — taʼlim: oʻquv markazlari, til maktablari, repetitorlar va onlayn-maktablar. Ularda sinov darslari, guruhlar va toʻlovlar qanday ishlashini bilamiz, shuning uchun tezroq ishga tushiramiz. Boshqa biznesingiz boʻlsa ham yozing — yechim taklif qilamiz.",
       },
     ],
   },
   finalCta: {
-    title: "Gʻoyangiz bormi? 15 daqiqada muhokama qilamiz",
+    title: "Koʻproq oʻquvchi kerakmi? 15 daqiqada muhokama qilamiz",
     subtitle:
       "Telegramda yozing — bir nechta savol beramiz, yechim taklif qilamiz va taxminiy narxni aytamiz. Bepul va hech narsaga majburlamaydi.",
     button: "Telegramda yozish",
@@ -428,7 +428,7 @@ const uz: Dictionary = {
   footer: {
     team: "CaravanHouse jamoasi · Toshkent",
     response: "09:00 dan 21:00 gacha ishlaymiz",
-    tagline: "Oʻzbekistondagi biznes uchun Telegram-botlar, veb-saytlar, Telegram Mini Apps va mobil ilovalar.",
+    tagline: "Oʻzbekistondagi oʻquv markazlari, repetitorlar va onlayn-maktablar uchun saytlar, Telegram-botlar va Mini Apps.",
     contactsTitle: "Aloqa",
     navTitle: "Navigatsiya",
     servicesTitle: "Xizmatlar",

@@ -10,7 +10,7 @@ export async function GET() {
   const price = (id: string) => formatSum(starting.find((p) => p.id === id)!.from).replace(/ /g, " ");
   const text = `# CaravanHouse
 
-> IT-студия из Ташкента: Telegram-боты, веб-сайты, Telegram Mini Apps и мобильные приложения для малого и среднего бизнеса в Узбекистане. Сайт на русском и узбекском.
+> IT-студия из Ташкента. Специализация — учебные центры, языковые школы, репетиторы и онлайн-школы в Узбекистане: сайты, Telegram-боты и Mini Apps для записи на пробный урок, напоминаний ученикам, оплаты и приёма заявок в Telegram. Берём и другие проекты. Сайт на русском и узбекском.
 
 ## Услуги и стартовые цены (сум)
 - Лендинг — от ${price("landing")}
@@ -24,10 +24,10 @@ export async function GET() {
 Код и домен после полной оплаты принадлежат клиенту. Работаем с 09:00 до 21:00 (Ташкент).
 
 ## Демо-проекты (вымышленные компании)
-- [Сайт клиники: структура, врачи, онлайн-запись](https://clinic.caravanhouse.uz)
-- [CRM: дашборд, воронка сделок, клиенты, задачи](https://crm.caravanhouse.uz)
-- [Интернет-магазин: каталог, корзина, панель продавца](https://store.caravanhouse.uz)
 - [Учебный центр: курсы, тест уровня, кабинет ученика](https://edu.caravanhouse.uz)
+- [CRM: дашборд, воронка сделок, клиенты, задачи](https://crm.caravanhouse.uz)
+- [Сайт клиники: структура, врачи, онлайн-запись](https://clinic.caravanhouse.uz)
+- [Интернет-магазин: каталог, корзина, панель продавца](https://store.caravanhouse.uz)
 - Telegram: магазин-Mini App @caravanhouse_shop_bot, бот-квиз @caravanhouse_quiz_bot, «Сад фокуса» @caravanhouse_focus_tree_bot, калькулятор сметы ${CALC_URL}
 
 ## Ссылки

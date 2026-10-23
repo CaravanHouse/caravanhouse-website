@@ -35,10 +35,10 @@ const webStack = ["Next.js", "React", "TypeScript", "Tailwind"];
 // Порядок на сайте задаётся здесь
 export const projects: ProjectMeta[] = [
   // Сайты и веб-сервисы — демо на Vercel, репозитории CaravanHouse/<name>-demo
-  { id: "clinic", demoUrl: "https://clinic.caravanhouse.uz", demoKind: "web", stack: webStack, shot: clinicShot, frame: "browser", group: "web" },
-  { id: "crm", demoUrl: "https://crm.caravanhouse.uz", demoKind: "web", stack: webStack, shot: crmShot, frame: "browser", group: "web" },
-  { id: "store", demoUrl: "https://store.caravanhouse.uz", demoKind: "web", stack: webStack, shot: storeShot, frame: "browser", group: "web" },
   { id: "edu", demoUrl: "https://edu.caravanhouse.uz", demoKind: "web", stack: webStack, shot: eduShot, frame: "browser", group: "web" },
+  { id: "crm", demoUrl: "https://crm.caravanhouse.uz", demoKind: "web", stack: webStack, shot: crmShot, frame: "browser", group: "web" },
+  { id: "clinic", demoUrl: "https://clinic.caravanhouse.uz", demoKind: "web", stack: webStack, shot: clinicShot, frame: "browser", group: "web" },
+  { id: "store", demoUrl: "https://store.caravanhouse.uz", demoKind: "web", stack: webStack, shot: storeShot, frame: "browser", group: "web" },
   {
     id: "shop-miniapp",
     demoUrl: telegramUrl(demoBots.shop),
