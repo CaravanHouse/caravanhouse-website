@@ -9,7 +9,7 @@ type Service = keyof Form["services"];
 type Phase = { name: "idle" } | { name: "sending" } | { name: "done"; id: number | null } | { name: "error"; message: string };
 
 const field =
-  "w-full rounded-xl border border-line-strong bg-bg/60 px-4 py-3 text-base text-fg placeholder:text-subtle transition-colors focus:border-accent/60 focus:outline-none focus:ring-2 focus:ring-accent/20";
+  "w-full rounded-xl border border-line-strong bg-bg-elevated px-4 py-3 text-base text-fg placeholder:text-subtle transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
 
 // Форма заявки: уходит на /api/lead → бот @CaravanHousebot → группа «Заказы» с голосованием
 export default function LeadForm({ form }: { form: Form }) {
@@ -44,9 +44,9 @@ export default function LeadForm({ form }: { form: Form }) {
 
   if (phase.name === "done") {
     return (
-      <div role="status" className="flex h-full flex-col items-center justify-center gap-4 rounded-3xl border border-emerald-400/25 bg-emerald-400/10 p-8 text-center">
-        <CircleCheck className="h-10 w-10 text-emerald-300" aria-hidden="true" />
-        <p className="text-lg font-semibold text-emerald-100">
+      <div role="status" className="flex h-full flex-col items-center justify-center gap-4 rounded-3xl bg-bg p-8 text-center text-fg shadow-[0_40px_80px_-40px_rgb(29_26_22/0.5)]">
+        <CircleCheck className="h-10 w-10 text-emerald-600" aria-hidden="true" />
+        <p className="text-lg font-semibold">
           {phase.id ? form.success.replace("{id}", String(phase.id)) : form.successNoId}
         </p>
       </div>
@@ -55,7 +55,7 @@ export default function LeadForm({ form }: { form: Form }) {
 
   const sending = phase.name === "sending";
   return (
-    <form onSubmit={submit} noValidate className="relative flex flex-col gap-4 rounded-3xl border border-line-strong bg-bg/50 p-6 text-left backdrop-blur sm:p-7">
+    <form onSubmit={submit} noValidate className="relative flex flex-col gap-4 rounded-3xl bg-bg p-6 text-left text-fg shadow-[0_40px_80px_-40px_rgb(29_26_22/0.5)] sm:p-7">
       <p className="text-xl font-bold tracking-tight">{form.title}</p>
       <div className="grid gap-4 sm:grid-cols-2">
         <label htmlFor={`${id}-name`} className="flex flex-col gap-2 text-sm text-muted">
@@ -75,7 +75,7 @@ export default function LeadForm({ form }: { form: Form }) {
             <label
               key={key}
               className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-accent ${
-                service === key ? "border-accent/60 bg-accent/15 text-accent-soft" : "border-line-strong text-muted hover:text-fg"
+                service === key ? "border-accent bg-accent text-on-accent" : "border-line-strong text-muted hover:text-fg"
               }`}
             >
               <input type="radio" name={`${id}-service`} value={key} checked={service === key} onChange={() => setService(key)} className="sr-only" />
@@ -99,7 +99,7 @@ export default function LeadForm({ form }: { form: Form }) {
       </div>
 
       {phase.name === "error" ? (
-        <p role="alert" className="text-sm text-[#ff9b8f]">
+        <p role="alert" className="text-sm text-red-700">
           {phase.message}
         </p>
       ) : null}

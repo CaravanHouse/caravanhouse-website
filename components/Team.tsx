@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Dictionary } from "@/locales";
 import { team } from "@/lib/team";
 import GithubIcon from "./ui/GithubIcon";
+import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 import SocialIcon from "./ui/SocialIcon";
 
@@ -18,12 +19,14 @@ export default function Team({ dict }: { dict: Dictionary }) {
   return (
     <section id="team" aria-labelledby="team-title" className="py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading id="team-title" title={t.title} subtitle={t.subtitle} />
+        <Reveal>
+          <SectionHeading id="team-title" title={t.title} subtitle={t.subtitle} />
+        </Reveal>
 
         <ul className="mt-12 grid gap-8 sm:grid-cols-3 lg:mt-16 lg:gap-10">
-          {members.map(({ meta, text }) => (
-            <li key={meta.id} className="grid grid-cols-[6rem_1fr] gap-x-5 sm:flex sm:flex-col">
-              <div className="relative row-span-4 aspect-square overflow-hidden rounded-2xl bg-surface sm:aspect-[4/5] sm:rounded-[1.5rem]">
+          {members.map(({ meta, text }, index) => (
+            <Reveal as="li" key={meta.id} delay={index * 0.1} className="group grid grid-cols-[6rem_1fr] gap-x-5 sm:flex sm:flex-col">
+              <div className="relative row-span-4 aspect-square overflow-hidden rounded-2xl bg-surface ring-4 ring-transparent transition-[box-shadow] duration-300 group-hover:ring-accent sm:aspect-[4/5] sm:rounded-[1.5rem]">
                 {meta.photo ? (
                   <Image
                     src={meta.photo}
@@ -31,7 +34,7 @@ export default function Team({ dict }: { dict: Dictionary }) {
                     fill
                     sizes="(min-width: 1024px) 380px, (min-width: 640px) 33vw, 96px"
                     placeholder="blur"
-                    className="object-cover object-[50%_25%]"
+                    className="object-cover object-[50%_25%] transition-transform duration-700 group-hover:scale-105"
                   />
                 ) : null}
               </div>
@@ -55,7 +58,7 @@ export default function Team({ dict }: { dict: Dictionary }) {
                   </a>
                 ) : null}
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

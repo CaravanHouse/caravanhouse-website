@@ -3,6 +3,7 @@ import type { Dictionary } from "@/locales";
 import { formatSum, type Prices } from "@/lib/prices";
 import { botUrl } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
+import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 
 type PackageId = keyof Dictionary["prices"]["packages"];
@@ -25,43 +26,57 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
   ];
 
   return (
-    <section id="prices" aria-labelledby="prices-title" className="py-20 sm:py-28">
+    <section id="prices" aria-labelledby="prices-title" className="relative overflow-hidden py-20 sm:py-28">
+      <div aria-hidden="true" className="soft-glow pointer-events-none absolute top-1/3 left-1/2 -z-10 h-[520px] w-[900px] -translate-x-1/2 [--glow:rgb(244_178_35/0.22)]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading id="prices-title" title={t.title} subtitle={t.subtitle} />
+        <Reveal>
+          <SectionHeading id="prices-title" title={t.title} subtitle={t.subtitle} />
+        </Reveal>
 
         <ul className="mt-12 grid gap-5 lg:mt-16 lg:grid-cols-3 lg:items-stretch">
-          {list.map(({ id, price: label, featured }) => {
+          {list.map(({ id, price: label, featured }, index) => {
             const pkg = t.packages[id];
             return (
-              <li
+              <Reveal
+                as="li"
                 key={id}
-                className={`flex flex-col rounded-[1.75rem] p-7 sm:p-8 ${featured ? "scope-dark lg:-my-4 lg:py-12" : "border border-line bg-bg"}`}
+                delay={index * 0.1}
+                className={`relative flex flex-col overflow-hidden rounded-[1.75rem] p-7 transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 sm:p-8 ${
+                  featured
+                    ? "bg-accent text-on-accent shadow-[0_40px_80px_-40px_rgb(143_91_0/0.8)] lg:-my-4 lg:py-12"
+                    : "border border-line bg-bg hover:shadow-[0_24px_50px_-30px_rgb(143_91_0/0.45)]"
+                }`}
               >
-                {featured ? <p className="mb-4 self-start rounded-full bg-accent px-3 py-1 text-xs font-bold text-on-accent">{t.popular}</p> : null}
-                <h3 className="font-display text-xl font-semibold tracking-[-0.02em] sm:text-2xl">{pkg.title}</h3>
-                <p className="mt-2 text-muted">{pkg.note}</p>
-                <p className={`mt-6 text-2xl font-extrabold tracking-tight sm:text-3xl ${featured ? "text-accent" : ""}`}>{label}</p>
-                <ul className="mt-7 flex flex-col gap-3 border-t border-line pt-7">
+                {featured ? (
+                  <span aria-hidden="true" className="animate-shimmer pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/45 to-transparent" />
+                ) : null}
+                {featured ? <p className="relative mb-4 self-start rounded-full bg-fg px-3 py-1 text-xs font-bold text-accent">{t.popular}</p> : null}
+                <h3 className="relative font-display text-xl font-semibold tracking-[-0.02em] sm:text-2xl">{pkg.title}</h3>
+                <p className={`relative mt-2 ${featured ? "text-on-accent/75" : "text-muted"}`}>{pkg.note}</p>
+                <p className={`relative mt-6 text-2xl font-extrabold tracking-tight sm:text-3xl ${featured ? "" : "text-accent-ink"}`}>{label}</p>
+                <ul className={`relative mt-7 flex flex-col gap-3 border-t pt-7 ${featured ? "border-on-accent/20" : "border-line"}`}>
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 leading-snug">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-ink" aria-hidden="true" />
+                      <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${featured ? "bg-fg text-accent" : "bg-accent text-on-accent"}`}>
+                        <Check className="h-3 w-3" aria-hidden="true" strokeWidth={3} />
+                      </span>
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto pt-8">
-                  <ButtonLink href={botUrl("site_prices")} external variant={featured ? "primary" : "secondary"} className="w-full">
+                <div className="relative mt-auto pt-8">
+                  <ButtonLink href={botUrl("site_prices")} external variant={featured ? "ink" : "secondary"} className="w-full">
                     {t.choose}
                   </ButtonLink>
                 </div>
-              </li>
+              </Reveal>
             );
           })}
         </ul>
 
         <div className="mt-6 grid gap-5 lg:mt-10 lg:grid-cols-[1.5fr_1fr]">
-          <div className="flex flex-col gap-4 rounded-[1.75rem] border border-line p-6 sm:flex-row sm:items-start sm:gap-5 sm:p-7">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent-wash text-accent-ink">
+          <div className="flex flex-col gap-4 rounded-[1.75rem] border border-line bg-bg p-6 sm:flex-row sm:items-start sm:gap-5 sm:p-7">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent text-on-accent">
               <Bot className="h-5 w-5" aria-hidden="true" />
             </span>
             <div>

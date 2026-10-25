@@ -34,7 +34,10 @@ const uz: Dictionary = {
     channelShort: "Kanal",
   },
   hero: {
-    title: "Oʻquvchilar sinov darsiga yoziladigan oʻquv markazi sayti",
+    titleBefore: "Oʻquvchilar ",
+    titleMark: "sinov darsiga yoziladigan",
+    titleAfter: " oʻquv markazi sayti",
+    audience: ["Oʻquv markazlari", "Til maktablari", "Repetitorlar", "Onlayn-maktablar", "IELTS va SATga tayyorlov", "IT-kurslar", "Bolalar markazlari", "Oliygohga tayyorlov"],
     subtitle:
       "Kurslar, narxlar, guruhlar jadvali va ikki qadamda yozilish. Ariza darhol administratorga Telegramda keladi va direktda yoʻqolmaydi.",
     primary: "Saytni muhokama qilish",

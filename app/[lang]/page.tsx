@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import JsonLd from "@/components/JsonLd";
+import Marquee from "@/components/Marquee";
 import Packages from "@/components/Packages";
 import Problems from "@/components/Problems";
 import Process from "@/components/Process";
@@ -34,6 +35,9 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       <Header lang={lang} dict={{ nav: dict.nav, a11y: dict.a11y, cta: dict.cta }} />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero dict={dict} />
+        <div className="overflow-x-clip py-3">
+          <Marquee items={dict.hero.audience} />
+        </div>
         <Problems dict={dict} />
         <SiteShowcase dict={dict} />
         <Packages dict={dict} prices={prices} />

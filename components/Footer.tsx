@@ -11,7 +11,7 @@ import TelegramIcon from "./ui/TelegramIcon";
 type Props = { lang: Locale; dict: Dictionary };
 
 const headingClass = "text-sm font-semibold text-fg";
-const linkClass = "rounded text-muted transition-colors hover:text-fg";
+const linkClass = "rounded text-muted transition-colors hover:text-accent-ink";
 
 // Строка контакта: иконка в золотой плашке + текст
 function ContactLink({ href, external, icon, children }: { href: string; external?: boolean; icon: ReactNode; children: ReactNode }) {
@@ -21,7 +21,7 @@ function ContactLink({ href, external, icon, children }: { href: string; externa
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className="group inline-flex items-center gap-3 rounded text-muted transition-colors hover:text-fg"
     >
-      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-line text-accent transition-colors group-hover:border-accent/45">
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent text-on-accent transition-transform group-hover:scale-110">
         {icon}
       </span>
       {children}
@@ -42,13 +42,13 @@ export default function Footer({ lang, dict }: Props) {
   ];
 
   return (
-    <footer className="scope-dark relative overflow-x-clip border-t border-line pb-28 md:pb-0">
+    <footer className="relative overflow-x-clip border-t-4 border-accent bg-bg-elevated pb-28 md:pb-0">
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* На телефоне: бренд, навигация и контакты друг под другом. С lg — три колонки */}
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 py-14 lg:grid-cols-[1.4fr_0.8fr_1.3fr] lg:gap-x-10 lg:py-16">
           <div className="col-span-2 flex flex-col items-start gap-5 lg:col-span-1">
-            <Logo lang={lang} label={dict.a11y.home} variant="full" />
+            <Logo lang={lang} label={dict.a11y.home} />
             <p className="max-w-xs text-sm leading-relaxed text-muted text-pretty">{footer.tagline}</p>
             <ButtonLink href={contacts.channelUrl} external variant="outline" size="md">
               <SocialIcon network="channel" className="h-4 w-4" />
@@ -95,7 +95,7 @@ export default function Footer({ lang, dict }: Props) {
                 </ContactLink>
               </li>
             </ul>
-            <div className="mt-6 rounded-2xl border border-line px-4 py-3">
+            <div className="mt-6 rounded-2xl border border-line bg-bg px-4 py-3">
               <p className="text-sm font-semibold">{footer.team}</p>
               <Availability t={dict.availability} className="mt-1 text-left" />
             </div>
@@ -114,7 +114,7 @@ export default function Footer({ lang, dict }: Props) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-accent/50 hover:text-accent"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-bg text-muted transition-colors hover:border-accent hover:bg-accent hover:text-on-accent"
                 >
                   <SocialIcon network={social.network} className="h-4.5 w-4.5" />
                 </a>

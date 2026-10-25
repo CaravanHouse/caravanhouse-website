@@ -23,8 +23,8 @@ function Schedule({ t }: { t: Dictionary["hero"]["schedule"] }) {
   // у ячеек display: flex, поэтому на широких экранах возвращаем именно flex, а не block
   const col = (day: number, display: "block" | "flex" = "flex") => !hiddenOnPhone.has(day) ? "" : display === "flex" ? "hidden sm:flex" : "hidden sm:block";
   return (
-    <figure aria-label={t.label} className="relative">
-      <div className="rounded-[1.75rem] border border-line bg-bg p-4 shadow-[0_30px_80px_-40px_rgb(29_26_22/0.35)] sm:p-6">
+    <figure aria-label={t.label} className="animate-float relative">
+      <div className="rounded-[1.75rem] border border-line bg-bg p-4 shadow-[0_40px_90px_-40px_rgb(143_91_0/0.45)] sm:p-6">
         <figcaption className="flex items-baseline justify-between gap-4">
           <span className="font-display text-base font-semibold tracking-tight sm:text-lg">{t.title}</span>
           <span className="text-xs text-subtle">edu.caravanhouse.uz</span>
@@ -58,7 +58,11 @@ function Schedule({ t }: { t: Dictionary["hero"]["schedule"] }) {
                   return <span key={key} className={`min-h-14 rounded-xl border border-dashed border-line sm:min-h-16 ${col(d, "block")}`} />;
                 }
                 return (
-                  <span key={key} className={`flex min-h-14 flex-col justify-center rounded-xl bg-surface px-2 py-2 leading-tight sm:min-h-16 ${col(d)}`}>
+                  <span
+                    key={key}
+                    style={{ animationDelay: `${300 + (r * 6 + d) * 70}ms` }}
+                    className={`animate-pop-in flex min-h-14 flex-col justify-center rounded-xl bg-surface px-2 py-2 leading-tight sm:min-h-16 ${col(d)}`}
+                  >
                     <span className="font-semibold">{slot.group}</span>
                     {slot.seats ? (
                       <span className="text-muted">
@@ -97,23 +101,28 @@ export default function Hero({ dict }: Props) {
 
   return (
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden pt-28 pb-20 sm:pt-36 lg:pt-40 lg:pb-24">
-      <div
-        aria-hidden="true"
-        className="bg-notebook pointer-events-none absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black_60%,transparent)]"
-      />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <div className="bg-notebook absolute inset-0 [mask-image:linear-gradient(to_bottom,black_60%,transparent)]" />
+        <div className="soft-glow absolute -top-48 -right-40 h-[640px] w-[760px]" />
+        <div className="soft-glow absolute -bottom-40 -left-48 h-[420px] w-[560px] [--glow:rgb(255_201_77/0.28)]" />
+      </div>
 
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-8">
         <div className="flex flex-col items-start">
           <h1
             id="hero-title"
-            className="font-display text-[1.9rem] leading-[1.15] font-semibold tracking-[-0.03em] text-balance sm:text-[2.75rem] xl:text-[3.05rem]"
+            className="animate-fade-up font-display text-[1.9rem] leading-[1.15] font-semibold tracking-[-0.03em] text-balance sm:text-[2.75rem] xl:text-[3.05rem]"
           >
-            {hero.title}
+            {hero.titleBefore}
+            <span className="marker">{hero.titleMark}</span>
+            {hero.titleAfter}
           </h1>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted text-pretty sm:text-lg">{hero.subtitle}</p>
+          <p className="animate-fade-up mt-6 max-w-xl text-base leading-relaxed text-muted text-pretty sm:text-lg" style={{ animationDelay: "120ms" }}>
+            {hero.subtitle}
+          </p>
 
-          <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+          <div className="animate-fade-up mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row" style={{ animationDelay: "240ms" }}>
             <ButtonLink href={botUrl("site_hero")} external size="lg">
               <TelegramIcon className="h-5 w-5" />
               {hero.primary}
@@ -123,10 +132,12 @@ export default function Hero({ dict }: Props) {
             </ButtonLink>
           </div>
 
-          <ul className="mt-8 flex flex-col gap-2.5 text-sm text-muted sm:flex-row sm:flex-wrap sm:gap-x-6">
+          <ul className="animate-fade-up mt-8 flex flex-col gap-2.5 text-sm text-muted sm:flex-row sm:flex-wrap sm:gap-x-6" style={{ animationDelay: "360ms" }}>
             {hero.facts.map((fact) => (
               <li key={fact} className="flex items-center gap-2">
-                <Check className="h-4 w-4 shrink-0 text-accent-ink" aria-hidden="true" />
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent">
+                  <Check className="h-3 w-3" aria-hidden="true" strokeWidth={3} />
+                </span>
                 {fact}
               </li>
             ))}
