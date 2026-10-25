@@ -4,6 +4,7 @@ import { formatSum, type Prices } from "@/lib/prices";
 import { botUrl } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
 import GoldShapes from "./ui/GoldShapes";
+import Parallax from "./ui/Parallax";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 
@@ -39,11 +40,10 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
           {list.map(({ id, price: label, featured }, index) => {
             const pkg = t.packages[id];
             return (
+              <Parallax as="li" key={id} offset={featured ? -36 : 30} className="flex">
               <Reveal
-                as="li"
-                key={id}
                 delay={index * 0.1}
-                className={`relative flex flex-col overflow-hidden rounded-[1.75rem] p-7 transition-[translate,box-shadow] duration-700 ease-soft hover:-translate-y-2 sm:p-8 ${
+                className={`relative flex w-full flex-col overflow-hidden rounded-[1.75rem] p-7 transition-[translate,box-shadow] duration-700 ease-soft hover:-translate-y-2 sm:p-8 ${
                   featured
                     ? "bg-accent text-on-accent shadow-[0_40px_80px_-40px_rgb(143_91_0/0.8)] lg:-my-4 lg:py-12"
                     : "border border-line bg-bg hover:shadow-[0_24px_50px_-30px_rgb(143_91_0/0.45)]"
@@ -72,6 +72,7 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
                   </ButtonLink>
                 </div>
               </Reveal>
+              </Parallax>
             );
           })}
         </ul>

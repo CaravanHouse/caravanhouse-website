@@ -28,7 +28,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
         <div>
 
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
-            <div className="text-center lg:text-left">
+            <Parallax offset={28} className="text-center lg:text-left">
               <h2 id="cta-title" className="font-display text-[1.75rem] leading-[1.15] font-semibold tracking-[-0.02em] text-balance sm:text-4xl lg:text-[2.75rem]">
                 {finalCta.title}
               </h2>
@@ -51,7 +51,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
                   </a>
                 </p>
               </div>
-            </div>
+            </Parallax>
 
             <div>
               <p className="mb-4 flex items-center gap-3 text-sm font-semibold text-on-accent/70 lg:hidden">

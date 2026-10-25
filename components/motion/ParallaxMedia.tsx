@@ -11,7 +11,9 @@ export default function ParallaxMedia({ children, offset = 40, className = "" }:
   const smooth = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
   const y = useTransform(smooth, [0, 1], [-offset, offset]);
   return (
-    <div ref={ref} className={`relative overflow-hidden ${className}`}>
+    // position задаёт className (например absolute inset-0); по умолчанию relative.
+    // Нельзя ставить relative и absolute вместе: побеждает relative, и рамка схлопывается в 0 по высоте.
+    <div ref={ref} className={`overflow-hidden ${className || "relative"}`}>
       <m.div className="absolute -inset-y-[12%] inset-x-0" style={reduce ? undefined : { y }}>
         {children}
       </m.div>

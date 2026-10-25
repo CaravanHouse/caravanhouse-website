@@ -4,6 +4,7 @@ import type { Dictionary } from "@/locales";
 import { eduDemo, otherDemos } from "@/lib/projects";
 import ButtonLink from "./ui/ButtonLink";
 import Tilt from "./motion/Tilt";
+import Parallax from "./ui/Parallax";
 import GoldShapes from "./ui/GoldShapes";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
@@ -33,11 +34,10 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
           {t.modules.map((module, index) => {
             const Icon = icons[module.id] ?? BookOpen;
             return (
+              <Parallax as="li" key={module.id} offset={[18, -26, 34][index % 3]}>
               <Reveal
-                as="li"
-                key={module.id}
                 delay={(index % 3) * 0.08}
-                className="group flex gap-4 rounded-3xl border border-line bg-bg p-5 transition-[translate,box-shadow,border-color] duration-700 ease-soft hover:-translate-y-1.5 hover:border-accent hover:shadow-[0_20px_40px_-24px_rgb(143_91_0/0.45)] sm:p-6"
+                className="group flex h-full gap-4 rounded-3xl border border-line bg-bg p-5 transition-[translate,box-shadow,border-color] duration-700 ease-soft hover:-translate-y-1.5 hover:border-accent hover:shadow-[0_20px_40px_-24px_rgb(143_91_0/0.45)] sm:p-6"
               >
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent text-on-accent transition-transform duration-500 ease-soft group-hover:-rotate-6 group-hover:scale-110">
                   <Icon className="h-5 w-5" aria-hidden="true" />
@@ -47,6 +47,7 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
                   <p className="mt-1.5 leading-relaxed text-muted">{module.text}</p>
                 </div>
               </Reveal>
+              </Parallax>
             );
           })}
         </ul>
@@ -75,7 +76,7 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
           </a>
           </Tilt>
 
-          <div>
+          <Parallax offset={-30}>
             <h3 className="font-display text-2xl font-semibold tracking-[-0.02em] sm:text-3xl">{t.demoTitle}</h3>
             <p className="mt-4 leading-relaxed text-muted">{t.demoText}</p>
             <ButtonLink href={eduDemo.url} external variant="ink" size="lg" className="mt-7">
@@ -101,7 +102,7 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
                 ))}
               </ul>
             </div>
-          </div>
+          </Parallax>
         </Reveal>
       </div>
     </section>

@@ -10,11 +10,13 @@ type Props = {
   offset?: number;
   // дополнительный поворот слоя за тот же путь, в градусах
   rotate?: number;
+  as?: "div" | "li";
 };
 
 // Слой параллакса: двигается со своей скоростью относительно прокрутки, с пружинным сглаживанием
-export default function Parallax({ children, className = "", offset = 60, rotate = 0 }: Props) {
-  const ref = useRef<HTMLDivElement>(null);
+export default function Parallax({ children, className = "", offset = 60, rotate = 0, as = "div" }: Props) {
+  const ref = useRef<HTMLElement>(null);
+  const Component = as === "li" ? m.li : m.div;
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const smooth = useSpring(scrollYProgress, { stiffness: 90, damping: 24, mass: 0.4 });
@@ -22,8 +24,9 @@ export default function Parallax({ children, className = "", offset = 60, rotate
   const r = useTransform(smooth, [0, 1], [-rotate, rotate]);
 
   return (
-    <m.div ref={ref} className={className} style={reduce ? undefined : { y, rotate: rotate ? r : undefined }}>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    <Component ref={ref as any} className={className} style={reduce ? undefined : { y, rotate: rotate ? r : undefined }}>
       {children}
-    </m.div>
+    </Component>
   );
 }

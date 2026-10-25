@@ -116,7 +116,7 @@ export default function Hero({ dict }: Props) {
       <GoldShapes set="hero" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-8">
-        <div className="flex flex-col items-start">
+        <Parallax offset={30} className="flex flex-col items-start">
           <h1
             id="hero-title"
             className="animate-fade-up font-display text-[1.9rem] leading-[1.15] font-semibold tracking-[-0.03em] text-balance sm:text-[2.75rem] xl:text-[3.05rem]"
@@ -150,7 +150,7 @@ export default function Hero({ dict }: Props) {
               </li>
             ))}
           </ul>
-        </div>
+        </Parallax>
 
         <Parallax offset={-40}>
           <Tilt max={7}>
