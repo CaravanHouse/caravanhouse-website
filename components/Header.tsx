@@ -19,10 +19,10 @@ export default function Header({ lang, dict }: Props) {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: "#services", label: dict.nav.services },
-    { href: "#process", label: dict.nav.process },
-    { href: "#projects", label: dict.nav.projects },
+    { href: "#problems", label: dict.nav.problems },
+    { href: "#site", label: dict.nav.site },
     { href: "#prices", label: dict.nav.prices },
+    { href: "#process", label: dict.nav.process },
     { href: "#faq", label: dict.nav.faq },
     { href: "#contacts", label: dict.nav.contacts },
   ];
@@ -51,7 +51,7 @@ export default function Header({ lang, dict }: Props) {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
-        solid ? "border-b border-accent/20 bg-bg/95 md:bg-bg/75 md:backdrop-blur-xl" : "border-b border-transparent"
+        solid ? "border-b border-line bg-bg/95 md:bg-bg/85 md:backdrop-blur-xl" : "border-b border-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
@@ -63,7 +63,7 @@ export default function Header({ lang, dict }: Props) {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:bg-white/[0.04] hover:text-fg xl:px-4"
+                  className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:text-fg xl:px-3.5"
                 >
                   {link.label}
                 </a>
@@ -75,13 +75,9 @@ export default function Header({ lang, dict }: Props) {
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher lang={lang} label={dict.a11y.language} className="hidden sm:block" />
           <div className="hidden items-center gap-2 md:flex">
-            <ButtonLink href={contacts.channelUrl} external variant="outline" size="md" className="whitespace-nowrap" aria-label={dict.cta.channel}>
-              <SocialIcon network="channel" className="h-4 w-4" />
-              {dict.cta.channelShort}
-            </ButtonLink>
             <ButtonLink href={botUrl("site_header")} external size="md" className="whitespace-nowrap">
               <TelegramIcon className="h-4 w-4" />
-              {dict.cta.telegram}
+              {dict.cta.telegramShort}
             </ButtonLink>
           </div>
           <button
@@ -90,7 +86,7 @@ export default function Header({ lang, dict }: Props) {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? dict.a11y.closeMenu : dict.a11y.openMenu}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white/[0.03] text-fg transition-colors hover:bg-white/[0.08] xl:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line text-fg transition-colors hover:bg-surface xl:hidden"
           >
             {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
           </button>
@@ -119,7 +115,7 @@ export default function Header({ lang, dict }: Props) {
                         className="flex items-center justify-between py-4 text-2xl font-bold tracking-tight text-fg"
                       >
                         {link.label}
-                        <span aria-hidden="true" className="text-accent">
+                        <span aria-hidden="true" className="text-accent-ink">
                           →
                         </span>
                       </a>

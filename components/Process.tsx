@@ -1,40 +1,32 @@
 import type { Dictionary } from "@/locales";
+import GoldShapes from "./ui/GoldShapes";
+import GrowLine from "./ui/GrowLine";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
-import Glow from "./ui/Glow";
 
-// Таймлайн: вертикальный на телефоне, горизонтальный на широких экранах.
+// Настоящая последовательность шагов — поэтому здесь номера. Линии над шагами дорисовываются по очереди.
 export default function Process({ dict }: { dict: Dictionary }) {
   const { process } = dict;
 
   return (
-    <section id="process" aria-labelledby="process-title" className="relative overflow-x-clip py-20 sm:py-28">
-      <Glow className="top-1/2 left-1/2 h-[300px] w-[900px] -translate-x-1/2 -translate-y-1/2" />
+    <section id="process" aria-labelledby="process-title" className="bg-fade-elevated relative isolate py-20 sm:py-24">
+      <GoldShapes set="process" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading id="process-title" eyebrow={process.eyebrow} title={process.title} />
+        <Reveal>
+          <SectionHeading id="process-title" title={process.title} />
+        </Reveal>
 
-        <ol className="relative mt-12 grid gap-8 lg:mt-16 lg:grid-cols-5 lg:gap-6">
-          <span
-            aria-hidden="true"
-            className="absolute top-2 bottom-2 left-[1.375rem] w-px bg-gradient-to-b from-accent/70 via-line-strong to-transparent lg:top-[1.375rem] lg:right-8 lg:bottom-auto lg:left-8 lg:h-px lg:w-auto lg:bg-gradient-to-r"
-          />
-          {process.steps.map((step, index) => {
-            const number = String(index + 1).padStart(2, "0");
-            return (
-              <Reveal as="li" key={step.title} delay={index * 0.07} className="relative flex gap-5 lg:flex-col lg:gap-6">
-                <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent/50 bg-bg text-sm font-extrabold text-accent shadow-[0_0_24px_-4px_rgb(246_183_60/0.45)]">
-                  {number}
-                </span>
-                <div className="pt-1.5 lg:pt-0">
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-subtle">
-                    {process.stepLabel} {number}
-                  </p>
-                  <h3 className="mt-1.5 text-xl font-bold tracking-tight">{step.title}</h3>
-                  <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{step.description}</p>
-                </div>
-              </Reveal>
-            );
-          })}
+        <ol className="mt-12 grid gap-10 lg:mt-16 lg:grid-cols-4 lg:gap-8">
+          {process.steps.map((step, index) => (
+            <Reveal as="li" key={step.title} delay={index * 0.15}>
+              <GrowLine delay={0.2 + index * 0.25} />
+              <span className="mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-accent font-display text-2xl font-semibold text-on-accent shadow-[0_12px_30px_-12px_rgb(143_91_0/0.7)]">
+                {index + 1}
+              </span>
+              <h3 className="mt-5 text-xl font-bold tracking-tight">{step.title}</h3>
+              <p className="mt-2 leading-relaxed text-muted">{step.description}</p>
+            </Reveal>
+          ))}
         </ol>
       </div>
     </section>
