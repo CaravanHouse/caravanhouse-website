@@ -30,6 +30,7 @@ export default function GlobalNotFound() {
           <p className="font-display mt-8 text-7xl font-semibold tracking-tight text-accent-ink sm:text-8xl">404</p>
           <h1 className="mt-4 text-2xl font-bold sm:text-3xl">Страница не найдена</h1>
           <p className="mt-1 text-lg text-muted" lang="uz-Latn">Sahifa topilmadi</p>
+          <p className="text-lg text-muted" lang="en">Page not found</p>
           <p className="mt-5 leading-relaxed text-muted">
             Возможно, ссылка устарела или в адресе опечатка. Караван ушёл дальше — вернёмся на главную.
           </p>
@@ -39,6 +40,9 @@ export default function GlobalNotFound() {
             </Link>
             <Link href="/uz" lang="uz-Latn" className={`${btn} border border-line-strong text-fg hover:bg-surface`}>
               Bosh sahifaga
+            </Link>
+            <Link href="/en" lang="en" className={`${btn} border border-line-strong text-fg hover:bg-surface`}>
+              Home page
             </Link>
             <a href={botUrl("site_404")} className={`${btn} border border-line-strong text-fg hover:bg-surface`}>
               Написать в Telegram
