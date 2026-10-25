@@ -3,6 +3,8 @@ import type { Dictionary } from "@/locales";
 import { eduDemo } from "@/lib/projects";
 import { botUrl } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
+import GoldShapes from "./ui/GoldShapes";
+import Parallax from "./ui/Parallax";
 import TelegramIcon from "./ui/TelegramIcon";
 
 type Props = { dict: Dictionary };
@@ -103,9 +105,14 @@ export default function Hero({ dict }: Props) {
     <section aria-labelledby="hero-title" className="relative isolate overflow-hidden pt-28 pb-20 sm:pt-36 lg:pt-40 lg:pb-24">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="bg-notebook absolute inset-0 [mask-image:linear-gradient(to_bottom,black_60%,transparent)]" />
-        <div className="soft-glow absolute -top-48 -right-40 h-[640px] w-[760px]" />
-        <div className="soft-glow absolute -bottom-40 -left-48 h-[420px] w-[560px] [--glow:rgb(255_201_77/0.28)]" />
+        <Parallax offset={-120} className="absolute -top-48 -right-40 h-[640px] w-[760px]">
+          <div className="soft-glow h-full w-full" />
+        </Parallax>
+        <Parallax offset={160} className="absolute -bottom-40 -left-48 h-[420px] w-[560px]">
+          <div className="soft-glow h-full w-full [--glow:rgb(255_201_77/0.28)]" />
+        </Parallax>
       </div>
+      <GoldShapes set="hero" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-8">
         <div className="flex flex-col items-start">
@@ -144,7 +151,9 @@ export default function Hero({ dict }: Props) {
           </ul>
         </div>
 
-        <Schedule t={hero.schedule} />
+        <Parallax offset={-40}>
+          <Schedule t={hero.schedule} />
+        </Parallax>
       </div>
     </section>
   );

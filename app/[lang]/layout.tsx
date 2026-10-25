@@ -3,6 +3,7 @@ import { Manrope } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import MotionProvider from "@/components/MotionProvider";
+import SmoothScroll from "@/components/SmoothScroll";
 import { getDictionary, hasLocale, localeMeta, locales } from "@/locales";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "../globals.css";
@@ -76,7 +77,10 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
         >
           {dict.a11y.skipToContent}
         </a>
-        <MotionProvider>{children}</MotionProvider>
+        <MotionProvider>
+          <SmoothScroll />
+          {children}
+        </MotionProvider>
         {/* Vercel Web Analytics: посещения без cookie, данные в Vercel → Analytics */}
         <Analytics />
       </body>

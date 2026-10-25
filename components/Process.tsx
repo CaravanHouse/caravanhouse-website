@@ -1,4 +1,5 @@
 import type { Dictionary } from "@/locales";
+import GoldShapes from "./ui/GoldShapes";
 import GrowLine from "./ui/GrowLine";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
@@ -8,7 +9,8 @@ export default function Process({ dict }: { dict: Dictionary }) {
   const { process } = dict;
 
   return (
-    <section id="process" aria-labelledby="process-title" className="bg-bg-elevated py-20 sm:py-28">
+    <section id="process" aria-labelledby="process-title" className="bg-fade-elevated relative isolate py-20 sm:py-24">
+      <GoldShapes set="process" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading id="process-title" title={process.title} />

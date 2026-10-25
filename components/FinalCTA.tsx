@@ -4,17 +4,25 @@ import { botUrl, contacts } from "@/lib/site";
 import Availability from "./Availability";
 import LeadForm from "./LeadForm";
 import ButtonLink from "./ui/ButtonLink";
+import GoldShapes from "./ui/GoldShapes";
+import Parallax from "./ui/Parallax";
+import Wave from "./ui/Wave";
 import TelegramIcon from "./ui/TelegramIcon";
 
 export default function FinalCTA({ dict }: { dict: Dictionary }) {
   const { finalCta } = dict;
 
   return (
-    <section id="contacts" aria-labelledby="cta-title" className="relative isolate overflow-hidden bg-accent py-20 text-on-accent sm:py-28">
+    <>
+    <Wave />
+    <section id="contacts" aria-labelledby="cta-title" className="relative isolate -mt-px overflow-hidden bg-accent py-16 text-on-accent sm:py-20">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="bg-notebook absolute inset-0 opacity-60" />
-        <div className="soft-glow absolute -top-40 -left-40 h-[520px] w-[620px] [--glow:rgb(255_255_255/0.45)]" />
+        <Parallax offset={-90} className="absolute -top-40 -left-40 h-[520px] w-[620px]">
+          <div className="soft-glow h-full w-full [--glow:rgb(255_255_255/0.45)]" />
+        </Parallax>
       </div>
+      <GoldShapes set="cta" className="[--color-accent:#fff8e6]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div>
 
@@ -56,5 +64,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
         </div>
       </div>
     </section>
+    <Wave flip className="-mb-px bg-bg-elevated" />
+    </>
   );
 }

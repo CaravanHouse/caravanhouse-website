@@ -42,7 +42,7 @@ export default function Footer({ lang, dict }: Props) {
   ];
 
   return (
-    <footer className="relative overflow-x-clip border-t-4 border-accent bg-bg-elevated pb-28 md:pb-0">
+    <footer className="relative overflow-x-clip bg-bg-elevated pb-28 md:pb-0">
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* На телефоне: бренд, навигация и контакты друг под другом. С lg — три колонки */}

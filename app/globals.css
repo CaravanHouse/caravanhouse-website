@@ -57,6 +57,24 @@
   }
 }
 
+/* стили Lenis: плавная прокрутка */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 @layer base {
   html {
     background-color: var(--color-bg);
@@ -233,6 +251,63 @@
 }
 @utility animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Медленное вращение и «покачивание» декоративных фигур */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@utility animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+}
+@keyframes bob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(6px, -10px) scale(1.15);
+  }
+  66% {
+    transform: translate(-6px, 6px) scale(0.9);
+  }
+}
+@utility animate-bob {
+  animation: bob 7s ease-in-out infinite;
+}
+
+/* Мягкие переходы между секциями: золотистый фон плавно проявляется и уходит, без резкой границы */
+@utility bg-fade-elevated {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-bg) 0,
+    var(--color-bg-elevated) 140px,
+    var(--color-bg-elevated) calc(100% - 140px),
+    var(--color-bg) 100%
+  );
+}
+
+/* Плавная кривая для наведения и появления */
+@utility ease-soft {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Волны на стыке с золотым блоком */
+@keyframes wave {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@utility animate-wave {
+  animation: wave 14s linear infinite;
+}
+@utility animate-wave-slow {
+  animation: wave 22s linear infinite reverse;
 }
 
 /* Бегущая строка с типами школ */

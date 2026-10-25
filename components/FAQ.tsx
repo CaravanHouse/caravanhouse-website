@@ -14,7 +14,7 @@ export default function FAQ({ faq }: Props) {
   const baseId = useId();
 
   return (
-    <section id="faq" aria-labelledby="faq-title" className="bg-bg-elevated py-20 sm:py-28">
+    <section id="faq" aria-labelledby="faq-title" className="bg-fade-elevated py-20 sm:py-24">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:px-8">
         <Reveal>
           <SectionHeading id="faq-title" title={faq.title} />

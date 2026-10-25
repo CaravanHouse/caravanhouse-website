@@ -3,6 +3,7 @@ import type { Dictionary } from "@/locales";
 import { formatSum, type Prices } from "@/lib/prices";
 import { botUrl } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
+import GoldShapes from "./ui/GoldShapes";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 
@@ -26,7 +27,8 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
   ];
 
   return (
-    <section id="prices" aria-labelledby="prices-title" className="relative overflow-hidden py-20 sm:py-28">
+    <section id="prices" aria-labelledby="prices-title" className="relative isolate overflow-hidden py-20 sm:py-28">
+      <GoldShapes set="prices" />
       <div aria-hidden="true" className="soft-glow pointer-events-none absolute top-1/3 left-1/2 -z-10 h-[520px] w-[900px] -translate-x-1/2 [--glow:rgb(244_178_35/0.22)]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
@@ -41,7 +43,7 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
                 as="li"
                 key={id}
                 delay={index * 0.1}
-                className={`relative flex flex-col overflow-hidden rounded-[1.75rem] p-7 transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 sm:p-8 ${
+                className={`relative flex flex-col overflow-hidden rounded-[1.75rem] p-7 transition-[transform,box-shadow] duration-500 ease-soft hover:-translate-y-2 sm:p-8 ${
                   featured
                     ? "bg-accent text-on-accent shadow-[0_40px_80px_-40px_rgb(143_91_0/0.8)] lg:-my-4 lg:py-12"
                     : "border border-line bg-bg hover:shadow-[0_24px_50px_-30px_rgb(143_91_0/0.45)]"

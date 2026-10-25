@@ -3,6 +3,7 @@ import { ArrowUpRight, BookOpen, CalendarDays, GraduationCap, Languages, ListChe
 import type { Dictionary } from "@/locales";
 import { eduDemo, otherDemos } from "@/lib/projects";
 import ButtonLink from "./ui/ButtonLink";
+import GoldShapes from "./ui/GoldShapes";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 
@@ -20,7 +21,8 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
   const t = dict.site;
 
   return (
-    <section id="site" aria-labelledby="site-title" className="bg-bg-elevated py-20 sm:py-28">
+    <section id="site" aria-labelledby="site-title" className="bg-fade-elevated relative isolate py-20 sm:py-24">
+      <GoldShapes set="site" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading id="site-title" title={t.title} subtitle={t.subtitle} />
@@ -34,9 +36,9 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
                 as="li"
                 key={module.id}
                 delay={(index % 3) * 0.08}
-                className="group flex gap-4 rounded-3xl border border-line bg-bg p-5 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_20px_40px_-24px_rgb(143_91_0/0.45)] sm:p-6"
+                className="group flex gap-4 rounded-3xl border border-line bg-bg p-5 transition-[transform,box-shadow,border-color] duration-500 ease-soft hover:-translate-y-1.5 hover:border-accent hover:shadow-[0_20px_40px_-24px_rgb(143_91_0/0.45)] sm:p-6"
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent text-on-accent transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent text-on-accent transition-transform duration-500 ease-soft group-hover:-rotate-6 group-hover:scale-110">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
@@ -66,7 +68,7 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
               alt={t.imageAlt}
               sizes="(min-width: 1280px) 700px, (min-width: 1024px) 55vw, 100vw"
               placeholder="blur"
-              className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.03]"
+              className="h-auto w-full transition-transform duration-700 ease-soft group-hover:scale-[1.03]"
             />
           </a>
 
