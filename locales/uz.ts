@@ -4,7 +4,7 @@ const uz: Dictionary = {
   meta: {
     title: "CaravanHouse — oʻquv markazlari, repetitorlar va onlayn-maktablar uchun saytlar",
     description:
-      "Oʻzbekistondagi oʻquv markazlari, til maktablari va repetitorlar uchun saytlar yaratamiz: kurslar va narxlar, guruhlar jadvali, daraja testi va sinov darsiga yozilish. Arizalar administratorga Telegramda keladi. Rus va oʻzbek tillarida, qatʼiy narx.",
+      "Oʻzbekistondagi oʻquv markazlari, til maktablari va repetitorlar uchun saytlar yaratamiz: kurslar va narxlar, guruhlar jadvali, daraja testi va sinov darsiga yozilish. Arizalar administratorga Telegramda keladi. Rus, oʻzbek va ingliz tillarida, qatʼiy narx.",
     ogAlt: "CaravanHouse — oʻquv markazlari uchun saytlar",
     ogTagline: "Oʻquv markazlari uchun saytlar —",
     ogTaglineAccent: "sinov darsiga yozilish oson",
@@ -42,7 +42,7 @@ const uz: Dictionary = {
       "Kurslar, narxlar, guruhlar jadvali va ikki qadamda yozilish. Ariza darhol administratorga Telegramda keladi va direktda yoʻqolmaydi.",
     primary: "Saytni muhokama qilish",
     secondary: "Sayt namunasini ochish",
-    facts: ["7 ish kunidan ishga tushirish", "Rus va oʻzbek tillari", "Narx ish boshlanishidan oldin belgilanadi"],
+    facts: ["7 ish kunidan ishga tushirish", "Rus, oʻzbek va ingliz tillari", "Narx ish boshlanishidan oldin belgilanadi"],
     schedule: {
       label: "Oʻquv markazi saytidagi guruhlar jadvali",
       title: "Haftalik jadval",
@@ -73,7 +73,7 @@ const uz: Dictionary = {
       },
       {
         problem: "Oʻquv markazini Google va Yandexda topishmaydi",
-        solution: "Rus va oʻzbek tillaridagi, SEO asosi bor sayt: sizni «Chilonzorda ingliz tili kurslari» kabi soʻrovlar orqali topishadi.",
+        solution: "Rus, oʻzbek va ingliz tillaridagi, SEO asosi bor sayt: sizni «Chilonzorda ingliz tili kurslari» kabi soʻrovlar orqali, chet ellik talabalar esa ingliz tilida topishadi.",
       },
     ],
   },
@@ -86,7 +86,7 @@ const uz: Dictionary = {
       { id: "trial", title: "Sinov darsiga yozilish", text: "Ikki qadamli forma: kurs va qulay vaqt. Ariza darhol Telegramga ketadi." },
       { id: "test", title: "Daraja testi", text: "Bir nechta savol — va sayt oʻzi mos guruhni tavsiya qiladi." },
       { id: "teachers", title: "Oʻqituvchilar va natijalar", text: "Suratlar, tajriba, oʻquvchilaringizning IELTS ballari va oʻqishga kirganlari." },
-      { id: "languages", title: "Rus va oʻzbek tillari", text: "Ikki til va telefonda tez ochilish — ota-onalarning koʻpchiligi aynan telefondan kiradi." },
+      { id: "languages", title: "Rus, oʻzbek va ingliz tillari", text: "Uch tildan istalgani — ingliz tili chet ellik talabalar va xalqaro dasturlar uchun kerak boʻladi. Sayt telefonda tez ochiladi." },
     ],
     demoTitle: "Qanday ishlashini koʻring",
     demoText:
@@ -116,7 +116,7 @@ const uz: Dictionary = {
           "Kurslar, narxlar va oʻqituvchilar",
           "Guruhlar jadvali va boʻsh joylar",
           "Guruh tanlaydigan daraja testi",
-          "Rus va oʻzbek tillari, SEO asosi",
+          "Rus, oʻzbek va ingliz tillari, SEO asosi",
         ],
       },
       online: {
@@ -180,6 +180,11 @@ const uz: Dictionary = {
         question: "Arizalar qayerga keladi?",
         answer:
           "Telegramga: administratorning shaxsiy xabarlariga yoki jamoaning umumiy chatiga. Arizada ism, telefon, tanlangan kurs va qulay vaqt boʻladi.",
+      },
+      {
+        question: "Saytni ingliz tilida qilsa boʻladimi?",
+        answer:
+          "Ha. Saytlarni rus, oʻzbek va ingliz tillarida — istalgan birikmada qilamiz. Ingliz tilidagi versiya chet ellik talabalar, ona tili ingliz boʻlgan oʻqituvchilar yoki IELTS, SAT va xorijda oʻqish kabi xalqaro dasturlar boʻlsa kerak boʻladi. Matnlarni oʻzimiz tarjima qilamiz.",
       },
       {
         question: "Sayt boʻlsa, bot nima uchun kerak?",

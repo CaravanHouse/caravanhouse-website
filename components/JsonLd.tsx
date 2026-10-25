@@ -52,7 +52,7 @@ export default function JsonLd({ lang, dict, prices }: { lang: Locale; dict: Dic
         name: SITE_NAME,
         alternateName: ["Caravan House", "caravanhouse.uz"],
         url: `${SITE_URL}/`,
-        inLanguage: ["ru", "uz-Latn"],
+        inLanguage: ["ru", "uz-Latn", "en"],
         publisher: { "@id": `${SITE_URL}/#organization` },
       },
       {

@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
       languages: {
         ru: "/ru",
         uz: "/uz",
+        en: "/en",
         "x-default": "/ru",
       },
     },

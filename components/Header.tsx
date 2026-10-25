@@ -63,7 +63,7 @@ export default function Header({ lang, dict }: Props) {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:text-fg xl:px-3.5"
+                  className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:text-fg xl:px-2 2xl:px-3.5"
                 >
                   {link.label}
                 </a>
