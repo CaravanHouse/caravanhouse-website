@@ -43,7 +43,7 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
                 as="li"
                 key={id}
                 delay={index * 0.1}
-                className={`relative flex flex-col overflow-hidden rounded-[1.75rem] p-7 transition-[transform,box-shadow] duration-500 ease-soft hover:-translate-y-2 sm:p-8 ${
+                className={`relative flex flex-col overflow-hidden rounded-[1.75rem] p-7 transition-[translate,box-shadow] duration-700 ease-soft hover:-translate-y-2 sm:p-8 ${
                   featured
                     ? "bg-accent text-on-accent shadow-[0_40px_80px_-40px_rgb(143_91_0/0.8)] lg:-my-4 lg:py-12"
                     : "border border-line bg-bg hover:shadow-[0_24px_50px_-30px_rgb(143_91_0/0.45)]"

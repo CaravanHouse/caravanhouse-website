@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Locale } from "@/locales";
-import emblem from "@/public/brand/emblem.png";
+import emblemDark from "@/public/brand/emblem-dark.png";
 import logoFull from "@/public/brand/logo-full.png";
 
-// Знак CaravanHouse: «C» с дорогой каравана. Исходник — public/brand/emblem.png (324×239, прозрачный фон).
+// Знак CaravanHouse: «C» с дорогой каравана. На светлом сайте — чёрная версия public/brand/emblem-dark.png
+// (сделана из emblem.png: та же форма и прозрачность, цвет графитовый). Золотой emblem.png — для тёмного фона (OG-картинка).
 // Декоративный: рядом всегда есть название, поэтому alt пустой.
 export function LogoMark({ className = "h-8 w-auto" }: { className?: string }) {
-  return <Image src={emblem} alt="" width={44} height={32} className={className} />;
+  return <Image src={emblemDark} alt="" width={44} height={32} className={className} />;
 }
 
 type Props = { lang: Locale; label: string; variant?: "compact" | "full" };

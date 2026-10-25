@@ -289,9 +289,9 @@ html.lenis body {
   );
 }
 
-/* Плавная кривая для наведения и появления */
+/* Плавная кривая для наведения: мягкий разгон и мягкая остановка, без резкого рывка в начале */
 @utility ease-soft {
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Волны на стыке с золотым блоком */

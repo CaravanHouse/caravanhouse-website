@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
-import emblem from "@/public/brand/emblem.png";
+import emblem from "@/public/brand/emblem-dark.png";
 import { botUrl } from "@/lib/site";
 import "./globals.css";
 
