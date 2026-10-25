@@ -2,6 +2,8 @@ import Image from "next/image";
 import type { Dictionary } from "@/locales";
 import { team } from "@/lib/team";
 import GithubIcon from "./ui/GithubIcon";
+import ParallaxMedia from "./motion/ParallaxMedia";
+import Parallax from "./ui/Parallax";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
 import SocialIcon from "./ui/SocialIcon";
@@ -25,9 +27,11 @@ export default function Team({ dict }: { dict: Dictionary }) {
 
         <ul className="mt-12 grid gap-8 sm:grid-cols-3 lg:mt-16 lg:gap-10">
           {members.map(({ meta, text }, index) => (
-            <Reveal as="li" key={meta.id} delay={index * 0.1} className="group grid grid-cols-[6rem_1fr] gap-x-5 sm:flex sm:flex-col">
+            <Parallax as="li" key={meta.id} offset={index === 1 ? -40 : 24}>
+            <Reveal delay={index * 0.1} className="group grid grid-cols-[6rem_1fr] gap-x-5 sm:flex sm:flex-col">
               <div className="relative row-span-4 aspect-square overflow-hidden rounded-2xl bg-surface ring-4 ring-transparent transition-[box-shadow] duration-500 ease-soft group-hover:ring-accent sm:aspect-[4/5] sm:rounded-[1.5rem]">
                 {meta.photo ? (
+                  <ParallaxMedia offset={28} className="absolute inset-0">
                   <Image
                     src={meta.photo}
                     alt={`${t.photoAlt}: ${text.name}`}
@@ -36,6 +40,7 @@ export default function Team({ dict }: { dict: Dictionary }) {
                     placeholder="blur"
                     className="object-cover object-[50%_25%] transition-transform duration-1000 ease-soft group-hover:scale-105"
                   />
+                  </ParallaxMedia>
                 ) : null}
               </div>
               <h3 className="text-xl font-bold tracking-tight sm:mt-5">{text.name}</h3>
@@ -59,6 +64,7 @@ export default function Team({ dict }: { dict: Dictionary }) {
                 ) : null}
               </div>
             </Reveal>
+            </Parallax>
           ))}
         </ul>
       </div>

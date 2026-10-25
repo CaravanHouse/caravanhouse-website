@@ -22,7 +22,7 @@ export default function Problems({ dict }: { dict: Dictionary }) {
           </div>
           <dl>
             {t.items.map((item, index) => (
-              <Reveal key={item.problem} delay={index * 0.05} className="grid gap-3 border-b border-line py-6 md:grid-cols-2 md:gap-10 md:py-8">
+              <Reveal key={item.problem} delay={index * 0.08} x={-60} className="grid gap-3 border-b border-line py-6 md:grid-cols-2 md:gap-10 md:py-8">
                 <dt className="text-lg font-semibold leading-snug text-muted sm:text-xl">
                   <span className="sr-only">{t.problemLabel}: </span>
                   <StrikeText delay={index * 0.1}>{item.problem}</StrikeText>

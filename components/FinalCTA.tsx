@@ -7,6 +7,7 @@ import ButtonLink from "./ui/ButtonLink";
 import GoldShapes from "./ui/GoldShapes";
 import Parallax from "./ui/Parallax";
 import Wave from "./ui/Wave";
+import Tilt from "./motion/Tilt";
 import TelegramIcon from "./ui/TelegramIcon";
 
 export default function FinalCTA({ dict }: { dict: Dictionary }) {
@@ -27,7 +28,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
         <div>
 
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
-            <div className="text-center lg:text-left">
+            <Parallax offset={28} className="text-center lg:text-left">
               <h2 id="cta-title" className="font-display text-[1.75rem] leading-[1.15] font-semibold tracking-[-0.02em] text-balance sm:text-4xl lg:text-[2.75rem]">
                 {finalCta.title}
               </h2>
@@ -50,7 +51,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
                   </a>
                 </p>
               </div>
-            </div>
+            </Parallax>
 
             <div>
               <p className="mb-4 flex items-center gap-3 text-sm font-semibold text-on-accent/70 lg:hidden">
@@ -58,7 +59,9 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
                 {finalCta.or}
                 <span className="h-px flex-1 bg-on-accent/25" />
               </p>
-              <LeadForm form={finalCta.form} />
+              <Tilt max={4}>
+                <LeadForm form={finalCta.form} />
+              </Tilt>
             </div>
           </div>
         </div>

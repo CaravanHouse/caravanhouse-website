@@ -38,6 +38,7 @@ const uz: Dictionary = {
     titleMark: "sinov darsiga yoziladigan",
     titleAfter: " oʻquv markazi sayti",
     audience: ["Oʻquv markazlari", "Til maktablari", "Repetitorlar", "Onlayn-maktablar", "IELTS va SATga tayyorlov", "IT-kurslar", "Bolalar markazlari", "Oliygohga tayyorlov"],
+    perks: ["7 kundan ishga tushirish", "Arizalar Telegramga", "Rus, oʻzbek, ingliz tillari", "Daraja testi", "Guruhlar jadvali", "Qatʼiy narx", "Bir oy bepul yordam"],
     subtitle:
       "Kurslar, narxlar, guruhlar jadvali va ikki qadamda yozilish. Ariza darhol administratorga Telegramda keladi va direktda yoʻqolmaydi.",
     primary: "Saytni muhokama qilish",
