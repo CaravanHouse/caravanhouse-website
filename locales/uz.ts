@@ -2,12 +2,12 @@ import type { Dictionary } from "./index";
 
 const uz: Dictionary = {
   meta: {
-    title: "CaravanHouse — oʻquv markazlari, repetitorlar va onlayn-maktablar uchun saytlar va Telegram-botlar",
+    title: "CaravanHouse — oʻquv markazlari, repetitorlar va onlayn-maktablar uchun saytlar",
     description:
-      "Oʻzbekistondagi oʻquv markazlari, repetitorlar va onlayn-maktablar uchun saytlar, Telegram-botlar va Mini Apps yaratamiz: sinov darsiga yozilish, oʻquvchilarga eslatmalar, toʻlov va barcha arizalar bitta Telegram-chatda. Qatʼiy narx va ishga tushgandan keyin yordam.",
-    ogAlt: "CaravanHouse — oʻquv markazlari uchun saytlar va Telegram-botlar",
-    ogTagline: "Oʻquv markazlari uchun saytlar va botlar —",
-    ogTaglineAccent: "oʻquvchi olib keladigan yechimlar",
+      "Oʻzbekistondagi oʻquv markazlari, til maktablari va repetitorlar uchun saytlar yaratamiz: kurslar va narxlar, guruhlar jadvali, daraja testi va sinov darsiga yozilish. Arizalar administratorga Telegramda keladi. Rus va oʻzbek tillarida, qatʼiy narx.",
+    ogAlt: "CaravanHouse — oʻquv markazlari uchun saytlar",
+    ogTagline: "Oʻquv markazlari uchun saytlar —",
+    ogTaglineAccent: "sinov darsiga yozilish oson",
     ogFooter: "Oʻquv markazlari, repetitorlar va onlayn-maktablar",
   },
   a11y: {
@@ -20,388 +20,196 @@ const uz: Dictionary = {
     opensInTelegram: "Telegramda ochiladi",
   },
   nav: {
-    services: "Xizmatlar",
-    process: "Qanday ishlaymiz",
-    projects: "Loyihalar",
+    problems: "Sayt nima uchun",
+    site: "Saytda nima bor",
     prices: "Narxlar",
+    process: "Qanday ishlaymiz",
     faq: "Savollar",
     contacts: "Aloqa",
   },
   cta: {
-    telegram: "Telegramda yozish",
-    telegramShort: "Yozish",
+    telegram: "Saytni Telegramda muhokama qilish",
+    telegramShort: "Saytni muhokama qilish",
     channel: "Kanalga obuna boʻlish",
     channelShort: "Kanal",
   },
   hero: {
-    badge: "Oʻquv markazlari, repetitorlar va onlayn-maktablar uchun",
-    titleBefore: "",
-    titleAccent: "Oʻquvchi olib keladigan",
-    titleAfter: " saytlar va Telegram-botlar — oʻquv markazlari uchun",
+    title: "Oʻquvchilar sinov darsiga yoziladigan oʻquv markazi sayti",
     subtitle:
-      "Bir daqiqada sinov darsiga yozilish, darslar haqida eslatmalar, toʻlov va barcha arizalar — bitta Telegram-chatda. Direktda yoʻqolgan arizalar va oʻquvchilarga qoʻlda eslatishlar endi yoʻq.",
-    primary: "Loyihani muhokama qilish",
-    secondary: "Narxni 1 daqiqada hisoblang",
-    points: ["Bepul maslahat", "Boshlashdan oldin qatʼiy narx", "Ishga tushgandan keyin yordam"],
-    mockup: {
-      botName: "CaravanHouse Bot",
-      botStatus: "bot",
-      typing: "yozmoqda",
-      greeting: "Assalomu alaykum! Bepul sinov darsiga yozilasizmi?",
-      userMessage: "Ha, ingliz tili, A2 daraja",
-      botReply: "Ajoyib! Eng yaqin A2 guruhlar — vaqtni tanlang:",
-      slots: ["10:00", "14:30", "18:00"],
-      confirm: "Tayyor! Sinov darsi ertaga 14:30 da ✓ Bir soat oldin eslatamiz",
-      orderLabel: "Yangi ariza",
-      orderValue: "+1 oʻquvchi",
+      "Kurslar, narxlar, guruhlar jadvali va ikki qadamda yozilish. Ariza darhol administratorga Telegramda keladi va direktda yoʻqolmaydi.",
+    primary: "Saytni muhokama qilish",
+    secondary: "Sayt namunasini ochish",
+    facts: ["7 ish kunidan ishga tushirish", "Rus va oʻzbek tillari", "Narx ish boshlanishidan oldin belgilanadi"],
+    schedule: {
+      label: "Oʻquv markazi saytidagi guruhlar jadvali",
+      title: "Haftalik jadval",
+      days: ["Du", "Se", "Ch", "Pa", "Ju", "Sh"],
+      seats: "joy",
+      trial: "Sinov",
+      toastTitle: "Sinov darsiga yangi ariza",
+      toastText: "Malika, English A2, shanba 14:00",
+      toastFrom: "saytdan",
     },
   },
-  services: {
-    eyebrow: "Xizmatlar",
-    title: "Oʻquv markaziga guruh yigʻish uchun kerak boʻlgan hamma narsa",
-    subtitle:
-      "Bitta yoʻnalishni tanlang yoki toʻliq bogʻlamani yigʻamiz: sayt oʻquvchini olib keladi, bot sinov darsiga yozadi va darslarni eslatadi, siz esa barcha arizalarni Telegramda koʻrasiz.",
-    includesLabel: "Nimalar kiradi",
+  problems: {
+    title: "Guruh yigʻishga nima xalaqit beradi va sayt buni qanday hal qiladi",
+    problemLabel: "Hozir",
+    solutionLabel: "Sayt bilan",
     items: [
       {
-        id: "bots",
-        title: "Telegram-botlar",
-        description:
-          "Sinov darsiga yozadi, oʻquvchi va ota-onalarga 24/7 javob beradi, darslar va toʻlov haqida eslatadi. Oʻquvchi bir soniyada javob oladi, administrator esa Telegramda tayyor arizani.",
-        features: [
-          "Sinov darsi va guruhlarga yozilish",
-          "Darslar va toʻlov haqida eslatmalar",
-          "Guruh, kurs va darajalar boʻyicha xabarnomalar",
-          "Toʻgʻridan-toʻgʻri Telegramdagi admin panel",
-        ],
+        problem: "Arizalar Instagram direktida yoʻqolib ketadi",
+        solution: "Saytdagi har bir ariza administratorga Telegramda keladi: ism, telefon, kurs va qulay vaqt.",
       },
       {
-        id: "websites",
-        title: "Veb-saytlar",
-        description:
-          "Oʻquv markazi yoki repetitor sayti: kurslar, guruhlar jadvali, oʻqituvchilar, daraja testi va «Sinov darsiga yozilish» tugmasi — telefonda tez ochiladi.",
-        features: [
-          "Guruh yigʻish va aksiyalar uchun lendinglar",
-          "Kurslar katalogi va guruhlar jadvali",
-          "Daraja testi va oʻquvchi shaxsiy kabineti",
-          "SEO asosi, analitika va ikki til (RU/UZ)",
-        ],
+        problem: "Administrator kun boʻyi bir xil savollarga javob beradi",
+        solution: "Narxlar, jadval va oʻqituvchilar saytda bor. Ota-ona hammasini oʻzi koʻradi va darhol yoziladi.",
       },
       {
-        id: "miniapps",
-        title: "Telegram Mini Apps",
-        description:
-          "Onlayn-maktab oʻquvchilari uchun Telegram ichidagi ilova: kurslar, jadval, uy vazifalari va toʻlov — App Store va Google Playdan yuklab olmasdan.",
-        features: [
-          "Kurslar katalogi va oʻqish uchun toʻlov",
-          "Jadval, uy vazifalari va oʻquvchi natijalari",
-          "Telegram orqali bir bosishda kirish",
-          "Native ilovadan tezroq va arzonroq",
-        ],
+        problem: "Sinov darsiga yozilishdi, lekin kelishmadi",
+        solution: "Bot yozilishni tasdiqlaydi va darsdan bir soat oldin eslatadi.",
       },
       {
-        id: "apps",
-        badge: "Yangi yoʻnalish",
-        title: "Mobil ilovalar",
-        description:
-          "Mijozlaringiz uchun App Store va Google Playdagi oʻz ilovangiz: buyurtmalar, yozilish, shaxsiy kabinet va bildirishnomalar. Qachon Mini App yetarli, qachon alohida ilova kerakligini halol aytamiz.",
-        features: [
-          "iOS va Android uchun ilovalar",
-          "Brendingizga mos interfeys dizayni",
-          "Push-bildirishnomalar va shaxsiy kabinet",
-          "App Store va Google Playga joylash",
-        ],
+        problem: "Oʻquv markazini Google va Yandexda topishmaydi",
+        solution: "Rus va oʻzbek tillaridagi, SEO asosi bor sayt: sizni «Chilonzorda ingliz tili kurslari» kabi soʻrovlar orqali topishadi.",
       },
     ],
-    integrations: {
-      title: "Texnologiyalar va integratsiyalar",
-      now: "Hozir qilamiz",
-      nowItems: ["Node.js + grammY asosidagi Telegram-botlar", "Next.js asosidagi veb-saytlar", "Telegram Mini Apps"],
-      onRequest: "Buyurtma asosida — muddatini kelishamiz",
-      onRequestItems: ["amoCRM", "Bitrix24", "Eskiz SMS", "Yetkazib berish", "AI-yordamchi", "Click va Payme orqali toʻlov"],
-    },
+  },
+  site: {
+    title: "Oʻquv markazingiz saytida nimalar boʻladi",
+    subtitle: "Saytni aynan sizga kerakli bloklardan yigʻamiz. Koʻpchilik markazlar mana shulardan boshlaydi.",
+    modules: [
+      { id: "courses", title: "Kurslar va narxlar", text: "Yoʻnalishlar, darajalar, davomiylik va narx — bularga direktda javob berishga hojat qolmaydi." },
+      { id: "schedule", title: "Guruhlar jadvali", text: "Eng yaqin startlar va boʻsh joylar: qaysi guruhga hali qoʻshilish mumkinligi koʻrinadi." },
+      { id: "trial", title: "Sinov darsiga yozilish", text: "Ikki qadamli forma: kurs va qulay vaqt. Ariza darhol Telegramga ketadi." },
+      { id: "test", title: "Daraja testi", text: "Bir nechta savol — va sayt oʻzi mos guruhni tavsiya qiladi." },
+      { id: "teachers", title: "Oʻqituvchilar va natijalar", text: "Suratlar, tajriba, oʻquvchilaringizning IELTS ballari va oʻqishga kirganlari." },
+      { id: "languages", title: "Rus va oʻzbek tillari", text: "Ikki til va telefonda tez ochilish — ota-onalarning koʻpchiligi aynan telefondan kiradi." },
+    ],
+    demoTitle: "Qanday ishlashini koʻring",
+    demoText:
+      "Biz Zukko oʻquv markazining demo-saytini yigʻdik. Brend oʻylab topilgan, qolgan hammasi ishlaydi: daraja testi, jadval, sinov darsiga yozilish va oʻquvchi shaxsiy kabineti.",
+    demoCta: "Demo-saytni ochish",
+    imageAlt: "Oʻquv markazi demo-sayti: kurslar, sinov darsi tugmasi va guruhlarning eng yaqin startlari",
+    othersTitle: "Boshqa saytlar ham qilganmiz",
+    others: { clinic: "Klinika sayti", store: "Internet-doʻkon" },
   },
   prices: {
-    eyebrow: "Narxlar",
-    title: "Qancha turadi",
-    subtitle: "Boshlangʻich narxlar. Aniq narxni ish boshlanishidan oldin kelishib olamiz — vazifa oʻzgarmasa, narx ham oʻzgarmaydi.",
-    // {price} — calc.caravanhouse.uz kalkulyatoridagi narx (yagona manba)
+    title: "Maktabingiz hajmiga mos uchta paket",
+    subtitle: "Boshlangʻich narxlar. Aniq narxni ish boshlanishidan oldin belgilaymiz — vazifa oʻzgarmasa, narx ham oʻzgarmaydi.",
+    // {price} — narx kalkulyatordan (calc.caravanhouse.uz)
     pricePattern: "{price} soʻmdan",
-    items: {
-      landing: { title: "Lending", note: "Reklama yoki aksiya uchun bir sahifali sayt" },
-      bot: { title: "Telegram-bot", note: "Arizalar, yozilish va mijozlarga 24/7 javob" },
-      corporate: { title: "Korporativ sayt", note: "Katalogli koʻp sahifali sayt" },
-      miniapp: { title: "Telegram Mini App", note: "Telegram ichidagi doʻkon yoki servis" },
+    popular: "Koʻpincha shuni tanlashadi",
+    choose: "Paketni muhokama qilish",
+    packages: {
+      tutor: {
+        title: "Repetitor yoki mini-maktab",
+        note: "Oʻquvchi tez yozilishi uchun bitta sahifa",
+        features: ["Siz haqingizda, fanlar va narxlar", "Oʻquvchilar fikrlari va natijalari", "Sinov darsiga yozilish", "Arizalar Telegramga"],
+      },
+      center: {
+        title: "Oʻquv markazi",
+        note: "Bir nechta yoʻnalish va filial uchun sayt",
+        features: [
+          "Kurslar, narxlar va oʻqituvchilar",
+          "Guruhlar jadvali va boʻsh joylar",
+          "Guruh tanlaydigan daraja testi",
+          "Rus va oʻzbek tillari, SEO asosi",
+        ],
+      },
+      online: {
+        title: "Onlayn-maktab",
+        note: "Oʻquvchi shaxsiy kabinetli sayt",
+        features: ["«Oʻquv markazi» paketidagi hammasi", "Shaxsiy kabinet: darslar va uy vazifalari", "Click va Payme orqali toʻlov", "Toʻlovdan keyin darslarga kirish"],
+        price: "Narx muhokamadan keyin",
+      },
     },
-    app: {
-      title: "Mobil ilova",
-      badge: "Yangi yoʻnalish",
-      note: "iOS va Android uchun ilova, App Store va Google Playga joylash bilan",
-      price: "Narx muhokamadan keyin",
-      cta: "Muhokama qilish",
+    addon: {
+      title: "Yozilish uchun Telegram-bot",
+      text: "Sinov darsiga yozilishni tasdiqlaydi, darsdan bir soat oldin eslatadi va administrator uxlayotganda koʻp beriladigan savollarga javob beradi. Istalgan paketga ulanadi.",
     },
-    payment: "Toʻlov: boshlashdan oldin {pre}% oldindan toʻlov, topshirilgandan keyin {post}%. Qoʻllab-quvvatlash: birinchi oy bepul, keyin oyiga {support} soʻmdan.",
-    calcCta: "Narxni 1 daqiqada hisoblang",
-    calcNote: "Kalkulyator vazifangiz uchun taxminiy narx oraligʻini koʻrsatadi",
-    offerTitle: "Dastlabki uchta mijozga — 15–20% chegirma",
-    offerText: "Fikr-mulohaza va loyihani portfolioda koʻrsatishga ruxsat evaziga.",
-  },
-  advantages: {
-    eyebrow: "Nega biz",
-    title: "Siz xotirjam boʻlishingiz uchun ishlaymiz",
-    items: [
-      {
-        id: "deadlines",
-        title: "Muddatlarga rioya qilamiz",
-        description:
-          "Ishni aniq sanali bosqichlarga boʻlamiz. Har hafta natijani koʻrsatamiz — ishga tushirish qachon boʻlishini doim bilasiz.",
-      },
-      {
-        id: "support",
-        title: "Ishga tushgandan keyin yordam",
-        description:
-          "Topshirgandan keyin gʻoyib boʻlmaymiz: xatolarni tuzatamiz, qoʻshimcha ishlarda yordam beramiz va hammasi barqaror ishlashini kuzatamiz.",
-      },
-      {
-        id: "tech",
-        title: "Zamonaviy texnologiyalar",
-        description:
-          "Next.js, TypeScript, Node.js va grammY. Keyinchalik oson rivojlantiriladigan tez va xavfsiz yechimlar.",
-      },
-      {
-        id: "price",
-        title: "Shaffof narx",
-        description:
-          "Narx va ishlar tarkibini boshlashdan oldin kelishib olamiz. Yashirin toʻlovlar va «kutilmagan» qoʻshimcha haqlar yoʻq.",
-      },
-    ],
+    payment: "Toʻlov: boshlashdan oldin {pre}%, topshirilgandan keyin {post}%. Birinchi oy qoʻllab-quvvatlash bepul, keyin oyiga {support} soʻmdan.",
+    offerTitle: "Birinchi uchta oʻquv markaziga 15–20% chegirma",
+    offerText: "Fikr-mulohaza va saytni portfolioda koʻrsatishga ruxsat evaziga.",
   },
   process: {
-    eyebrow: "Qanday ishlaymiz",
-    title: "Telegramdagi xabardan ishlaydigan mahsulotgacha",
-    stepLabel: "Qadam",
+    title: "Saytni qanday qilamiz",
     steps: [
+      { title: "Ariza", description: "Telegramda nechta kurs va filialingiz borligini yozasiz. Shu kuni javob beramiz." },
       {
-        title: "Ariza",
-        description: "Telegramda vazifangiz haqida bir-ikki soʻz yozasiz. Oʻsha kuniyoq javob beramiz.",
-      },
-      {
-        title: "Muhokama va TZ",
-        description:
-          "15–30 daqiqalik qoʻngʻiroqda maqsadlarni aniqlaymiz va narx hamda muddatlar koʻrsatilgan tushunarli TZ tayyorlaymiz.",
+        title: "15 daqiqalik qoʻngʻiroq",
+        description: "Hozir oʻquvchilar sizga qanday yozilishini koʻrib chiqamiz va narx hamda muddat bilan sayt tuzilmasini yuboramiz.",
       },
       {
         title: "Dizayn va ishlab chiqish",
-        description:
-          "Dizaynni kelishib olamiz, soʻng ishlab chiqamiz. Oraliq natijani har hafta koʻrsatamiz.",
+        description: "Bosh sahifa dizaynini kelishib olamiz, soʻng saytni yigʻamiz. Har hafta nima tayyorligini koʻrsatamiz.",
       },
       {
         title: "Ishga tushirish",
-        description:
-          "Test qilamiz, joylashtiramiz, domen va analitikani ulaymiz. Jamoangizni oʻrgatamiz.",
-      },
-      {
-        title: "Qoʻllab-quvvatlash",
-        description:
-          "Loyihani ishga tushgandan keyin ham kuzatib boramiz: tuzatishlar, yangilanishlar va biznes oʻsishi bilan yangi funksiyalar.",
-      },
-    ],
-  },
-  projects: {
-    eyebrow: "Loyihalar",
-    title: "Demo-loyihalar",
-    subtitle:
-      "Oʻquv markazi sayti va CRMdan boshlang — oʻquvchi yigʻish bogʻlamasi shunday koʻrinadi. Qolgan demolar yana nimalarni qila olishimizni koʻrsatadi: saytlar, Telegram-botlar va Mini Apps. Kartochkani bosing va oʻzingiz sinab koʻring.",
-    badge: "Demo",
-    askCta: "Shunga oʻxshash loyiha kerak",
-    openTelegram: "Telegramda ochish",
-    openWeb: "Saytni ochish",
-    demoSoon: "Demo tez orada ishga tushadi",
-    stackLabel: "Texnologiyalar",
-    // Tartib, havolalar, stek va skrinshotlar — lib/projects.ts faylida
-    tabs: { all: "Hammasi", web: "Saytlar va veb-xizmatlar", telegram: "Telegram-botlar va Mini Apps" },
-    items: [
-      {
-        id: "clinic",
-        category: "Klinika sayti",
-        title: "Koʻp tarmoqli klinika",
-        imageAlt: "Klinika sayti: shifokor qidiruvi, tezkor amallar va eng yaqin boʻsh vaqtlar",
-        description:
-          "Filial va qavatlar boʻyicha klinika tuzilmasi, filtrli shifokorlar, vaqt tanlab 4 bosqichda onlayn yozilish, qidiruvli narxlar va chek-aplar.",
-      },
-      {
-        id: "crm",
-        category: "Veb-ilova",
-        title: "Savdo boʻlimi uchun CRM",
-        imageAlt: "CRM dashbordi: oylik tushum, oylar boʻyicha grafik, mijoz manbalari va voronka",
-        description:
-          "Tahliliy dashbord, sudrab koʻchiriladigan bitimlar voronkasi, mijoz kartochkalari va vazifalar. Telegram-botdan yangi arizalar real vaqtda paydo boʻladi.",
-      },
-      {
-        id: "store",
-        category: "Internet-doʻkon",
-        title: "Kosmetika doʻkoni",
-        imageAlt: "Kosmetika internet-doʻkoni bosh sahifasi: kolleksiya banneri va birinchi buyurtma uchun promokod",
-        description:
-          "Filtrli katalog, tezkor koʻrish, promokodli savat va maʼlum summadan bepul yetkazib berish, 3 bosqichli buyurtma va sotuvchi paneli.",
-      },
-      {
-        id: "edu",
-        category: "Oʻquv markazi sayti",
-        title: "Oʻquv markazi",
-        imageAlt: "Oʻquv markazi sayti: kurslar, sinov darsi tugmasi va guruhlarning eng yaqin startlari",
-        description:
-          "Filtrli kurslar, kurs tavsiya qiluvchi ingliz tili darajasi testi, guruhlar jadvali, sinov darsiga yozilish va oʻquvchi shaxsiy kabineti.",
-      },
-      {
-        id: "shop-miniapp",
-        category: "Telegram Mini App",
-        title: "Telegramdagi gul doʻkoni",
-        imageAlt: "Telegramdagi gul doʻkoni katalogi: narxli guldastalar va savat tugmasi",
-        description:
-          "Katalog, savat va buyurtma berish toʻgʻridan-toʻgʻri Telegramda, ilova oʻrnatmasdan. Ikkala rolni sinab koʻring: xaridor sifatida buyurtma bering va uni egasi sifatida botdagi tugmalar bilan yuriting.",
-      },
-      {
-        id: "configurator",
-        category: "Sayt + bot",
-        title: "Smeta konfiguratori",
-        imageAlt: "Konfigurator: funksiyalari bilan Telegram-bot tanlangan, oʻngda taxminiy narx va muddat",
-        description:
-          "Mijoz nima kerakligini belgilaydi va darhol taxminiy narx hamda muddatni koʻradi. Narx oraligʻi va muddat koʻrsatilgan ariza darhol jamoaga Telegramda keladi.",
-      },
-      {
-        id: "quiz-bot",
-        category: "Telegram-bot",
-        title: "Arizalar uchun kviz-bot",
-        imageAlt: "Kviz-bot bilan chat: nimani avtomatlashtirish haqidagi savol va javob variantlari tugmalari",
-        description:
-          "Beshta savol — va bot biznesga mos mahsulotni tavsiya qiladi: bot, sayt yoki Mini App. Soʻng smetani hisoblash yoki loyihani muhokama qilishni taklif qiladi.",
-      },
-      {
-        id: "focus-garden-tg",
-        category: "Mini App + bot",
-        title: "Fokus bogʻi",
-        imageAlt: "Fokus bogʻi: oʻsayotgan archa tasvirlangan taymer va vazifalar roʻyxati",
-        description:
-          "Telegramdagi samaradorlik taymeri: ish sessiyasi davom etayotganda daraxt oʻsadi. Bot tashlab ketilgan sessiyalarni eslatadi va reyting yuritadi.",
+        description: "Domen, Telegramga arizalar va analitikani ulaymiz, administratorga hammasi qanday ishlashini koʻrsatamiz.",
       },
     ],
   },
   team: {
-    eyebrow: "Jamoa",
-    title: "CaravanHouse asoschilari",
-    subtitle:
-      "Har bir loyihani oʻzimiz yuritamiz: birinchi xabardan ishga tushirishgacha. Siz mahsulotingizni yaratayotganlar bilan bevosita muloqot qilasiz.",
+    title: "Saytni siz muloqot qiladigan odamlar qiladi",
+    subtitle: "Biz uch kishimiz, vositachi menejerlarsiz. Birinchi xabardan ishga tushirishgacha bevosita biz bilan gaplashasiz.",
     photoAlt: "Surat",
-    // TODO: ismlar, rollar va tavsiflarni tekshiring — aniqlariga almashtiring
     members: [
-      {
-        id: "umid",
-        name: "Umid",
-        role: "Founder",
-        bio: "Full Stack dasturchi: Telegram-botlar, server qismi va veb-interfeyslar.",
-      },
-      {
-        id: "aslam",
-        name: "Arslan",
-        role: "Founder",
-        bio: "Loyihalarni va mijozlar bilan muloqotni olib boradi, muddat va natija uchun javob beradi.",
-      },
-      {
-        id: "behruz",
-        name: "Behruz",
-        role: "Founder",
-        bio: "Veb-ishlab chiqish va Mini Apps interfeyslari.",
-      },
+      { id: "umid", name: "Umid", role: "Dasturlash", bio: "Saytlar, server qismi va Telegram-botlar." },
+      { id: "aslam", name: "Arslan", role: "Loyihalar va mijozlar", bio: "Loyihani olib boradi, muddat va natija uchun javob beradi." },
+      { id: "behruz", name: "Behruz", role: "Interfeyslar", bio: "Saytlarning sahifalari va interfeyslari." },
     ],
   },
-  channel: {
-    eyebrow: "Telegram-kanal",
-    title: "Telegramda bizni kuzatib boring",
-    subtitle:
-      "@caravanhouse_uz kanalida — studiya yangiliklari, yangi loyihalar hamda oʻquv markazlari va repetitorlar sayt va Telegram-bot yordamida qanday qilib koʻproq oʻquvchi yigʻishi haqida gʻoyalar.",
-    points: ["Studiya yangiliklari va eʼlonlari", "Yangi loyihalar va demolar", "Oʻquv markazlari uchun gʻoyalar"],
-    cta: "Kanalga obuna boʻlish",
-    postAlt: "CaravanHouse Telegram-kanalidagi post",
-    openPost: "Postni Telegramda ochish",
-  },
-  demoBots: {
-    eyebrow: "Oʻzingiz sinab koʻring",
-    title: "Botlarimizni koʻring",
-    subtitle: "Telegramda uchta jonli demo. Istalganini oching va bosib koʻring — sizda nima chiqishini tezroq tushunasiz.",
-    open: "Telegramda ochish",
-    items: {
-      shop: {
-        name: "Gul doʻkoni",
-        text: "Mini App: katalog, savat va buyurtma toʻgʻridan-toʻgʻri Telegramda. Egasi rolini ham sinab koʻrish mumkin.",
-      },
-      quiz: {
-        name: "Kviz-bot",
-        text: "Beshta savol — va bot biznesga mos mahsulotni tavsiya qiladi: bot, sayt yoki Mini App.",
-      },
-      focus: {
-        name: "Fokus bogʻi",
-        text: "Samaradorlik taymeri: ish sessiyasi davomida daraxt oʻsadi. Bot eslatadi va reyting yuritadi.",
-      },
-    },
-  },
   faq: {
-    eyebrow: "Savollar",
     title: "Koʻp beriladigan savollar",
-    // Условия согласованы с командой (сроки, оплата 50/50, код и домен клиенту, хостинг у клиента).
     // {support} — narx kalkulyatordan (calc.caravanhouse.uz/api/prices)
     items: [
       {
-        question: "Ishlab chiqish qancha vaqt oladi?",
+        question: "Sayt qancha vaqtda tayyor boʻladi?",
         answer:
-          "Oddiy bot yoki lending — 5–7 ish kunidan. Korporativ sayt — 2–4 hafta. Mini App yoki veb-platforma — 3–4 haftadan. Aniq muddatni ish boshlanishidan oldin TZda belgilaymiz.",
+          "Repetitor sayti — 5–7 ish kunidan. Oʻquv markazi sayti — 2–3 hafta. Shaxsiy kabinetli onlayn-maktab — 4 haftadan. Aniq muddatni ish boshlanishidan oldin belgilaymiz.",
       },
       {
-        question: "Loyiha qancha turadi?",
+        question: "Biz tomondan nima tayyorlash kerak?",
         answer:
-          "Boshlangʻich narxlar — «Narxlar» boʻlimida, vazifangiz uchun taxminiy oraliqni esa kalkulyatorda bir daqiqada hisoblash mumkin. Qisqa muhokamadan soʻng narxni kelishib olamiz — vazifa oʻzgarmasa, narx ham oʻzgarmaydi.",
+          "Kurslar va narxlar roʻyxati, guruhlar jadvali, oʻqituvchilar suratlari va oʻquvchilarning bir nechta fikri. Matnlarni yozishga yordam beramiz, surat boʻlmasa, telefonda qanday olishni aytamiz.",
       },
       {
-        question: "Mobil ilovalar ham qilasizmi?",
+        question: "Arizalar qayerga keladi?",
         answer:
-          "Ha, iOS va Android uchun — dizayn hamda App Store va Google Playga joylash bilan. Bu biz uchun yangi yoʻnalish, shuning uchun narx va muddatni vazifani muhokama qilgandan keyin alohida hisoblaymiz. Koʻpincha xuddi shu vazifani Telegram Mini App tezroq va arzonroq hal qiladi — sizga nima mos kelishini aytamiz.",
+          "Telegramga: administratorning shaxsiy xabarlariga yoki jamoaning umumiy chatiga. Arizada ism, telefon, tanlangan kurs va qulay vaqt boʻladi.",
       },
       {
-        question: "Ishga tushirilgandan keyin nima boʻladi?",
+        question: "Sayt boʻlsa, bot nima uchun kerak?",
         answer:
-          "Birinchi oy qoʻllab-quvvatlash bepul: xatolarni tuzatamiz va oʻzgartirishlar kiritamiz. Keyin — xohishingizga koʻra oyiga {support} soʻmdan qoʻllab-quvvatlash: oʻzgartirishlar va xatolarni tuzatish. Yangi funksiyalar alohida toʻlanadi.",
+          "Sayt oʻquvchini olib keladi, bot esa uni darsgacha yetkazadi: yozilishni tasdiqlaydi, bir soat oldin eslatadi va tunda koʻp beriladigan savollarga javob beradi. Bot ixtiyoriy, sayt usiz ham ishlaydi.",
       },
       {
-        question: "Oʻzgartirishlar kiritish mumkinmi?",
+        question: "Jadval va narxlarni oʻzgartira olamizmi?",
         answer:
-          "Ha. Dizayn bosqichida — tasdiqlaguningizcha kerakli miqdorda. Ishlab chiqishda TZ doirasidagi tuzatishlar narxga kiradi, yangi funksiyalarni esa alohida va oldindan baholaymiz.",
+          "Ha. Oʻzgartirishlarni bizga Telegramda yuboring: birinchi oy bepul, keyin oyiga {support} soʻmdan qoʻllab-quvvatlash doirasida. Oʻzgartirishlar koʻp boʻlsa, administrator jadvalni oʻzi oʻzgartiradigan boʻlim qilib beramiz.",
       },
       {
         question: "Toʻlov qanday amalga oshiriladi?",
-        answer:
-          "Ikki bosqichda: boshlashdan oldin 50% oldindan toʻlov va loyiha topshirilgandan keyin 50%. Katta loyihalarni bosqichlarga boʻlish mumkin.",
+        answer: "Ikki bosqichda: boshlashdan oldin 50% va sayt topshirilgandan keyin 50%. Katta loyihalarni bosqichlarga boʻlish mumkin.",
       },
       {
-        question: "Kod va domen kimga tegishli?",
-        answer:
-          "Sizga. Toʻliq toʻlovdan soʻng kod va barcha kirish maʼlumotlarini topshiramiz, domenni esa boshidanoq sizning nomingizga roʻyxatdan oʻtkazamiz.",
+        question: "Sayt va domen kimga tegishli?",
+        answer: "Sizga. Domenni boshidanoq sizning nomingizga roʻyxatdan oʻtkazamiz, toʻliq toʻlovdan soʻng kod va barcha kirish maʼlumotlarini topshiramiz.",
       },
       {
         question: "Hosting uchun kim toʻlaydi?",
-        answer:
-          "Hostingni oʻz akkauntingizda provayderga oʻzingiz toʻlaysiz — shunda sayt yoki bot doim sizning nazoratingizda boʻladi. Biz hammasini tanlab, sozlab beramiz.",
+        answer: "Siz, provayderdagi oʻz akkauntingizda — shunda sayt doim sizning nazoratingizda boʻladi. Biz hammasini tanlab, sozlab beramiz.",
       },
       {
         question: "Faqat oʻquv markazlari bilan ishlaysizmi?",
         answer:
-          "Yoʻq, lekin bizning yoʻnalishimiz — taʼlim: oʻquv markazlari, til maktablari, repetitorlar va onlayn-maktablar. Ularda sinov darslari, guruhlar va toʻlovlar qanday ishlashini bilamiz, shuning uchun tezroq ishga tushiramiz. Boshqa biznesingiz boʻlsa ham yozing — yechim taklif qilamiz.",
+          "Bizning yoʻnalishimiz — taʼlim: oʻquv markazlari, til maktablari, repetitorlar va onlayn-maktablar. Ularda sinov darslari, guruhlar va toʻlovlar qanday ishlashini bilamiz, shuning uchun tezroq ishga tushiramiz. Boshqa biznesingiz boʻlsa ham yozing — yechim taklif qilamiz.",
       },
     ],
   },
   finalCta: {
-    title: "Koʻproq oʻquvchi kerakmi? 15 daqiqada muhokama qilamiz",
-    subtitle:
-      "Telegramda yozing — bir nechta savol beramiz, yechim taklif qilamiz va taxminiy narxni aytamiz. Bepul va hech narsaga majburlamaydi.",
+    title: "Oʻquv markazingiz saytini 15 daqiqada muhokama qilamiz",
+    subtitle: "Nechta kurs va filialingiz borligini yozing. Sayt tuzilmasini taklif qilamiz va narxini aytamiz. Bepul va hech narsaga majburlamaydi.",
     button: "Telegramda yozish",
     orCall: "yoki qoʻngʻiroq qiling",
     or: "yoki",
@@ -412,26 +220,25 @@ const uz: Dictionary = {
       contact: "Telefon yoki Telegram",
       contactPlaceholder: "+998… yoki @username",
       service: "Nima kerak",
-      services: { bot: "Telegram-bot", site: "Sayt", miniapp: "Mini App", app: "Mobil ilova", other: "Boshqa" },
-      message: "Vazifa haqida qisqacha (ixtiyoriy)",
+      services: { site: "Oʻquv markazi sayti", bot: "Sayt va yozilish boti", other: "Boshqa" },
+      message: "Kurslar va filiallar (ixtiyoriy)",
       submit: "Arizani yuborish",
       sending: "Yuborilmoqda…",
       success: "Rahmat! №{id} ariza yuborildi — tez orada siz bilan bogʻlanamiz.",
       successNoId: "Rahmat! Ariza yuborildi — tez orada siz bilan bogʻlanamiz.",
       errorName: "Ismingizni kiriting",
       errorContact: "Telefon yoki Telegramni kiriting",
-      errorRate: "Bu qurilmadan juda koʻp ariza. Keyinroq urinib koʻring yoki Telegramda yozing.",
+      errorRate: "Bu qurilmadan juda koʻp ariza yuborildi. Keyinroq urinib koʻring yoki Telegramda yozing.",
       errorFailed: "Yuborib boʻlmadi. Telegramda yozing yoki qoʻngʻiroq qiling — tez javob beramiz.",
-      consent: "Arizani yuborib, koʻrsatilgan kontakt orqali siz bilan bogʻlanishimizga rozilik bildirasiz.",
+      consent: "Arizani yuborish orqali siz koʻrsatilgan kontakt orqali siz bilan bogʻlanishimizga rozilik bildirasiz.",
     },
   },
   footer: {
-    team: "CaravanHouse jamoasi · Toshkent",
+    team: "CaravanHouse jamoasi, Toshkent",
     response: "09:00 dan 21:00 gacha ishlaymiz",
-    tagline: "Oʻzbekistondagi oʻquv markazlari, repetitorlar va onlayn-maktablar uchun saytlar, Telegram-botlar va Mini Apps.",
+    tagline: "Oʻzbekistondagi oʻquv markazlari, til maktablari, repetitorlar va onlayn-maktablar uchun saytlar.",
     contactsTitle: "Aloqa",
     navTitle: "Navigatsiya",
-    servicesTitle: "Xizmatlar",
     socialTitle: "Ijtimoiy tarmoqlar",
     rights: "Barcha huquqlar himoyalangan.",
   },
@@ -441,7 +248,7 @@ const uz: Dictionary = {
     dismiss: "Yopish",
   },
   availability: {
-    online: "Hozir aloqadamiz · 21:00 gacha ishlaymiz",
+    online: "Hozir aloqadamiz, 21:00 gacha ishlaymiz",
     beforeOpen: "Hozir ish vaqti emas — bugun 09:00 dan javob beramiz",
     afterClose: "Hozir ish vaqti emas — ertaga 09:00 dan javob beramiz",
   },

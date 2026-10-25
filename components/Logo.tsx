@@ -29,7 +29,7 @@ export default function Logo({ lang, label, variant = "compact" }: Props) {
     >
       <LogoMark className="h-8 w-auto transition-transform duration-300 group-hover:scale-105 lg:h-9" />
       <span>
-        Caravan<span className="text-accent">House</span>
+        Caravan<span className="text-accent-ink">House</span>
       </span>
     </Link>
   );

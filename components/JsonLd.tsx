@@ -5,7 +5,15 @@ import { formatSum, type Prices } from "@/lib/prices";
 
 // Структурированные данные для поисковиков: организация и FAQ.
 export default function JsonLd({ lang, dict, prices }: { lang: Locale; dict: Dictionary; prices: Prices }) {
-  const minPrice = Math.min(...prices.starting.map((p) => p.from));
+  const from = (id: Prices["starting"][number]["id"]) => prices.starting.find((p) => p.id === id)!.from;
+  const t = dict.prices;
+  // Пакеты на сайте: репетитор — цена лендинга, учебный центр — цена корпоративного сайта, бот — дополнение
+  const offers = [
+    { name: t.packages.tutor.title, description: t.packages.tutor.note, min: from("landing") },
+    { name: t.packages.center.title, description: t.packages.center.note, min: from("corporate") },
+    { name: t.addon.title, description: t.addon.text, min: from("bot") },
+  ];
+  const minPrice = Math.min(...offers.map((o) => o.min));
   const data = {
     "@context": "https://schema.org",
     "@graph": [
@@ -26,14 +34,14 @@ export default function JsonLd({ lang, dict, prices }: { lang: Locale; dict: Dic
         sameAs: socials.map((social) => social.href),
         inLanguage: localeMeta[lang].htmlLang,
         // Стартовые цены — из калькулятора calc.caravanhouse.uz, как и в блоке «Цены»
-        priceRange: dict.prices.pricePattern.replace("{price}", formatSum(minPrice)),
+        priceRange: t.pricePattern.replace("{price}", formatSum(minPrice)),
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: dict.prices.title,
-          itemListElement: prices.starting.map((p) => ({
+          name: t.title,
+          itemListElement: offers.map((o) => ({
             "@type": "Offer",
-            itemOffered: { "@type": "Service", name: dict.prices.items[p.id].title, description: dict.prices.items[p.id].note },
-            priceSpecification: { "@type": "PriceSpecification", minPrice: p.from, priceCurrency: "UZS" },
+            itemOffered: { "@type": "Service", name: o.name, description: o.description },
+            priceSpecification: { "@type": "PriceSpecification", minPrice: o.min, priceCurrency: "UZS" },
           })),
         },
       },

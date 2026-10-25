@@ -24,11 +24,10 @@ export default function GlobalNotFound() {
       <body className="relative flex min-h-dvh items-center justify-center overflow-hidden px-4 py-16">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
           <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,black,transparent)]" />
-          <div className="absolute top-1/3 left-1/2 h-[420px] w-[720px] -translate-x-1/2 -translate-y-1/2 soft-glow [--glow:rgb(246_183_60/0.20)]" />
         </div>
         <main className="flex max-w-xl flex-col items-center text-center">
           <Image src={emblem} alt="CaravanHouse" width={88} height={65} priority />
-          <p className="text-gradient-accent mt-8 text-7xl font-extrabold tracking-tight sm:text-8xl">404</p>
+          <p className="font-display mt-8 text-7xl font-semibold tracking-tight text-accent-ink sm:text-8xl">404</p>
           <h1 className="mt-4 text-2xl font-bold sm:text-3xl">Страница не найдена</h1>
           <p className="mt-1 text-lg text-muted" lang="uz-Latn">Sahifa topilmadi</p>
           <p className="mt-5 leading-relaxed text-muted">
@@ -38,10 +37,10 @@ export default function GlobalNotFound() {
             <Link href="/ru" className={`${btn} bg-accent text-on-accent hover:bg-accent-soft`}>
               На главную
             </Link>
-            <Link href="/uz" lang="uz-Latn" className={`${btn} border border-line-strong text-fg hover:bg-white/[0.06]`}>
+            <Link href="/uz" lang="uz-Latn" className={`${btn} border border-line-strong text-fg hover:bg-surface`}>
               Bosh sahifaga
             </Link>
-            <a href={botUrl("site_404")} className={`${btn} border border-line-strong text-fg hover:bg-white/[0.06]`}>
+            <a href={botUrl("site_404")} className={`${btn} border border-line-strong text-fg hover:bg-surface`}>
               Написать в Telegram
             </a>
           </div>

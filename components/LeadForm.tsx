@@ -16,7 +16,7 @@ export default function LeadForm({ form }: { form: Form }) {
   const id = useId();
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [service, setService] = useState<Service>("bot");
+  const [service, setService] = useState<Service>("site");
   const [message, setMessage] = useState("");
   const [website, setWebsite] = useState(""); // ловушка для ботов
   const [phase, setPhase] = useState<Phase>({ name: "idle" });

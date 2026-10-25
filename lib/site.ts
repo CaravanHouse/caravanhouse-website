@@ -36,17 +36,6 @@ export type BotRef =
 
 export const botUrl = (ref: BotRef) => `${contacts.telegramUrl}?start=${ref}`;
 
-// Демо-боты — живые примеры, работают на Railway (проект caravanhouse-demos)
-export const demoBots = {
-  shop: "caravanhouse_shop_bot",
-  quiz: "caravanhouse_quiz_bot",
-  focus: "caravanhouse_focus_tree_bot",
-} as const;
-
-export type DemoBotId = keyof typeof demoBots;
-
-export const telegramUrl = (username: string) => `https://t.me/${username}`;
-
 export type SocialNetwork = "telegram" | "channel" | "instagram" | "github" | "linkedin";
 
 // Иконка для linkedin тоже готова в components/ui/SocialIcon.tsx — достаточно раскомментировать строку.

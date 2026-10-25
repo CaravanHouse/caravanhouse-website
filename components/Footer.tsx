@@ -7,11 +7,10 @@ import Logo from "./Logo";
 import ButtonLink from "./ui/ButtonLink";
 import SocialIcon from "./ui/SocialIcon";
 import TelegramIcon from "./ui/TelegramIcon";
-import Glow from "./ui/Glow";
 
 type Props = { lang: Locale; dict: Dictionary };
 
-const headingClass = "text-xs font-bold uppercase tracking-[0.18em] text-accent";
+const headingClass = "text-sm font-semibold text-fg";
 const linkClass = "rounded text-muted transition-colors hover:text-fg";
 
 // Строка контакта: иконка в золотой плашке + текст
@@ -22,7 +21,7 @@ function ContactLink({ href, external, icon, children }: { href: string; externa
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className="group inline-flex items-center gap-3 rounded text-muted transition-colors hover:text-fg"
     >
-      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-accent/20 bg-accent/[0.07] text-accent transition-colors group-hover:border-accent/45">
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-line text-accent transition-colors group-hover:border-accent/45">
         {icon}
       </span>
       {children}
@@ -31,26 +30,23 @@ function ContactLink({ href, external, icon, children }: { href: string; externa
 }
 
 export default function Footer({ lang, dict }: Props) {
-  const { footer, nav, services } = dict;
+  const { footer, nav } = dict;
   const year = new Date().getFullYear();
   const links = [
-    { href: "#services", label: nav.services },
-    { href: "#process", label: nav.process },
-    { href: "#projects", label: nav.projects },
+    { href: "#problems", label: nav.problems },
+    { href: "#site", label: nav.site },
     { href: "#prices", label: nav.prices },
+    { href: "#process", label: nav.process },
     { href: "#faq", label: nav.faq },
     { href: "#contacts", label: nav.contacts },
   ];
 
   return (
-    <footer className="relative overflow-x-clip border-t border-line bg-bg-elevated/40 pb-28 md:pb-0">
-      {/* золотая черта, светлеющая к центру */}
-      <div aria-hidden="true" className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
-      <Glow className="-top-24 left-1/2 h-48 w-[640px] -translate-x-1/2 opacity-60" />
+    <footer className="scope-dark relative overflow-x-clip border-t border-line pb-28 md:pb-0">
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* На телефоне: бренд, затем «Услуги» и «Навигация» в две колонки, затем контакты. С lg — четыре колонки */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 py-14 lg:grid-cols-[1.4fr_1fr_0.8fr_1.3fr] lg:gap-x-10 lg:py-16">
+        {/* На телефоне: бренд, навигация и контакты друг под другом. С lg — три колонки */}
+        <div className="grid grid-cols-1 gap-x-6 gap-y-10 py-14 lg:grid-cols-[1.4fr_0.8fr_1.3fr] lg:gap-x-10 lg:py-16">
           <div className="col-span-2 flex flex-col items-start gap-5 lg:col-span-1">
             <Logo lang={lang} label={dict.a11y.home} variant="full" />
             <p className="max-w-xs text-sm leading-relaxed text-muted text-pretty">{footer.tagline}</p>
@@ -59,21 +55,6 @@ export default function Footer({ lang, dict }: Props) {
               {dict.cta.channel}
             </ButtonLink>
           </div>
-
-          <nav aria-labelledby="footer-services-title">
-            <h2 id="footer-services-title" className={headingClass}>
-              {footer.servicesTitle}
-            </h2>
-            <ul className="mt-5 flex flex-col gap-3 text-sm">
-              {services.items.map((service) => (
-                <li key={service.id}>
-                  <a href="#services" className={linkClass}>
-                    {service.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
 
           <nav aria-labelledby="footer-nav-title">
             <h2 id="footer-nav-title" className={headingClass}>
@@ -114,7 +95,7 @@ export default function Footer({ lang, dict }: Props) {
                 </ContactLink>
               </li>
             </ul>
-            <div className="mt-6 rounded-2xl border border-line bg-white/[0.02] px-4 py-3">
+            <div className="mt-6 rounded-2xl border border-line px-4 py-3">
               <p className="text-sm font-semibold">{footer.team}</p>
               <Availability t={dict.availability} className="mt-1 text-left" />
             </div>
