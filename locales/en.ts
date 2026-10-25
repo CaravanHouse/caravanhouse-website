@@ -39,6 +39,7 @@ const en: Dictionary = {
     titleAfter: "",
     // бегущая строка под hero
     audience: ["Learning centers", "Language schools", "Tutors", "Online schools", "IELTS & SAT prep", "IT courses", "Kids' centers", "University prep"],
+    perks: ["Launch in 7 days", "Requests in Telegram", "Russian, Uzbek, English", "Placement test", "Group schedule", "Fixed price", "First month of support free"],
     subtitle:
       "Courses, prices, group schedules and a two-step sign-up. Every request lands with your admin in Telegram instead of getting lost in Instagram DMs.",
     primary: "Discuss your website",

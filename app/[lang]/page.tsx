@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import JsonLd from "@/components/JsonLd";
 import Marquee from "@/components/Marquee";
+import ScrollProgress from "@/components/motion/ScrollProgress";
 import Packages from "@/components/Packages";
 import Problems from "@/components/Problems";
 import Process from "@/components/Process";
@@ -32,17 +33,17 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   return (
     <>
       <JsonLd lang={lang} dict={dict} prices={prices} />
+      <ScrollProgress />
       <Header lang={lang} dict={{ nav: dict.nav, a11y: dict.a11y, cta: dict.cta }} />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero dict={dict} />
-        <div className="overflow-x-clip py-3">
-          <Marquee items={dict.hero.audience} />
-        </div>
+        <Marquee items={dict.hero.audience} />
         <Problems dict={dict} />
         <SiteShowcase dict={dict} />
         <Packages dict={dict} prices={prices} />
         <Process dict={dict} />
         <Team dict={dict} />
+        <Marquee items={dict.hero.perks} variant="soft" reverse />
         <FAQ faq={dict.faq} />
         <FinalCTA dict={dict} />
       </main>

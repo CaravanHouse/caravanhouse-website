@@ -7,6 +7,7 @@ import ButtonLink from "./ui/ButtonLink";
 import GoldShapes from "./ui/GoldShapes";
 import Parallax from "./ui/Parallax";
 import Wave from "./ui/Wave";
+import Tilt from "./motion/Tilt";
 import TelegramIcon from "./ui/TelegramIcon";
 
 export default function FinalCTA({ dict }: { dict: Dictionary }) {
@@ -58,7 +59,9 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
                 {finalCta.or}
                 <span className="h-px flex-1 bg-on-accent/25" />
               </p>
-              <LeadForm form={finalCta.form} />
+              <Tilt max={4}>
+                <LeadForm form={finalCta.form} />
+              </Tilt>
             </div>
           </div>
         </div>

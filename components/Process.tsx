@@ -1,4 +1,5 @@
 import type { Dictionary } from "@/locales";
+import ParallaxWord from "./motion/ParallaxWord";
 import GoldShapes from "./ui/GoldShapes";
 import GrowLine from "./ui/GrowLine";
 import Reveal from "./ui/Reveal";
@@ -9,8 +10,9 @@ export default function Process({ dict }: { dict: Dictionary }) {
   const { process } = dict;
 
   return (
-    <section id="process" aria-labelledby="process-title" className="bg-fade-elevated relative isolate py-20 sm:py-24">
+    <section id="process" aria-labelledby="process-title" className="bg-fade-elevated relative isolate pt-20 pb-36 sm:pt-24 sm:pb-48 lg:pb-60">
       <GoldShapes set="process" />
+      <ParallaxWord text="CaravanHouse" className="bottom-4" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading id="process-title" title={process.title} />

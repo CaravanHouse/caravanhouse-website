@@ -5,6 +5,7 @@ import { botUrl } from "@/lib/site";
 import ButtonLink from "./ui/ButtonLink";
 import GoldShapes from "./ui/GoldShapes";
 import Parallax from "./ui/Parallax";
+import Tilt from "./motion/Tilt";
 import TelegramIcon from "./ui/TelegramIcon";
 
 type Props = { dict: Dictionary };
@@ -152,7 +153,9 @@ export default function Hero({ dict }: Props) {
         </div>
 
         <Parallax offset={-40}>
-          <Schedule t={hero.schedule} />
+          <Tilt max={7}>
+            <Schedule t={hero.schedule} />
+          </Tilt>
         </Parallax>
       </div>
     </section>

@@ -3,6 +3,7 @@ import { ArrowUpRight, BookOpen, CalendarDays, GraduationCap, Languages, ListChe
 import type { Dictionary } from "@/locales";
 import { eduDemo, otherDemos } from "@/lib/projects";
 import ButtonLink from "./ui/ButtonLink";
+import Tilt from "./motion/Tilt";
 import GoldShapes from "./ui/GoldShapes";
 import Reveal from "./ui/Reveal";
 import SectionHeading from "./ui/SectionHeading";
@@ -51,6 +52,7 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
         </ul>
 
         <Reveal className="mt-16 grid items-center gap-10 rounded-[2rem] border border-line bg-bg p-5 sm:p-8 lg:mt-20 lg:grid-cols-[1.35fr_1fr] lg:gap-14 lg:p-10">
+          <Tilt max={5}>
           <a
             href={eduDemo.url}
             target="_blank"
@@ -71,6 +73,7 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
               className="h-auto w-full transition-transform duration-700 ease-soft group-hover:scale-[1.03]"
             />
           </a>
+          </Tilt>
 
           <div>
             <h3 className="font-display text-2xl font-semibold tracking-[-0.02em] sm:text-3xl">{t.demoTitle}</h3>
