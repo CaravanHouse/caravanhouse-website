@@ -53,7 +53,7 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
                   <span aria-hidden="true" className="animate-shimmer pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/45 to-transparent" />
                 ) : null}
                 {featured ? <p className="relative mb-4 self-start rounded-full bg-fg px-3 py-1 text-xs font-bold text-accent">{t.popular}</p> : null}
-                <h3 className="relative font-display text-xl font-semibold tracking-[-0.02em] sm:text-2xl">{pkg.title}</h3>
+                <h3 className="relative font-display text-xl font-bold tracking-[-0.02em] sm:text-2xl">{pkg.title}</h3>
                 <p className={`relative mt-2 ${featured ? "text-on-accent/75" : "text-muted"}`}>{pkg.note}</p>
                 <p className={`relative mt-6 text-2xl font-extrabold tracking-tight sm:text-3xl ${featured ? "" : "text-accent-ink"}`}>{label}</p>
                 <ul className={`relative mt-7 flex flex-col gap-3 border-t pt-7 ${featured ? "border-on-accent/20" : "border-line"}`}>

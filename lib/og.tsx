@@ -15,12 +15,12 @@ async function loadEmblem() {
 async function loadFonts() {
   const dir = join(process.cwd(), "assets/fonts");
   const [medium, extraBold] = await Promise.all([
-    readFile(join(dir, "Manrope-500.ttf")),
-    readFile(join(dir, "Manrope-800.ttf")),
+    readFile(join(dir, "Montserrat-500.ttf")),
+    readFile(join(dir, "Montserrat-800.ttf")),
   ]);
   return [
-    { name: "Manrope", data: medium, weight: 500 as const, style: "normal" as const },
-    { name: "Manrope", data: extraBold, weight: 800 as const, style: "normal" as const },
+    { name: "Montserrat", data: medium, weight: 500 as const, style: "normal" as const },
+    { name: "Montserrat", data: extraBold, weight: 800 as const, style: "normal" as const },
   ];
 }
 
@@ -40,7 +40,7 @@ export async function renderOgImage(meta: Dictionary["meta"]) {
           backgroundImage:
             "radial-gradient(circle at 85% 0%, rgba(246,183,60,0.35), transparent 45%), radial-gradient(circle at 0% 100%, rgba(224,137,27,0.22), transparent 45%)",
           color: "#f5f3ef",
-          fontFamily: "Manrope",
+          fontFamily: "Montserrat",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>

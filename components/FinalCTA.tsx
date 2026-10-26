@@ -29,7 +29,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
 
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
             <Parallax offset={28} className="text-center lg:text-left">
-              <h2 id="cta-title" className="font-display text-[1.75rem] leading-[1.15] font-semibold tracking-[-0.02em] text-balance sm:text-4xl lg:text-[2.75rem]">
+              <h2 id="cta-title" className="font-display text-[1.75rem] leading-[1.15] font-bold tracking-[-0.02em] text-balance sm:text-4xl lg:text-[2.75rem]">
                 {finalCta.title}
               </h2>
               <p className="mt-5 text-base leading-relaxed text-on-accent/80 text-pretty sm:text-lg">{finalCta.subtitle}</p>

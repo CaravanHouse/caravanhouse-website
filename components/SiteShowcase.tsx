@@ -77,7 +77,7 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
           </Tilt>
 
           <Parallax offset={-30}>
-            <h3 className="font-display text-2xl font-semibold tracking-[-0.02em] sm:text-3xl">{t.demoTitle}</h3>
+            <h3 className="font-display text-2xl font-bold tracking-[-0.02em] sm:text-3xl">{t.demoTitle}</h3>
             <p className="mt-4 leading-relaxed text-muted">{t.demoText}</p>
             <ButtonLink href={eduDemo.url} external variant="ink" size="lg" className="mt-7">
               {t.demoCta}
