@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import MotionProvider from "@/components/MotionProvider";
 import SmoothScroll from "@/components/SmoothScroll";
+import PaletteLab from "@/components/PaletteLab";
 import { getDictionary, hasLocale, localeMeta, locales } from "@/locales";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "../globals.css";
@@ -82,6 +83,8 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
           <SmoothScroll />
           {children}
         </MotionProvider>
+        {/* Лаборатория цветов — только на превью Vercel, на caravanhouse.uz её нет */}
+        {process.env.NEXT_PUBLIC_VERCEL_ENV !== "production" ? <PaletteLab /> : null}
         {/* Vercel Web Analytics: посещения без cookie, данные в Vercel → Analytics */}
         <Analytics />
       </body>
