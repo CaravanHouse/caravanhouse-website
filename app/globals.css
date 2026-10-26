@@ -10,16 +10,16 @@
   --color-surface: #fbeed0;
   --color-line: #efe2c6;
   --color-line-strong: #e0cda6;
-  --color-fg: #1d1a16;
-  --color-muted: #5c564d;
-  --color-subtle: #857d70;
+  --color-fg: #2a2015;
+  --color-muted: #655744;
+  --color-subtle: #857660;
   --color-accent: #f4b223;
   --color-accent-soft: #ffc94d;
   --color-accent-deep: #e0891b;
   --color-accent-ink: #8f5b00;
   --color-accent-wash: #ffefc7;
-  --color-on-accent: #1d1406;
-  --color-night: #13110e;
+  --color-on-accent: #3a2a0f;
+  --color-night: #1c150b;
 
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;

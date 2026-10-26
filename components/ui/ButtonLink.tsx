@@ -14,8 +14,8 @@ const variants: Record<Variant, string> = {
   // золотой контур — подписка на канал
   outline: "border border-accent/60 text-accent-ink hover:border-accent hover:bg-accent/10",
   ghost: "text-muted hover:text-fg",
-  // графит — акцентный пакет на светлом фоне
-  ink: "bg-fg text-bg hover:bg-fg/85",
+  // эспрессо — тёмная кнопка: тёплый коричневый вместо чёрного, сочетается с золотом и кремом
+  ink: "bg-on-accent text-bg hover:bg-on-accent/90",
 };
 
 const sizes: Record<Size, string> = {
