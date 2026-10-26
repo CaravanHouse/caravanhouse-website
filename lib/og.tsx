@@ -36,10 +36,10 @@ export async function renderOgImage(meta: Dictionary["meta"]) {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          backgroundColor: "#090807",
+          backgroundColor: "#1c150b",
           backgroundImage:
             "radial-gradient(circle at 85% 0%, rgba(246,183,60,0.35), transparent 45%), radial-gradient(circle at 0% 100%, rgba(224,137,27,0.22), transparent 45%)",
-          color: "#f5f3ef",
+          color: "#fff6e2",
           fontFamily: "Montserrat",
         }}
       >
@@ -57,7 +57,7 @@ export async function renderOgImage(meta: Dictionary["meta"]) {
           <span style={{ color: "#f6b73c" }}>{meta.ogTaglineAccent}</span>
         </div>
 
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 28, fontWeight: 500, color: "#b0a99d" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 28, fontWeight: 500, color: "#c9b896" }}>
           <span>{meta.ogFooter}</span>
           <span
             style={{

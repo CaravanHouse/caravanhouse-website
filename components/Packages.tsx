@@ -52,14 +52,14 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
                 {featured ? (
                   <span aria-hidden="true" className="animate-shimmer pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/45 to-transparent" />
                 ) : null}
-                {featured ? <p className="relative mb-4 self-start rounded-full bg-fg px-3 py-1 text-xs font-bold text-accent">{t.popular}</p> : null}
+                {featured ? <p className="relative mb-4 self-start rounded-full bg-on-accent px-3 py-1 text-xs font-bold text-accent">{t.popular}</p> : null}
                 <h3 className="relative font-display text-xl font-bold tracking-[-0.02em] sm:text-2xl">{pkg.title}</h3>
-                <p className={`relative mt-2 ${featured ? "text-on-accent/75" : "text-muted"}`}>{pkg.note}</p>
+                <p className={`relative mt-2 ${featured ? "text-on-accent/85" : "text-muted"}`}>{pkg.note}</p>
                 <p className={`relative mt-6 text-2xl font-extrabold tracking-tight sm:text-3xl ${featured ? "" : "text-accent-ink"}`}>{label}</p>
                 <ul className={`relative mt-7 flex flex-col gap-3 border-t pt-7 ${featured ? "border-on-accent/20" : "border-line"}`}>
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 leading-snug">
-                      <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${featured ? "bg-fg text-accent" : "bg-accent text-on-accent"}`}>
+                      <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${featured ? "bg-on-accent text-accent" : "bg-accent text-on-accent"}`}>
                         <Check className="h-3 w-3" aria-hidden="true" strokeWidth={3} />
                       </span>
                       {feature}

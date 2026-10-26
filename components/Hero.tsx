@@ -83,7 +83,7 @@ function Schedule({ t }: { t: Dictionary["hero"]["schedule"] }) {
       {/* Уведомление, которое администратор получает в Telegram после записи */}
       <div
         aria-hidden="true"
-        className="animate-toast-in absolute -bottom-12 left-3 right-3 flex items-start gap-3 rounded-2xl border border-line bg-bg p-3.5 shadow-[0_24px_60px_-24px_rgb(29_26_22/0.45)] sm:-bottom-10 sm:left-auto sm:-right-4 sm:w-80 lg:-right-8"
+        className="animate-toast-in absolute -bottom-12 left-3 right-3 flex items-start gap-3 rounded-2xl border border-line bg-bg p-3.5 shadow-[0_24px_60px_-24px_rgb(58_42_15/0.45)] sm:-bottom-10 sm:left-auto sm:-right-4 sm:w-80 lg:-right-8"
       >
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#2aabee] text-white">
           <TelegramIcon className="h-5 w-5" />
