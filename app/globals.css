@@ -323,18 +323,21 @@ html.lenis body {
   animation: marquee 32s linear infinite;
 }
 
-/* Блик по золотой карточке пакета */
+/* Блик по золотой карточке пакета.
+   Полоса шириной 1/3 карточки и с наклоном: на высокой карточке её низ выступает на ~1.3 ширины полосы,
+   поэтому она стартует и финиширует целиком за краями (−300% → 500%), иначе блик «застревает» у края.
+   Пауза — в конце, когда полоса уже за правым краем: прыжок обратно влево не виден, повтор плавный. */
 @keyframes shimmer {
-  0%,
-  60% {
-    transform: translateX(-120%) skewX(-18deg);
+  0% {
+    transform: translateX(-300%) skewX(-18deg);
   }
+  55%,
   100% {
-    transform: translateX(220%) skewX(-18deg);
+    transform: translateX(500%) skewX(-18deg);
   }
 }
 @utility animate-shimmer {
-  animation: shimmer 5s ease-in-out 1s infinite;
+  animation: shimmer 4.5s cubic-bezier(0.45, 0, 0.55, 1) 1s infinite;
 }
 
 /* Мягкое тёплое свечение без filter: blur (дёшево для телефонов) */
