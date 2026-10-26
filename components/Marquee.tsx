@@ -21,7 +21,7 @@ export default function Marquee({ items, variant = "gold", reverse = false }: Pr
         <VelocityMarquee baseVelocity={reverse ? 2 : -2}>
           <ul className="flex shrink-0 items-center">
             {items.map((item) => (
-              <li key={item} className="flex items-center gap-6 pr-6 font-display text-base font-semibold whitespace-nowrap sm:text-lg">
+              <li key={item} className="flex items-center gap-6 pr-6 font-display text-base font-bold whitespace-nowrap sm:text-lg">
                 {item}
                 {star}
               </li>

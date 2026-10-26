@@ -29,7 +29,7 @@ function Schedule({ t }: { t: Dictionary["hero"]["schedule"] }) {
     <figure aria-label={t.label} className="animate-float relative">
       <div className="rounded-[1.75rem] border border-line bg-bg p-4 shadow-[0_40px_90px_-40px_rgb(143_91_0/0.45)] sm:p-6">
         <figcaption className="flex items-baseline justify-between gap-4">
-          <span className="font-display text-base font-semibold tracking-tight sm:text-lg">{t.title}</span>
+          <span className="font-display text-base font-bold tracking-tight sm:text-lg">{t.title}</span>
           <span className="text-xs text-subtle">edu.caravanhouse.uz</span>
         </figcaption>
 
@@ -119,7 +119,7 @@ export default function Hero({ dict }: Props) {
         <Parallax offset={30} className="flex flex-col items-start">
           <h1
             id="hero-title"
-            className="animate-fade-up font-display text-[1.9rem] leading-[1.15] font-semibold tracking-[-0.03em] text-balance sm:text-[2.75rem] xl:text-[3.05rem]"
+            className="animate-fade-up font-display text-[1.9rem] leading-[1.15] font-bold tracking-[-0.03em] text-balance sm:text-[2.75rem] xl:text-[3.05rem]"
           >
             {hero.titleBefore}
             <span className="marker">{hero.titleMark}</span>

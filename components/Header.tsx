@@ -58,12 +58,12 @@ export default function Header({ lang, dict }: Props) {
         <Logo lang={lang} label={dict.a11y.home} />
 
         <nav aria-label={dict.a11y.mainNav} className="hidden xl:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-0.5 2xl:gap-1">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:text-fg xl:px-2 2xl:px-3.5"
+                  className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:text-fg xl:px-1.5 xl:text-[0.8125rem] 2xl:px-3.5 2xl:text-sm"
                 >
                   {link.label}
                 </a>

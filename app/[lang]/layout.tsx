@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import MotionProvider from "@/components/MotionProvider";
@@ -8,9 +8,9 @@ import { getDictionary, hasLocale, localeMeta, locales } from "@/locales";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "../globals.css";
 
-const manrope = Manrope({
+const montserrat = Montserrat({
   subsets: ["latin", "latin-ext", "cyrillic"],
-  variable: "--font-manrope",
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -70,7 +70,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const dict = getDictionary(lang);
 
   return (
-    <html lang={localeMeta[lang].htmlLang} className={`${manrope.variable} antialiased`}>
+    <html lang={localeMeta[lang].htmlLang} className={`${montserrat.variable} antialiased`}>
       <body className="min-h-dvh overflow-x-clip">
         <a
           href="#main"
