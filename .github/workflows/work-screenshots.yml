@@ -1,0 +1,30 @@
+# Временный запуск: скриншоты работ команды для страниц /team. Ветка удаляется после использования.
+name: work-screenshots
+on:
+  push:
+    branches: [tmp/work-screenshots]
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm i playwright@1.49.1 && npx playwright install --with-deps chromium
+      - name: Screenshots
+        run: |
+          cat > shot.mjs <<'JS'
+          import { chromium } from "playwright";
+          const sites = { aslam: "https://neweratrading.netlify.app/", behruz: "https://profound-druid-f5a1ef.netlify.app/" };
+          const browser = await chromium.launch();
+          for (const [id, url] of Object.entries(sites)) {
+            const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 });
+            await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
+            await page.waitForTimeout(3000);
+            await page.screenshot({ path: `${id}.png` });
+            console.log(id, await page.title());
+          }
+          await browser.close();
+          JS
+          node shot.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shots
+          path: "*.png"
