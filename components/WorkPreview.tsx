@@ -1,10 +1,9 @@
 import Image, { type StaticImageData } from "next/image";
 
-type Props = { url: string; title: string; shot?: StaticImageData; label: string };
+type Props = { url: string; title: string; shot: StaticImageData; label: string };
 
-// Окно браузера с работой участника: скриншот, а если его нет — живое превью сайта.
-// Превью рисуется в 2,5 раза шире окна и уменьшается, чтобы сайт показался в десктопной вёрстке.
-// Оно только для просмотра: клики перехватывает ссылка поверх, сайт открывается в новой вкладке.
+// Окно браузера со скриншотом работы участника. По клику сайт открывается в новой вкладке.
+// Живое превью во встроенном окне не используем: чужие сайты могут запрещать встраивание (так было с NEW ERA).
 export default function WorkPreview({ url, title, shot, label }: Props) {
   const host = url.replace(/^https?:\/\//, "").replace(/\/$/, "");
   return (
@@ -16,34 +15,14 @@ export default function WorkPreview({ url, title, shot, label }: Props) {
         <span className="ml-3 truncate rounded-full bg-bg px-3 py-1 text-xs text-muted">{host}</span>
       </div>
       <a href={url} target="_blank" rel="noopener noreferrer" aria-label={`${label}: ${title}`} className="group relative block aspect-[16/10] bg-surface">
-        {shot ? (
-          <Image
-            src={shot}
-            alt={title}
-            fill
-            sizes="(min-width: 1024px) 720px, 100vw"
-            placeholder="blur"
-            className="object-cover object-top transition-transform duration-700 ease-soft group-hover:scale-[1.02]"
-          />
-        ) : (
-          <>
-            {/* Подложка на случай, если сайт не даст себя встроить: название и адрес вместо пустого окна */}
-            <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 text-center">
-              <span className="text-lg font-bold">{title}</span>
-              <span className="text-sm text-muted">{host}</span>
-            </span>
-            <iframe
-              src={url}
-              title={`${label}: ${title}`}
-              loading="lazy"
-              tabIndex={-1}
-              aria-hidden="true"
-              sandbox="allow-scripts allow-same-origin"
-              referrerPolicy="no-referrer"
-              className="pointer-events-none absolute top-0 left-0 h-[250%] w-[250%] origin-top-left scale-[0.4] border-0 bg-transparent"
-            />
-          </>
-        )}
+        <Image
+          src={shot}
+          alt={title}
+          fill
+          sizes="(min-width: 1024px) 720px, 100vw"
+          placeholder="blur"
+          className="object-cover object-top transition-transform duration-700 ease-soft group-hover:scale-[1.02]"
+        />
       </a>
     </div>
   );

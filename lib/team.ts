@@ -3,6 +3,8 @@ import aslamPhoto from "@/public/team/aslam.jpg";
 import behruzPhoto from "@/public/team/behruz.jpg";
 import umidPhoto from "@/public/team/umid.jpg";
 import { eduDemo } from "@/lib/projects";
+import maktabPortalShot from "@/public/projects/maktab-portal.jpg";
+import neweraShot from "@/public/projects/newera.jpg";
 
 // Основатели: данные, которые не нужно переводить (фото и ссылки).
 // Имя, роль и короткое описание лежат в locales/*.ts (team.members) с тем же id.
@@ -18,8 +20,8 @@ export interface MemberMeta {
   instagram?: string;
   telegram?: string;
   // Лучшая работа — на странице участника /<lang>/team/<id>. Название и описание — в locales (team.members[].work).
-  // shot — скриншот; без него показывается живое превью сайта во встроенном окне.
-  work: { url: string; shot?: StaticImageData };
+  // shot — скриншот первого экрана, 1440×900 при плотности 2× (сохранён как 2560×1600)
+  work: { url: string; shot: StaticImageData };
 }
 
 export const team: MemberMeta[] = [
@@ -37,7 +39,7 @@ export const team: MemberMeta[] = [
     telegram: "https://t.me/nnaslann",
     instagram: "https://www.instagram.com/mw_aslam/",
     github: "https://github.com/mw-aslam",
-    work: { url: "https://neweratrading.netlify.app" },
+    work: { url: "https://neweratrading.netlify.app", shot: neweraShot },
   },
   {
     id: "behruz",
@@ -45,7 +47,7 @@ export const team: MemberMeta[] = [
     telegram: "https://t.me/Behruz651",
     instagram: "https://www.instagram.com/behruz_ahmedov_651/",
     github: "https://github.com/Behruz666-uzb",
-    work: { url: "https://profound-druid-f5a1ef.netlify.app" },
+    work: { url: "https://profound-druid-f5a1ef.netlify.app", shot: maktabPortalShot },
   },
 ];
 
