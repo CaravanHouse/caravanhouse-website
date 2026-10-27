@@ -13,7 +13,7 @@ export default function ParallaxWord({ text, from = "10%", to = "-30%", classNam
     <div ref={ref} aria-hidden="true" className={`pointer-events-none absolute inset-x-0 -z-10 overflow-hidden ${className}`}>
       <m.p
         style={reduce ? undefined : { x }}
-        className="font-display text-[18vw] leading-none font-bold whitespace-nowrap text-transparent [-webkit-text-stroke:2px_rgb(244_178_35/0.4)] lg:text-[13rem]"
+        className="font-display text-[18vw] leading-none font-bold whitespace-nowrap text-transparent [-webkit-text-stroke:2px_rgb(238_167_42/0.4)] lg:text-[13rem]"
       >
         {text}
       </m.p>

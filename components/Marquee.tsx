@@ -13,7 +13,7 @@ const star = (
 export default function Marquee({ items, variant = "gold", reverse = false }: Props) {
   const tone =
     variant === "gold"
-      ? "-rotate-1 border-y border-accent-deep/30 bg-accent text-on-accent shadow-[0_18px_40px_-24px_rgb(143_91_0/0.6)]"
+      ? "-rotate-1 border-y border-accent-deep/30 bg-accent text-on-accent shadow-[0_18px_40px_-24px_rgb(164_71_28/0.6)]"
       : "rotate-1 border-y border-line bg-accent-wash text-accent-ink";
   return (
     <div className="overflow-x-clip py-3">

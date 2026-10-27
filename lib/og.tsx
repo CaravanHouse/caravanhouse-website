@@ -36,10 +36,10 @@ export async function renderOgImage(meta: Dictionary["meta"]) {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          backgroundColor: "#090807",
+          backgroundColor: "#2a1a0f",
           backgroundImage:
-            "radial-gradient(circle at 85% 0%, rgba(246,183,60,0.35), transparent 45%), radial-gradient(circle at 0% 100%, rgba(224,137,27,0.22), transparent 45%)",
-          color: "#f5f3ef",
+            "radial-gradient(circle at 85% 0%, rgba(238,167,42,0.35), transparent 45%), radial-gradient(circle at 0% 100%, rgba(199,91,42,0.22), transparent 45%)",
+          color: "#fbf5ec",
           fontFamily: "Montserrat",
         }}
       >
@@ -48,24 +48,24 @@ export async function renderOgImage(meta: Dictionary["meta"]) {
           <img src={emblem} width={98} height={72} alt="" />
           <div style={{ display: "flex", fontSize: 44, fontWeight: 800, letterSpacing: -1 }}>
             <span>Caravan</span>
-            <span style={{ color: "#f6b73c" }}>House</span>
+            <span style={{ color: "#eea72a" }}>House</span>
           </div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", fontSize: 58, fontWeight: 800, lineHeight: 1.1, letterSpacing: -2 }}>
           <span>{meta.ogTagline}</span>
-          <span style={{ color: "#f6b73c" }}>{meta.ogTaglineAccent}</span>
+          <span style={{ color: "#eea72a" }}>{meta.ogTaglineAccent}</span>
         </div>
 
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 28, fontWeight: 500, color: "#b0a99d" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 28, fontWeight: 500, color: "#d9c19c" }}>
           <span>{meta.ogFooter}</span>
           <span
             style={{
               display: "flex",
               padding: "12px 26px",
               borderRadius: 999,
-              border: "2px solid rgba(246,183,60,0.5)",
-              color: "#ffd27a",
+              border: "2px solid rgba(238,167,42,0.5)",
+              color: "#f7c25e",
             }}
           >
             caravanhouse.uz

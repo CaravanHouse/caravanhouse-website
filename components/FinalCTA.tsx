@@ -23,7 +23,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
           <div className="soft-glow h-full w-full [--glow:rgb(255_255_255/0.45)]" />
         </Parallax>
       </div>
-      <GoldShapes set="cta" className="[--color-accent:#fff8e6]" />
+      <GoldShapes set="cta" className="[--color-accent:#fcf3e4]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div>
 
@@ -32,7 +32,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
               <h2 id="cta-title" className="font-display text-[1.75rem] leading-[1.15] font-bold tracking-[-0.02em] text-balance sm:text-4xl lg:text-[2.75rem]">
                 {finalCta.title}
               </h2>
-              <p className="mt-5 text-base leading-relaxed text-on-accent/80 text-pretty sm:text-lg">{finalCta.subtitle}</p>
+              <p className="mt-5 text-base leading-relaxed text-on-accent/85 text-pretty sm:text-lg">{finalCta.subtitle}</p>
 
               <div className="mt-8 flex flex-col items-center gap-5 lg:items-start">
                 <ButtonLink href={botUrl("site_cta")} external variant="ink" size="lg" className="w-full sm:h-16 sm:w-auto sm:px-10 sm:text-lg">
@@ -40,11 +40,11 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
                   {finalCta.button}
                 </ButtonLink>
                 <Availability t={dict.availability} />
-                <p className="flex flex-wrap items-center justify-center gap-x-2 text-sm text-on-accent/80">
+                <p className="flex flex-wrap items-center justify-center gap-x-2 text-sm text-on-accent/85">
                   {finalCta.orCall}
                   <a
                     href={contacts.phoneHref}
-                    className="inline-flex items-center gap-1.5 rounded font-semibold text-fg underline decoration-fg/40 underline-offset-4 hover:decoration-fg"
+                    className="inline-flex items-center gap-1.5 rounded font-semibold text-on-accent underline decoration-on-accent/40 underline-offset-4 hover:decoration-on-accent"
                   >
                     <Phone className="h-4 w-4" aria-hidden="true" />
                     {contacts.phone}
@@ -54,7 +54,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
             </Parallax>
 
             <div>
-              <p className="mb-4 flex items-center gap-3 text-sm font-semibold text-on-accent/70 lg:hidden">
+              <p className="mb-4 flex items-center gap-3 text-sm font-semibold text-on-accent/85 lg:hidden">
                 <span className="h-px flex-1 bg-on-accent/25" />
                 {finalCta.or}
                 <span className="h-px flex-1 bg-on-accent/25" />

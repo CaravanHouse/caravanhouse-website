@@ -4,8 +4,10 @@ import type { Locale } from "@/locales";
 import emblemDark from "@/public/brand/emblem-dark.png";
 import logoFull from "@/public/brand/logo-full.png";
 
-// Знак CaravanHouse: «C» с дорогой каравана. На светлом сайте — чёрная версия public/brand/emblem-dark.png
-// (сделана из emblem.png: та же форма и прозрачность, цвет графитовый). Золотой emblem.png — для тёмного фона (OG-картинка).
+// Знак CaravanHouse: «C» с дорогой каравана, в цветах палитры «Песок и терракота».
+// public/brand/emblem-dark.png — для светлого фона сайта: терракотовый градиент, как «House» в названии.
+// public/brand/emblem.png — для тёмного фона (OG-картинка): терракота с золотом. Оба перекрашены из исходного золотого знака
+// с сохранением градиента и прозрачности.
 // Декоративный: рядом всегда есть название, поэтому alt пустой.
 export function LogoMark({ className = "h-8 w-auto" }: { className?: string }) {
   return <Image src={emblemDark} alt="" width={44} height={32} className={className} />;

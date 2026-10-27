@@ -37,7 +37,7 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
               <Parallax as="li" key={module.id} offset={[18, -26, 34][index % 3]}>
               <Reveal
                 delay={(index % 3) * 0.08}
-                className="group flex h-full gap-4 rounded-3xl border border-line bg-bg p-5 transition-[translate,box-shadow,border-color] duration-700 ease-soft hover:-translate-y-1.5 hover:border-accent hover:shadow-[0_20px_40px_-24px_rgb(143_91_0/0.45)] sm:p-6"
+                className="group flex h-full gap-4 rounded-3xl border border-line bg-bg p-5 transition-[translate,box-shadow,border-color] duration-700 ease-soft hover:-translate-y-1.5 hover:border-accent hover:shadow-[0_20px_40px_-24px_rgb(164_71_28/0.45)] sm:p-6"
               >
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent text-on-accent transition-transform duration-500 ease-soft group-hover:-rotate-6 group-hover:scale-110">
                   <Icon className="h-5 w-5" aria-hidden="true" />
@@ -58,7 +58,7 @@ export default function SiteShowcase({ dict }: { dict: Dictionary }) {
             href={eduDemo.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block overflow-hidden rounded-2xl border border-line shadow-[0_30px_70px_-40px_rgb(143_91_0/0.55)]"
+            className="group block overflow-hidden rounded-2xl border border-line shadow-[0_30px_70px_-40px_rgb(164_71_28/0.55)]"
           >
             <div aria-hidden="true" className="flex h-7 items-center gap-1.5 border-b border-line bg-surface px-3">
               <span className="h-2 w-2 rounded-full bg-line-strong" />

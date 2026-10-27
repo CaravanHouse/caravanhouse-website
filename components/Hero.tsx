@@ -27,7 +27,7 @@ function Schedule({ t }: { t: Dictionary["hero"]["schedule"] }) {
   const col = (day: number, display: "block" | "flex" = "flex") => !hiddenOnPhone.has(day) ? "" : display === "flex" ? "hidden sm:flex" : "hidden sm:block";
   return (
     <figure aria-label={t.label} className="animate-float relative">
-      <div className="rounded-[1.75rem] border border-line bg-bg p-4 shadow-[0_40px_90px_-40px_rgb(143_91_0/0.45)] sm:p-6">
+      <div className="rounded-[1.75rem] border border-line bg-bg p-4 shadow-[0_40px_90px_-40px_rgb(164_71_28/0.45)] sm:p-6">
         <figcaption className="flex items-baseline justify-between gap-4">
           <span className="font-display text-base font-bold tracking-tight sm:text-lg">{t.title}</span>
           <span className="text-xs text-subtle">edu.caravanhouse.uz</span>
@@ -83,7 +83,7 @@ function Schedule({ t }: { t: Dictionary["hero"]["schedule"] }) {
       {/* Уведомление, которое администратор получает в Telegram после записи */}
       <div
         aria-hidden="true"
-        className="animate-toast-in absolute -bottom-12 left-3 right-3 flex items-start gap-3 rounded-2xl border border-line bg-bg p-3.5 shadow-[0_24px_60px_-24px_rgb(29_26_22/0.45)] sm:-bottom-10 sm:left-auto sm:-right-4 sm:w-80 lg:-right-8"
+        className="animate-toast-in absolute -bottom-12 left-3 right-3 flex items-start gap-3 rounded-2xl border border-line bg-bg p-3.5 shadow-[0_24px_60px_-24px_rgb(58_31_11/0.45)] sm:-bottom-10 sm:left-auto sm:-right-4 sm:w-80 lg:-right-8"
       >
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#2aabee] text-white">
           <TelegramIcon className="h-5 w-5" />
@@ -110,7 +110,7 @@ export default function Hero({ dict }: Props) {
           <div className="soft-glow h-full w-full" />
         </Parallax>
         <Parallax offset={160} className="absolute -bottom-40 -left-48 h-[420px] w-[560px]">
-          <div className="soft-glow h-full w-full [--glow:rgb(255_201_77/0.28)]" />
+          <div className="soft-glow h-full w-full [--glow:rgb(247_194_94/0.28)]" />
         </Parallax>
       </div>
       <GoldShapes set="hero" />

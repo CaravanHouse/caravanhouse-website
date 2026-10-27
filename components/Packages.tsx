@@ -30,7 +30,7 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
   return (
     <section id="prices" aria-labelledby="prices-title" className="relative isolate overflow-hidden py-20 sm:py-28">
       <GoldShapes set="prices" />
-      <div aria-hidden="true" className="soft-glow pointer-events-none absolute top-1/3 left-1/2 -z-10 h-[520px] w-[900px] -translate-x-1/2 [--glow:rgb(244_178_35/0.22)]" />
+      <div aria-hidden="true" className="soft-glow pointer-events-none absolute top-1/3 left-1/2 -z-10 h-[520px] w-[900px] -translate-x-1/2 [--glow:rgb(238_167_42/0.22)]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
           <SectionHeading id="prices-title" title={t.title} subtitle={t.subtitle} />
@@ -45,21 +45,21 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
                 delay={index * 0.1}
                 className={`relative flex w-full flex-col overflow-hidden rounded-[1.75rem] p-7 transition-[translate,box-shadow] duration-700 ease-soft hover:-translate-y-2 sm:p-8 ${
                   featured
-                    ? "bg-accent text-on-accent shadow-[0_40px_80px_-40px_rgb(143_91_0/0.8)] lg:-my-4 lg:py-12"
-                    : "border border-line bg-bg hover:shadow-[0_24px_50px_-30px_rgb(143_91_0/0.45)]"
+                    ? "bg-accent text-on-accent shadow-[0_40px_80px_-40px_rgb(164_71_28/0.8)] lg:-my-4 lg:py-12"
+                    : "border border-line bg-bg hover:shadow-[0_24px_50px_-30px_rgb(164_71_28/0.45)]"
                 }`}
               >
                 {featured ? (
                   <span aria-hidden="true" className="animate-shimmer pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-transparent via-white/45 to-transparent" />
                 ) : null}
-                {featured ? <p className="relative mb-4 self-start rounded-full bg-fg px-3 py-1 text-xs font-bold text-accent">{t.popular}</p> : null}
+                {featured ? <p className="relative mb-4 self-start rounded-full bg-on-accent px-3 py-1 text-xs font-bold text-accent">{t.popular}</p> : null}
                 <h3 className="relative font-display text-xl font-bold tracking-[-0.02em] sm:text-2xl">{pkg.title}</h3>
-                <p className={`relative mt-2 ${featured ? "text-on-accent/75" : "text-muted"}`}>{pkg.note}</p>
+                <p className={`relative mt-2 ${featured ? "text-on-accent/85" : "text-muted"}`}>{pkg.note}</p>
                 <p className={`relative mt-6 text-2xl font-extrabold tracking-tight sm:text-3xl ${featured ? "" : "text-accent-ink"}`}>{label}</p>
                 <ul className={`relative mt-7 flex flex-col gap-3 border-t pt-7 ${featured ? "border-on-accent/20" : "border-line"}`}>
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3 leading-snug">
-                      <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${featured ? "bg-fg text-accent" : "bg-accent text-on-accent"}`}>
+                      <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${featured ? "bg-on-accent text-accent" : "bg-accent text-on-accent"}`}>
                         <Check className="h-3 w-3" aria-hidden="true" strokeWidth={3} />
                       </span>
                       {feature}

@@ -44,7 +44,7 @@ export default function LeadForm({ form }: { form: Form }) {
 
   if (phase.name === "done") {
     return (
-      <div role="status" className="flex h-full flex-col items-center justify-center gap-4 rounded-3xl bg-bg p-8 text-center text-fg shadow-[0_40px_80px_-40px_rgb(29_26_22/0.5)]">
+      <div role="status" className="flex h-full flex-col items-center justify-center gap-4 rounded-3xl bg-bg p-8 text-center text-fg shadow-[0_40px_80px_-40px_rgb(58_31_11/0.5)]">
         <CircleCheck className="h-10 w-10 text-emerald-600" aria-hidden="true" />
         <p className="text-lg font-semibold">
           {phase.id ? form.success.replace("{id}", String(phase.id)) : form.successNoId}
@@ -55,7 +55,7 @@ export default function LeadForm({ form }: { form: Form }) {
 
   const sending = phase.name === "sending";
   return (
-    <form onSubmit={submit} noValidate className="relative flex flex-col gap-4 rounded-3xl bg-bg p-6 text-left text-fg shadow-[0_40px_80px_-40px_rgb(29_26_22/0.5)] sm:p-7">
+    <form onSubmit={submit} noValidate className="relative flex flex-col gap-4 rounded-3xl bg-bg p-6 text-left text-fg shadow-[0_40px_80px_-40px_rgb(58_31_11/0.5)] sm:p-7">
       <p className="text-xl font-bold tracking-tight">{form.title}</p>
       <div className="grid gap-4 sm:grid-cols-2">
         <label htmlFor={`${id}-name`} className="flex flex-col gap-2 text-sm text-muted">

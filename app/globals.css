@@ -3,23 +3,23 @@
 /* Шрифт сайта — Montserrat (next/font/google, подключён в app/[lang]/layout.tsx): кириллица, латиница и узбекская ʻ. */
 
 @theme {
-  /* Светлая тема: белая «бумага», графитовый текст, фирменное золото.
+  /* Палитра «Песок и терракота»: песочная «бумага», тёплый коричневый текст, золото и терракота.
      Золото как заливка — accent, золото как текст на белом — accent-ink (контраст ≥ 4.5:1). */
-  --color-bg: #fffdf8;
-  --color-bg-elevated: #fff6e2;
-  --color-surface: #fbeed0;
-  --color-line: #efe2c6;
-  --color-line-strong: #e0cda6;
-  --color-fg: #1d1a16;
-  --color-muted: #5c564d;
-  --color-subtle: #857d70;
-  --color-accent: #f4b223;
-  --color-accent-soft: #ffc94d;
-  --color-accent-deep: #e0891b;
-  --color-accent-ink: #8f5b00;
-  --color-accent-wash: #ffefc7;
-  --color-on-accent: #1d1406;
-  --color-night: #13110e;
+  --color-bg: #fbf5ec;
+  --color-bg-elevated: #f6ecdc;
+  --color-surface: #efdfc6;
+  --color-line: #eadbc3;
+  --color-line-strong: #d9c19c;
+  --color-fg: #2e1d12;
+  --color-muted: #6b5341;
+  --color-subtle: #8a7260;
+  --color-accent: #eea72a;
+  --color-accent-soft: #f7c25e;
+  --color-accent-deep: #c75b2a;
+  --color-accent-ink: #a4471c;
+  --color-accent-wash: #fbe2c4;
+  --color-on-accent: #3a1f0b;
+  --color-night: #24160c;
 
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
@@ -76,7 +76,7 @@ html.lenis body {
   }
 
   ::selection {
-    background-color: rgb(244 178 35 / 0.4);
+    background-color: rgb(238 167 42 / 0.4);
     color: var(--color-fg);
   }
 
@@ -107,16 +107,16 @@ html.lenis body {
 /* Клетка школьной тетради — фон hero */
 @utility bg-notebook {
   background-image:
-    linear-gradient(to right, rgb(224 137 27 / 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(224 137 27 / 0.1) 1px, transparent 1px);
+    linear-gradient(to right, rgb(199 91 42 / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(199 91 42 / 0.1) 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
 /* Старый фон-сетка для страницы 404 */
 @utility bg-grid {
   background-image:
-    linear-gradient(to right, rgb(244 178 35 / 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(244 178 35 / 0.12) 1px, transparent 1px);
+    linear-gradient(to right, rgb(238 167 42 / 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(238 167 42 / 0.12) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 
@@ -212,7 +212,7 @@ html.lenis body {
   }
 }
 @utility marker {
-  background-image: linear-gradient(100deg, rgb(244 178 35 / 0.75), rgb(255 201 77 / 0.9));
+  background-image: linear-gradient(100deg, rgb(238 167 42 / 0.75), rgb(247 194 94 / 0.9));
   background-repeat: no-repeat;
   background-position: 0 88%;
   background-size: 100% 0.42em;
@@ -324,5 +324,5 @@ html.lenis body {
 
 /* Мягкое тёплое свечение без filter: blur (дёшево для телефонов) */
 @utility soft-glow {
-  background-image: radial-gradient(closest-side, var(--glow, rgb(244 178 35 / 0.35)), transparent 100%);
+  background-image: radial-gradient(closest-side, var(--glow, rgb(238 167 42 / 0.35)), transparent 100%);
 }
