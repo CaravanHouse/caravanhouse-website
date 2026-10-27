@@ -64,7 +64,7 @@ function Svg({ shape, size }: { shape: Shape; size: number }) {
           <g transform="rotate(-35 24 24)">
             <rect x="8" y="19" width="26" height="10" rx="2" fill="var(--color-accent)" />
             <rect x="4" y="19" width="6" height="10" rx="2" fill="var(--color-accent-deep)" />
-            <path d="M34 19l10 5-10 5z" fill="#f3d7a1" />
+            <path d="M34 19l10 5-10 5z" fill="#efcf9c" />
             <path d="M41 22.5l3 1.5-3 1.5z" fill="var(--color-fg)" />
           </g>
         </svg>

@@ -23,7 +23,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
           <div className="soft-glow h-full w-full [--glow:rgb(255_255_255/0.45)]" />
         </Parallax>
       </div>
-      <GoldShapes set="cta" className="[--color-accent:#fff8e6]" />
+      <GoldShapes set="cta" className="[--color-accent:#fcf3e4]" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div>
 
