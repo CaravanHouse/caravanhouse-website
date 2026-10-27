@@ -32,7 +32,8 @@ export type BotRef =
   | "site_float"
   | "site_projects"
   | "site_prices"
-  | "site_404";
+  | "site_404"
+  | "site_team";
 
 export const botUrl = (ref: BotRef) => `${contacts.telegramUrl}?start=${ref}`;
 

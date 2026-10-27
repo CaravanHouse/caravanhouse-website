@@ -8,7 +8,8 @@ import ButtonLink from "./ui/ButtonLink";
 import SocialIcon from "./ui/SocialIcon";
 import TelegramIcon from "./ui/TelegramIcon";
 
-type Props = { lang: Locale; dict: Dictionary };
+// onHome = false — подвал на внутренней странице: якоря ведут на главную
+type Props = { lang: Locale; dict: Dictionary; onHome?: boolean };
 
 const headingClass = "text-sm font-semibold text-fg";
 const linkClass = "rounded text-muted transition-colors hover:text-accent-ink";
@@ -29,16 +30,17 @@ function ContactLink({ href, external, icon, children }: { href: string; externa
   );
 }
 
-export default function Footer({ lang, dict }: Props) {
+export default function Footer({ lang, dict, onHome = true }: Props) {
+  const home = onHome ? "" : `/${lang}`;
   const { footer, nav } = dict;
   const year = new Date().getFullYear();
   const links = [
-    { href: "#problems", label: nav.problems },
-    { href: "#site", label: nav.site },
-    { href: "#prices", label: nav.prices },
-    { href: "#process", label: nav.process },
-    { href: "#faq", label: nav.faq },
-    { href: "#contacts", label: nav.contacts },
+    { href: `${home}#problems`, label: nav.problems },
+    { href: `${home}#site`, label: nav.site },
+    { href: `${home}#prices`, label: nav.prices },
+    { href: `${home}#process`, label: nav.process },
+    { href: `${home}#faq`, label: nav.faq },
+    { href: `${home}#contacts`, label: nav.contacts },
   ];
 
   return (
