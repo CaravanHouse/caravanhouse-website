@@ -1,5 +1,6 @@
 import Image from "next/image";
-import type { Dictionary } from "@/locales";
+import Link from "next/link";
+import type { Dictionary, Locale } from "@/locales";
 import { team } from "@/lib/team";
 import GithubIcon from "./ui/GithubIcon";
 import ParallaxMedia from "./motion/ParallaxMedia";
@@ -11,7 +12,8 @@ import SocialIcon from "./ui/SocialIcon";
 const iconLink =
   "flex h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-fg/40 hover:text-fg";
 
-export default function Team({ dict }: { dict: Dictionary }) {
+// Фото и имя ведут на страницу участника /<lang>/team/<id> с его лучшей работой
+export default function Team({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   const { team: t } = dict;
   const members = team.flatMap((meta) => {
     const text = t.members.find((m) => m.id === meta.id);
@@ -29,7 +31,11 @@ export default function Team({ dict }: { dict: Dictionary }) {
           {members.map(({ meta, text }, index) => (
             <Parallax as="li" key={meta.id} offset={index === 1 ? -40 : 24}>
             <Reveal delay={index * 0.1} className="group grid grid-cols-[6rem_1fr] gap-x-5 sm:flex sm:flex-col">
-              <div className="relative row-span-4 aspect-square overflow-hidden rounded-2xl bg-surface ring-4 ring-transparent transition-[box-shadow] duration-500 ease-soft group-hover:ring-accent sm:aspect-[4/5] sm:rounded-[1.5rem]">
+              <Link
+                href={`/${lang}/team/${meta.id}`}
+                aria-label={`${text.name}: ${t.viewWork}`}
+                className="relative row-span-5 block aspect-square overflow-hidden rounded-2xl bg-surface ring-4 ring-transparent transition-[box-shadow] duration-500 ease-soft group-hover:ring-accent sm:aspect-[4/5] sm:rounded-[1.5rem]"
+              >
                 {meta.photo ? (
                   <ParallaxMedia offset={28} className="absolute inset-0">
                   <Image
@@ -42,10 +48,20 @@ export default function Team({ dict }: { dict: Dictionary }) {
                   />
                   </ParallaxMedia>
                 ) : null}
-              </div>
-              <h3 className="text-xl font-bold tracking-tight sm:mt-5">{text.name}</h3>
+              </Link>
+              <h3 className="text-xl font-bold tracking-tight sm:mt-5">
+                <Link href={`/${lang}/team/${meta.id}`} className="transition-colors hover:text-accent-ink">
+                  {text.name}
+                </Link>
+              </h3>
               <p className="text-sm font-semibold text-accent-ink">{text.role}</p>
               <p className="mt-2 leading-relaxed text-muted">{text.bio}</p>
+              <Link
+                href={`/${lang}/team/${meta.id}`}
+                className="mt-3 inline-flex items-center gap-1.5 self-start text-sm font-bold text-accent-ink underline decoration-accent-ink/30 underline-offset-4 transition-colors hover:decoration-accent-ink"
+              >
+                {t.viewWork} <span aria-hidden="true">→</span>
+              </Link>
               <div className="mt-4 flex gap-2">
                 {meta.telegram ? (
                   <a href={meta.telegram} target="_blank" rel="noopener noreferrer" aria-label={`Telegram: ${text.name}`} className={iconLink}>

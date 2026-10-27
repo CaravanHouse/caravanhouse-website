@@ -42,7 +42,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         <SiteShowcase dict={dict} />
         <Packages dict={dict} prices={prices} />
         <Process dict={dict} />
-        <Team dict={dict} />
+        <Team lang={lang} dict={dict} />
         <Marquee items={dict.hero.perks} variant="soft" reverse />
         <FAQ faq={dict.faq} />
         <FinalCTA dict={dict} />
