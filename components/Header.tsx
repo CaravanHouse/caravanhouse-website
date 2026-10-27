@@ -59,13 +59,13 @@ export default function Header({ lang, dict, path = "" }: Props) {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
         <Logo lang={lang} label={dict.a11y.home} />
 
-        <nav aria-label={dict.a11y.mainNav} className="hidden xl:block">
+        <nav aria-label={dict.a11y.mainNav} className="hidden min-w-0 xl:block">
           <ul className="flex items-center gap-0.5 2xl:gap-1">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:text-fg xl:px-1.5 xl:text-[0.8125rem] 2xl:px-3.5 2xl:text-sm"
+                  className="whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:text-fg xl:px-1.5 xl:text-[0.8125rem] 2xl:px-2.5"
                 >
                   {link.label}
                 </a>
@@ -74,7 +74,7 @@ export default function Header({ lang, dict, path = "" }: Props) {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <LanguageSwitcher lang={lang} path={path} label={dict.a11y.language} className="hidden sm:block" />
           <div className="hidden items-center gap-2 md:flex">
             <ButtonLink href={botUrl("site_header")} external size="md" className="whitespace-nowrap">
