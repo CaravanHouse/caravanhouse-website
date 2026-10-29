@@ -362,3 +362,113 @@ html.js .reveal.is-visible {
     }
   }
 }
+
+/* ───────────────────────── Плакатная главная (редизайн, direction «Loud and flat») ─────────────────────────
+   Каждая глава страницы — сплошное поле одного цвета палитры «Песок и терракота».
+   Цвета и Montserrat — фирменные; поля сменяют друг друга встык, без линий, теней и градиентов. */
+:root {
+  --m: max(16px, 3vw); /* единственная пара внешних полей на всей странице */
+  --t-display: clamp(40px, 9.2vw, 168px);
+  --t-head: clamp(30px, 4vw, 64px);
+  --t-lead: clamp(20px, 1.6vw, 26px);
+  --t-body: 18px;
+  --t-small: 14px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius: 32px; /* один большой радиус на всё */
+}
+
+/* Поля глав: фон и чернила. data-chapter читает шапка, чтобы взять цвет главы под собой. */
+[data-chapter="terra"] { background-color: #a4471c; color: #fbf5ec; --ink-2: #f7c25e; --field-deep: #8a3816; }
+[data-chapter="gold"] { background-color: #eea72a; color: #24160c; --ink-2: #24160c; --field-deep: #d18c12; }
+[data-chapter="night"] { background-color: #24160c; color: #fbf5ec; --ink-2: #eea72a; --field-deep: #3a2617; }
+[data-chapter="sand"] { background-color: #fbf5ec; color: #24160c; --ink-2: #a4471c; --field-deep: #efdfc6; }
+[data-chapter="stone"] { background-color: #efdfc6; color: #24160c; --ink-2: #a4471c; --field-deep: #e3cca9; }
+
+@layer components {
+.t-display {
+  font-size: var(--t-display);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+}
+.t-head {
+  font-size: var(--t-head);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+.t-lead { font-size: var(--t-lead); line-height: 1.35; font-weight: 600; letter-spacing: -0.01em; }
+.t-body { font-size: var(--t-body); line-height: 1.55; }
+.t-small { font-size: var(--t-small); line-height: 1.45; }
+
+.px-m { padding-inline: var(--m); }
+
+/* Кнопка: одна форма на всю страницу — полностью круглая, сплошная заливка */
+.btn {
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  padding: 0 28px;
+  font-size: 17px;
+  font-weight: 800;
+  transition: transform 180ms var(--ease-out), background-color 200ms ease, color 200ms ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn-gold { background: #eea72a; color: #24160c; }
+.btn-gold:hover { background: #f7c25e; }
+.btn-night { background: #24160c; color: #fbf5ec; }
+.btn-night:hover { background: #3a2617; }
+.btn-cream { background: #fbf5ec; color: #24160c; }
+.btn-cream:hover { background: #ffffff; }
+
+/* Ссылка-текст с подчёркиванием, которое отвечает на наведение */
+.link-u {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  transition: text-underline-offset 200ms var(--ease-out), opacity 200ms ease;
+}
+.link-u:hover { text-underline-offset: 8px; }
+
+}
+
+/* Шапка берёт цвет главы под собой: смена за 300 мс на границе поля */
+.site-header { transition: background-color 300ms ease, color 300ms ease; }
+
+/* Медленный дрейф картинки hero — «живая» картинка страницы */
+@keyframes drift {
+  from { transform: rotate(-4deg) translate3d(0, 0, 0) scale(1); }
+  to { transform: rotate(-3deg) translate3d(-1.5%, -2%, 0) scale(1.03); }
+}
+.drift { animation: drift 14s ease-in-out infinite alternate; }
+
+/* Лента фото в контактах */
+@keyframes strip {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.photo-strip { animation: strip 60s linear infinite; }
+.photo-strip:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .drift, .photo-strip { animation: none; }
+}
+
+/* Первый экран: строки заголовка поднимаются из-под маски, текст и кнопка — следом. Всё за 1,2 с. */
+@keyframes line-rise {
+  from { transform: translate3d(0, 0.5em, 0); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes rise {
+  from { transform: translate3d(0, 24px, 0); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+.hero-line { animation: line-rise 900ms var(--ease-out) both; }
+.hero-rise { animation: rise 800ms var(--ease-out) both; }
+.toast-in { animation: rise 450ms var(--ease-out) both; }
+
+:root { --tab-step: 48px; }
+@media (min-width: 640px) { :root { --tab-step: 150px; } }

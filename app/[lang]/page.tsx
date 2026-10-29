@@ -6,13 +6,12 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import JsonLd from "@/components/JsonLd";
-import Marquee from "@/components/Marquee";
-import ScrollProgress from "@/components/motion/ScrollProgress";
 import Packages from "@/components/Packages";
 import Problems from "@/components/Problems";
 import Process from "@/components/Process";
 import SiteShowcase from "@/components/SiteShowcase";
 import Team from "@/components/Team";
+import TrialDemo from "@/components/TrialDemo";
 import UpdateNotifier from "@/components/UpdateNotifier";
 import { getDictionary, hasLocale } from "@/locales";
 import { formatSum, getPrices } from "@/lib/prices";
@@ -33,17 +32,15 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   return (
     <>
       <JsonLd lang={lang} dict={dict} prices={prices} />
-      <ScrollProgress />
       <Header lang={lang} dict={{ nav: dict.nav, a11y: dict.a11y, cta: dict.cta }} />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero dict={dict} />
-        <Marquee items={dict.hero.audience} />
         <Problems dict={dict} />
+        <TrialDemo t={dict.showcase} />
         <SiteShowcase dict={dict} />
         <Packages dict={dict} prices={prices} />
         <Process dict={dict} />
         <Team lang={lang} dict={dict} />
-        <Marquee items={dict.hero.perks} variant="soft" reverse />
         <FAQ faq={dict.faq} />
         <FinalCTA dict={dict} />
       </main>

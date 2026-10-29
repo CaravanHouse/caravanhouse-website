@@ -1,46 +1,45 @@
 import type { Dictionary } from "@/locales";
-import { Check } from "lucide-react";
 import Reveal from "./ui/Reveal";
-import SectionHeading from "./ui/SectionHeading";
-import StrikeText from "./StrikeText";
 
-// Боль → решение: таблица из двух колонок с линиями, без карточек. На телефоне — пары друг под другом.
-export default function Problems({ dict }: { dict: Dictionary }) {
-  const t = dict.problems;
+type Props = { dict: Dictionary };
 
+// Четыре поля встык: на каждом одна перемена, которую даёт сайт. Крупная фраза в нижнем углу,
+// под ней по диагонали — что сейчас и что будет с сайтом. На чётных полях раскладка зеркалится.
+const chapters = ["gold", "sand", "night", "stone"] as const;
+
+export default function Problems({ dict }: Props) {
+  const { items } = dict.problems;
   return (
-    <section id="problems" aria-labelledby="problems-title" className="py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <SectionHeading id="problems-title" title={t.title} />
-        </Reveal>
-
-        <div className="mt-12 lg:mt-16">
-          <div aria-hidden="true" className="hidden grid-cols-2 gap-10 border-b-2 border-accent pb-3 text-sm font-semibold md:grid">
-            <span className="text-subtle">{t.problemLabel}</span>
-            <span className="text-accent-ink">{t.solutionLabel}</span>
-          </div>
-          <dl>
-            {t.items.map((item, index) => (
-              <Reveal key={item.problem} delay={index * 0.08} x={-60} className="grid gap-3 border-b border-line py-6 md:grid-cols-2 md:gap-10 md:py-8">
-                <dt className="text-lg font-semibold leading-snug text-muted sm:text-xl">
-                  <span className="sr-only">{t.problemLabel}: </span>
-                  <StrikeText delay={index * 0.1}>{item.problem}</StrikeText>
-                </dt>
-                <dd className="flex gap-3 text-lg leading-snug sm:text-xl">
-                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent">
-                    <Check className="h-4 w-4" aria-hidden="true" strokeWidth={3} />
-                  </span>
-                  <span>
-                    <span className="sr-only">{t.solutionLabel}: </span>
-                    {item.solution}
-                  </span>
-                </dd>
-              </Reveal>
-            ))}
-          </dl>
-        </div>
-      </div>
-    </section>
+    <div id="problems">
+      {items.map((item, index) => {
+        const mirror = index % 2 === 1;
+        const id = `problem-${index}`;
+        return (
+          <section
+            key={item.phrase}
+            data-chapter={chapters[index % chapters.length]}
+            aria-labelledby={id}
+            className="grid min-h-[64svh] grid-rows-[auto_1fr_auto] px-m py-10 sm:min-h-[76svh] sm:py-14 lg:grid-cols-12"
+          >
+            <Reveal
+              className={`t-body max-w-[34ch] lg:row-start-1 ${mirror ? "lg:col-span-4 lg:col-start-2" : "lg:col-span-4 lg:col-start-8"} ${
+                mirror ? "max-lg:ml-auto max-lg:text-right" : ""
+              }`}
+            >
+              <p className="font-semibold opacity-80">{item.problem}.</p>
+              <p className="mt-3">{item.solution}</p>
+            </Reveal>
+            <Reveal
+              delay={0.08}
+              className={`row-start-3 lg:col-span-12 ${mirror ? "lg:text-right" : ""}`}
+            >
+              <h2 id={id} className="t-display">
+                {item.phrase}
+              </h2>
+            </Reveal>
+          </section>
+        );
+      })}
+    </div>
   );
 }

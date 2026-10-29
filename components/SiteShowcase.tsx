@@ -1,109 +1,76 @@
 import Image from "next/image";
-import { ArrowUpRight, BookOpen, CalendarDays, GraduationCap, Languages, ListChecks, PencilLine, type LucideIcon } from "lucide-react";
 import type { Dictionary } from "@/locales";
 import { eduDemo, otherDemos } from "@/lib/projects";
-import ButtonLink from "./ui/ButtonLink";
-import Tilt from "./motion/Tilt";
-import Parallax from "./ui/Parallax";
-import GoldShapes from "./ui/GoldShapes";
+import clinicShot from "@/public/projects/clinic.jpg";
+import storeShot from "@/public/projects/store.jpg";
 import Reveal from "./ui/Reveal";
-import SectionHeading from "./ui/SectionHeading";
 
-const icons: Record<string, LucideIcon> = {
-  courses: BookOpen,
-  schedule: CalendarDays,
-  trial: PencilLine,
-  test: ListChecks,
-  teachers: GraduationCap,
-  languages: Languages,
-};
+type Props = { dict: Dictionary };
 
-// Что будет на сайте + живой пример (демо учебного центра) в одном блоке
-export default function SiteShowcase({ dict }: { dict: Dictionary }) {
+const shots = { clinic: clinicShot, store: storeShot } as const;
+
+// Что будет на сайте: крупный простой список блоков, а в конце — живой демо-сайт и другие наши сайты.
+export default function SiteShowcase({ dict }: Props) {
   const t = dict.site;
-
   return (
-    <section id="site" aria-labelledby="site-title" className="bg-fade-elevated relative isolate py-20 sm:py-24">
-      <GoldShapes set="site" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <SectionHeading id="site-title" title={t.title} subtitle={t.subtitle} />
+    <section id="site" data-chapter="sand" aria-labelledby="site-title" className="px-m py-28 sm:py-40">
+      <div className="grid gap-x-10 gap-y-6 lg:grid-cols-12">
+        <Reveal className="lg:col-span-6">
+          <h2 id="site-title" className="t-head">
+            {t.title}
+          </h2>
         </Reveal>
+        <Reveal delay={0.08} className="lg:col-span-5 lg:col-start-8">
+          <p className="t-lead">{t.subtitle}</p>
+        </Reveal>
+      </div>
 
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-5">
-          {t.modules.map((module, index) => {
-            const Icon = icons[module.id] ?? BookOpen;
-            return (
-              <Parallax as="li" key={module.id} offset={[18, -26, 34][index % 3]}>
-              <Reveal
-                delay={(index % 3) * 0.08}
-                className="group flex h-full gap-4 rounded-3xl border border-line bg-bg p-5 transition-[translate,box-shadow,border-color] duration-700 ease-soft hover:-translate-y-1.5 hover:border-accent hover:shadow-[0_20px_40px_-24px_rgb(164_71_28/0.45)] sm:p-6"
-              >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-accent text-on-accent transition-transform duration-500 ease-soft group-hover:-rotate-6 group-hover:scale-110">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <div>
-                  <h3 className="text-lg font-bold tracking-tight">{module.title}</h3>
-                  <p className="mt-1.5 leading-relaxed text-muted">{module.text}</p>
-                </div>
-              </Reveal>
-              </Parallax>
-            );
-          })}
-        </ul>
+      <ul className="mt-16 sm:mt-24">
+        {t.modules.map((module, index) => (
+          <li key={module.id} className="grid gap-x-10 gap-y-3 py-7 even:bg-[#f6ecdc] even:-mx-[var(--m)] even:px-[var(--m)] sm:py-9 lg:grid-cols-12 lg:items-baseline">
+            <Reveal delay={index * 0.05} className="lg:col-span-7">
+              <h3 className="t-head text-[clamp(28px,3vw,48px)]">{module.title}</h3>
+            </Reveal>
+            <Reveal delay={index * 0.05 + 0.06} className="lg:col-span-5">
+              <p className="t-body max-w-[46ch]">{module.text}</p>
+            </Reveal>
+          </li>
+        ))}
+      </ul>
 
-        <Reveal className="mt-16 grid items-center gap-10 rounded-[2rem] border border-line bg-bg p-5 sm:p-8 lg:mt-20 lg:grid-cols-[1.35fr_1fr] lg:gap-14 lg:p-10">
-          <Tilt max={5}>
-          <a
-            href={eduDemo.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block overflow-hidden rounded-2xl border border-line shadow-[0_30px_70px_-40px_rgb(164_71_28/0.55)]"
-          >
-            <div aria-hidden="true" className="flex h-7 items-center gap-1.5 border-b border-line bg-surface px-3">
-              <span className="h-2 w-2 rounded-full bg-line-strong" />
-              <span className="h-2 w-2 rounded-full bg-line-strong" />
-              <span className="h-2 w-2 rounded-full bg-line-strong" />
-              <span className="ml-3 text-[0.7rem] text-subtle">edu.caravanhouse.uz</span>
-            </div>
-            <Image
-              src={eduDemo.shot}
-              alt={t.imageAlt}
-              sizes="(min-width: 1280px) 700px, (min-width: 1024px) 55vw, 100vw"
-              placeholder="blur"
-              className="h-auto w-full transition-transform duration-700 ease-soft group-hover:scale-[1.03]"
-            />
+      <div className="mt-20 grid gap-10 sm:mt-28 lg:grid-cols-12 lg:items-end">
+        <Reveal className="lg:col-span-5">
+          <h3 className="t-head">{t.demoTitle}</h3>
+          <p className="t-body mt-5 max-w-[44ch]">{t.demoText}</p>
+          <a href={eduDemo.url} target="_blank" rel="noopener noreferrer" className="btn btn-night mt-8">
+            {t.demoCta}
+            <span aria-hidden="true">↗</span>
           </a>
-          </Tilt>
-
-          <Parallax offset={-30}>
-            <h3 className="font-display text-2xl font-bold tracking-[-0.02em] sm:text-3xl">{t.demoTitle}</h3>
-            <p className="mt-4 leading-relaxed text-muted">{t.demoText}</p>
-            <ButtonLink href={eduDemo.url} external variant="ink" size="lg" className="mt-7">
-              {t.demoCta}
-              <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
-            </ButtonLink>
-
-            <div className="mt-9 border-t border-line pt-5">
-              <p className="text-sm text-subtle">{t.othersTitle}</p>
-              <ul className="mt-2 flex flex-wrap gap-x-6 gap-y-2">
-                {otherDemos.map((demo) => (
-                  <li key={demo.id}>
-                    <a
-                      href={demo.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 font-semibold underline decoration-line-strong underline-offset-4 hover:decoration-fg"
-                    >
-                      {t.others[demo.id]}
-                      <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Parallax>
         </Reveal>
+        <div className="lg:col-span-7">
+          <p className="t-small font-bold">{t.othersTitle}</p>
+          <ul className="mt-4 grid grid-cols-2 gap-3">
+            {otherDemos.map((demo, index) => (
+              <li key={demo.id}>
+                <Reveal delay={index * 0.08}>
+                  <a href={demo.url} target="_blank" rel="noopener noreferrer" className="group block">
+                    <span className="block overflow-hidden rounded-[var(--radius)]">
+                      <Image
+                        src={shots[demo.id]}
+                        alt=""
+                        sizes="(min-width: 1024px) 28vw, 45vw"
+                        className="h-auto w-full transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.04]"
+                      />
+                    </span>
+                    <span className="t-body mt-3 inline-block font-bold group-hover:underline">
+                      {t.others[demo.id]} <span aria-hidden="true">↗</span>
+                    </span>
+                  </a>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

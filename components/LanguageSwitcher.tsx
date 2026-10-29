@@ -7,7 +7,7 @@ type Props = { lang: Locale; label: string; className?: string; path?: string };
 export default function LanguageSwitcher({ lang, label, className = "", path = "" }: Props) {
   return (
     <nav aria-label={label} className={className}>
-      <ul className="flex items-center rounded-full border border-line p-1 text-xs font-bold">
+      <ul className="flex items-center gap-1 text-[14px] font-extrabold">
         {locales.map((locale) => {
           const active = locale === lang;
           return (
@@ -18,7 +18,7 @@ export default function LanguageSwitcher({ lang, label, className = "", path = "
                 lang={localeMeta[locale].htmlLang}
                 aria-current={active ? "true" : undefined}
                 className={`flex h-8 min-w-10 items-center justify-center rounded-full px-3 transition-colors ${
-                  active ? "bg-on-accent text-bg" : "text-muted hover:text-fg"
+                  active ? "bg-current/15" : "opacity-75 hover:opacity-100"
                 }`}
               >
                 {localeMeta[locale].label}

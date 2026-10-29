@@ -34,6 +34,8 @@ const uz: Dictionary = {
     channelShort: "Kanal",
   },
   hero: {
+    titleTop: "Oʻquv markazlari",
+    titleBottom: "uchun saytlar",
     titleBefore: "Oʻquvchilar ",
     titleMark: "sinov darsiga yoziladigan",
     titleAfter: " oʻquv markazi sayti",
@@ -61,25 +63,29 @@ const uz: Dictionary = {
     solutionLabel: "Sayt bilan",
     items: [
       {
+        phrase: "Arizalar Telegramda",
         problem: "Arizalar Instagram direktida yoʻqolib ketadi",
         solution: "Saytdagi har bir ariza administratorga Telegramda keladi: ism, telefon, kurs va qulay vaqt.",
       },
       {
+        phrase: "Narxlar koʻrinib turadi",
         problem: "Administrator kun boʻyi bir xil savollarga javob beradi",
         solution: "Narxlar, jadval va oʻqituvchilar saytda bor. Ota-ona hammasini oʻzi koʻradi va darhol yoziladi.",
       },
       {
+        phrase: "Bot eslatadi",
         problem: "Sinov darsiga yozilishdi, lekin kelishmadi",
         solution: "Bot yozilishni tasdiqlaydi va darsdan bir soat oldin eslatadi.",
       },
       {
+        phrase: "Sizni topishadi",
         problem: "Oʻquv markazini Google va Yandexda topishmaydi",
         solution: "Rus, oʻzbek va ingliz tillaridagi, SEO asosi bor sayt: sizni «Chilonzorda ingliz tili kurslari» kabi soʻrovlar orqali, chet ellik talabalar esa ingliz tilida topishadi.",
       },
     ],
   },
   site: {
-    title: "Oʻquv markazingiz saytida nimalar boʻladi",
+    title: "Saytda nimalar boʻladi",
     subtitle: "Saytni aynan sizga kerakli bloklardan yigʻamiz. Koʻpchilik markazlar mana shulardan boshlaydi.",
     modules: [
       { id: "courses", title: "Kurslar va narxlar", text: "Yoʻnalishlar, darajalar, davomiylik va narx — bularga direktda javob berishga hojat qolmaydi." },
@@ -96,6 +102,33 @@ const uz: Dictionary = {
     imageAlt: "Oʻquv markazi demo-sayti: kurslar, sinov darsi tugmasi va guruhlarning eng yaqin startlari",
     othersTitle: "Boshqa saytlar ham qilganmiz",
     others: { clinic: "Klinika sayti", store: "Internet-doʻkon" },
+  },
+  showcase: {
+    title: "Sinov darsi",
+    text: "Saytingizda yozilish shunday koʻrinadi: kurs va vaqt ikki bosishda. Kunni tanlang va tugmani bosing.",
+    pick: "Sinov darsi vaqti",
+    button: "Yozilish",
+    toastTitle: "Sinov darsiga yangi ariza",
+    toastFrom: "saytdan",
+    sentNote: "Ariza administratorga Telegramda shunday keladi.",
+    again: "Boshqa vaqtni tanlash",
+    days: [
+      {
+        label: "Du 10:00",
+        word: "dushanba kuni",
+        lead: "Malika, English A2, dushanba 10:00",
+      },
+      {
+        label: "Chor 14:00",
+        word: "chorshanba kuni",
+        lead: "Malika, IELTS, chorshanba 14:00",
+      },
+      {
+        label: "Shan 14:00",
+        word: "shanba kuni",
+        lead: "Malika, English A2, shanba 14:00",
+      },
+    ],
   },
   prices: {
     title: "Maktabingiz hajmiga mos uchta paket",
@@ -138,22 +171,23 @@ const uz: Dictionary = {
   process: {
     title: "Saytni qanday qilamiz",
     steps: [
-      { title: "Ariza", description: "Telegramda nechta kurs va filialingiz borligini yozasiz. Shu kuni javob beramiz." },
+      { title: "Ariza", clause: "Avval siz bizga yozasiz", description: "Telegramda nechta kurs va filialingiz borligini yozasiz. Shu kuni javob beramiz." },
       {
-        title: "15 daqiqalik qoʻngʻiroq",
+        title: "15 daqiqalik qoʻngʻiroq", clause: "Keyin 15 daqiqalik qoʻngʻiroq",
         description: "Hozir oʻquvchilar sizga qanday yozilishini koʻrib chiqamiz va narx hamda muddat bilan sayt tuzilmasini yuboramiz.",
       },
       {
-        title: "Dizayn va ishlab chiqish",
+        title: "Dizayn va ishlab chiqish", clause: "Soʻng dizayn va yigʻish",
         description: "Bosh sahifa dizaynini kelishib olamiz, soʻng saytni yigʻamiz. Har hafta nima tayyorligini koʻrsatamiz.",
       },
       {
-        title: "Ishga tushirish",
+        title: "Ishga tushirish", clause: "Va domeningizda ishga tushirish",
         description: "Domen, Telegramga arizalar va analitikani ulaymiz, administratorga hammasi qanday ishlashini koʻrsatamiz.",
       },
     ],
   },
   team: {
+    short: "Biz uchtamiz",
     title: "Saytni siz muloqot qiladigan odamlar qiladi",
     subtitle: "Biz uch kishimiz, vositachi menejerlarsiz. Birinchi xabardan ishga tushirishgacha bevosita biz bilan gaplashasiz.",
     viewWork: "Ishini koʻrish",
@@ -179,48 +213,58 @@ const uz: Dictionary = {
     // {support} — narx kalkulyatordan (calc.caravanhouse.uz/api/prices)
     items: [
       {
+        topic: "Muddat",
         question: "Sayt qancha vaqtda tayyor boʻladi?",
         answer:
           "Repetitor sayti — 5–7 ish kunidan. Oʻquv markazi sayti — 2–3 hafta. Shaxsiy kabinetli onlayn-maktab — 4 haftadan. Aniq muddatni ish boshlanishidan oldin belgilaymiz.",
       },
       {
+        topic: "Tayyorgarlik",
         question: "Biz tomondan nima tayyorlash kerak?",
         answer:
           "Kurslar va narxlar roʻyxati, guruhlar jadvali, oʻqituvchilar suratlari va oʻquvchilarning bir nechta fikri. Matnlarni yozishga yordam beramiz, surat boʻlmasa, telefonda qanday olishni aytamiz.",
       },
       {
+        topic: "Arizalar",
         question: "Arizalar qayerga keladi?",
         answer:
           "Telegramga: administratorning shaxsiy xabarlariga yoki jamoaning umumiy chatiga. Arizada ism, telefon, tanlangan kurs va qulay vaqt boʻladi.",
       },
       {
+        topic: "Ingliz tili",
         question: "Saytni ingliz tilida qilsa boʻladimi?",
         answer:
           "Ha. Saytlarni rus, oʻzbek va ingliz tillarida — istalgan birikmada qilamiz. Ingliz tilidagi versiya chet ellik talabalar, ona tili ingliz boʻlgan oʻqituvchilar yoki IELTS, SAT va xorijda oʻqish kabi xalqaro dasturlar boʻlsa kerak boʻladi. Matnlarni oʻzimiz tarjima qilamiz.",
       },
       {
+        topic: "Bot",
         question: "Sayt boʻlsa, bot nima uchun kerak?",
         answer:
           "Sayt oʻquvchini olib keladi, bot esa uni darsgacha yetkazadi: yozilishni tasdiqlaydi, bir soat oldin eslatadi va tunda koʻp beriladigan savollarga javob beradi. Bot ixtiyoriy, sayt usiz ham ishlaydi.",
       },
       {
+        topic: "Oʻzgartirish",
         question: "Jadval va narxlarni oʻzgartira olamizmi?",
         answer:
           "Ha. Oʻzgartirishlarni bizga Telegramda yuboring: birinchi oy bepul, keyin oyiga {support} soʻmdan qoʻllab-quvvatlash doirasida. Oʻzgartirishlar koʻp boʻlsa, administrator jadvalni oʻzi oʻzgartiradigan boʻlim qilib beramiz.",
       },
       {
+        topic: "Toʻlov",
         question: "Toʻlov qanday amalga oshiriladi?",
         answer: "Ikki bosqichda: boshlashdan oldin 50% va sayt topshirilgandan keyin 50%. Katta loyihalarni bosqichlarga boʻlish mumkin.",
       },
       {
+        topic: "Egalik",
         question: "Sayt va domen kimga tegishli?",
         answer: "Sizga. Domenni boshidanoq sizning nomingizga roʻyxatdan oʻtkazamiz, toʻliq toʻlovdan soʻng kod va barcha kirish maʼlumotlarini topshiramiz.",
       },
       {
+        topic: "Hosting",
         question: "Hosting uchun kim toʻlaydi?",
         answer: "Siz, provayderdagi oʻz akkauntingizda — shunda sayt doim sizning nazoratingizda boʻladi. Biz hammasini tanlab, sozlab beramiz.",
       },
       {
+        topic: "Yoʻnalish",
         question: "Faqat oʻquv markazlari bilan ishlaysizmi?",
         answer:
           "Bizning yoʻnalishimiz — taʼlim: oʻquv markazlari, til maktablari, repetitorlar va onlayn-maktablar. Ularda sinov darslari, guruhlar va toʻlovlar qanday ishlashini bilamiz, shuning uchun tezroq ishga tushiramiz. Boshqa biznesingiz boʻlsa ham yozing — yechim taklif qilamiz.",
@@ -228,6 +272,7 @@ const uz: Dictionary = {
     ],
   },
   finalCta: {
+    short: "15 daqiqada gaplashamiz",
     title: "Oʻquv markazingiz saytini 15 daqiqada muhokama qilamiz",
     subtitle: "Nechta kurs va filialingiz borligini yozing. Sayt tuzilmasini taklif qilamiz va narxini aytamiz. Bepul va hech narsaga majburlamaydi.",
     button: "Telegramda yozish",

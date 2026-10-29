@@ -28,11 +28,11 @@ export default function Logo({ lang, label, variant = "compact" }: Props) {
     <Link
       href={`/${lang}`}
       aria-label={label}
-      className="group inline-flex shrink-0 items-center gap-2.5 rounded-lg text-lg font-extrabold tracking-tight text-fg"
+      className="group inline-flex shrink-0 items-center gap-2.5 rounded-lg text-lg font-extrabold tracking-tight text-current"
     >
       <LogoMark className="h-8 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105 lg:h-9" />
       <span className="whitespace-nowrap">
-        Caravan<span className="text-accent-ink">House</span>
+        CaravanHouse
       </span>
     </Link>
   );

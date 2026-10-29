@@ -34,6 +34,8 @@ const en: Dictionary = {
     channelShort: "Channel",
   },
   hero: {
+    titleTop: "Websites for",
+    titleBottom: "learning centers",
     titleBefore: "A learning center website where students ",
     titleMark: "sign up for a trial lesson",
     titleAfter: "",
@@ -62,25 +64,29 @@ const en: Dictionary = {
     solutionLabel: "With a website",
     items: [
       {
+        phrase: "Requests in Telegram",
         problem: "Requests get lost in Instagram DMs",
         solution: "Every request from the site goes to your admin in Telegram: name, phone, course and preferred time.",
       },
       {
+        phrase: "Prices in plain sight",
         problem: "Your admin answers the same questions all day",
         solution: "Prices, schedules and teachers are on the site. Parents see everything and sign up right away.",
       },
       {
+        phrase: "A bot reminds them",
         problem: "Students book a trial lesson and don't show up",
         solution: "A bot confirms the booking and sends a reminder an hour before the lesson.",
       },
       {
+        phrase: "Get found",
         problem: "People can't find your center on Google or Yandex",
         solution: "A site in Russian, Uzbek and English with an SEO foundation, so both local parents and international students find you.",
       },
     ],
   },
   site: {
-    title: "What your learning center website includes",
+    title: "What's on the site",
     subtitle: "We build the site from the blocks you actually need. Most centers start with these.",
     modules: [
       { id: "courses", title: "Courses and prices", text: "Subjects, levels, duration and cost, so you don't have to answer it in DMs." },
@@ -97,6 +103,33 @@ const en: Dictionary = {
     imageAlt: "Demo learning center website: courses, trial lesson button and upcoming group starts",
     othersTitle: "Other sites we've built",
     others: { clinic: "Clinic website", store: "Online store" },
+  },
+  showcase: {
+    title: "Trial lesson",
+    text: "This is how sign-up works on your site: course and time in two taps. Pick a day and press the button.",
+    pick: "Trial lesson time",
+    button: "Book",
+    toastTitle: "New trial lesson request",
+    toastFrom: "from the website",
+    sentNote: "This is how the request reaches your admin in Telegram.",
+    again: "Pick another time",
+    days: [
+      {
+        label: "Mon 10:00",
+        word: "on Monday",
+        lead: "Malika, English A2, Monday 10:00",
+      },
+      {
+        label: "Wed 14:00",
+        word: "on Wednesday",
+        lead: "Malika, IELTS, Wednesday 14:00",
+      },
+      {
+        label: "Sat 14:00",
+        word: "on Saturday",
+        lead: "Malika, English A2, Saturday 14:00",
+      },
+    ],
   },
   prices: {
     title: "Three packages for every size of school",
@@ -134,22 +167,23 @@ const en: Dictionary = {
   process: {
     title: "How we build your website",
     steps: [
-      { title: "Request", description: "Tell us in Telegram how many courses and branches you have. We reply the same day." },
+      { title: "Request", clause: "First, you message us", description: "Tell us in Telegram how many courses and branches you have. We reply the same day." },
       {
-        title: "15-minute call",
+        title: "15-minute call", clause: "Then a 15-minute call",
         description: "We look at how students sign up with you today and send a site structure with price and timeline.",
       },
       {
-        title: "Design and build",
+        title: "Design and build", clause: "Next, design and build",
         description: "We agree on the home page design, then build the site. Every week we show you what's ready.",
       },
       {
-        title: "Launch",
+        title: "Launch", clause: "And launch on your domain",
         description: "We connect your domain, Telegram requests and analytics, and show your admin how everything works.",
       },
     ],
   },
   team: {
+    short: "We are three",
     title: "The people you talk to are the people who build it",
     subtitle: "There are three of us, no account managers in between. From the first message to launch, you deal with us directly.",
     viewWork: "See their work",
@@ -175,47 +209,57 @@ const en: Dictionary = {
     // {support} — цена поддержки из калькулятора (calc.caravanhouse.uz/api/prices)
     items: [
       {
+        topic: "Timing",
         question: "How long does a website take?",
         answer:
           "A tutor site takes 5–7 working days. A learning center site takes 2–3 weeks. An online school with a student dashboard takes 4 weeks or more. We fix the exact timeline before we start.",
       },
       {
+        topic: "Preparation",
         question: "What do we need to prepare?",
         answer:
           "Your list of courses and prices, group schedule, teacher photos and a few student reviews. We'll help write the copy, and if you don't have photos, we'll show you how to take them on a phone.",
       },
       {
+        topic: "Requests",
         question: "Where do requests go?",
         answer: "To Telegram: your admin's private messages or a shared team chat. Each request includes the name, phone, chosen course and preferred time.",
       },
       {
+        topic: "English",
         question: "Can you build the site in English?",
         answer:
           "Yes. We build sites in Russian, Uzbek and English, in any combination. An English version is useful if you have international students, native-speaker teachers or programs like IELTS, SAT and study abroad. We handle the translation.",
       },
       {
+        topic: "Bot",
         question: "Why a bot if we have a website?",
         answer:
           "The website brings the student in, and the bot gets them to the lesson: it confirms the booking, sends a reminder an hour before and answers common questions at night. The bot is optional; the site works without it.",
       },
       {
+        topic: "Changes",
         question: "Can we change the schedule and prices?",
         answer:
           "Yes. Send us changes in Telegram: free for the first month, then as part of support from {support} UZS a month. If you change things often, we'll add a section where your admin edits the schedule directly.",
       },
       {
+        topic: "Payment",
         question: "How does payment work?",
         answer: "In two parts: 50% before we start and 50% when the site is delivered. Larger projects can be split into stages.",
       },
       {
+        topic: "Ownership",
         question: "Who owns the site and domain?",
         answer: "You do. We register the domain in your name from day one and hand over the code and all access after full payment.",
       },
       {
+        topic: "Hosting",
         question: "Who pays for hosting?",
         answer: "You do, on your own account with the provider, so the site is always under your control. We choose and set everything up.",
       },
       {
+        topic: "Focus",
         question: "Do you only work with learning centers?",
         answer:
           "Education is our focus: learning centers, language schools, tutors and online schools. We know how trial lessons, groups and payments work there, so we launch faster. If your business is different, message us anyway and we'll suggest a solution.",
@@ -223,6 +267,7 @@ const en: Dictionary = {
     ],
   },
   finalCta: {
+    short: "Let's talk for 15 minutes",
     title: "Let's plan your learning center website in 15 minutes",
     subtitle: "Tell us how many courses and branches you have. We'll suggest a site structure and give you a price. Free, with no commitment.",
     button: "Message us in Telegram",

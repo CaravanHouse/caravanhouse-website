@@ -1,32 +1,29 @@
-import { Phone } from "lucide-react";
-import type { ReactNode } from "react";
 import type { Dictionary, Locale } from "@/locales";
 import { botUrl, contacts, SITE_NAME, socials } from "@/lib/site";
 import Availability from "./Availability";
-import Logo from "./Logo";
-import ButtonLink from "./ui/ButtonLink";
-import SocialIcon from "./ui/SocialIcon";
 import TelegramIcon from "./ui/TelegramIcon";
 
 // onHome = false — подвал на внутренней странице: якоря ведут на главную
 type Props = { lang: Locale; dict: Dictionary; onHome?: boolean };
 
-const headingClass = "text-sm font-semibold text-fg";
-const linkClass = "rounded text-muted transition-colors hover:text-accent-ink";
+// Название, собранное из блоков: каждая буква выбита в своём прямоугольнике, блоки разной высоты стоят на одной линии.
+const WORD = "CARAVANHOUSE";
+const blockFills = ["#eea72a", "#a4471c", "#efdfc6", "#eea72a", "#fbf5ec", "#a4471c"];
+const blockHeights = [100, 78, 90, 66, 96, 72, 84, 100, 70, 92, 80, 98];
 
-// Строка контакта: иконка в золотой плашке + текст
-function ContactLink({ href, external, icon, children }: { href: string; external?: boolean; icon: ReactNode; children: ReactNode }) {
+function BlockMark() {
   return (
-    <a
-      href={href}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className="group inline-flex items-center gap-3 rounded text-muted transition-colors hover:text-fg"
-    >
-      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent text-on-accent transition-transform group-hover:scale-110">
-        {icon}
-      </span>
-      {children}
-    </a>
+    <div aria-hidden="true" className="flex h-[22svh] items-end gap-1 sm:h-[34svh]">
+      {WORD.split("").map((letter, index) => (
+        <div
+          key={index}
+          className="flex flex-1 items-end justify-center overflow-hidden rounded-t-[10px] pb-[0.06em] text-[clamp(28px,7.4vw,120px)] leading-none font-black"
+          style={{ height: `${blockHeights[index]}%`, background: blockFills[index % blockFills.length], color: "#24160c" }}
+        >
+          {letter}
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -44,86 +41,62 @@ export default function Footer({ lang, dict, onHome = true }: Props) {
   ];
 
   return (
-    <footer className="relative overflow-x-clip bg-bg-elevated pb-28 md:pb-0">
+    <footer data-chapter="night" className="px-m pt-20 pb-28 md:pb-10">
+      <p className="sr-only">{SITE_NAME}</p>
+      <BlockMark />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* На телефоне: бренд, навигация и контакты друг под другом. С lg — три колонки */}
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 py-14 lg:grid-cols-[1.4fr_0.8fr_1.3fr] lg:gap-x-10 lg:py-16">
-          <div className="col-span-2 flex flex-col items-start gap-5 lg:col-span-1">
-            <Logo lang={lang} label={dict.a11y.home} />
-            <p className="max-w-xs text-sm leading-relaxed text-muted text-pretty">{footer.tagline}</p>
-            <ButtonLink href={contacts.channelUrl} external variant="outline" size="md">
-              <SocialIcon network="channel" className="h-4 w-4" />
-              {dict.cta.channel}
-            </ButtonLink>
-          </div>
+      <div className="mt-14 grid gap-10 lg:grid-cols-12">
+        <p className="t-body max-w-[32ch] lg:col-span-4">{footer.tagline}</p>
 
-          <nav aria-labelledby="footer-nav-title">
-            <p id="footer-nav-title" className={headingClass}>
-              {footer.navTitle}
-            </p>
-            <ul className="mt-5 flex flex-col gap-3 text-sm">
-              {links.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} className={linkClass}>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="col-span-2 lg:col-span-1">
-            <p className={headingClass}>{footer.contactsTitle}</p>
-            <ul className="mt-5 grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-1">
-              <li>
-                <ContactLink href={botUrl("site_footer")} external icon={<TelegramIcon className="h-4 w-4" />}>
-                  @{contacts.telegramUsername}
-                </ContactLink>
-              </li>
-              <li>
-                <ContactLink href={contacts.channelUrl} external icon={<SocialIcon network="channel" className="h-4 w-4" />}>
-                  @{contacts.channelUsername}
-                </ContactLink>
-              </li>
-              <li>
-                <ContactLink href={contacts.phoneHref} icon={<Phone className="h-4 w-4" aria-hidden="true" />}>
-                  {contacts.phone}
-                </ContactLink>
-              </li>
-              <li>
-                <ContactLink href={contacts.instagramUrl} external icon={<SocialIcon network="instagram" className="h-4 w-4" />}>
-                  @{contacts.instagramUsername}
-                </ContactLink>
-              </li>
-            </ul>
-            <div className="mt-6 rounded-2xl border border-line bg-bg px-4 py-3">
-              <p className="text-sm font-semibold">{footer.team}</p>
-              <Availability t={dict.availability} className="mt-1 text-left" />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col-reverse items-start gap-4 border-t border-line py-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-subtle">
-            © {year} {SITE_NAME}. {footer.rights}
+        <nav aria-labelledby="footer-nav-title" className="lg:col-span-4">
+          <p id="footer-nav-title" className="t-small font-bold text-[#eea72a]">
+            {footer.navTitle}
           </p>
-          <ul className="flex gap-2" aria-label={footer.socialTitle}>
+          <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-[15px]">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="link-u decoration-transparent hover:decoration-current">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="lg:col-span-4">
+          <p className="t-small font-bold text-[#eea72a]">{footer.contactsTitle}</p>
+          <ul className="mt-4 space-y-3 text-[15px]">
+            <li>
+              <a href={contacts.phoneHref} className="link-u decoration-transparent hover:decoration-current">
+                {contacts.phone}
+              </a>
+            </li>
             {socials.map((social) => (
               <li key={social.network}>
                 <a
                   href={social.network === "telegram" ? botUrl("site_footer") : social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-bg text-muted transition-colors hover:border-accent hover:bg-accent hover:text-on-accent"
+                  className="link-u decoration-transparent hover:decoration-current"
                 >
-                  <SocialIcon network={social.network} className="h-4.5 w-4.5" />
+                  {social.label}
                 </a>
               </li>
             ))}
           </ul>
+          <p className="t-small mt-5 font-bold">{footer.team}</p>
+          <Availability t={dict.availability} className="t-small mt-1 !text-[#efdfc6]" />
         </div>
+      </div>
+
+      <div className="mt-14 flex flex-wrap items-center justify-between gap-4">
+        <p className="t-small text-[#efdfc6]">
+          © {year} {SITE_NAME}. {footer.rights}
+        </p>
+        <a href={botUrl("site_footer")} target="_blank" rel="noopener noreferrer" className="btn btn-gold min-h-11 px-5 text-[15px]">
+          <TelegramIcon className="h-4 w-4" />
+          {dict.cta.telegramShort}
+        </a>
       </div>
     </footer>
   );

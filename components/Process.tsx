@@ -1,39 +1,50 @@
 import type { Dictionary } from "@/locales";
-import ParallaxWord from "./motion/ParallaxWord";
-import GoldShapes from "./ui/GoldShapes";
-import GrowLine from "./ui/GrowLine";
-import Parallax from "./ui/Parallax";
 import Reveal from "./ui/Reveal";
-import SectionHeading from "./ui/SectionHeading";
 
-// Настоящая последовательность шагов — поэтому здесь номера. Линии над шагами дорисовываются по очереди.
-export default function Process({ dict }: { dict: Dictionary }) {
-  const { process } = dict;
+type Props = { dict: Dictionary };
 
+// Четыре поля встык, в каждом — одна и та же карточка проекта, с каждым шагом она дальше.
+const chapters = ["gold", "sand", "night", "terra"] as const;
+
+export default function Process({ dict }: Props) {
+  const { title, steps } = dict.process;
   return (
-    <section id="process" aria-labelledby="process-title" className="bg-fade-elevated relative isolate pt-20 pb-36 sm:pt-24 sm:pb-48 lg:pb-60">
-      <GoldShapes set="process" />
-      <ParallaxWord text="CaravanHouse" className="bottom-4" />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <SectionHeading id="process-title" title={process.title} />
-        </Reveal>
+    <section id="process" aria-labelledby="process-title" className="grid lg:grid-cols-4">
+      {steps.map((step, index) => (
+        <div
+          key={step.title}
+          data-chapter={chapters[index]}
+          className="group relative flex min-h-[64svh] flex-col px-[20px] pt-20 pb-8 lg:min-h-[84svh] lg:px-7 lg:pt-28"
+        >
+          {index === 0 ? (
+            <h2 id="process-title" className="t-head mb-6 text-[clamp(24px,2vw,32px)] lg:absolute lg:top-24 lg:left-7 lg:mb-0">
+              {title}
+            </h2>
+          ) : null}
 
-        <ol className="mt-12 grid gap-10 lg:mt-16 lg:grid-cols-4 lg:gap-8">
-          {process.steps.map((step, index) => (
-            <Parallax as="li" key={step.title} offset={[10, 34, -14, 24][index]}>
-            <Reveal delay={index * 0.15}>
-              <GrowLine delay={0.2 + index * 0.25} />
-              <span className="mt-6 flex h-14 w-14 items-center justify-center rounded-full bg-accent font-display text-2xl font-bold text-on-accent shadow-[0_12px_30px_-12px_rgb(164_71_28/0.7)]">
-                {index + 1}
-              </span>
-              <h3 className="mt-5 text-xl font-bold tracking-tight">{step.title}</h3>
-              <p className="mt-2 leading-relaxed text-muted">{step.description}</p>
-            </Reveal>
-            </Parallax>
-          ))}
-        </ol>
-      </div>
+          <p className="t-head order-1 text-[clamp(24px,2vw,32px)] font-extrabold lg:order-2 lg:mt-auto">{step.clause}</p>
+
+          <Reveal delay={index * 0.08} className="order-2 mt-8 lg:order-1 lg:mx-auto lg:mt-[22svh] lg:mb-10">
+            <div
+              data-ui
+              className="w-[260px] rounded-[18px] bg-[#fbf5ec] p-5 text-[#24160c] transition-transform duration-150 group-hover:-translate-y-1.5 [[data-chapter=sand]_&]:bg-[#efdfc6]"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-[15px] font-black">{step.title}</p>
+                <p className="text-[13px] font-bold tabular-nums">
+                  {index + 1}/{steps.length}
+                </p>
+              </div>
+              <div aria-hidden="true" className="mt-3 flex gap-1">
+                {steps.map((s, i) => (
+                  <span key={s.title} className={`h-1.5 flex-1 rounded-full ${i <= index ? "bg-[#a4471c]" : "bg-[#24160c]/15"}`} />
+                ))}
+              </div>
+              <p className="mt-4 text-[14px] leading-[1.45]">{step.description}</p>
+            </div>
+          </Reveal>
+        </div>
+      ))}
     </section>
   );
 }

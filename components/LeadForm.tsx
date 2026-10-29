@@ -1,23 +1,22 @@
 "use client";
 
-import { CircleCheck, Loader2, Send } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 import type { Dictionary } from "@/locales";
 
 type Form = Dictionary["finalCta"]["form"];
-type Service = keyof Form["services"];
 type Phase = { name: "idle" } | { name: "sending" } | { name: "done"; id: number | null } | { name: "error"; message: string; field?: "name" | "contact" };
 
-const field =
-  "w-full rounded-xl border border-line-strong bg-bg-elevated px-4 py-3 text-base text-fg placeholder:text-subtle transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
+// Ячейка полосы: заливка на тон светлее поля, при фокусе — самый светлый тон
+const cell =
+  "flex h-[60px] flex-col justify-center rounded-[20px] bg-[#f7c25e] px-5 transition-colors duration-200 focus-within:bg-[#fbf5ec] has-[[aria-invalid=true]]:bg-[#fbe2c4] sm:h-24";
+const input = "w-full bg-transparent text-[18px] font-semibold text-[#24160c] placeholder:text-[#24160c]/60 focus:outline-none";
 
-// Форма заявки: уходит на /api/lead → бот @CaravanHousebot → группа «Заказы» с голосованием
+// Форма заявки одной полосой из трёх ячеек: имя, контакт, отправка. Уходит на /api/lead → бот @CaravanHousebot → группа «Заказы» с голосованием
 export default function LeadForm({ form }: { form: Form }) {
   const id = useId();
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [service, setService] = useState<Service>("site");
-  const [message, setMessage] = useState("");
   const [website, setWebsite] = useState(""); // ловушка для ботов
   const [phase, setPhase] = useState<Phase>({ name: "idle" });
   const nameRef = useRef<HTMLInputElement>(null);
@@ -45,7 +44,8 @@ export default function LeadForm({ form }: { form: Form }) {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, contact, service, message, website }),
+        // услугу и подробности уточняем на созвоне: так форма короче
+        body: JSON.stringify({ name, contact, service: "site", message: "", website }),
       });
       const data = (await res.json().catch(() => ({}))) as { id?: number | null; error?: string };
       if (res.ok) return setPhase({ name: "done", id: data.id ?? null });
@@ -59,9 +59,8 @@ export default function LeadForm({ form }: { form: Form }) {
 
   if (phase.name === "done") {
     return (
-      <div ref={doneRef} tabIndex={-1} role="status" className="flex h-full outline-none flex-col items-center justify-center gap-4 rounded-3xl bg-bg p-8 text-center text-fg shadow-[0_40px_80px_-40px_rgb(58_31_11/0.5)]">
-        <CircleCheck className="h-10 w-10 text-emerald-600" aria-hidden="true" />
-        <p className="text-lg font-semibold">
+      <div ref={doneRef} tabIndex={-1} role="status" className="rounded-[20px] bg-[#fbf5ec] p-7 text-[#24160c] outline-none sm:p-9">
+        <p className="t-lead font-extrabold">
           {phase.id ? form.success.replace("{id}", String(phase.id)) : form.successNoId}
         </p>
       </div>
@@ -70,40 +69,49 @@ export default function LeadForm({ form }: { form: Form }) {
 
   const sending = phase.name === "sending";
   return (
-    <form onSubmit={submit} noValidate className="relative flex flex-col gap-4 rounded-3xl bg-bg p-6 text-left text-fg shadow-[0_40px_80px_-40px_rgb(58_31_11/0.5)] sm:p-7">
-      <p className="text-xl font-bold tracking-tight">{form.title}</p>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <label htmlFor={`${id}-name`} className="flex flex-col gap-2 text-sm text-muted">
-          {form.name}
-          <input ref={nameRef} id={`${id}-name`} aria-invalid={fieldError === "name"} aria-describedby={fieldError === "name" ? errorId : undefined} value={name} onChange={(e) => setName(e.target.value)} placeholder={form.namePlaceholder} autoComplete="name" maxLength={60} required className={field} />
+    <form onSubmit={submit} noValidate aria-label={form.title} className="relative">
+      <div className="grid gap-2 sm:grid-cols-3">
+        <label htmlFor={`${id}-name`} className={cell}>
+          <span className="t-small font-bold text-[#24160c]">{form.name}</span>
+          <input
+            ref={nameRef}
+            id={`${id}-name`}
+            aria-invalid={fieldError === "name"}
+            aria-describedby={fieldError === "name" ? errorId : undefined}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder={form.namePlaceholder}
+            autoComplete="name"
+            maxLength={60}
+            required
+            className={input}
+          />
         </label>
-        <label htmlFor={`${id}-contact`} className="flex flex-col gap-2 text-sm text-muted">
-          {form.contact}
-          <input ref={contactRef} id={`${id}-contact`} aria-invalid={fieldError === "contact"} aria-describedby={fieldError === "contact" ? errorId : undefined} value={contact} onChange={(e) => setContact(e.target.value)} placeholder={form.contactPlaceholder} autoComplete="tel" maxLength={80} required className={field} />
+        <label htmlFor={`${id}-contact`} className={cell}>
+          <span className="t-small font-bold text-[#24160c]">{form.contact}</span>
+          <input
+            ref={contactRef}
+            id={`${id}-contact`}
+            aria-invalid={fieldError === "contact"}
+            aria-describedby={fieldError === "contact" ? errorId : undefined}
+            value={contact}
+            onChange={(e) => setContact(e.target.value)}
+            placeholder={form.contactPlaceholder}
+            autoComplete="tel"
+            maxLength={80}
+            required
+            className={input}
+          />
         </label>
+        <button
+          type="submit"
+          disabled={sending}
+          className="flex h-[60px] items-center justify-center gap-2 rounded-[20px] bg-[#24160c] text-[18px] font-extrabold text-[#fbf5ec] transition-[background-color,transform] duration-200 hover:bg-[#3a2617] active:scale-[0.98] disabled:opacity-80 sm:h-24"
+        >
+          {sending ? <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" /> : null}
+          {sending ? form.sending : form.submit}
+        </button>
       </div>
-
-      <fieldset className="flex flex-col gap-2">
-        <legend className="mb-2 text-sm text-muted">{form.service}</legend>
-        <div className="flex flex-wrap gap-2">
-          {(Object.keys(form.services) as Service[]).map((key) => (
-            <label
-              key={key}
-              className={`cursor-pointer rounded-full border px-4 py-2 text-sm transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-accent ${
-                service === key ? "border-accent bg-accent text-on-accent" : "border-line-strong text-muted hover:text-fg"
-              }`}
-            >
-              <input type="radio" name={`${id}-service`} value={key} checked={service === key} onChange={() => setService(key)} className="sr-only" />
-              {form.services[key]}
-            </label>
-          ))}
-        </div>
-      </fieldset>
-
-      <label htmlFor={`${id}-message`} className="flex flex-col gap-2 text-sm text-muted">
-        {form.message}
-        <textarea id={`${id}-message`} value={message} onChange={(e) => setMessage(e.target.value)} rows={3} maxLength={1000} className={`${field} resize-y`} />
-      </label>
 
       {/* Ловушка для ботов: скрыта от людей и скринридеров */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
@@ -113,21 +121,14 @@ export default function LeadForm({ form }: { form: Form }) {
         </label>
       </div>
 
-      {phase.name === "error" ? (
-        <p ref={errorRef} id={errorId} tabIndex={-1} role="alert" className="text-sm text-red-700 outline-none">
-          {phase.message}
-        </p>
-      ) : null}
-
-      <button
-        type="submit"
-        disabled={sending}
-        className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-accent px-6 font-semibold text-on-accent transition-colors hover:bg-accent-soft disabled:opacity-70"
-      >
-        {sending ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Send className="h-4 w-4" aria-hidden="true" />}
-        {sending ? form.sending : form.submit}
-      </button>
-      <p className="text-xs leading-relaxed text-subtle">{form.consent}</p>
+      <div className="mt-3 grid gap-2 sm:grid-cols-3">
+        <p className="t-small">{form.consent}</p>
+        {phase.name === "error" ? (
+          <p ref={errorRef} id={errorId} tabIndex={-1} role="alert" className="t-small font-bold outline-none sm:col-start-3">
+            {phase.message}
+          </p>
+        ) : null}
+      </div>
     </form>
   );
 }
