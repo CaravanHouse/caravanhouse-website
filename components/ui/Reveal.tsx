@@ -43,7 +43,7 @@ export default function Reveal({ children, className, delay = 0, as = "div", x =
   const Component = as;
   const style = {
     "--reveal-x": `${x}px`,
-    "--reveal-y": x ? "0px" : "36px",
+    "--reveal-y": x ? "0px" : "24px",
     "--reveal-delay": `${delay}s`,
   } as CSSProperties;
 

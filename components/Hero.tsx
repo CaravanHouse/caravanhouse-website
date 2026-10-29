@@ -16,7 +16,7 @@ export default function Hero({ dict }: Props) {
       aria-labelledby="hero-title"
       className="relative isolate flex min-h-[100svh] flex-col overflow-hidden px-m pt-[max(15svh,6.5rem)] pb-10 sm:pb-14"
     >
-      <h1 id="hero-title" className="t-display relative z-10 max-w-[13ch] sm:max-w-none">
+      <h1 id="hero-title" className="t-display relative z-10 text-[clamp(30px,8.8vw,168px)] lg:text-[9.2vw]">
         <span className="hero-line block text-[var(--ink-2)]">{hero.titleTop}</span>
         <span className="hero-line block" style={{ animationDelay: "90ms" }}>
           {hero.titleBottom}

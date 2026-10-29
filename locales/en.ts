@@ -185,7 +185,7 @@ const en: Dictionary = {
   team: {
     short: "We are three",
     title: "The people you talk to are the people who build it",
-    subtitle: "There are three of us, no account managers in between. From the first message to launch, you deal with us directly.",
+    subtitle: "No account managers in between: from the first message to launch, you deal with us directly.",
     viewWork: "See their work",
     workTitle: "Work",
     openWork: "Open the site",

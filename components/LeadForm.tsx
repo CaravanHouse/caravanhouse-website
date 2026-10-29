@@ -106,7 +106,7 @@ export default function LeadForm({ form }: { form: Form }) {
         <button
           type="submit"
           disabled={sending}
-          className="flex h-[60px] items-center justify-center gap-2 rounded-[20px] bg-[#24160c] text-[18px] font-extrabold text-[#fbf5ec] transition-[background-color,transform] duration-200 hover:bg-[#3a2617] active:scale-[0.98] disabled:opacity-80 sm:h-24"
+          className="flex h-[60px] items-center justify-center gap-2 rounded-[20px] bg-[#24160c] text-[18px] font-extrabold text-[#fbf5ec] transition-[background-color,transform] duration-150 ease-[var(--ease-out)] hover:bg-[#3a2617] active:scale-[0.97] disabled:opacity-80 sm:h-24"
         >
           {sending ? <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" /> : null}
           {sending ? form.sending : form.submit}

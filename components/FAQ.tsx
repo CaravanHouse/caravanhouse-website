@@ -16,7 +16,7 @@ export default function FAQ({ faq }: Props) {
   const baseId = useId();
 
   return (
-    <section id="faq" data-chapter="sand" aria-labelledby="faq-title" className="px-m py-28 sm:py-40">
+    <section id="faq" data-chapter="sand" aria-labelledby="faq-title" className="px-m py-24 sm:py-28">
       <div className="lg:mx-[calc((100vw-2*var(--m))/12*2)]">
         <Reveal>
           <h2 id="faq-title" className="t-head">
@@ -36,7 +36,7 @@ export default function FAQ({ faq }: Props) {
               <li key={item.question} className="relative -mt-5 first:mt-0" style={{ zIndex: index + 1 }}>
                 <div
                   aria-hidden="true"
-                  className="faq-tab flex h-10 w-[120px] items-center rounded-t-[16px] px-4 text-[15px] font-extrabold sm:w-[200px] sm:text-[16px]"
+                  className="faq-tab flex h-10 w-[120px] items-center rounded-t-[16px] px-4 text-[14px] font-extrabold sm:w-[200px]"
                   style={{ background: fill, color: ink, marginLeft: `calc(${step} * var(--tab-step))` }}
                 >
                   <span className="truncate">{item.topic}</span>
@@ -49,7 +49,7 @@ export default function FAQ({ faq }: Props) {
                       aria-expanded={open}
                       aria-controls={panelId}
                       onClick={() => setOpenIndex(open ? null : index)}
-                      className="flex w-full items-center justify-between gap-6 px-5 pt-3 pb-7 text-left text-[18px] leading-snug font-semibold sm:px-7 sm:text-[20px]"
+                      className="flex w-full items-center justify-between gap-6 px-5 pt-3 pb-7 text-left text-[18px] leading-snug font-bold sm:px-7"
                     >
                       {item.question}
                       <span aria-hidden="true" className={`text-[28px] leading-none font-black transition-transform duration-300 ${open ? "rotate-45" : ""}`}>
@@ -64,7 +64,7 @@ export default function FAQ({ faq }: Props) {
                     className={`grid transition-[grid-template-rows] duration-300 ease-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
                   >
                     <div className="overflow-hidden" inert={!open}>
-                      <p className="max-w-[50ch] px-5 pb-10 text-[16px] leading-[1.55] sm:px-7 sm:text-[18px]">{item.answer}</p>
+                      <p className="max-w-[50ch] px-5 pb-10 text-[18px] leading-[1.55] sm:px-7">{item.answer}</p>
                     </div>
                   </div>
                 </div>

@@ -14,25 +14,26 @@ export default function Team({ lang, dict }: { lang: Locale; dict: Dictionary })
   });
 
   return (
-    <section id="team" data-chapter="stone" aria-labelledby="team-title" className="relative px-m pb-[40svh]">
-      <div className="pointer-events-none sticky top-0 z-20 flex h-[100svh] items-start justify-center pt-20 lg:items-center lg:pt-0">
-        <h2 id="team-title" className="t-display text-center text-[clamp(56px,13vw,200px)] text-[#a4471c]">
-          {t.short}
-        </h2>
+    <section id="team" data-chapter="stone" aria-labelledby="team-title" className="grid gap-x-10 px-m py-24 sm:py-28 lg:grid-cols-12">
+      <div className="lg:col-span-6">
+        <div className="md:grid md:grid-cols-2 md:items-end md:gap-10 lg:sticky lg:top-0 lg:flex lg:h-[100svh] lg:flex-col lg:items-start lg:justify-center lg:gap-0">
+          <h2 id="team-title" className="t-display text-[#a4471c]">
+            {t.short}
+          </h2>
+          <Reveal className="mt-6 max-w-[30ch] lg:mt-8">
+            <p className="t-lead">{t.subtitle}</p>
+          </Reveal>
+        </div>
       </div>
 
-      <div className="relative z-10 -mt-[100svh]">
-        <Reveal className="max-w-[30ch] pt-[42svh] lg:pt-[14svh]">
-          <p className="t-lead">{t.subtitle}</p>
-        </Reveal>
-
-        <ul className="mt-[40svh] flex flex-col gap-12 lg:mt-[30svh] lg:gap-[60svh]">
+      <div className="mt-14 lg:col-span-6 lg:mt-[14svh]">
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-8 lg:gap-y-16">
           {members.map(({ meta, text }, index) => {
             const right = index % 2 === 1;
             return (
               <li
                 key={meta.id}
-                className={`w-[72%] lg:w-[28vw] ${right ? "self-end lg:mr-[calc((100vw-2*var(--m))/12)]" : "lg:ml-[calc((100vw-2*var(--m))/12)]"}`}
+                className={right ? "mt-[40%]" : ""}
               >
                 <Link href={`/${lang}/team/${meta.id}`} className="group block" aria-label={`${text.name}: ${t.viewWork}`}>
                   <span className="relative block aspect-[4/5] overflow-hidden bg-[#e3cca9]">

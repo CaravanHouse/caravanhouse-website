@@ -9,20 +9,20 @@ const chapters = ["gold", "sand", "night", "terra"] as const;
 export default function Process({ dict }: Props) {
   const { title, steps } = dict.process;
   return (
-    <section id="process" aria-labelledby="process-title" className="grid lg:grid-cols-4">
+    <section id="process" aria-labelledby="process-title" className="grid md:grid-cols-2 lg:grid-cols-4">
       {steps.map((step, index) => (
         <div
           key={step.title}
           data-chapter={chapters[index]}
-          className="group relative flex min-h-[64svh] flex-col px-[20px] pt-20 pb-8 lg:min-h-[84svh] lg:px-7 lg:pt-28"
+          className="group relative flex flex-col px-[20px] pt-16 pb-14 lg:min-h-[84svh] lg:px-7 lg:pt-28 lg:pb-8"
         >
           {index === 0 ? (
-            <h2 id="process-title" className="t-head mb-6 text-[clamp(24px,2vw,32px)] lg:absolute lg:top-24 lg:left-7 lg:mb-0">
+            <h2 id="process-title" className="t-lead mb-6 font-black lg:absolute lg:top-24 lg:left-7 lg:mb-0">
               {title}
             </h2>
           ) : null}
 
-          <p className="t-head order-1 text-[clamp(24px,2vw,32px)] font-extrabold lg:order-2 lg:mt-auto">{step.clause}</p>
+          <p className="t-lead order-1 font-extrabold lg:order-2 lg:mt-auto">{step.clause}</p>
 
           <Reveal delay={index * 0.08} className="order-2 mt-8 lg:order-1 lg:mx-auto lg:mt-[22svh] lg:mb-10">
             <div

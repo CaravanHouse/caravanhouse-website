@@ -107,7 +107,7 @@ export default function Header({ lang, dict, path = "" }: Props) {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="link-u whitespace-nowrap px-2.5 py-2 text-[15px] font-bold decoration-transparent hover:decoration-current"
+                  className="link-u whitespace-nowrap px-2.5 py-2 text-[14px] font-extrabold decoration-transparent hover:decoration-current"
                 >
                   {link.label}
                 </a>
@@ -123,7 +123,7 @@ export default function Header({ lang, dict, path = "" }: Props) {
               href={botUrl("site_header")}
               target="_blank"
               rel="noopener noreferrer"
-              className={`btn min-h-11 px-5 text-[15px] whitespace-nowrap ${chapter === "gold" ? "btn-night" : "btn-gold"}`}
+              className={`btn min-h-11 px-5 text-[14px] whitespace-nowrap ${chapter === "gold" ? "btn-night" : "btn-gold"}`}
             >
               <TelegramIcon className="h-4 w-4" />
               {dict.cta.telegramShort}

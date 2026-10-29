@@ -13,7 +13,7 @@ const blockHeights = [100, 78, 90, 66, 96, 72, 84, 100, 70, 92, 80, 98];
 
 function BlockMark() {
   return (
-    <div aria-hidden="true" className="flex h-[22svh] items-end gap-1 sm:h-[34svh]">
+    <div aria-hidden="true" className="flex h-[16svh] items-end gap-1 sm:h-[24svh]">
       {WORD.split("").map((letter, index) => (
         <div
           key={index}
@@ -41,7 +41,7 @@ export default function Footer({ lang, dict, onHome = true }: Props) {
   ];
 
   return (
-    <footer data-chapter="night" className="px-m pt-20 pb-28 md:pb-10">
+    <footer data-chapter="night" className="px-m pt-14 pb-28 md:pb-10">
       <p className="sr-only">{SITE_NAME}</p>
       <BlockMark />
 
@@ -52,7 +52,7 @@ export default function Footer({ lang, dict, onHome = true }: Props) {
           <p id="footer-nav-title" className="t-small font-bold text-[#eea72a]">
             {footer.navTitle}
           </p>
-          <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-[15px]">
+          <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-[14px]">
             {links.map((link) => (
               <li key={link.href}>
                 <a href={link.href} className="link-u decoration-transparent hover:decoration-current">
@@ -65,7 +65,7 @@ export default function Footer({ lang, dict, onHome = true }: Props) {
 
         <div className="lg:col-span-4">
           <p className="t-small font-bold text-[#eea72a]">{footer.contactsTitle}</p>
-          <ul className="mt-4 space-y-3 text-[15px]">
+          <ul className="mt-4 space-y-3 text-[14px]">
             <li>
               <a href={contacts.phoneHref} className="link-u decoration-transparent hover:decoration-current">
                 {contacts.phone}
@@ -93,7 +93,7 @@ export default function Footer({ lang, dict, onHome = true }: Props) {
         <p className="t-small text-[#efdfc6]">
           © {year} {SITE_NAME}. {footer.rights}
         </p>
-        <a href={botUrl("site_footer")} target="_blank" rel="noopener noreferrer" className="btn btn-gold min-h-11 px-5 text-[15px]">
+        <a href={botUrl("site_footer")} target="_blank" rel="noopener noreferrer" className="btn btn-gold min-h-11 px-5 text-[14px]">
           <TelegramIcon className="h-4 w-4" />
           {dict.cta.telegramShort}
         </a>

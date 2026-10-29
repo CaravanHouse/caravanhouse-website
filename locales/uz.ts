@@ -157,7 +157,7 @@ const uz: Dictionary = {
         title: "Onlayn-maktab",
         note: "Oʻquvchi shaxsiy kabinetli sayt",
         features: ["«Oʻquv markazi» paketidagi hammasi", "Shaxsiy kabinet: darslar va uy vazifalari", "Click va Payme orqali toʻlov", "Toʻlovdan keyin darslarga kirish"],
-        price: "Narx muhokamadan keyin",
+        price: "Narx kelishiladi",
       },
     },
     addon: {
@@ -189,7 +189,7 @@ const uz: Dictionary = {
   team: {
     short: "Biz uchtamiz",
     title: "Saytni siz muloqot qiladigan odamlar qiladi",
-    subtitle: "Biz uch kishimiz, vositachi menejerlarsiz. Birinchi xabardan ishga tushirishgacha bevosita biz bilan gaplashasiz.",
+    subtitle: "Vositachi menejerlarsiz: birinchi xabardan ishga tushirishgacha bevosita biz bilan gaplashasiz.",
     viewWork: "Ishini koʻrish",
     workTitle: "Ish",
     openWork: "Saytni ochish",

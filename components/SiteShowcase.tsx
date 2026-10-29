@@ -13,7 +13,7 @@ const shots = { clinic: clinicShot, store: storeShot } as const;
 export default function SiteShowcase({ dict }: Props) {
   const t = dict.site;
   return (
-    <section id="site" data-chapter="sand" aria-labelledby="site-title" className="px-m py-28 sm:py-40">
+    <section id="site" data-chapter="sand" aria-labelledby="site-title" className="px-m py-24 sm:py-28">
       <div className="grid gap-x-10 gap-y-6 lg:grid-cols-12">
         <Reveal className="lg:col-span-6">
           <h2 id="site-title" className="t-head">
@@ -29,7 +29,7 @@ export default function SiteShowcase({ dict }: Props) {
         {t.modules.map((module, index) => (
           <li key={module.id} className="grid gap-x-10 gap-y-3 py-7 even:bg-[#f6ecdc] even:-mx-[var(--m)] even:px-[var(--m)] sm:py-9 lg:grid-cols-12 lg:items-baseline">
             <Reveal delay={index * 0.05} className="lg:col-span-7">
-              <h3 className="t-head text-[clamp(28px,3vw,48px)]">{module.title}</h3>
+              <h3 className="t-head">{module.title}</h3>
             </Reveal>
             <Reveal delay={index * 0.05 + 0.06} className="lg:col-span-5">
               <p className="t-body max-w-[46ch]">{module.text}</p>

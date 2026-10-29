@@ -8,8 +8,8 @@ type PackageId = keyof Dictionary["prices"]["packages"];
 // Пакеты стоят ступенями, как столбики графика: пакет больше — плитка выше.
 // Цены приходят из калькулятора (единый источник): репетитор = лендинг, учебный центр = корпоративный сайт.
 const tiles: { id: PackageId; chapter: "sand" | "gold" | "terra"; height: string }[] = [
-  { id: "tutor", chapter: "sand", height: "lg:min-h-[360px]" },
-  { id: "center", chapter: "gold", height: "lg:min-h-[480px]" },
+  { id: "tutor", chapter: "sand", height: "lg:min-h-[340px]" },
+  { id: "center", chapter: "gold", height: "lg:min-h-[440px]" },
   { id: "online", chapter: "terra", height: "lg:min-h-[600px]" },
 ];
 
@@ -28,15 +28,20 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
     .replace("{support}", formatSum(prices.supportMonthlyFrom));
 
   return (
-    <section id="prices" data-chapter="night" aria-labelledby="prices-title" className="px-m py-28 sm:py-40">
-      <div className="relative">
-        <Reveal className="lg:absolute lg:top-0 lg:left-0 lg:w-[62%]">
-          <h2 id="prices-title" className="t-head max-w-[16ch]">
-            {t.title}
-          </h2>
-        </Reveal>
+    <section id="prices" data-chapter="night" aria-labelledby="prices-title" className="px-m py-24 sm:py-28">
+      <div>
+        <div className="grid gap-x-10 gap-y-6 lg:grid-cols-12 lg:items-end">
+          <Reveal className="lg:col-span-7">
+            <h2 id="prices-title" className="t-head">
+              {t.title}
+            </h2>
+          </Reveal>
+          <Reveal delay={0.08} className="lg:col-span-4 lg:col-start-9">
+            <p className="t-body">{t.subtitle}</p>
+          </Reveal>
+        </div>
 
-        <ul className="mt-10 grid gap-2 lg:mt-0 lg:min-h-[600px] lg:grid-cols-3 lg:items-end">
+        <ul className="mt-12 grid gap-2 lg:mt-16 lg:grid-cols-3 lg:items-end">
           {tiles.map(({ id, chapter, height }, index) => {
             const p = t.packages[id];
             return (
@@ -44,12 +49,12 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
                 <Reveal delay={index * 0.09} className="h-full">
                   <article
                     data-chapter={chapter}
-                    className={`flex h-full flex-col overflow-hidden rounded-[var(--radius)] ${height} transition-transform duration-300 ease-[var(--ease-out)] hover:-translate-y-1.5`}
+                    className={`flex h-full flex-col overflow-hidden rounded-[var(--radius)] ${height} transition-transform duration-200 ease-[var(--ease-out)] hover:-translate-y-1.5`}
                   >
                     <div className="flex-1 p-7">
                       <h3 className="t-lead font-extrabold">{p.title}</h3>
-                      <p className="t-small mt-1 font-semibold opacity-85">{p.note}</p>
-                      <p className="t-head mt-6 text-[clamp(32px,3.6vw,56px)]">{label[id]}</p>
+                      <p className="t-head mt-5 text-[clamp(32px,2.7vw,44px)]">{label[id]}</p>
+                      <p className="t-body mt-3 font-semibold">{p.note}</p>
                       <ul className="t-body mt-6 space-y-2">
                         {p.features.map((feature) => (
                           <li key={feature}>{feature}</li>
@@ -60,7 +65,7 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
                       href={botUrl("site_prices")}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex h-16 items-center justify-between bg-[var(--field-deep)] px-7 text-[17px] font-extrabold"
+                      className="group flex h-16 items-center justify-between bg-[var(--field-deep)] px-7 text-[18px] font-extrabold"
                     >
                       {t.choose}
                       <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">

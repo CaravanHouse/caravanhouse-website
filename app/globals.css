@@ -338,7 +338,7 @@ html {
 @keyframes reveal-in {
   from {
     opacity: 0;
-    transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 36px), 0);
+    transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 24px), 0);
   }
   to {
     opacity: 1;
@@ -412,9 +412,9 @@ html.js .reveal.is-visible {
   gap: 10px;
   border-radius: 999px;
   padding: 0 28px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 800;
-  transition: transform 180ms var(--ease-out), background-color 200ms ease, color 200ms ease;
+  transition: transform 150ms var(--ease-out), background-color 200ms ease, color 200ms ease;
 }
 .btn:active { transform: scale(0.97); }
 .btn-gold { background: #eea72a; color: #24160c; }
@@ -468,7 +468,15 @@ html.js .reveal.is-visible {
 }
 .hero-line { animation: line-rise 900ms var(--ease-out) both; }
 .hero-rise { animation: rise 800ms var(--ease-out) both; }
-.toast-in { animation: rise 450ms var(--ease-out) both; }
+/* Сообщение администратору: transition, а не keyframes — его можно включать и выключать подряд */
+.toast {
+  transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out);
+}
+.toast[data-open="false"] { opacity: 0; transform: translate3d(0, 16px, 0) scale(0.97); }
+@media (prefers-reduced-motion: reduce) {
+  .toast[data-open="false"] { transform: none; }
+}
 
 :root { --tab-step: 48px; }
-@media (min-width: 640px) { :root { --tab-step: 150px; } }
+@media (min-width: 640px) { :root { --tab-step: 84px; } }
+@media (min-width: 1024px) { :root { --tab-step: 150px; } }

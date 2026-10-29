@@ -38,7 +38,7 @@ export default function FinalCTA({ dict }: { dict: Dictionary }) {
   const { finalCta } = dict;
 
   return (
-    <section id="contacts" data-chapter="gold" aria-labelledby="cta-title" className="overflow-hidden pt-24 pb-24 sm:pt-28 sm:pb-32">
+    <section id="contacts" data-chapter="gold" aria-labelledby="cta-title" className="overflow-hidden pt-24 pb-20 sm:pt-28 sm:pb-24">
       <div aria-hidden="true" className="overflow-hidden">
         <div className="photo-strip flex w-max gap-2">
           {[...strip, ...strip].map((item, index) => (

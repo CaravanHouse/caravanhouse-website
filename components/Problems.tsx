@@ -19,7 +19,7 @@ export default function Problems({ dict }: Props) {
             key={item.phrase}
             data-chapter={chapters[index % chapters.length]}
             aria-labelledby={id}
-            className="grid min-h-[64svh] grid-rows-[auto_1fr_auto] px-m py-10 sm:min-h-[76svh] sm:py-14 lg:grid-cols-12"
+            className="grid min-h-[64svh] grid-rows-[auto_1fr_auto] px-m py-10 sm:py-14 lg:min-h-[76svh] lg:grid-cols-12"
           >
             <Reveal
               className={`t-body max-w-[34ch] lg:row-start-1 ${mirror ? "lg:col-span-4 lg:col-start-2" : "lg:col-span-4 lg:col-start-8"} ${
