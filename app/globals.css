@@ -93,6 +93,11 @@ html.lenis body {
   }
 }
 
+/* Якоря (#prices и т.п.) с отступом под фиксированную шапку — там, где нет Lenis (телефоны) */
+html {
+  scroll-padding-top: 5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

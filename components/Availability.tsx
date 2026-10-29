@@ -35,7 +35,7 @@ export default function Availability({
 
   const online = state === "online";
   return (
-    <p className={`min-h-5 text-sm text-muted ${className}`} aria-live="polite">
+    <p className={`min-h-5 text-sm text-muted ${className}`}>
       {state ? (
         <>
           <span className="relative mr-2 inline-flex h-2.5 w-2.5 align-middle" aria-hidden="true">

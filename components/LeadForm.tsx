@@ -1,12 +1,12 @@
 "use client";
 
 import { CircleCheck, Loader2, Send } from "lucide-react";
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import type { Dictionary } from "@/locales";
 
 type Form = Dictionary["finalCta"]["form"];
 type Service = keyof Form["services"];
-type Phase = { name: "idle" } | { name: "sending" } | { name: "done"; id: number | null } | { name: "error"; message: string };
+type Phase = { name: "idle" } | { name: "sending" } | { name: "done"; id: number | null } | { name: "error"; message: string; field?: "name" | "contact" };
 
 const field =
   "w-full rounded-xl border border-line-strong bg-bg-elevated px-4 py-3 text-base text-fg placeholder:text-subtle transition-colors focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
@@ -20,11 +20,26 @@ export default function LeadForm({ form }: { form: Form }) {
   const [message, setMessage] = useState("");
   const [website, setWebsite] = useState(""); // ловушка для ботов
   const [phase, setPhase] = useState<Phase>({ name: "idle" });
+  const nameRef = useRef<HTMLInputElement>(null);
+  const contactRef = useRef<HTMLInputElement>(null);
+  const doneRef = useRef<HTMLDivElement>(null);
+  const errorRef = useRef<HTMLParagraphElement>(null);
+  const errorId = `${id}-error`;
+  const fieldError = phase.name === "error" ? phase.field : undefined;
+
+  // Фокус для клавиатуры и скринридера: к полю с ошибкой или на сообщение об успехе
+  useEffect(() => {
+    if (phase.name === "done") doneRef.current?.focus();
+    if (phase.name === "error" && phase.field === "name") nameRef.current?.focus();
+    if (phase.name === "error" && phase.field === "contact") contactRef.current?.focus();
+    // ошибка сервера или сети: кнопка была disabled и фокус потерялся — переводим его на сообщение
+    if (phase.name === "error" && !phase.field) errorRef.current?.focus();
+  }, [phase]);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (name.trim().length < 2) return setPhase({ name: "error", message: form.errorName });
-    if (contact.trim().length < 5) return setPhase({ name: "error", message: form.errorContact });
+    if (name.trim().length < 2) return setPhase({ name: "error", message: form.errorName, field: "name" });
+    if (contact.trim().length < 5) return setPhase({ name: "error", message: form.errorContact, field: "contact" });
     setPhase({ name: "sending" });
     try {
       const res = await fetch("/api/lead", {
@@ -34,9 +49,9 @@ export default function LeadForm({ form }: { form: Form }) {
       });
       const data = (await res.json().catch(() => ({}))) as { id?: number | null; error?: string };
       if (res.ok) return setPhase({ name: "done", id: data.id ?? null });
-      const text =
-        data.error === "name" ? form.errorName : data.error === "contact" ? form.errorContact : res.status === 429 ? form.errorRate : form.errorFailed;
-      setPhase({ name: "error", message: text });
+      if (data.error === "name") return setPhase({ name: "error", message: form.errorName, field: "name" });
+      if (data.error === "contact") return setPhase({ name: "error", message: form.errorContact, field: "contact" });
+      setPhase({ name: "error", message: res.status === 429 ? form.errorRate : form.errorFailed });
     } catch {
       setPhase({ name: "error", message: form.errorFailed });
     }
@@ -44,7 +59,7 @@ export default function LeadForm({ form }: { form: Form }) {
 
   if (phase.name === "done") {
     return (
-      <div role="status" className="flex h-full flex-col items-center justify-center gap-4 rounded-3xl bg-bg p-8 text-center text-fg shadow-[0_40px_80px_-40px_rgb(58_31_11/0.5)]">
+      <div ref={doneRef} tabIndex={-1} role="status" className="flex h-full outline-none flex-col items-center justify-center gap-4 rounded-3xl bg-bg p-8 text-center text-fg shadow-[0_40px_80px_-40px_rgb(58_31_11/0.5)]">
         <CircleCheck className="h-10 w-10 text-emerald-600" aria-hidden="true" />
         <p className="text-lg font-semibold">
           {phase.id ? form.success.replace("{id}", String(phase.id)) : form.successNoId}
@@ -60,11 +75,11 @@ export default function LeadForm({ form }: { form: Form }) {
       <div className="grid gap-4 sm:grid-cols-2">
         <label htmlFor={`${id}-name`} className="flex flex-col gap-2 text-sm text-muted">
           {form.name}
-          <input id={`${id}-name`} value={name} onChange={(e) => setName(e.target.value)} placeholder={form.namePlaceholder} autoComplete="name" maxLength={60} required className={field} />
+          <input ref={nameRef} id={`${id}-name`} aria-invalid={fieldError === "name"} aria-describedby={fieldError === "name" ? errorId : undefined} value={name} onChange={(e) => setName(e.target.value)} placeholder={form.namePlaceholder} autoComplete="name" maxLength={60} required className={field} />
         </label>
         <label htmlFor={`${id}-contact`} className="flex flex-col gap-2 text-sm text-muted">
           {form.contact}
-          <input id={`${id}-contact`} value={contact} onChange={(e) => setContact(e.target.value)} placeholder={form.contactPlaceholder} autoComplete="tel" maxLength={80} required className={field} />
+          <input ref={contactRef} id={`${id}-contact`} aria-invalid={fieldError === "contact"} aria-describedby={fieldError === "contact" ? errorId : undefined} value={contact} onChange={(e) => setContact(e.target.value)} placeholder={form.contactPlaceholder} autoComplete="tel" maxLength={80} required className={field} />
         </label>
       </div>
 
@@ -99,7 +114,7 @@ export default function LeadForm({ form }: { form: Form }) {
       </div>
 
       {phase.name === "error" ? (
-        <p role="alert" className="text-sm text-red-700">
+        <p ref={errorRef} id={errorId} tabIndex={-1} role="alert" className="text-sm text-red-700 outline-none">
           {phase.message}
         </p>
       ) : null}
