@@ -2,7 +2,7 @@
 
 import { AnimatePresence, m } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Dictionary, Locale } from "@/locales";
 import { botUrl, contacts } from "@/lib/site";
 import Logo from "./Logo";
@@ -19,6 +19,9 @@ export default function Header({ lang, dict, path = "" }: Props) {
   const home = path ? `/${lang}` : "";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const links = [
     { href: `${home}#problems`, label: dict.nav.problems },
@@ -36,13 +39,26 @@ export default function Header({ lang, dict, path = "" }: Props) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Пока открыто мобильное меню: блокируем прокрутку и закрываем по Escape.
+  // Пока открыто мобильное меню: блокируем прокрутку, закрываем по Escape,
+  // переводим фокус в меню и делаем остальную страницу inert, чтобы Tab не уходил под меню.
   useEffect(() => {
     if (!open) return;
-    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
+    const header = headerRef.current;
+    const toggle = toggleRef.current;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      toggle?.focus();
+    };
+    const outside = Array.from(document.body.children).filter(
+      (el): el is HTMLElement => el instanceof HTMLElement && !!header && !el.contains(header),
+    );
+    outside.forEach((el) => (el.inert = true));
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
+    menuRef.current?.querySelector<HTMLElement>("a, button")?.focus();
     return () => {
+      outside.forEach((el) => (el.inert = false));
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
@@ -52,6 +68,7 @@ export default function Header({ lang, dict, path = "" }: Props) {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300 ${
         solid ? "border-b border-line bg-bg/95 md:bg-bg/85 md:backdrop-blur-xl" : "border-b border-transparent"
       }`}
@@ -83,6 +100,7 @@ export default function Header({ lang, dict, path = "" }: Props) {
             </ButtonLink>
           </div>
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
@@ -100,6 +118,7 @@ export default function Header({ lang, dict, path = "" }: Props) {
           <m.div
             id="mobile-menu"
             key="mobile-menu"
+            ref={menuRef}
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
