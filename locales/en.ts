@@ -2,9 +2,9 @@ import type { Dictionary } from "./index";
 
 const en: Dictionary = {
   meta: {
-    title: "CaravanHouse — websites for learning centers, tutors and online schools",
+    title: "Websites for Learning Centers and Tutors | CaravanHouse",
     description:
-      "We build websites for learning centers, language schools and tutors in Uzbekistan: courses and prices, group schedules, placement tests and trial lesson sign-up. Requests go straight to your admin in Telegram. In Russian, Uzbek and English, at a fixed price.",
+      "Websites for learning centers and tutors in Uzbekistan: courses, prices, schedules and trial lesson sign-up. Requests arrive in your Telegram.",
     ogAlt: "CaravanHouse — websites for learning centers",
     ogTagline: "Websites for learning centers",
     ogTaglineAccent: "that fill your trial lessons",
@@ -164,7 +164,7 @@ const en: Dictionary = {
     members: [
       { id: "umid", name: "Umid", role: "Development", bio: "Websites, back end and Telegram bots.",
         work: { title: "Zukko learning center demo site", description: "A complete learning center site: courses and prices, a level test that suggests a group, a timetable with free seats, trial lesson booking and a student account. The brand is made up; everything else works.", tags: ["Learning center", "Level test", "Student account", "RU · UZ"] } },
-      { id: "aslam", name: "Arslan", role: "Projects and clients", bio: "Runs the project and owns deadlines and results.",
+      { id: "arslan", name: "Arslan", role: "Projects and clients", bio: "Runs the project and owns deadlines and results.",
         work: { title: "NEW ERA — online trading school", description: "A platform with Standard and Pro courses: lessons with video, notes and a test, student progress with XP, reviews and several payment options.", tags: ["Online school", "Courses", "Tests", "Progress"] } },
       { id: "behruz", name: "Behruz", role: "Interfaces", bio: "Front end and site interfaces.",
         work: { title: "Maktab Portali — school portal", description: "A portal for students, teachers and school staff: online tests with instant results, homework, video lessons, class rankings and a rewards store for points.", tags: ["School", "Tests", "Homework", "Rankings"] } },

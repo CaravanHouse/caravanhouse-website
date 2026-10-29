@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    // Страница Арслана раньше жила по /team/aslam
+    return [{ source: "/:lang(ru|uz|en)/team/aslam", destination: "/:lang/team/arslan", permanent: true }];
+  },
   async rewrites() {
     return {
       // Корень сразу отдаёт русскую версию, без переадресации на /ru: на один круг до сервера меньше.

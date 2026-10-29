@@ -1,5 +1,5 @@
 import type { StaticImageData } from "next/image";
-import aslamPhoto from "@/public/team/aslam.jpg";
+import arslanPhoto from "@/public/team/arslan.jpg";
 import behruzPhoto from "@/public/team/behruz.jpg";
 import umidPhoto from "@/public/team/umid.jpg";
 import { eduDemo } from "@/lib/projects";
@@ -9,7 +9,7 @@ import neweraShot from "@/public/projects/newera.jpg";
 // Основатели: данные, которые не нужно переводить (фото и ссылки).
 // Имя, роль и короткое описание лежат в locales/*.ts (team.members) с тем же id.
 
-export type MemberId = "umid" | "aslam" | "behruz";
+export type MemberId = "umid" | "arslan" | "behruz";
 
 export interface MemberMeta {
   id: MemberId;
@@ -34,8 +34,8 @@ export const team: MemberMeta[] = [
     work: { url: eduDemo.url, shot: eduDemo.shot },
   },
   {
-    id: "aslam",
-    photo: aslamPhoto,
+    id: "arslan",
+    photo: arslanPhoto,
     telegram: "https://t.me/nnaslann",
     instagram: "https://www.instagram.com/mw_aslam/",
     github: "https://github.com/mw-aslam",

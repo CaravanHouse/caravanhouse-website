@@ -59,9 +59,9 @@ export default function Footer({ lang, dict, onHome = true }: Props) {
           </div>
 
           <nav aria-labelledby="footer-nav-title">
-            <h2 id="footer-nav-title" className={headingClass}>
+            <p id="footer-nav-title" className={headingClass}>
               {footer.navTitle}
-            </h2>
+            </p>
             <ul className="mt-5 flex flex-col gap-3 text-sm">
               {links.map((link) => (
                 <li key={link.href}>
@@ -74,7 +74,7 @@ export default function Footer({ lang, dict, onHome = true }: Props) {
           </nav>
 
           <div className="col-span-2 lg:col-span-1">
-            <h2 className={headingClass}>{footer.contactsTitle}</h2>
+            <p className={headingClass}>{footer.contactsTitle}</p>
             <ul className="mt-5 grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-1">
               <li>
                 <ContactLink href={botUrl("site_footer")} external icon={<TelegramIcon className="h-4 w-4" />}>
