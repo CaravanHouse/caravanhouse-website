@@ -64,7 +64,7 @@ export default function LeadForm({ form }: { form: Form }) {
         </label>
         <label htmlFor={`${id}-contact`} className="flex flex-col gap-2 text-sm text-muted">
           {form.contact}
-          <input id={`${id}-contact`} value={contact} onChange={(e) => setContact(e.target.value)} placeholder={form.contactPlaceholder} autoComplete="tel" inputMode="tel" maxLength={80} required className={field} />
+          <input id={`${id}-contact`} value={contact} onChange={(e) => setContact(e.target.value)} placeholder={form.contactPlaceholder} autoComplete="tel" maxLength={80} required className={field} />
         </label>
       </div>
 

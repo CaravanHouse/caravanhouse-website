@@ -326,3 +326,22 @@ html.lenis body {
 @utility soft-glow {
   background-image: radial-gradient(closest-side, var(--glow, rgb(238 167 42 / 0.35)), transparent 100%);
 }
+
+/* Появление блоков при прокрутке (components/ui/Reveal.tsx).
+   Прячем только когда JS работает (html.js), чтобы серверный HTML оставался видимым. */
+html.js .reveal {
+  opacity: 0;
+  transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 36px), 0);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+}
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal {
+    transform: none;
+  }
+}
