@@ -19,6 +19,8 @@ export default function Reveal({ children, className, delay = 0, as = "div", x =
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // для страховки в layout: JS запустился, класс html.js можно не снимать
+    (window as Window & { __revealReady?: boolean }).__revealReady = true;
     const el = ref.current;
     if (!el) return;
     if (typeof IntersectionObserver === "undefined") {
