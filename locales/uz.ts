@@ -2,9 +2,9 @@ import type { Dictionary } from "./index";
 
 const uz: Dictionary = {
   meta: {
-    title: "CaravanHouse — oʻquv markazlari, repetitorlar va onlayn-maktablar uchun saytlar",
+    title: "Oʻquv markazlari va repetitorlar uchun sayt | CaravanHouse",
     description:
-      "Oʻzbekistondagi oʻquv markazlari, til maktablari va repetitorlar uchun saytlar yaratamiz: kurslar va narxlar, guruhlar jadvali, daraja testi va sinov darsiga yozilish. Arizalar administratorga Telegramda keladi. Rus, oʻzbek va ingliz tillarida, qatʼiy narx.",
+      "Oʻzbekistondagi oʻquv markazlari va repetitorlar uchun saytlar: kurslar, narxlar, jadval va sinov darsiga yozilish. Arizalar Telegramga keladi.",
     ogAlt: "CaravanHouse — oʻquv markazlari uchun saytlar",
     ogTagline: "Oʻquv markazlari uchun saytlar —",
     ogTaglineAccent: "sinov darsiga yozilish oson",
@@ -168,7 +168,7 @@ const uz: Dictionary = {
     members: [
       { id: "umid", name: "Umid", role: "Dasturlash", bio: "Saytlar, server qismi va Telegram-botlar.",
         work: { title: "Zukko oʻquv markazining demo-sayti", description: "Oʻquv markazi uchun tayyor sayt: kurslar va narxlar, guruh tanlaydigan daraja testi, boʻsh joylar koʻrinadigan jadval, sinov darsiga yozilish va oʻquvchi shaxsiy kabineti. Brend oʻylab topilgan, qolgan hammasi ishlaydi.", tags: ["Oʻquv markazi", "Daraja testi", "Shaxsiy kabinet", "RU · UZ"] } },
-      { id: "aslam", name: "Arslan", role: "Loyihalar va mijozlar", bio: "Loyihani olib boradi, muddat va natija uchun javob beradi.",
+      { id: "arslan", name: "Arslan", role: "Loyihalar va mijozlar", bio: "Loyihani olib boradi, muddat va natija uchun javob beradi.",
         work: { title: "NEW ERA — treyding onlayn-maktabi", description: "Standard va Pro kurslari bor platforma: video, konspekt va testli darslar, XP bilan oʻquvchi progressi, fikrlar va bir nechta toʻlov usuli.", tags: ["Onlayn-maktab", "Kurslar", "Testlar", "Progress"] } },
       { id: "behruz", name: "Behruz", role: "Interfeyslar", bio: "Saytlarning sahifalari va interfeyslari.",
         work: { title: "Maktab Portali — maktab portali", description: "Oʻquvchilar, oʻqituvchilar va maktab maʼmuriyati uchun portal: darhol natija beradigan onlayn-testlar, uy vazifalari, videodarslar, sinflar reytingi va ballar evaziga sovgʻalar doʻkoni.", tags: ["Maktab", "Testlar", "Uy vazifalari", "Reytinglar"] } },

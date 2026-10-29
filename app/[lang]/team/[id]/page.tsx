@@ -10,7 +10,7 @@ import Reveal from "@/components/ui/Reveal";
 import SocialIcon from "@/components/ui/SocialIcon";
 import TelegramIcon from "@/components/ui/TelegramIcon";
 import WorkPreview from "@/components/WorkPreview";
-import { getDictionary, hasLocale, locales } from "@/locales";
+import { getDictionary, hasLocale, localeMeta, locales } from "@/locales";
 import { SITE_NAME, botUrl } from "@/lib/site";
 import { getMember, memberIds } from "@/lib/team";
 
@@ -37,7 +37,7 @@ function load(lang: string, id: string) {
 export async function generateMetadata({ params }: PageProps<"/[lang]/team/[id]">): Promise<Metadata> {
   const { lang, id } = await params;
   const data = load(lang, id);
-  if (!data) return {};
+  if (!data || !hasLocale(lang)) return {};
   const { text } = data;
   const title = `${text.name} — ${text.role} | ${SITE_NAME}`;
   const description = `${text.bio} ${text.work.title}.`;
@@ -48,7 +48,17 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/team/[id]"
       canonical: `/${lang}/team/${id}`,
       languages: { ...Object.fromEntries(locales.map((l) => [l, `/${l}/team/${id}`])), "x-default": `/ru/team/${id}` },
     },
-    openGraph: { title, description, url: `/${lang}/team/${id}` },
+    // openGraph и twitter задаются целиком: Next не сливает их с layout, иначе пропадут картинка и тексты
+    openGraph: {
+      type: "profile",
+      url: `/${lang}/team/${id}`,
+      siteName: SITE_NAME,
+      locale: localeMeta[lang].ogLocale,
+      title,
+      description,
+      images: [`/${lang}/opengraph-image/og`],
+    },
+    twitter: { card: "summary_large_image", title, description, images: [`/${lang}/twitter-image/og`] },
   };
 }
 

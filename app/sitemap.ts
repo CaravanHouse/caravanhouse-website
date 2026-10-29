@@ -8,7 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const home: MetadataRoute.Sitemap = locales.map((lang) => ({
     url: `${SITE_URL}/${lang}`,
-    lastModified: new Date(),
     changeFrequency: "monthly",
     priority: lang === "ru" ? 1 : 0.9,
     alternates: { languages },
@@ -17,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const members: MetadataRoute.Sitemap = memberIds.flatMap((id) =>
     locales.map((lang) => ({
       url: `${SITE_URL}/${lang}/team/${id}`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.5,
       alternates: { languages: Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}/team/${id}`])) },

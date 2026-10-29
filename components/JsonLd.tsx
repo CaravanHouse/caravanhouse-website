@@ -23,7 +23,7 @@ export default function JsonLd({ lang, dict, prices }: { lang: Locale; dict: Dic
         name: SITE_NAME,
         // Варианты названия: помогают Google отличить IT-компанию от одноимённых заведений
         alternateName: ["Caravan House", "CaravanHouse IT Company", "CaravanHouse Digital Studio"],
-        url: `${SITE_URL}/${lang}`,
+        url: SITE_URL,
         logo: `${SITE_URL}/brand/logo-square.png`,
         image: `${SITE_URL}/brand/logo-square.png`,
         description: dict.meta.description,
@@ -32,7 +32,6 @@ export default function JsonLd({ lang, dict, prices }: { lang: Locale; dict: Dic
         areaServed: { "@type": "Country", name: "Uzbekistan" },
         address: { "@type": "PostalAddress", addressLocality: "Tashkent", addressCountry: "UZ" },
         sameAs: socials.map((social) => social.href),
-        inLanguage: localeMeta[lang].htmlLang,
         // Стартовые цены — из калькулятора calc.caravanhouse.uz, как и в блоке «Цены»
         priceRange: t.pricePattern.replace("{price}", formatSum(minPrice)),
         hasOfferCatalog: {
