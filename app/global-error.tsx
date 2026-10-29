@@ -4,7 +4,6 @@
 // стили и шрифт подключаем сами (как в global-not-found.tsx). Язык неизвестен — текст на трёх языках.
 import { Montserrat } from "next/font/google";
 import Image from "next/image";
-import Link from "next/link";
 import emblem from "@/public/brand/emblem-dark.png";
 import { botUrl } from "@/lib/site";
 import "./globals.css";
@@ -30,9 +29,11 @@ export default function GlobalError({ retry }: { error: Error & { digest?: strin
             <button type="button" onClick={() => retry()} className={`${btn} bg-accent text-on-accent hover:bg-accent-soft`}>
               Попробовать снова
             </button>
-            <Link href="/ru" className={`${btn} border border-line-strong text-fg hover:bg-surface`}>
+            {/* обычная ссылка, а не Link: полная перезагрузка уводит из сломанного состояния приложения */}
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+            <a href="/ru" className={`${btn} border border-line-strong text-fg hover:bg-surface`}>
               На главную
-            </Link>
+            </a>
             <a href={botUrl("site_404")} className={`${btn} border border-line-strong text-fg hover:bg-surface`}>
               Написать в Telegram
             </a>

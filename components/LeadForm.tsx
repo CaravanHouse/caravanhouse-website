@@ -23,6 +23,7 @@ export default function LeadForm({ form }: { form: Form }) {
   const nameRef = useRef<HTMLInputElement>(null);
   const contactRef = useRef<HTMLInputElement>(null);
   const doneRef = useRef<HTMLDivElement>(null);
+  const errorRef = useRef<HTMLParagraphElement>(null);
   const errorId = `${id}-error`;
   const fieldError = phase.name === "error" ? phase.field : undefined;
 
@@ -31,6 +32,8 @@ export default function LeadForm({ form }: { form: Form }) {
     if (phase.name === "done") doneRef.current?.focus();
     if (phase.name === "error" && phase.field === "name") nameRef.current?.focus();
     if (phase.name === "error" && phase.field === "contact") contactRef.current?.focus();
+    // ошибка сервера или сети: кнопка была disabled и фокус потерялся — переводим его на сообщение
+    if (phase.name === "error" && !phase.field) errorRef.current?.focus();
   }, [phase]);
 
   async function submit(e: React.FormEvent) {
@@ -111,7 +114,7 @@ export default function LeadForm({ form }: { form: Form }) {
       </div>
 
       {phase.name === "error" ? (
-        <p id={errorId} role="alert" className="text-sm text-red-700">
+        <p ref={errorRef} id={errorId} tabIndex={-1} role="alert" className="text-sm text-red-700 outline-none">
           {phase.message}
         </p>
       ) : null}

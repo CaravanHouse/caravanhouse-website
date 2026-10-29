@@ -54,13 +54,18 @@ export default function Header({ lang, dict, path = "" }: Props) {
       (el): el is HTMLElement => el instanceof HTMLElement && !!header && !el.contains(header),
     );
     outside.forEach((el) => (el.inert = true));
+    // На ширине xl меню и кнопка скрыты: при повороте планшета закрываем меню, иначе страница останется заблокированной
+    const desktop = window.matchMedia("(min-width: 80rem)");
+    const onDesktop = () => desktop.matches && setOpen(false);
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKey);
+    desktop.addEventListener("change", onDesktop);
     menuRef.current?.querySelector<HTMLElement>("a, button")?.focus();
     return () => {
       outside.forEach((el) => (el.inert = false));
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
+      desktop.removeEventListener("change", onDesktop);
     };
   }, [open]);
 
