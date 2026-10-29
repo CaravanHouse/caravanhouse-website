@@ -52,7 +52,7 @@ export default function FAQ({ faq }: Props) {
                   aria-labelledby={buttonId}
                   className={`grid transition-[grid-template-rows] duration-300 ease-out ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
                 >
-                  <div className="overflow-hidden">
+                  <div className="overflow-hidden" inert={!open}>
                     <p className="max-w-2xl pb-6 leading-relaxed text-muted">{item.answer}</p>
                   </div>
                 </div>
