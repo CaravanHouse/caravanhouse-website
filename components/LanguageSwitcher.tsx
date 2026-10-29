@@ -18,7 +18,7 @@ export default function LanguageSwitcher({ lang, label, className = "", path = "
                 lang={localeMeta[locale].htmlLang}
                 aria-current={active ? "true" : undefined}
                 className={`flex h-8 min-w-10 items-center justify-center rounded-full px-3 transition-colors ${
-                  active ? "bg-current/15" : "opacity-75 hover:opacity-100"
+                  active ? "bg-current/15" : "opacity-90 hover:opacity-100"
                 }`}
               >
                 {localeMeta[locale].label}

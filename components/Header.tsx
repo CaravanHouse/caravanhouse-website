@@ -12,12 +12,13 @@ import TelegramIcon from "./ui/TelegramIcon";
 
 // В клиентский компонент передаём только нужные части словаря — меньше данных в HTML.
 // path — страница внутри языка (например, "/team/umid"): якоря меню ведут на главную, переключатель языка — на ту же страницу
-type Props = { lang: Locale; dict: Pick<Dictionary, "nav" | "a11y" | "cta">; path?: string };
+// initialChapter — цвет главы под шапкой до первого замера (на главной это терракотовый первый экран)
+type Props = { lang: Locale; dict: Pick<Dictionary, "nav" | "a11y" | "cta">; path?: string; initialChapter?: string };
 
-export default function Header({ lang, dict, path = "" }: Props) {
+export default function Header({ lang, dict, path = "", initialChapter = "sand" }: Props) {
   const home = path ? `/${lang}` : "";
   // Глава страницы под шапкой: шапка берёт её цвет (data-chapter), на внутренних страницах — песок
-  const [chapter, setChapter] = useState("sand");
+  const [chapter, setChapter] = useState(initialChapter);
   const [open, setOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
@@ -42,7 +43,8 @@ export default function Header({ lang, dict, path = "" }: Props) {
       const hit = document
         .elementsFromPoint(Math.round(window.innerWidth / 2), Math.max(0, y))
         .find((el) => !header.contains(el));
-      const field = hit?.closest<HTMLElement>("[data-chapter]");
+      // берём поле главы, а не вложенные плитки (цены): у плиток data-chapter стоит на <article>
+      const field = hit?.closest<HTMLElement>("section[data-chapter], footer[data-chapter], #process > [data-chapter]");
       setChapter(field?.dataset.chapter ?? "sand");
     };
     const onScroll = () => {

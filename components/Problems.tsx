@@ -22,20 +22,20 @@ export default function Problems({ dict }: Props) {
             className="grid min-h-[64svh] grid-rows-[auto_1fr_auto] px-m py-10 sm:py-14 lg:min-h-[76svh] lg:grid-cols-12"
           >
             <Reveal
-              className={`t-body max-w-[34ch] lg:row-start-1 ${mirror ? "lg:col-span-4 lg:col-start-2" : "lg:col-span-4 lg:col-start-8"} ${
-                mirror ? "max-lg:ml-auto max-lg:text-right" : ""
-              }`}
-            >
-              <p className="font-semibold opacity-80">{item.problem}.</p>
-              <p className="mt-3">{item.solution}</p>
-            </Reveal>
-            <Reveal
-              delay={0.08}
+              delay={0.04}
               className={`row-start-3 lg:col-span-12 ${mirror ? "lg:text-right" : ""}`}
             >
               <h2 id={id} className="t-display">
                 {item.phrase}
               </h2>
+            </Reveal>
+            <Reveal
+              className={`t-body max-w-[34ch] row-start-1 ${mirror ? "lg:col-span-4 lg:col-start-2" : "lg:col-span-4 lg:col-start-8"} ${
+                mirror ? "max-lg:ml-auto max-lg:text-right" : ""
+              }`}
+            >
+              <p className="font-semibold opacity-80">{item.problem}.</p>
+              <p className="mt-3">{item.solution}</p>
             </Reveal>
           </section>
         );

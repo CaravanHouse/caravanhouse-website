@@ -65,7 +65,7 @@ export default function Packages({ dict, prices }: { dict: Dictionary; prices: P
                       href={botUrl("site_prices")}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex h-16 items-center justify-between bg-[var(--field-deep)] px-7 text-[18px] font-extrabold"
+                      className="group flex h-16 items-center justify-between bg-[var(--field-deep)] px-7 text-[18px] font-extrabold focus-visible:outline-offset-[-6px]"
                     >
                       {t.choose}
                       <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">

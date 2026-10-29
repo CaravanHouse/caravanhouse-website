@@ -37,11 +37,11 @@ export default function FAQ({ faq }: Props) {
                 <div
                   aria-hidden="true"
                   className="faq-tab flex h-10 w-[120px] items-center rounded-t-[16px] px-4 text-[14px] font-extrabold sm:w-[200px]"
-                  style={{ background: fill, color: ink, marginLeft: `calc(${step} * var(--tab-step))` }}
+                  style={{ background: fill, color: ink, marginLeft: `min(calc(${step} * var(--tab-step)), calc(100% - var(--tab-w)))` }}
                 >
                   <span className="truncate">{item.topic}</span>
                 </div>
-                <div className="rounded-[var(--radius)] rounded-tl-none" style={{ background: fill, color: ink }}>
+                <div className="rounded-[var(--radius)] rounded-tl-none" style={{ background: fill, color: ink, ["--focus" as string]: ink }}>
                   <h3>
                     <button
                       id={buttonId}

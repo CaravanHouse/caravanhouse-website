@@ -53,12 +53,12 @@ export default function TrialDemo({ t }: Props) {
       {/* Контрол записи, увеличенный до плаката: размеры в em, корень data-ui */}
       <div
         data-ui
-        className="trial-ui relative z-10 mt-10 w-max max-w-full text-[clamp(16px,4.2vw,22px)] md:absolute md:right-[-3vw] md:bottom-[-0.8em] md:mt-0 md:max-w-none md:text-[clamp(22px,2.8vw,40px)]"
+        className="trial-ui relative z-10 mt-10 w-max max-w-full text-[clamp(16px,4.2vw,22px)] md:absolute md:right-0 md:bottom-[-0.8em] lg:right-[-3vw] md:mt-0 md:max-w-none md:text-[clamp(22px,2.8vw,40px)]"
       >
         <div className="rounded-[1.1em] bg-[#fbf5ec] p-[0.9em] text-[#24160c]">
           <fieldset>
             <legend className="mb-[0.5em] px-[0.2em] text-[0.62em] font-bold">{t.pick}</legend>
-            <div className="flex gap-[0.3em] rounded-[0.8em] bg-[#efdfc6] p-[0.3em]">
+            <div className="flex flex-wrap gap-[0.3em] rounded-[0.8em] bg-[#efdfc6] p-[0.3em] md:flex-nowrap">
               {t.days.map((d, index) => {
                 const active = index === day;
                 return (

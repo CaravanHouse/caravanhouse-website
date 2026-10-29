@@ -32,7 +32,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   return (
     <>
       <JsonLd lang={lang} dict={dict} prices={prices} />
-      <Header lang={lang} dict={{ nav: dict.nav, a11y: dict.a11y, cta: dict.cta }} />
+      <Header lang={lang} dict={{ nav: dict.nav, a11y: dict.a11y, cta: dict.cta }} initialChapter="terra" />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero dict={dict} />
         <Problems dict={dict} />

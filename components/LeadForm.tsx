@@ -9,8 +9,8 @@ type Phase = { name: "idle" } | { name: "sending" } | { name: "done"; id: number
 
 // Ячейка полосы: заливка на тон светлее поля, при фокусе — самый светлый тон
 const cell =
-  "flex h-[60px] flex-col justify-center rounded-[20px] bg-[#f7c25e] px-5 transition-colors duration-200 focus-within:bg-[#fbf5ec] has-[[aria-invalid=true]]:bg-[#fbe2c4] sm:h-24";
-const input = "w-full bg-transparent text-[18px] font-semibold text-[#24160c] placeholder:text-[#24160c]/60 focus:outline-none";
+  "flex h-[60px] flex-col justify-center rounded-[20px] bg-[#f7c25e] px-5 transition-colors duration-200 focus-within:bg-[#fbf5ec] focus-within:outline-3 focus-within:outline-offset-2 focus-within:outline-[#24160c] has-[[aria-invalid=true]]:bg-[#fbe2c4] sm:h-24";
+const input = "w-full bg-transparent text-[18px] font-semibold text-[#24160c] placeholder:text-[#24160c]/75 focus:outline-none";
 
 // Форма заявки одной полосой из трёх ячеек: имя, контакт, отправка. Уходит на /api/lead → бот @CaravanHousebot → группа «Заказы» с голосованием
 export default function LeadForm({ form }: { form: Form }) {

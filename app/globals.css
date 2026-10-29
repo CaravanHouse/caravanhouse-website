@@ -81,7 +81,7 @@ html.lenis body {
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent-deep);
+    outline: 3px solid var(--focus, var(--color-accent-deep));
     outline-offset: 3px;
     border-radius: 6px;
   }
@@ -378,11 +378,11 @@ html.js .reveal.is-visible {
 }
 
 /* Поля глав: фон и чернила. data-chapter читает шапка, чтобы взять цвет главы под собой. */
-[data-chapter="terra"] { background-color: #a4471c; color: #fbf5ec; --ink-2: #f7c25e; --field-deep: #8a3816; }
-[data-chapter="gold"] { background-color: #eea72a; color: #24160c; --ink-2: #24160c; --field-deep: #d18c12; }
-[data-chapter="night"] { background-color: #24160c; color: #fbf5ec; --ink-2: #eea72a; --field-deep: #3a2617; }
-[data-chapter="sand"] { background-color: #fbf5ec; color: #24160c; --ink-2: #a4471c; --field-deep: #efdfc6; }
-[data-chapter="stone"] { background-color: #efdfc6; color: #24160c; --ink-2: #a4471c; --field-deep: #e3cca9; }
+[data-chapter="terra"] { background-color: #a4471c; color: #fbf5ec; --ink-2: #f7c25e; --field-deep: #8a3816; --focus: #fbf5ec; }
+[data-chapter="gold"] { background-color: #eea72a; color: #24160c; --ink-2: #24160c; --field-deep: #d18c12; --focus: #24160c; }
+[data-chapter="night"] { background-color: #24160c; color: #fbf5ec; --ink-2: #eea72a; --field-deep: #3a2617; --focus: #eea72a; }
+[data-chapter="sand"] { background-color: #fbf5ec; color: #24160c; --ink-2: #a4471c; --field-deep: #efdfc6; --focus: #24160c; }
+[data-chapter="stone"] { background-color: #efdfc6; color: #24160c; --ink-2: #a4471c; --field-deep: #e3cca9; --focus: #24160c; }
 
 @layer components {
 .t-display {
@@ -477,6 +477,6 @@ html.js .reveal.is-visible {
   .toast[data-open="false"] { transform: none; }
 }
 
-:root { --tab-step: 48px; }
-@media (min-width: 640px) { :root { --tab-step: 84px; } }
+:root { --tab-step: 48px; --tab-w: 120px; }
+@media (min-width: 640px) { :root { --tab-step: 84px; --tab-w: 200px; } }
 @media (min-width: 1024px) { :root { --tab-step: 150px; } }
