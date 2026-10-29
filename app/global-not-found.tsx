@@ -1,14 +1,13 @@
 // Страница 404 для любого адреса, которого нет на сайте. Язык по адресу не определить, поэтому
 // текст сразу на русском и узбекском. Этот файл обходит layout, поэтому стили и шрифт подключаем сами.
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import emblem from "@/public/brand/emblem-dark.png";
 import { botUrl } from "@/lib/site";
 import "./globals.css";
+import { montserrat } from "@/lib/fonts";
 
-const montserrat = Montserrat({ subsets: ["latin", "latin-ext", "cyrillic"], variable: "--font-montserrat", display: "swap" });
 
 export const metadata: Metadata = {
   title: "404 — страница не найдена · CaravanHouse",

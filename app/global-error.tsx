@@ -2,13 +2,12 @@
 
 // Страница на случай ошибки в корневом layout. Заменяет весь документ, поэтому
 // стили и шрифт подключаем сами (как в global-not-found.tsx). Язык неизвестен — текст на трёх языках.
-import { Montserrat } from "next/font/google";
 import Image from "next/image";
 import emblem from "@/public/brand/emblem-dark.png";
 import { botUrl } from "@/lib/site";
 import "./globals.css";
+import { montserrat } from "@/lib/fonts";
 
-const montserrat = Montserrat({ subsets: ["latin", "latin-ext", "cyrillic"], variable: "--font-montserrat", display: "swap" });
 
 const btn = "inline-flex h-12 items-center justify-center rounded-full px-6 font-semibold transition-colors";
 

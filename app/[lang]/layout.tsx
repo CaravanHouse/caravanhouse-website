@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import MotionProvider from "@/components/MotionProvider";
@@ -7,12 +6,8 @@ import SmoothScroll from "@/components/SmoothScroll";
 import { getDictionary, hasLocale, localeMeta, locales } from "@/locales";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "../globals.css";
+import { montserrat } from "@/lib/fonts";
 
-const montserrat = Montserrat({
-  subsets: ["latin", "latin-ext", "cyrillic"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
 
 export const dynamicParams = false;
 
