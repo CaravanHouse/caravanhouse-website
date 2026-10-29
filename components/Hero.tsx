@@ -119,7 +119,7 @@ export default function Hero({ dict }: Props) {
         <Parallax offset={30} className="flex flex-col items-start">
           <h1
             id="hero-title"
-            className="animate-fade-up font-display text-[1.9rem] leading-[1.15] font-bold tracking-[-0.03em] text-balance sm:text-[2.75rem] xl:text-[3.05rem]"
+            className="font-display text-[1.9rem] leading-[1.15] font-bold tracking-[-0.03em] text-balance sm:text-[2.75rem] xl:text-[3.05rem]"
           >
             {hero.titleBefore}
             <span className="marker">{hero.titleMark}</span>

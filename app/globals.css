@@ -326,3 +326,34 @@ html.lenis body {
 @utility soft-glow {
   background-image: radial-gradient(closest-side, var(--glow, rgb(238 167 42 / 0.35)), transparent 100%);
 }
+
+/* Появление блоков при прокрутке (components/ui/Reveal.tsx).
+   Прячем только когда JS работает (html.js), чтобы серверный HTML оставался видимым.
+   Через animation, а не transition: так не перебиваются hover-переходы карточек (translate, тень). */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x, 0px), var(--reveal-y, 36px), 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+html.js .reveal {
+  opacity: 0;
+}
+html.js .reveal.is-visible {
+  opacity: 1;
+  animation: reveal-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  @keyframes reveal-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

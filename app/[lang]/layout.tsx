@@ -70,7 +70,17 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const dict = getDictionary(lang);
 
   return (
-    <html lang={localeMeta[lang].htmlLang} className={`${montserrat.variable} antialiased`}>
+    <html lang={localeMeta[lang].htmlLang} className={`${montserrat.variable} antialiased`} suppressHydrationWarning>
+      <head>
+        {/* Класс js до первой отрисовки: анимации появления (Reveal) прячут блоки только при работающем JS.
+            Страховка: если за 4 с скрипты так и не запустились (сеть, ошибка), класс снимаем и всё видно. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('js');setTimeout(function(){if(!window.__revealReady)document.documentElement.classList.remove('js')},4000)",
+          }}
+        />
+      </head>
       <body className="min-h-dvh overflow-x-clip">
         <a
           href="#main"

@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Агенты и скиллы Claude Code (сторонние скрипты ECC), не код сайта
+    ".claude/**",
   ]),
 ]);
 
